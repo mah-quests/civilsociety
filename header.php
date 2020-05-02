@@ -17,6 +17,9 @@ session_start(); //start temp session until logout/browser closed
     <meta name="keywords" content="Community Constituency COVID-19 Front South Africa">
     <meta name="url" content="http://communityconstituency.org.za/">
     <meta name="author" content="MaH Quests Enterprises">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>COVID-19 South African coronavirus news and information for civil society.</title>
     
     <!-- Styles -->

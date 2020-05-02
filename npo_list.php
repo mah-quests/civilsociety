@@ -8,17 +8,17 @@ include_once 'header_app.php';
                 <ul class="row links">
                     <li class="col-xs-12 col-sm-4 link-item active">
                         <span>1</span>
-                            <a href="local_partners.php"> Choose Nearest Network Partner
+                            <a href="local_partners.php"> Find Your Nearest CBO Representative
                             </a>
                     </li>
                     <li class="col-xs-12 col-sm-4 link-item">
                         <span>2</span>
-                            <a href="request.php?res_id=<?php echo $_GET['res_id']; ?>"> Pick Your Request
+                            <a href="npo_registration.php"> Add A New CBO Represantative
                             </a>
                     </li>
                     <li class="col-xs-12 col-sm-4 link-item">
                         <span>3</span>
-                            <a href="checkout.php">Confirm and Submit Request
+                            <a href="household_application_form.php">Log A Need Request
                             </a>
                     </li>
                 </ul>
