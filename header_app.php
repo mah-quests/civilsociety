@@ -29,9 +29,56 @@ include_once 'product-action.php'; //including controller
     <link rel='stylesheet' href='assets/css/bootstrap.min.css'>
     <link rel='stylesheet' href='assets/css/animate.min.css'>
     <link rel='stylesheet' href="assets/css/font-awesome.min.css"/>
-    <link rel='stylesheet' href="assets/css/style.css"/>    
-    
+    <link rel='stylesheet' href="assets/css/style.css"/>        
 
+  <style>
+    .image-box {
+      /* Here's the trick */
+      box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.5);
+
+      /* Basic background styles */
+      background: var(--image-url) center center;
+      background-size: cover;
+
+      /* Here's the same styles we applied to our content-div earlier */
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      /* Add a transition, just for fun */
+      transition: box-shadow .3s ease-out;
+    }
+    .image-box:hover {
+        box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.2);
+    }
+
+    body, head, p, div{
+        color: black;
+        font: normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 300;
+    }
+
+    /* For demo only */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    h1 {
+      font-size: 40px;
+    }
+
+    .special-card {
+
+      background-color: rgba(245, 245, 245, 1) !important;
+      opacity: .4;
+      font: normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+
+  </style>
+  
 </head>
 
 <body>
@@ -60,12 +107,12 @@ include_once 'product-action.php'; //including controller
                                                 List of CCC Partners 
                                             </a>        
                                             <a href="partner_registration.php" class="dropdown-item">
-                                                Register User
+                                                Register CCC User
                                             </a>
                                     <?php
                                         if(!empty($_SESSION["user_id"]))
                                         {  
-                                        echo '<a href="household_application_form.php" class="dropdown-item">
+                                echo '<a href="household_application.php" class="dropdown-item">
                                                 Log a Need Request
                                             </a>';
                                         }
@@ -73,18 +120,18 @@ include_once 'product-action.php'; //including controller
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NPO Partners</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Community Based <br>Organisation</a>
                                         <div class="dropdown-menu">
                                             <a href="npo_list.php" class="dropdown-item">
-                                                List of CCC Partners 
+                                                List of CBO Partners 
                                             </a>         
                                             <a href="npo_registration.php" class="dropdown-item">
-                                                Register User
+                                                Register CBO User
                                             </a>
                                     <?php
                                         if(!empty($_SESSION["user_id"]))
                                         {  
-                                        echo '<a href="household_application_form.php" class="dropdown-item">
+                                    echo '<a href="household_application.php" class="dropdown-item">
                                                 Log a Need Request
                                             </a>';
                                         }
@@ -106,15 +153,35 @@ include_once 'product-action.php'; //including controller
 							}
 						else
 							{
-                            echo  '<li class="nav-item">
-                                        <a href="household_application_form.php" class="nav-link active">Log a Need Request</a> </li>';                                
-							echo  '<li class="nav-item">
-                                        <a href="your_requests.php" class="nav-link active"> Your Requests</a> </li>';
-							echo  '<li class="nav-item">
-                                        <a href="logout.php" class="nav-link active"> Logout
-                                        </a> 
+                            echo '<li class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                            Community Resources
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a href="household_application.php" class="dropdown-item">
+                                                Log a Need Request
+                                            </a>
+                                            <a href="household_registration.php?user_id=" class="dropdown-item">
+                                                Community Member Registration
+                                            </a>         
+                                        </div>
                                     </li>';
-							}
+
+                            echo '<li class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Details</a>
+                                        <div class="dropdown-menu">
+                                            <a href="your_requests.php" class="dropdown-item">
+                                                My Requests 
+                                            </a>
+                                            <a href="your_profile.php?user_id=" class="dropdown-item">
+                                                My Profile 
+                                            </a>        
+                                            <a href="logout.php" class="dropdown-item">
+                                                Log Off
+                                            </a>    
+                                        </div>
+                                    </li>';
+							     }
 						   ?>
 							 
                         </ul>

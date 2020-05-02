@@ -3,15 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 29, 2020 at 08:39 AM
+-- Generation Time: May 01, 2020 at 09:52 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+02:00";
+SET time_zone = "+00:00";
 
 --
--- Database: `covid`
+-- Database: `resturant01`
 --
 
 -- --------------------------------------------------------
@@ -337,7 +337,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `password`, `address`, `status`, `date`, `district`, `municipality`, `provice`, `sex`, `alt_person`, `alt_number`, `nationality`, `network`, `organization_name`, `organization_structure`) VALUES
-(39, '8402035727080', 'Thato Grant', 'Mohono', 'thato.mohono@mahquests.co.za', '0825561420', '5511cf23120e545d66036be92c04e6ae', '220 2nd Street\r\nHalfway House', 1, '2020-04-28 10:39:56', 'Mathjabengdss', 'Lejeleputswa', 'North West', 'Male', 'Nomfazwe Thomas', '0825561420', 'South Africa', 'P', 'MaH Quests Enterprises (PTY) LTD', 'SANCO');
+(39, '8402035727080', 'Thato Grant', 'Mohono', 'thato.mohono@mahquests.co.za', '0825561420', '5511cf23120e545d66036be92c04e6ae', '220 2nd Street\r\nHalfway House', 1, '2020-05-01 03:35:39', 'Mathjabengdss', 'Lejeleputswa', 'North West', 'Male', 'Nomfazwe Thomas', '0825561420', 'South Africa', 'P', 'MaH Quests Enterprises (PTY) LTD', 'SANCO');
 
 -- --------------------------------------------------------
 

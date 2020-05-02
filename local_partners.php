@@ -8,17 +8,17 @@ include_once 'header_app.php';
                 <ul class="row links">
                     <li class="col-xs-12 col-sm-4 link-item active">
                         <span>1</span>
-                            <a href="local_partners.php"> List All Our Partners Partner
+                            <a href="local_partners.php"> Find Your Nearest CCC Representative
                             </a>
                     </li>
                     <li class="col-xs-12 col-sm-4 link-item">
                         <span>2</span>
-                            <a href="household_application_form.php"> Assist Household
+                            <a href="partner_registration.php"> Add A New CCC Represantative
                             </a>
                     </li>
                     <li class="col-xs-12 col-sm-4 link-item">
                         <span>3</span>
-                            <a href="partner_registration.php"> Register a partner
+                            <a href="household_application_form.php"> Log A Need Request
                             </a>
                     </li>
                 </ul>
