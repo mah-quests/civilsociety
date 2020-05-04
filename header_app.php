@@ -5,8 +5,6 @@ include("connection/connect.php"); // connection to db
 error_reporting(0);
 session_start();
 
-include_once 'product-action.php'; //including controller
-
 ?>
 
 
@@ -101,13 +99,13 @@ include_once 'product-action.php'; //including controller
                                         </a> 
                                     </li> 
                                     <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CCC Partners</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Covid-19 Front<br> Partners</a>
                                         <div class="dropdown-menu">
                                             <a href="local_partners.php" class="dropdown-item">
-                                                List of CCC Partners 
+                                                List of Covid-19 Front Partners 
                                             </a>        
                                             <a href="partner_registration.php" class="dropdown-item">
-                                                Register CCC User
+                                                Register Covid-19 Front User
                                             </a>
                                     <?php
                                         if(!empty($_SESSION["user_id"]))
@@ -120,13 +118,13 @@ include_once 'product-action.php'; //including controller
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Community Based <br>Organisation</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Civil Society <br>Organisation</a>
                                         <div class="dropdown-menu">
                                             <a href="npo_list.php" class="dropdown-item">
-                                                List of CBO Partners 
+                                                List of Civil Society Partners 
                                             </a>         
                                             <a href="npo_registration.php" class="dropdown-item">
-                                                Register CBO User
+                                                Register Civil Society User
                                             </a>
                                     <?php
                                         if(!empty($_SESSION["user_id"]))
@@ -161,7 +159,7 @@ include_once 'product-action.php'; //including controller
                                             <a href="household_application.php" class="dropdown-item">
                                                 Log a Need Request
                                             </a>
-                                            <a href="household_registration.php?user_id=" class="dropdown-item">
+                                            <a href="household_registration.php" class="dropdown-item">
                                                 Community Member Registration
                                             </a>         
                                         </div>
@@ -173,7 +171,7 @@ include_once 'product-action.php'; //including controller
                                             <a href="your_requests.php" class="dropdown-item">
                                                 My Requests 
                                             </a>
-                                            <a href="your_profile.php?user_id=" class="dropdown-item">
+                                            <a href="your_profile.php" class="dropdown-item">
                                                 My Profile 
                                             </a>        
                                             <a href="logout.php" class="dropdown-item">
