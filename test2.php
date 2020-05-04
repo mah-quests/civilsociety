@@ -13,12 +13,12 @@ include_once 'header_app.php';
                     </li>
                     <li class="col-xs-12 col-sm-3 link-item active">
                         <span></span>
-                            <a href="partner_registration.php"> Register Covid-19 Front Member
+                            <a href="partner_registration.php"> Register CCC member
                             </a>
                     </li>                      
                     <li class="col-xs-12 col-sm-3 link-item active">
                         <span></span>
-                            <a href="npo_registration.php"> Register Civil Society member
+                            <a href="npo_registration.php"> Register CBO member
                             </a>
                     </li>                    
                     <li class="col-xs-12 col-sm-3 link-item active">
@@ -38,13 +38,7 @@ include_once 'header_app.php';
     <div class="container">
         <div class="row">
         <div class="card-transparent" class="col-md-12">
-          <div class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
-            <h4 align="center">
-              "Welcome to the Thusa Sechaba platform developed by The Community Constituency Covid-19 Front." 
-            </h4>
-            <p align="center"><a href="household_application.php">
-              You can register here for support during lockdown.</a>
-            </p>
+          <div class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);"><h6 align="center">"Welcome to the Thusa Sechaba platform developed by The Community Constituency Covid-19 Front. You can register here for support during lockdown."</h6>
           </div>
         </div>
         <br><br><br>
@@ -116,20 +110,20 @@ include_once 'header_app.php';
             </div>
           </div>
 
-           <div class="col-sm-4" align="center">
+          <div class="col-sm-4" align="center">
             <div class="card-transparent" class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
               <div class="card-body">
                 <h5 class="card-title"><br>
-                    5. Access to data 
+                    5. GBV and Other Violence
                 </h5>
-                <p class="card-text">
+                <p class="card-text">  
                     <small>
-                    Access to data means access to real time information and resources, and is vital to all South Africans. Free data and internet must be provided to all citizens to ensure the success of the lockdown.
-                    </small>
+                    Solutions for victims of gender based and other forms of violence should be considered, as the confinement of people across the globe in locked down countries has given evidence of the need for support and shelter outside of people’s homes.
+                    </small><br>
                 </p>
               </div>
             </div>
-          </div>
+          </div>  
 
 
           <div class="col-sm-4" align="center">
@@ -173,34 +167,32 @@ include_once 'header_app.php';
             <div class="card-transparent" class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
               <div class="card-body">
                 <h5 class="card-title"><br>
-                    8. Human Rights-Based Approach 
+                    8. Voice, Organisation & Representation
                 </h5>
-                <p class="card-text"><small>
-                    Basic human rights, which are protected by the Constitution and stipulated in the Bill of Rights, should not be negated during this period. While other rights and how they are exercised might have to be temporarily paused, all citizens should be treated with dignity.
+                <p class="card-text">
+                    <small>
+                    Communication directly from communities is crucial in effective and accurate information sharing for citizens across the nation
                     </small>
                 </p>
               </div>
             </div>
           </div>
 
-
           <div class="col-sm-4" align="center">
             <div class="card-transparent" class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
               <div class="card-body">
                 <h5 class="card-title"><br>
-                    9. GBV and Other Violence
+                    9. Access to data 
                 </h5>
-                <p class="card-text">  
+                <p class="card-text">
                     <small>
-                    Solutions for victims of gender based and other forms of violence should be considered, as the confinement of people across the globe in locked down countries has given evidence of the need for support and shelter outside of people’s homes.
-                    </small><br>
+                    Access to data means access to real time information and resources, and is vital to all South Africans. Free data and internet must be provided to all citizens to ensure the success of the lockdown.
+                    </small>
                 </p>
               </div>
             </div>
           </div>
-          </div> 
-
-
+        </div>
 
         <div class="row">
             <div class="card-transparent" class="col-md-12">
@@ -238,23 +230,19 @@ include_once 'header_app.php';
             </div>
           </div>
 
-
           <div class="col-sm-4" align="center">
             <div class="card-transparent" class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
               <div class="card-body">
                 <h5 class="card-title"><br>
-                    12. Civil Society Organisations
+                    12. The Role of Informal Food Retail Outlets
                 </h5>
                 <p class="card-text">
                     <small>
-                    The civil society organisations are at the forefront of community and government interactions and engagement. They should receive adequate financial support to ensure they continue their work.<br>
-                    </small>
+                    As a means to provide access to food for all citizens, informal food traders and providers should be allowed to operate within the regulations of the lockdown that would also allow them to continue to earn an income. </small>
                 </p>
               </div>
             </div>
           </div>
-
-
         </div>
 
         <div class="row">
@@ -265,54 +253,34 @@ include_once 'header_app.php';
 
 
         <div class="row">
-
           <div class="col-sm-4" align="center">
             <div class="card-transparent" class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
               <div class="card-body">
                 <h5 class="card-title"><br>
-                    13. The Role of Informal Food Retail Outlets
+                    13. Human Rights-Based Approach 
                 </h5>
-                <p class="card-text">
-                    <small>
-                    As a means to provide access to food for all citizens, informal food traders and providers should be allowed to operate within the regulations of the lockdown that would also allow them to continue to earn an income. </small>
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-4" align="center">
-            <div class="card-transparent" class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
-              <div class="card-body">
-                <h5 class="card-title"><br>
-                    14. Foreign Nationals
-                </h5>
-                <p class="card-text">
-                    <small>
-                    We will commit advocacy programmes and public education on issues pertaining to immigration. Advocate for the Section 9 of the Constitution guarantees the right of every person not to be unfairly discriminated against.
+                <p class="card-text"><small>
+                    Basic human rights, which are protected by the Constitution and stipulated in the Bill of Rights, should not be negated during this period. While other rights and how they are exercised might have to be temporarily paused, all citizens should be treated with dignity.
                     </small>
                 </p>
               </div>
             </div>
           </div>
 
-
           <div class="col-sm-4" align="center">
             <div class="card-transparent" class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
               <div class="card-body">
                 <h5 class="card-title"><br>
-                    15. Voice, Organisation & Representation
+                    14. Civil Society Organisations
                 </h5>
                 <p class="card-text">
                     <small>
-                    Communication directly from communities is crucial in effective and accurate information sharing for citizens across the nation
+                    The civil society organisations are at the forefront of community and government interactions and engagement. They should receive adequate financial support to ensure they continue their work.<br>
                     </small>
                 </p>
               </div>
             </div>
           </div>
-
-
         </div>
         </div>
     </div>
@@ -331,12 +299,12 @@ include_once 'header_app.php';
                     </li>
                     <li class="col-xs-12 col-sm-3 link-item active">
                         <span></span>
-                            <a href="partner_registration.php"> Register Covid-19 Front Member
+                            <a href="partner_registration.php"> Register CCC member
                             </a>
                     </li>                      
                     <li class="col-xs-12 col-sm-3 link-item active">
                         <span></span>
-                            <a href="npo_registration.php"> Register Civil Society member
+                            <a href="npo_registration.php"> Register CBO member
                             </a>
                     </li>                    
                     <li class="col-xs-12 col-sm-3 link-item active">
@@ -350,4 +318,4 @@ include_once 'header_app.php';
 
 <?php
 include_once 'footer.php';
-?>
+?>            

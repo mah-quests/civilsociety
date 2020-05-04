@@ -1,5 +1,6 @@
 <?php
 include_once 'header_app.php';
+
 ?>
     <div class="page-wrapper">
         <!-- top Links -->
@@ -8,25 +9,23 @@ include_once 'header_app.php';
                 <ul class="row links">
                     <li class="col-xs-12 col-sm-4 link-item active">
                         <span>1</span>
-                            <a href="local_partners.php"> Find Your Nearest CCC Representative
+                            <a href="local_partners.php"> Nearest Covid-19 Front Representative
                             </a>
                     </li>
                     <li class="col-xs-12 col-sm-4 link-item">
                         <span>2</span>
-                            <a href="partner_registration.php"> Add A New CCC Represantative
+                            <a href="npo_registration.php"> Add A New Covid-19 Front Represantative
                             </a>
                     </li>
                     <li class="col-xs-12 col-sm-4 link-item">
                         <span>3</span>
-                            <a href="household_application_form.php"> Log A Need Request
+                            <a href="household_application_form.php">Log A Need Request
                             </a>
                     </li>
                 </ul>
             </div>
         </div>
-            <!-- end:Top links -->
-            <!-- start: Inner page hero -->
-            <section class="inner-page-hero bg-image" data-image-src="images/img/banner-covid-sotho.png">
+            <section class="inner-page-hero bg-image" data-image-src="images/img/banner-covid-ori.jpg">
                 <div class="profile">
                     <div class="container">
                         <div class="row">
@@ -64,112 +63,50 @@ include_once 'header_app.php';
             <section class="restaurants-page">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3">
-                            <div class="widget clearfix">
-                                <!-- /widget heading -->
-                                <div>
-                                    <h3 class="widget-title text-dark">
-                                        Search By Province
-                                    </h3>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="widget-body" id="provice">
-                                    <ul class="tags">
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Gauteng
-                                            </a> 
-                                        </li>
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Kwa-zulu Natal
-                                            </a> 
-                                        </li>
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Northen Cape
-                                            </a> 
-                                        </li>
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Free State
-                                            </a> 
-                                        </li>
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Eastern Cape
-                                            </a> 
-                                        </li>
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Western Cape
-                                            </a> 
-                                        </li>                                    
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Limpopo
-                                            </a> 
-                                        </li>
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                Mpumalanga
-                                            </a> 
-                                        </li>
-                                        <li> 
-                                            <a href="#provice" class="tag">
-                                                North West
-                                            </a> 
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- end:Widget -->
-                        </div>
-                        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-9">
-                            <div class="bg-gray restaurant-entry">
-                                <div class="row">
-							<?php $ress= mysqli_query($db,"select * from users where network='P'");
-									while($rows=mysqli_fetch_array($ress))
-									{
-									echo' <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
-											<div class="entry-logo">
-											</div>
-											<!-- end:Logo -->
-											<div class="entry-dscr">
-												<h5>
-                                                    <a href="request.php?res_id='.$rows['f_name'].'" >'.$rows['l_name'].'
-                                                    </a>
-                                                </h5> 
-                                                    <span>'.$rows['address'].' 
-                                                    <a href="#">...</a>
-                                                    </span>
-													<ul class="list-inline">
-                                                        <li class="list-inline-item">
-                                                        </li>
-                                                    <li class="list-inline-item">
-                                                    </li>
-													</ul>
-												</div>
-												<!-- end:Entry description -->
-											</div>
-														
-											<div class="col-sm-12 col-md-12 col-lg-4 text-xs-center">
-                                                <div class="right-content bg-white">
-                                                <div class="right-review">
-											<p> Contact Number</p> 
-                                                <span>'.$rows['phone'].' 
-                                                </span>
-                                                </div>
-											</div>
-											<!-- end:right info -->
-										</div>';
-									}
-						          ?>
-                                </div>
-                                <!--end:row -->
-                            </div>
-                        </div>
-                        </div>
+
+
+    <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm">Organization Name</th>
+                <th class="th-sm">Full Names</th>
+                <th class="th-sm">Phone</th>
+                <th class="th-sm">Home Address</th>
+                <th class="th-sm">Municipality</th>
+                <th class="th-sm">Province</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <?php $ress= mysqli_query($db,"select * from users where network='P' order by provice");
+                while($rows=mysqli_fetch_array($ress))
+                {
+
+            echo '<tr>
+                        <td>
+                            '.$rows['organization_name'].'
+                        </td>                        
+                        <td>
+                            '.$rows['f_name'].' '.$rows['l_name'].'
+                        </td>
+                        <td>   
+                            '.$rows['phone'].'
+                        </td>
+                        <td>
+                            '.$rows['address'].'
+                        </td>
+                        <td>
+                        '.$rows['municipality'].'
+                        </td>                         
+                        <td>
+                        '.$rows['provice'].'
+                        </td> 
+                    </tr>';                   
+
+                }
+                ?>
+        </tbody>
+    </table>                                  
                     </div>
                 </div>
             </section>
