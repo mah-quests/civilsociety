@@ -9,8 +9,8 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
    	    empty($_POST['username'])|| 
         empty($_POST['lastname'])|| 
 		    empty($_POST['email']) ||  
-		    empty($_POST['phone'])||
-		    empty($_POST['password'])||
+		    empty($_POST['phone']) ||
+		    empty($_POST['password']) ||
         empty($_POST['district']) ||
         empty($_POST['municipality']) ||
         empty($_POST['provice']) ||
@@ -89,7 +89,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
             <!-- top Links -->
             <!-- end:Top links -->
             <!-- start: Inner page hero -->
-            <section class="inner-page-hero bg-image" data-image-src="images/img/banner-covid-english.png">
+            <section class="inner-page-hero bg-image" data-image-src="images/img/banner-covid-english.jpg">
                 <div class="profile">
                     <div class="container">
                         <div class="row">

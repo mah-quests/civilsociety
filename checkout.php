@@ -40,7 +40,7 @@ include_once 'product-action.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>COVID-19 South African coronavirus news and information for civil society</title>
+    <title>Thusa Sechaba Web Application</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">

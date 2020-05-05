@@ -10,12 +10,22 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         !empty($_POST['firstname']) &&  //fetching and find if its empty
         !empty($_POST['lastname']) &&
         !empty($_POST['identification']) &&
+        !empty($_POST['phone']) &&        
         !empty($_POST['sex']) &&
-        !empty($_POST['phone']) &&
+        !empty($_POST['other_sex']) &&
+        !empty($_POST['hetero_sex']) &&
+        !empty($_POST['homo_sex']) &&
+        !empty($_POST['bi_sex']) &&
+        !empty($_POST['other_sexuality']) &&
+        !empty($_POST['cis_gender']) &&
+        !empty($_POST['trans_gender']) &&
+        !empty($_POST['nonconfirm_gender']) &&                        
+        !empty($_POST['queer_gender']) &&
+        !empty($_POST['other_gender']) &&
         !empty($_POST['address']) &&
-        !empty($_POST['municipality']) &&
-        !empty($_POST['district']) &&
         !empty($_POST['provice']) &&
+        !empty($_POST['district']) &&        
+        !empty($_POST['municipality']) &&
         !empty($_POST['alt_person']) &&
         !empty($_POST['alt_number']) &&
 
@@ -29,6 +39,16 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         !empty($_POST['age13_18']) &&
         !empty($_POST['age19_59']) &&
         !empty($_POST['age60plus']) && 
+        !empty($_POST['intersex_in_house']) &&
+        !empty($_POST['num_hetero_sex']) &&
+        !empty($_POST['num_homo_sex']) &&
+        !empty($_POST['num_bi_sex']) &&
+        !empty($_POST['num_other_sexuality']) &&
+        !empty($_POST['num_cis_gender']) &&
+        !empty($_POST['num_trans_gender']) &&
+        !empty($_POST['num_nonconfirm_gender']) &&
+        !empty($_POST['num_queer_gender']) && 
+        !empty($_POST['num_other_gender']) &&         
 
 
         !empty($_POST['number_people_employed']) &&
@@ -95,16 +115,16 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 
 //inserting values into 'request_by_partner' db
  $mql = "INSERT INTO request_by_partner
-  (firstname, lastname, sex, phone, address, municipality, district, provice, alt_person, alt_number, identification, unique_code) 
+  (firstname, lastname, sex, other_sex, phone, address, municipality, district, provice, alt_person, alt_number, identification, unique_code,  hetero_sex, homo_sex, bi_sex, other_sexuality, cis_gender, trans_gender, nonconfirm_gender, queer_gender, other_gender) 
   VALUES
-  ('".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['sex']."','".$_POST['phone']."','".$_POST['address']."','".$_POST['municipality']."','".$_POST['district']."','".$_POST['provice']."','".$_POST['alt_person']."','".$_POST['alt_number']."','".$_POST['identification']."','".$reference."')";
+  ('".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['sex']."','".$_POST['other_sex']."','".$_POST['phone']."','".$_POST['address']."','".$_POST['municipality']."','".$_POST['district']."','".$_POST['provice']."','".$_POST['alt_person']."','".$_POST['alt_number']."','".$_POST['identification']."','".$reference."', '".$_POST['hetero_sex']."', '".$_POST['homo_sex']."' ,'".$_POST['bi_sex']."','".$_POST['other_sexuality']."','".$_POST['cis_gender']."','".$_POST['trans_gender']."','".$_POST['nonconfirm_gender']."','".$_POST['queer_gender']."','".$_POST['other_gender']."' )";
 
 
 //inserting values into 'request_people' db
  $mql_rp = "INSERT INTO request_people
-  (unique_code, people_in_house, settlement, males_in_house, females_in_house, lgbt_in_house, age0_2, age13_18, age19_59, age60plus) 
+  (unique_code, people_in_house, settlement, males_in_house, females_in_house, lgbt_in_house, age0_2, age13_18, age19_59, age60plus, intersex_in_house, num_hetero_sex, num_homo_sex, num_bi_sex, num_other_sexuality, num_cis_gender, num_trans_gender, num_nonconfirm_gender, num_queer_gender, num_other_gender) 
   VALUES
-  ('".$reference."', '".$_POST['people_in_house']."','".$_POST['settlement']."','".$_POST['males_in_house']."','".$_POST['females_in_house']."','".$_POST['lgbt_in_house']."','".$_POST['age0_2']."', '".$_POST['age13_18']."','".$_POST['age19_59']."','".$_POST['age60plus']."')";
+  ('".$reference."', '".$_POST['people_in_house']."','".$_POST['settlement']."','".$_POST['males_in_house']."','".$_POST['females_in_house']."','".$_POST['lgbt_in_house']."','".$_POST['age0_2']."', '".$_POST['age13_18']."','".$_POST['age19_59']."', '".$_POST['age60plus']."', '".$_POST['intersex_in_house']."', '".$_POST['num_hetero_sex']."', '".$_POST['num_homo_sex']."', '".$_POST['num_bi_sex']."', '".$_POST['num_other_sexuality']."', '".$_POST['num_cis_gender']."', '".$_POST['num_trans_gender']."', '".$_POST['num_nonconfirm_gender']."', '".$_POST['num_queer_gender']."', '".$_POST['num_other_gender']."')";
 
 
 //inserting values into 'request_employment_stats' db
@@ -142,9 +162,9 @@ $mql_disable = "INSERT INTO request_disability
 
 
  $mql_chart = "INSERT INTO users_orders
- (unique_code, u_id, request_first_name, request_surname, delivery_address, comments) 
+ (unique_code, u_id, request_first_name, request_surname, delivery_address, municipality, comments) 
  VALUES
- ('".$reference."', '".$_SESSION["user_id"]."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['address']."', '".$_POST['comments']."')";
+ ('".$reference."', '".$_SESSION["user_id"]."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['address']."', '".$_POST['municipality']."' , '".$_POST['comments']."')";
 
   mysqli_query($db, $mql);
   mysqli_query($db, $mql_rp);
@@ -237,14 +257,14 @@ $mql_disable = "INSERT INTO request_disability
                         <form action="" method="post">
                           <div class="row">
                   
-  <?php  include_once('forms/household_form_part1.php'); ?>
-  <?php  include_once('forms/household_form_part2.php'); ?>
-  <?php  include_once('forms/household_form_part3.php'); ?>
-  <?php  include_once('forms/household_form_part4.php'); ?>
-  <?php  include_once('forms/household_form_part5.php'); ?>
-  <?php  include_once('forms/household_form_part6.php'); ?>
-  <?php  include_once('forms/household_form_part7.php'); ?>
-  <?php  include_once('forms/household_form_submit.php'); ?>
+          <?php  include_once('forms/household_form_part1.php'); ?>
+          <?php  include_once('forms/household_form_part2.php'); ?>
+          <?php  include_once('forms/household_form_part3.php'); ?>
+          <?php  include_once('forms/household_form_part4.php'); ?>
+          <?php  include_once('forms/household_form_part5.php'); ?>
+          <?php  include_once('forms/household_form_part6.php'); ?>
+          <?php  include_once('forms/household_form_part7.php'); ?>
+          <?php  include_once('forms/household_form_submit.php'); ?>
 
                     </form>
                   </div>

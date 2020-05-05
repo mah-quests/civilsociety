@@ -32,7 +32,8 @@ include_once 'header_app.php';
                         <div class="row">
                             <div class="col-xs-12 col-sm-12  col-md-4 col-lg-4 profile-img">
                                 <div>
-                                    <p><br><br><br><br><br><br></p>       
+                                    <p><br><br><br><br><br><br><br>
+                                    <br><br><br><br><br></p>       
                                 </div>
                             </div>
                             

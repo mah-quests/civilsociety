@@ -23,7 +23,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         empty($_POST['cpassword'])
       )
     {
-      $message = "Please make sure all fields required have been properly!";
+      $message = "Please make sure all fields required have been properly completed!";
 
     }
   else
@@ -121,7 +121,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 
    <div class="page-wrapper">
       <div class="breadcrumb">
-        <h3 align="center">CCC Member Registration</h3>
+        <h3 align="center">Covid-19 Front Member Registration</h3>
          <div class="container">
             <ul>
                <li>

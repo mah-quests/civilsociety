@@ -15,8 +15,8 @@ session_start();
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="#">
-    <title>COVID-19 South African coronavirus news and information for civil society</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/login.png">
+    <title>Thusa Sechaba Web Application</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">

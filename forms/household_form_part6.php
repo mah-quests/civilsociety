@@ -158,17 +158,7 @@
                 </select>
                 </div>
             </div>  
-
-            <div class="col-md-2">
-              <label for="otherCondition"><br>Transport Services </label>
-                <div style="width:98%">
-                <select name="otherCondition" size="1" id="otherCondition" class="form-control unit" value="<?php echo $edit ? $user_id['otherCondition'] : ''; ?>" required>
-                    <option selected>Choose...</option>
-                    <option>No</option>
-                    <option>Yes</option>  
-                </select>
-                </div>
-            </div>              
+             
 
 
             <div class="col-md-12">

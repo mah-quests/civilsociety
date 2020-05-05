@@ -62,6 +62,52 @@ include_once 'header_app.php';
             </div>
 
 
+            <section class="restaurants-page">
+                <div class="container">
+                    <div class="row">
+
+
+    <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm">Unique Code</th>
+                <th class="th-sm">Date</th>
+                <th class="th-sm">Full Names</th>
+                <th class="th-sm">Delivery Address</th>
+                <th class="th-sm">Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <?php $ress= mysqli_query($db,"select * from users_orders where u_id = '".$_SESSION["user_id"]."' ");
+                while($rows=mysqli_fetch_array($ress))
+                {
+
+            echo '<tr>
+                        <td>
+                            '.$rows['unique_code'].'
+                        </td>                        
+                        <td>
+                            '.$rows['date'].' 
+                        </td>
+                        <td>   
+                            '.$rows['request_first_name'].' '.$rows['request_surname'].'
+                        </td>
+                        <td>
+                            '.$rows['delivery_address'].'
+                        </td>
+                        <td>
+                        '.$rows['comments'].'
+                        </td> 
+                    </tr>'; 
+                }
+                ?>
+        </tbody>
+    </table>                                  
+                    </div>
+                </div>
+            </section>
+
 
 <?php
 include_once 'footer.php';
