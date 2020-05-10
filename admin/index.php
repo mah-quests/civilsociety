@@ -15,18 +15,16 @@ if(isset($_POST['submit']))
 	$result=mysqli_query($db, $loginquery);
 	$row=mysqli_fetch_array($result);
 	
-	                        if(is_array($row))
-								{
-                                    	$_SESSION["adm_id"] = $row['adm_id'];
-										 header("refresh:1;url=dashboard.php");
-	                            } 
-							else
-							    {
-                                      	$message = "Invalid Username or Password!";
-                                }
-	 }
-	
-	
+    if(is_array($row))
+		{
+            	$_SESSION["adm_id"] = $row['adm_id'];
+				 header("refresh:1;url=dashboard.php");
+        } 
+	else
+	    {
+              	$message = "Invalid Username or Password!";
+        }
+	}
 }
 
 if(isset($_POST['submit1'] ))
@@ -73,28 +71,28 @@ if(isset($_POST['submit1'] ))
 	else{
        $result = mysqli_query($db,"SELECT id FROM admin_codes WHERE codes =  '".$_POST['code']."'");  //query to select the id of the valid code enter by user! 
 					  
-                     if(mysqli_num_rows($result) == 0)     //if code is not valid
-						 {
-                            // row not found, do stuff...
-			                 $message = "invalid code!";
-                         } 
-                      
-                      else                                 //if code is valid 
-					     {
-	
-								$mql = "INSERT INTO admin (username,password,email,code) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['code']."')";
-								mysqli_query($db, $mql);
-									$success = "Admin Added successfully!";
-						 }
-        }
-	}
+         if(mysqli_num_rows($result) == 0)     //if code is not valid
+			 {
+                // row not found, do stuff...
+                 $message = "invalid code!";
+             } 
+          
+          else                                 //if code is valid 
+		     {
+
+			$mql = "INSERT INTO admin (username,password,email,code) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['code']."')";
+			mysqli_query($db, $mql);
+				$success = "Admin Added successfully!";
+			 }
+}
+}
 
 }
 ?>
 
 <head>
   <meta charset="UTF-8">
-  <title>Flat Login Form</title>
+  <title> Login Form</title>
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
@@ -116,7 +114,7 @@ if(isset($_POST['submit1'] ))
   </div>
 </div>
 <div class="form">
-  <div class="thumbnail"><img src="images/manager.png"/></div>
+  <div class="thumbnail"><img src="images/color-covid-logo.png"/></div>
   
   <form class="register-form" action="index.php" method="post">
     <input type="text" placeholder="username" name="cr_user"/>
@@ -142,10 +140,6 @@ if(isset($_POST['submit1'] ))
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='js/index.js'></script>
   
-
-    
-
-
 
 </body>
 

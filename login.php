@@ -186,10 +186,10 @@ if(isset($_POST['submit']))   // if button is submit
       </div>
       <div class="card-footer">
         <div class="d-flex justify-content-center links">
-          Don't have an account?<a href="household_registration.php"> Sign Up </a><br>
+          Don't have an account?<a href="doCommunityReg.php"> Sign Up </a><br>
         </div>
         <div class="d-flex justify-content-center">
-          <a href="reset_password.php">Forgot your password?</a>
+          <a href="doResetPassword.php">Forgot your password?</a>
         </div>
       </div>
     </div>

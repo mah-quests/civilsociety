@@ -75,7 +75,176 @@ session_start();
       font: normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
     }
 
+
+  .flip-card {
+    background-color: transparent;
+    width: 280px;
+    height: 200px;
+    border: 0;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    opacity: .9;
+    color: black;
+  }
+
+  /* Style the back side */
+  .flip-card-back {
+    background-color: rgba(245, 245, 245, 1);
+    font: normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: black;
+    transform: rotateY(180deg);
+  }    
+
   </style>
+  
+<style type="text/css">
+.DDlist { display:none; }
+</style>
+
+<script type="text/javascript">
+// From: http://www.codingforums.com/showthread.php?t=202456
+// and: http://www.codingforums.com/showthread.php?t=169465
+// Modified for 1 to 4 (+) level drop down selections
+
+var categories = [];
+  categories["startList"] = ["Western Cape","Eastern Cape",'Northern Cape','North West','Free State','Kwazulu Natal','Gauteng','Limpopo','Mpumlanga'];        // Level 1  (True|False is 1 level only)
+
+categories["Western Cape"] = ["Cape Winelands District Municipality","Central Karoo District Municipality","Garden Route District Municipality","Overberg District Municipality","West Coast District Municipality"];                         // Level 2
+  categories["Cape Winelands District Municipality"] = ["Witzenberg","Drakenstein","Stellenbosch","Breede Valley","Langeberg"];                     // Level 3        //  Level 4                         //  Level 4
+  categories["Central Karoo District Municipality"] = ["Laingsburg","Prince Albert","Beaufort West"];
+  categories["Garden Route District Municipality"] = ["Kannaland","Hessequa","Mossel Bay","George","Oudtshoorn","Bitou","Knysna"];
+  categories["Overberg District Municipality"] = ["Theewaterskloof","Overstrand Cape","Agulhas","Swellendam"];                         // Level 3        //  Level 4                         //  Level 4
+  categories["West Coast District Municipality"] = ["Matzikama","Cederberg","Bergrivier","Saldanha Bay","Swartland"];   
+    
+
+categories["Eastern Cape"] = ["Alfred Nzo District Municipality","Amathole District Municipality","Chris Hani District Municipality","Joe Gqabi District Municipality","OR Tambo District Municipality","Sarah Baartman District Municipality"];      // Level 2
+  categories["Alfred Nzo District Municipality"] = ["Matatiele","Mbizana","Ntabankulu","Umzimvubu"];  // Level 3 only
+  categories["Amathole District Municipality"] = ["Mnquma","Mbhashe","Amahlathi","Ngqushwa","Great Kei","Raymond Mhlaba"];                    // Level 3 only
+  categories["Chris Hani District Municipality"] = ["Intsika Yethu","Enoch Mgijima","Engcobo","Emalahleni","Inxuba Yethemba","Sakhisizwe"];
+  categories["Joe Gqabi District Municipality"] = ["Elundini","Senqu","Walter Sisulu"];  // Level 3 only
+  categories["OR Tambo District Municipality"] = ["King Sabata Dalindyebo Local Municipality","Nyandeni","Ngquza Hill","Mhlontlo","Port St Johns"];                    // Level 3 only
+  categories["Sarah Baartman District Municipality"] = ["Blue Crane Route","Dr Beyers Naudé","Kou-Kamma","Kouga","Makana","Ndlambe","Sunday's River Valley"];
+
+  
+categories["Northern Cape"] = ["Frances Baard District Municipality","John Taolo Gaetsewe District Municipality","Namakwa District Municipality","Pixley ka Seme District Municipality","ZF Mgcawu District Municipality"];
+  categories["Frances Baard District Municipality"] = ["Sol Plaatje","Dikgatlong","Magareng","Phokwane"];     
+  categories["John Taolo Gaetsewe District Municipality"] = ["Joe Morolong","Ga-Segonyana","Gamagara"];   
+  categories["Namakwa District Municipality"] = ["Richtersveld","Nama Khoi","Kamiesberg","Hantam","Karoo Hoogland","Khâi-Ma"];      
+  categories["Pixley ka Seme District Municipality"] = ["Ubuntu","Umsobomvu","Emthanjeni","Kareeberg","Renosterberg","Thembelihle","Siyathemba","Siyancuma"];
+  categories["ZF Mgcawu District Municipality"] = ["Dawid Kruiper","Kai ǃGarib","ǃKheis","Tsantsabane","Kgatelopele"];   
+
+    
+categories["North West"] = ["Bojanala Platinum","Ngaka Modiri Molema","Dr Ruth Segomotsi Mompati","Dr Kenneth Kaunda"];
+  categories["Bojanala Platinum"] = ["Moretele","Madibeng","Rustenburg","Kgetlengrivier","Moses Kotane"];         
+  categories["Ngaka Modiri Molema"] = ["Ratlou","Tswaing","Mahikeng","Ditsobotla","Ramotshere"];       
+  categories["Dr Ruth Segomotsi Mompati"] = ["Naledi","Mamusa","Greater Taung","Lekwa-Teemane","Kagisano-Molopo"];  
+  categories["Dr Kenneth Kaunda"] = ["JB Marks","Matlosana","Maquassi Hills"];     
+
+categories["Free State"] = ["Fezile Dabi District","Lejweleputswa District","Thabo Mofutsanyana District","Xhariep District"];
+  categories["Fezile Dabi District"] = ["Moqhaka","Ngwathe","Metsimaholo","Mafube"];         
+  categories["Lejweleputswa District"] = ["Masilonyana","Tokologo","Tswelopele","Matjhabeng","Nala"];       
+  categories["Thabo Mofutsanyana District"] = ["Setsoto","Dihlabeng","Nketoana","Maluti-a-Phofung","Phumelela","Mantsopa"];  
+  categories["Xhariep District"] = ["Letsemeng","Kopanong","Mohokare","Naledi"];  
+
+categories["Kwazulu Natal"] = ["Amajuba District Municipality","Harry Gwala District Municipality","iLembe District Municipality","King Cetshwayo District Municipality ","Ugu District Municipality","uMgungundlovu District Municipality","uMkhanyakude District Municipality","uMzinyathi District Municipality","uThukela District Municipality","Zululand District Municipality"];
+  categories["Amajuba District Municipality"] = ["Dannhauser","eMadlangeni","Newcastle"];           
+  categories["Harry Gwala District Municipality"] = ["Dr Nkosazana Dlamini-Zuma","Greater Kokstad","Ubuhlebezwe","Umzimkhulu"];     
+  categories["iLembe District Municipality"] = ["KwaDukuza","Mandeni","Maphumulo","Ndwedwe"];           
+  categories["Ugu District Municipality"] = ["Ray Nkonyeni","uMdoni","uMuziwabantu","Umzumbe","Vulamehlo"];           
+  categories["uMgungundlovu District Municipality"] = ["Impendle","Mkhambathini","Mpofana","Msunduzi","Richmond","uMngeni","uMshwathi"];        
+  categories["uMkhanyakude District Municipality"] = ["Big Five Hlabisa","Jozini","Mtubatuba","uMhlabuyalingana"];    
+  categories["uMzinyathi District Municipality"] = ["Endumeni","Msinga","Nquthu","Umvoti"];            
+  categories["uThukela District Municipality"] = ["Alfred Duma","Inkosi Langalibalele","Okhahlamba"];         
+  categories["Zululand District Municipality"] = ["Abaqulusi","eDumbe","Nongoma","Ulundi","uPhongolo"];      
+
+categories["Gauteng"] = ["City of Johannesburg Metropolitan Municipality","City of Tshwane Metropolitan Municipality","Ekurhuleni Metropolitan Municipality","Sedibeng District Municipality","West Rand District Municipality"];
+  categories["City of Johannesburg Metropolitan Municipality"] = ["Johannesburg"];         
+  categories["City of Tshwane Metropolitan Municipality"] = ["Tshwane"];       
+  categories["Ekurhuleni Metropolitan Municipality"] = ["Ekurhuleni"];  
+  categories["Sedibeng District Municipality"] = ["Emfuleni","Lesedi","Midvaal"];   
+  categories["West Rand District Municipality"] = ["Merafong City","Mogale City","Rand West City"];   
+
+categories["Limpopo"] = ["Capricorn District Municipality","Mopani District Municipality","Sekhukhune District Municipality","Vhembe District Municipality","Waterberg District Municipality"];
+  categories["Capricorn District Municipality"] = ["Blouberg","Lepelle-Nkumpi","Molemole","Polokwane"];            
+  categories["Mopani District Municipality"] = ["Ba-Phalaborwa","Greater Giyani","Greater Letaba","Greater Tzaneen","Maruleng"];    
+  categories["Sekhukhune District Municipality"] = ["Elias Motsoaledi","Ephraim Mogale","Fetakgomo/Tubatse","Makhuduthamaga"];       
+  categories["Vhembe District Municipality"] = ["Collins Chabane","Makhado","Musina","Thulamela"];   
+  categories["Waterberg District Municipality"] = ["Bela-Bela","Lephalale","Mogalakwena","Mookgophong/Modimolle","Thabazimbi"];  
+
+categories["Mpumlanga"] = ["Gert Sibande","Nkangala","Ehlanzeni"];
+  categories["Gert Sibande"] = ["Albert Luthuli","Msukaligwa","Mkhondo","Pixley ka Seme","Lekwa","Dipaleseng","Govan Mbeki"];         
+  categories["Nkangala"] = ["Victor Khanye","Emalahleni","Steve Tshwete","Emakhazeni","Thembisile Hani","Dr JS Moroka"];        
+  categories["Ehlanzeni"] = ["Thaba Chweu","Mbombela","Umjindi","Nkomazi","Bushbuckridge"]; 
+      
+
+var nLists = 3; // number of lists in the set
+
+function fillSelect(currCat,currList){
+  var step = Number(currList.name.replace(/\D/g,""));
+  for (i=step; i<nLists+1; i++) {
+    document.forms[0]['List'+i].length = 1;
+    document.forms[0]['List'+i].selectedIndex = 0;
+    document.getElementById('List'+i).style.display = 'none';
+    var firstP = document.getElementById('List'+i);
+  }
+  var nCat = categories[currCat];
+  if (nCat != undefined) { 
+    document.getElementById('List'+step).style.display = 'inline';
+    for (each in nCat)  {
+      var nOption = document.createElement('option'); 
+      var nData = document.createTextNode(nCat[each]); 
+      nOption.setAttribute('value',nCat[each]); 
+      nOption.appendChild(nData); 
+      currList.appendChild(nOption); 
+    }
+  } 
+}
+
+function getValues() { 
+  var str = '';
+  str += document.getElementById('List1').value+'\n';
+  for (var i=2; i<=nLists; i++) {
+    if (document.getElementById('List'+i).selectedIndex != 0) {
+      str += document.getElementById('List'+i).value+'\n'; }
+  }
+  alert(str); 
+}
+
+function init() { fillSelect('startList',document.forms[0]['List1']); }
+
+navigator.appName == "Microsoft Internet Explorer"
+   ? attachEvent('onload', init, false) 
+       : addEventListener('load', init, false); 
+
+</script>
+
   
 </head>
 
@@ -101,16 +270,13 @@ session_start();
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Covid-19 Front<br> Partners</a>
                                         <div class="dropdown-menu">
-                                            <a href="local_partners.php" class="dropdown-item">
-                                                List of Covid-19 Front Partners 
-                                            </a>        
-                                            <a href="partner_registration.php" class="dropdown-item">
+                                            <a href="doPartnerReg.php" class="dropdown-item">
                                                 Register Covid-19 Front User
                                             </a>
                                     <?php
                                         if(!empty($_SESSION["user_id"]))
                                         {  
-                                echo '<a href="household_application.php" class="dropdown-item">
+                                echo '<a href="doHouseRequest.php" class="dropdown-item">
                                                 Log a Need Request
                                             </a>';
                                         }
@@ -119,17 +285,14 @@ session_start();
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Civil Society <br>Organisation</a>
-                                        <div class="dropdown-menu">
-                                            <a href="npo_list.php" class="dropdown-item">
-                                                List of Civil Society Partners 
-                                            </a>         
-                                            <a href="npo_registration.php" class="dropdown-item">
+                                        <div class="dropdown-menu"> 
+                                            <a href="doCSOReg.php" class="dropdown-item">
                                                 Register Civil Society User
                                             </a>
                                     <?php
                                         if(!empty($_SESSION["user_id"]))
                                         {  
-                                    echo '<a href="household_application.php" class="dropdown-item">
+                                    echo '<a href="doHouseRequest.php" class="dropdown-item">
                                                 Log a Need Request
                                             </a>';
                                         }
@@ -145,7 +308,7 @@ session_start();
                                         </a> 
                                     </li>
                                     <li class="nav-item">
-                                        <a href="household_registration.php" class="nav-link active"> Community Member Registration
+                                        <a href="doCommunityReg.php" class="nav-link active"> Community Member Registration
                                         </a> 
                                     </li>';
 							}
@@ -156,22 +319,22 @@ session_start();
                                             Community Resources
                                         </a>
                                         <div class="dropdown-menu">
-                                            <a href="household_application.php" class="dropdown-item">
-                                                Log a Need Request
-                                            </a>
-                                            <a href="household_registration.php" class="dropdown-item">
+                                            <a href="doCommunityReg.php" class="dropdown-item">
                                                 Community Member Registration
-                                            </a>         
+                                            </a>
+                                            <a href="doHouseRequest.php" class="dropdown-item">
+                                                Log a Need Request
+                                            </a>                   
                                         </div>
                                     </li>';
 
                             echo '<li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Details</a>
                                         <div class="dropdown-menu">
-                                            <a href="your_requests.php" class="dropdown-item">
+                                            <a href="viewYourRequests.php" class="dropdown-item">
                                                 My Requests 
                                             </a>
-                                            <a href="your_profile.php" class="dropdown-item">
+                                            <a href="viewYourProfile.php" class="dropdown-item">
                                                 My Profile 
                                             </a>        
                                             <a href="logout.php" class="dropdown-item">

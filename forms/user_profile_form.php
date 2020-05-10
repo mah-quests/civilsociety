@@ -1,56 +1,42 @@
 <fieldset>
         <div class="row">
 
-            <div class="col-md-12">
-              <label for="organization_structure">Organization Registration Number</label>
-                <input class="form-control" type="text" name="organization_structure" id="example-text-input" placeholder="Please enter a valid NPO Registration Number" value="<?php echo $edit ? $user['organization_structure'] : '';?>" required> 
-            </div>
-
 
             <div class="col-md-12">
-              <label for="organization_name">Organization Registered Name</label>
-                <input class="form-control" type="text" name="organization_name" id="example-text-input" placeholder="Please enter a valid NPO Registration Name" value="<?php echo $edit ? $user['organization_name'] : '';?>" required> 
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="network">Associated Network</label>
-                <div style="width:98%">
-                <select name="network" size="1" class="form-control unit" value="<?php echo $edit ? $user['network'] : ''; ?>" required>
-                        <option selected>Choose</option>
-                        <option value="N">Registered Non Profit Organization</option>
-                        <option value="N">Churches</option>
-                        <option value="N">Cooperatives</option>
-                        <option value="N">Traditional healers</option>
-                        <option value="N">Traditional leaders</option>
-                </select>
-                </div>
+              <label for="organization_name">Organization Name</label>
+                <input class="form-control" type="text" name="organization_name" id="organization_name" placeholder="Please enter your organization name" value="<?php echo $user['organization_name']; ?>" required> 
             </div>
 
 
             <div class="col-md-6">
               <label for="firstname">First Names</label>
-                <input class="form-control" type="text" name="firstname" id="example-text-input" placeholder="Please enter your first names" value="<?php echo $edit ? $user['firstname'] : '';?>" required> 
+                <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Please enter your first names" value="<?php echo $user['f_name']; ?>" required> 
             </div>
 
 
             <div class="col-md-6">
               <label for="lastname">Surname</label>
-                <input class="form-control" type="text" name="lastname" id="example-text-input-2" placeholder="Please enter your surname" value="<?php echo $edit ? $user['lastname'] : '';?>" required> 
+                <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Please enter your surname" value="<?php echo $user['l_name']; ?>" required> 
             </div>
 
 
-            <div class="col-md-12">
-              <label for="username">Identification Number</label>
-                <input class="form-control" type="text" name="username" id="example-text-input" placeholder="Please enter your unique identification number" value="<?php echo $edit ? $user['username'] : '';?>" required> 
-              </div>   
+            <div class="col-md-6">
+              <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Please enter valid email" value="<?php echo $user['email']; ?>" required> 
+            </div>
+
+
+            <div class="col-md-6">
+              <label for="phone">Celphone number</label>
+                <input class="form-control" type="text" name="phone" id="phone" placeholder="Please enter your unique celphone number" value="<?php echo $user['phone']; ?>" required> 
+            </div>  
 
 
             <div class="col-md-6">
               <label for="sex">Sex</label>
                 <div style="width:98%">
-                <select name="sex" size="1" class="form-control unit" value="<?php echo $edit ? $user['sex'] : ''; ?>" required>
-                        <option selected>Choose</option>
+                <select name="sex" size="1" class="form-control unit" value="<?php echo $user['sex']; ?>" required>
+                        <option selected>Please Choose</option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Other</option>
@@ -60,53 +46,42 @@
 
 
             <div class="col-md-6">
-              <label for="phone">Celphone number</label>
-                <input class="form-control" type="text" name="phone" id="example-text-input" placeholder="Please enter your unique celphone number" value="<?php echo $edit ? $user['phone'] : '';?>" required> 
-              </div>  
-
-
-            <div class="col-md-6">
-              <label for="email">Email address</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Please enter valid email" value="<?php echo $edit ? $user['email'] : '';?>" required> 
-            </div>
-
-
-            <div class="col-md-6">
               <label for="nationality">Nationality</label>
                 <div style="width:98%">
                 <select name="nationality" size="1" class="form-control unit" value="<?php echo $edit ? $user['nationality'] : ''; ?>" required>
-                        <option selected>Choose</option>
+                        <option selected>Please Choose</option>
                         <option>South Africa</option>
                         <option>Other</option>
                 </select>
                 </div>
             </div>
 
+
             <div class="col-md-12">
               <label for="address">Home Address</label>
-                <textarea class="form-control" id="exampleTextarea"  name="address" rows="3" value="<?php echo $edit ? $user['address'] : ''; ?>"  required>
-                </textarea>
+                <input class="form-control" type="text" name="address" id="address" rows="3" placeholder="Please enter your local address" value="<?php echo $user['address']; ?>"  required> 
             </div>
+
 
             <div class="col-md-6">
               <label for="municipality">Municipality</label>
-                <input class="form-control" type="text" name="municipality" id="example-text-input-2" placeholder="Please enter your local municipality" value="<?php echo $edit ? $user['municipality'] : ''; ?>"  required> 
+                <input class="form-control" type="text" name="municipality" id="municipality" placeholder="Please enter your local municipality" value="<?php echo $user['municipality']; ?>"  required> 
             </div>
 
 
             <div class="col-md-6">
               <label for="district">District</label>
-              <input class="form-control" type="text" name="district" id="example-text-input" placeholder="Please enter your local district" value="<?php echo $edit ? $user['district'] : ''; ?>" >
+              <input class="form-control" type="text" name="district" id="district" placeholder="Please enter your local district" value="<?php echo $user['district']; ?>" required>
             </div>
 
 
             <div class="col-md-12">
               <label for="provice">Province</label>
                 <div style="width:98%">
-                <select name="provice" size="1" class="form-control unit" value="<?php echo $edit ? $user['provice'] : ''; ?>" value="<?php echo $edit ? $user['provice'] : ''; ?>" required>
-                        <option selected>Choose</option>
+                <select name="provice" size="1" class="form-control unit" value="<?php echo  $user['provice'] ; ?>" value="<?php echo $edit ? $user['provice'] : ''; ?>" required>
+                        <option selected>Please Choose</option>
                         <option>Gauteng</option>
-                        <option>Free State</option>                        
+                        <option>Free State</option>     
                         <option>North West</option>
                         <option>Mpumalanga</option>
                         <option>Limpopo</option>
@@ -118,39 +93,31 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
-              <label for="alt_person">Alternative Contact Person</label>
-              <input type="text" class="form-control" id="alt_person" name="alt_person" placeholder="Please enter alternative contact person" value="<?php echo $edit ? $user['alt_person'] : ''; ?>" required>
-            </div>
 
-
-            <div class="col-md-6">
-              <label for="alt_number">Alternative Contact Number</label>
-              <input type="text" class="form-control" id="alt_number" name="alt_number" placeholder="Please enter alternative contact number" value="<?php echo $edit ? $user['alt_number'] : ''; ?>" required>
-            </div>                                                                          
-            <div class="col-md-6">
-              <label for="password">Password</label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Please enter your password" value="<?php echo $edit ? $user['password'] : ''; ?>" required> 
-                  <small id="password" class="form-text text-muted">Your password has to be 8 characters and more.
-            </small> 
-            </div>            
-
-            <div class="col-md-6">
-              <label for="cpassword">Repeat password</label>
-                <input type="password" class="form-control" name="cpassword" id="exampleInputPassword2" placeholder="Please enter your password again" value="<?php echo $edit ? $user['cpassword'] : ''; ?>" required> 
-            </div>
+          <div class="col-md-6">
+            <label for="alt_person">Alternative Contact Person</label>
+            <input type="text" class="form-control" id="alt_person" name="alt_person" placeholder="Please enter alternative contact person" value="<?php echo $user['alt_person']; ?>" required>
           </div>
 
-<!-- Comment out until the functionality has been completed.
 
+          <div class="col-md-6">
+            <label for="alt_number">Alternative Contact Number</label>
+            <input type="text" class="form-control" id="alt_number" name="alt_number" placeholder="Please enter alternative contact number" value="<?php echo $user['alt_number'] ; ?>" required>
+          </div>    
+
+            <div class="form-group col-md-12" align="center">
+              <h5><br></h5>
+            </div>                    
+<!-- Comment out until the functionality has been completed. -->
+          
           <div class="row">
             <div class="col-sm-12" align="center">
               <p> 
-                <input type="submit" value="Update" name="submit" class="btn btn-primary"> 
+                <input type="submit" value="update" name="update" class="btn btn-primary"> 
               </p>
             </div>                     
           </div>
--->
+
 
       </div>
 </fieldset>

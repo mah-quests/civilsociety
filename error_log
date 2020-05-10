@@ -1,2 +1,0 @@
-[29-Apr-2020 11:32:57 UTC] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'thusacjq_covid'@'localhost' to database 'thusacjq_covid' in /home/thusacjq/public_html/connection/connect.php on line 10
-[02-May-2020 20:59:11 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'resturant01'@'localhost' (using password: YES) in /home/thusacjq/public_html/dev/connection/connect.php on line 10

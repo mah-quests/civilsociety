@@ -6,6 +6,6 @@ session_start();
 
 // sending query
 mysqli_query($db,"DELETE FROM users_orders WHERE o_id = '".$_GET['order_del']."'"); // deletig records on the bases of ID
-header("location:your_requests.php");  //once deleted success redireted back to current page
+header("location:viewYourRequests.php");  //once deleted success redireted back to current page
 
 ?>
