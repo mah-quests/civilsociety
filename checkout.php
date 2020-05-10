@@ -40,7 +40,7 @@ include_once 'product-action.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>COVID-19 South African coronavirus news and information for civil society</title>
+    <title>Thusa Sechaba Web Application</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -76,7 +76,7 @@ include_once 'product-action.php';
                                         </a> 
                                     </li>
                                     <li class="nav-item"> 
-                                        <a class="nav-link active" href="local_partners.php">Partners 
+                                        <a class="nav-link active" href="doListPartners.php">Partners 
                                             <span class="sr-only">
                                             </span>
                                         </a> 
@@ -97,7 +97,7 @@ include_once 'product-action.php';
                         else
                             {
                             echo  '<li class="nav-item">
-                                        <a href="your_requests.php" class="nav-link active"> Your Requests</a> </li>';
+                                        <a href="viewYourRequests.php" class="nav-link active"> Your Requests</a> </li>';
                             echo  '<li class="nav-item">
                                         <a href="logout.php" class="nav-link active"> Logout
                                         </a> 
@@ -120,7 +120,7 @@ include_once 'product-action.php';
                       
                         <li class="col-xs-12 col-sm-4 link-item">
                             <span>1</span>
-                                <a href="local_partners.php"> Choose Nearest Network Partner</a>
+                                <a href="doListPartners.php"> Choose Nearest Network Partner</a>
                         </li>
                         <li class="col-xs-12 col-sm-4 link-item active">
                             <span>2</span>

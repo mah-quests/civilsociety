@@ -187,10 +187,10 @@ and also iPads specifically.
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CCC Partners</a>
                                         <div class="dropdown-menu">
-                                            <a href="local_partners.php" class="dropdown-item">
+                                            <a href="doListPartners.php" class="dropdown-item">
                                                 List of CCC Partners 
                                             </a>        
-                                            <a href="partner_registration.php" class="dropdown-item">
+                                            <a href="doPartnerReg.php" class="dropdown-item">
                                                 Register User
                                             </a>
                                     <?php
@@ -206,10 +206,10 @@ and also iPads specifically.
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Community Based <br>Organisation</a>
                                         <div class="dropdown-menu">
-                                            <a href="npo_list.php" class="dropdown-item">
+                                            <a href="doListCSO.php" class="dropdown-item">
                                                 List of CCC Partners 
                                             </a>         
-                                            <a href="npo_registration.php" class="dropdown-item">
+                                            <a href="doCSOReg.php" class="dropdown-item">
                                                 Register User
                                             </a>
                                     <?php
@@ -231,7 +231,7 @@ and also iPads specifically.
                                         </a> 
                                     </li>
                                     <li class="nav-item">
-                                        <a href="household_registration.php" class="nav-link active"> Community Member Registration
+                                        <a href="doCommunityReg.php" class="nav-link active"> Community Member Registration
                                         </a> 
                                     </li>';
                             }
@@ -242,7 +242,7 @@ and also iPads specifically.
                             echo '<li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User </a>
                                         <div class="dropdown-menu">
-                                            <a href="your_requests.php" class="dropdown-item">
+                                            <a href="viewYourRequests.php" class="dropdown-item">
                                                 My Requests 
                                             </a>
                                             <a href="my_profile.php" class="dropdown-item">
@@ -272,7 +272,7 @@ and also iPads specifically.
                       
                         <li class="col-xs-12 col-sm-4 link-item">
                             <span>1</span>
-                                <a href="local_partners.php"> Choose Nearest Network Partner</a>
+                                <a href="doListPartners.php"> Choose Nearest Network Partner</a>
                         </li>
                         <li class="col-xs-12 col-sm-4 link-item active">
                             <span>2</span>

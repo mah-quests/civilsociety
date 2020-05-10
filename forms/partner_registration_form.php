@@ -4,8 +4,7 @@
               <label for="organization_structure">Partner Network</label>
                 <div style="width:98%">
                 <select name="organization_structure" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['organization_structure'] : ''; ?>" required>
-                        <option selected>Choose</option>
-                        <option>DPSA</option>
+                        <option selected>DPSA</option>
                         <option>WIEGO</option>
                         <option>SANACO</option>
                         <option>SANCO</option>
@@ -48,9 +47,9 @@
               <label for="sex">Sex</label>
                 <div style="width:98%">
                 <select name="sex" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['sex'] : ''; ?>" required>
-                        <option selected>Choose</option>
-                        <option>Male</option>
+                        <option selected>Male</option>
                         <option>Female</option>
+                        <option>Intersex</option>
                         <option>Other</option>
                 </select>
                 </div>
@@ -73,12 +72,12 @@
               <label for="nationality">Nationality</label>
                 <div style="width:98%">
                 <select name="nationality" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['nationality'] : ''; ?>" required>
-                        <option selected>Choose</option>
-                        <option>South Africa</option>
+                        <option selected>South Africa</option>
                         <option>Other</option>
                 </select>
                 </div>
             </div>
+
 
             <div class="col-md-12">
               <label for="address">Home Address</label>
@@ -86,35 +85,30 @@
                 </textarea>
             </div>
 
-            <div class="col-md-6">
-              <label for="municipality">Municipality</label>
-                <input class="form-control" type="text" name="municipality" id="municipality" placeholder="Please enter your local municipality" value="<?php echo $edit ? $user_id['municipality'] : ''; ?>"  required> 
-            </div>
 
+            <div class="col-md-12">
+            <label for="municipality"><br>Location Selection<br></label>
+            <div style="width:98%">
+                  
+              <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])">
+                <option selected>Select Province</option>
+                  </select> &nbsp;
 
-            <div class="col-md-6">
-              <label for="district">District</label>
-              <input class="form-control" type="text" name="district" id="district" placeholder="Please enter your local district" value="<?php echo $edit ? $user_id['district'] : ''; ?>" >
+              <select name='List2' id="List2" onchange="fillSelect(this.value,this.form['List3'])" class="DDlist">
+                <option selected>Select District</option>
+                  </select> &nbsp;
+
+              <select name='List3' id="List3" onchange="fillSelect(this.value,this.form['List4'])" class="DDlist">
+                <option selected >Choose Manucipality</option>
+                  </select> &nbsp;
+              </div>
             </div>
 
 
             <div class="col-md-12">
-              <label for="provice">Province</label>
-                <div style="width:98%">
-                <select name="provice" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['provice'] : ''; ?>" value="<?php echo $edit ? $user_id['provice'] : ''; ?>" required>
-                        <option selected>Choose</option>
-                        <option>Gauteng</option>
-                        <option>Free State</option>                        
-                        <option>North West</option>
-                        <option>Mpumalanga</option>
-                        <option>Limpopo</option>
-                        <option>KwaZulu Natal</option>
-                        <option>Northern Cape</option>
-                        <option>Eastern Cape</option>
-                        <option>Western Cape</option>
-                </select>
-                </div>
+              <br><br>
             </div>
+
 
             <div class="col-md-6">
               <label for="alt_person">Alternative Contact Person</label>
@@ -125,13 +119,15 @@
             <div class="col-md-6">
               <label for="alt_number">Alternative Contact Number</label>
               <input type="text" class="form-control" id="alt_number" name="alt_number" placeholder="Please enter alternative contact number" value="<?php echo $edit ? $user_id['alt_number'] : ''; ?>" required>
-            </div>                                                                          
+            </div>                                                                      
+
             <div class="col-md-6">
               <label for="password">Password</label>
                   <input type="password" class="form-control" name="password" id="password" placeholder="Please enter your password" value="<?php echo $edit ? $user_id['password'] : ''; ?>" required> 
                   <small id="password" class="form-text text-muted">Your password has to be 8 characters and more.
             </small> 
             </div>            
+
 
             <div class="col-md-6">
               <label for="cpassword">Repeat password</label>

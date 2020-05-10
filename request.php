@@ -10,7 +10,7 @@ include_once 'header_app.php';
                       
                         <li class="col-xs-12 col-sm-4 link-item">
                             <span>1</span>
-                                <a href="local_partners.php"> 
+                                <a href="doListPartners.php"> 
                                     Choose Nearest Network Partner
                                 </a>
                         </li>

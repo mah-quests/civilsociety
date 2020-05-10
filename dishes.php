@@ -50,7 +50,7 @@ include_once 'product-action.php'; //including controller
                                         </a> 
                                     </li>
                                     <li class="nav-item"> 
-                                        <a class="nav-link active" href="local_partners.php">Partners 
+                                        <a class="nav-link active" href="doListPartners.php">Partners 
                                             <span class="sr-only">
                                             </span>
                                         </a> 
@@ -71,7 +71,7 @@ include_once 'product-action.php'; //including controller
                         else
                             {
                             echo  '<li class="nav-item">
-                                        <a href="your_requests.php" class="nav-link active"> Your Requests</a> </li>';
+                                        <a href="viewYourRequests.php" class="nav-link active"> Your Requests</a> </li>';
                             echo  '<li class="nav-item">
                                         <a href="logout.php" class="nav-link active"> Logout
                                         </a> 
