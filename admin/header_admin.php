@@ -13,9 +13,16 @@
     <title>Thusa Sechaba Administration</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/animsition.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">    
     <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel='stylesheet' href='../assets/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='../assets/css/animate.min.css'>  
+
+
     <style>
         
     .footer {
@@ -48,7 +55,7 @@
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                            <img alt="LOGO" width="147" height="88" src="../images/color-covid-logo.png" alt="Thusa Sechaba Web App">
+                            <img alt="LOGO" width="200" height="120" src="../images/color-covid-logo.png" alt="Thusa Sechaba Web App" align="center">
                         </span>
                     </a>
                 </div>
@@ -114,16 +121,21 @@
                             <br><br><br><br>
                         </li>
                         <li class="nav-label">
-                            <br>Home
+                            <br>
                             <br>
                         </li>
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">
                                 <li>
+                                    <a href="showDashHouseholdStats.php">
+                                    Household Stats Overview
+                                    </a>
+                                </li>                                
+                                <li>
                                     <a href="dashboard.php">
                                     Agents & Community<br> Representatives
                                     </a>
-                                </li>                                 
+                                </li>                            
                                 <li>
                                     <a href="dashboard.php">
                                     App Usage

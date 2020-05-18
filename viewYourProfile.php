@@ -16,9 +16,9 @@ if(isset($_POST['update']))   // if button is submit
             sex = '".$_POST['sex']."', 
             nationality = '".$_POST['nationality']."', 
             address = '".$_POST['address']."', 
-            municipality = '".$_POST['municipality']."',
-            district = '".$_POST['district']."', 
-            provice = '".$_POST['provice']."', 
+            municipality = '".$_POST['List3']."',
+            district = '".$_POST['List2']."', 
+            provice = '".$_POST['List1']."', 
             alt_person = '".$_POST['alt_person']."', 
             alt_number = '".$_POST['alt_number']."'
                                            
@@ -244,7 +244,7 @@ echo '<div class="tab-content">
           </div>
 
           <div class="col-md-6">
-              <label for="phone">Celphone Number
+              <label for="phone">Cellphone Number
               </label>
                 <input type="text" name="phone" value="'.$user['phone'].'" class="form-control" readonly>
           </div>

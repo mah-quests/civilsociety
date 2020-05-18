@@ -136,21 +136,24 @@ session_start();
 var categories = [];
   categories["startList"] = ["Western Cape","Eastern Cape",'Northern Cape','North West','Free State','Kwazulu Natal','Gauteng','Limpopo','Mpumlanga'];        // Level 1  (True|False is 1 level only)
 
-categories["Western Cape"] = ["Cape Winelands District Municipality","Central Karoo District Municipality","Garden Route District Municipality","Overberg District Municipality","West Coast District Municipality"];                         // Level 2
-  categories["Cape Winelands District Municipality"] = ["Witzenberg","Drakenstein","Stellenbosch","Breede Valley","Langeberg"];                     // Level 3        //  Level 4                         //  Level 4
+categories["Western Cape"] = ["Cape Winelands District Municipality","Central Karoo District Municipality","Garden Route District Municipality","Overberg District Municipality","West Coast District Municipality","City of Cape Town Metropolitan"];                         
+// Level 2
+  categories["Cape Winelands District Municipality"] = ["Witzenberg","Drakenstein","Stellenbosch","Breede Valley","Langeberg"];
   categories["Central Karoo District Municipality"] = ["Laingsburg","Prince Albert","Beaufort West"];
   categories["Garden Route District Municipality"] = ["Kannaland","Hessequa","Mossel Bay","George","Oudtshoorn","Bitou","Knysna"];
-  categories["Overberg District Municipality"] = ["Theewaterskloof","Overstrand Cape","Agulhas","Swellendam"];                         // Level 3        //  Level 4                         //  Level 4
-  categories["West Coast District Municipality"] = ["Matzikama","Cederberg","Bergrivier","Saldanha Bay","Swartland"];   
+  categories["Overberg District Municipality"] = ["Theewaterskloof","Overstrand Cape","Agulhas","Swellendam"];
+  categories["West Coast District Municipality"] = ["Matzikama","Cederberg","Bergrivier","Saldanha Bay","Swartland"];
+  categories["City of Cape Town Metropolitan"] = ["City of Cape Town"]; 
     
 
-categories["Eastern Cape"] = ["Alfred Nzo District Municipality","Amathole District Municipality","Chris Hani District Municipality","Joe Gqabi District Municipality","OR Tambo District Municipality","Sarah Baartman District Municipality"];      // Level 2
+categories["Eastern Cape"] = ["Alfred Nzo District Municipality","Amathole District Municipality","Chris Hani District Municipality","Joe Gqabi District Municipality","OR Tambo District Municipality","Sarah Baartman District Municipality", "Buffalo City Metropolitan"];      // Level 2
   categories["Alfred Nzo District Municipality"] = ["Matatiele","Mbizana","Ntabankulu","Umzimvubu"];  // Level 3 only
   categories["Amathole District Municipality"] = ["Mnquma","Mbhashe","Amahlathi","Ngqushwa","Great Kei","Raymond Mhlaba"];                    // Level 3 only
   categories["Chris Hani District Municipality"] = ["Intsika Yethu","Enoch Mgijima","Engcobo","Emalahleni","Inxuba Yethemba","Sakhisizwe"];
   categories["Joe Gqabi District Municipality"] = ["Elundini","Senqu","Walter Sisulu"];  // Level 3 only
   categories["OR Tambo District Municipality"] = ["King Sabata Dalindyebo Local Municipality","Nyandeni","Ngquza Hill","Mhlontlo","Port St Johns"];                    // Level 3 only
   categories["Sarah Baartman District Municipality"] = ["Blue Crane Route","Dr Beyers Naudé","Kou-Kamma","Kouga","Makana","Ndlambe","Sunday's River Valley"];
+  categories["Buffalo City Metropolitan"] = ["Buffalo City"];  
 
   
 categories["Northern Cape"] = ["Frances Baard District Municipality","John Taolo Gaetsewe District Municipality","Namakwa District Municipality","Pixley ka Seme District Municipality","ZF Mgcawu District Municipality"];
@@ -173,7 +176,7 @@ categories["Free State"] = ["Fezile Dabi District","Lejweleputswa District","Tha
   categories["Thabo Mofutsanyana District"] = ["Setsoto","Dihlabeng","Nketoana","Maluti-a-Phofung","Phumelela","Mantsopa"];  
   categories["Xhariep District"] = ["Letsemeng","Kopanong","Mohokare","Naledi"];  
 
-categories["Kwazulu Natal"] = ["Amajuba District Municipality","Harry Gwala District Municipality","iLembe District Municipality","King Cetshwayo District Municipality ","Ugu District Municipality","uMgungundlovu District Municipality","uMkhanyakude District Municipality","uMzinyathi District Municipality","uThukela District Municipality","Zululand District Municipality"];
+categories["Kwazulu Natal"] = ["Amajuba District Municipality","Harry Gwala District Municipality","iLembe District Municipality","King Cetshwayo District Municipality ","Ugu District Municipality","uMgungundlovu District Municipality","uMkhanyakude District Municipality","uMzinyathi District Municipality","uThukela District Municipality","Zululand District Municipality","eThekwini Metropolitan"];
   categories["Amajuba District Municipality"] = ["Dannhauser","eMadlangeni","Newcastle"];           
   categories["Harry Gwala District Municipality"] = ["Dr Nkosazana Dlamini-Zuma","Greater Kokstad","Ubuhlebezwe","Umzimkhulu"];     
   categories["iLembe District Municipality"] = ["KwaDukuza","Mandeni","Maphumulo","Ndwedwe"];           
@@ -182,7 +185,8 @@ categories["Kwazulu Natal"] = ["Amajuba District Municipality","Harry Gwala Dist
   categories["uMkhanyakude District Municipality"] = ["Big Five Hlabisa","Jozini","Mtubatuba","uMhlabuyalingana"];    
   categories["uMzinyathi District Municipality"] = ["Endumeni","Msinga","Nquthu","Umvoti"];            
   categories["uThukela District Municipality"] = ["Alfred Duma","Inkosi Langalibalele","Okhahlamba"];         
-  categories["Zululand District Municipality"] = ["Abaqulusi","eDumbe","Nongoma","Ulundi","uPhongolo"];      
+  categories["Zululand District Municipality"] = ["Abaqulusi","eDumbe","Nongoma","Ulundi","uPhongolo"];   
+categories["eThekwini Metropolitan"] = ["eThekwini Metropolitan Municipality"];      
 
 categories["Gauteng"] = ["City of Johannesburg Metropolitan Municipality","City of Tshwane Metropolitan Municipality","Ekurhuleni Metropolitan Municipality","Sedibeng District Municipality","West Rand District Municipality"];
   categories["City of Johannesburg Metropolitan Municipality"] = ["Johannesburg"];         

@@ -4,6 +4,7 @@ include_once 'header_admin.php';
 
 <?php
 include("../connection/connect.php");
+include("../connection/dataCollection.php");
 error_reporting(0);
 session_start();
 if(empty($_SESSION["adm_id"]))
@@ -26,7 +27,6 @@ else
             <!-- Start Page Content -->
     <div class="row">
                    
-
         <div class="col-md-3" style="color: #27D094">
             <div class="card p-30">
                 <div class="media">
@@ -37,10 +37,10 @@ else
                         <a href="doShowAgents.php">
                         <h2 style="color: #27D094">
                             <?php $sql="select * from users";
-									$result=mysqli_query($db,$sql); 
-										$rws=mysqli_num_rows($result);
-										
-									echo $rws;?>
+                                    $result=mysqli_query($db,$sql); 
+                                        $rws=mysqli_num_rows($result);
+                                        
+                                    echo $rws;?>
                         </h2>
                         <p class="m-b-0" style="color: #27D094"># of registered <br>agents
                         </p>
@@ -49,8 +49,8 @@ else
                 </div>
             </div>
         </div>
-		
-		 <div class="col-md-3" style="color: #FF9149">
+        
+         <div class="col-md-3" style="color: #FF9149">
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle">
@@ -58,18 +58,16 @@ else
                     </div>
                     <div class="media-body media-text-right">
                         <a href="doShowRequests.php">
-                        <h2 style="color: #FF9149"><?php $sql="select * from users_orders";
-									$result=mysqli_query($db,$sql); 
-										$rws=mysqli_num_rows($result);
-										
-							echo $rws;?></h2>
+                        <h2 style="color: #FF9149">
+                            <?php echo $totalResponses;?>
+                        </h2>
                         <p class="m-b-0" style="color: #FF9149"># of requests <br>made</p>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-		
+        
         <div class="col-md-3" style="color: #FF4962">
             <div class="card p-30">
                 <div class="media">
@@ -79,19 +77,19 @@ else
                     <div class="media-body media-text-right">
                         <a href="doShowActiveAgents.php">
                         <h2 style="color: #FF4962"><?php $sql="SELECT COUNT(DISTINCT u_id) as active FROM users_orders";
-									$result=mysqli_query($db,$sql); 
-										$rws=mysqli_num_rows($result);
+                                    $result=mysqli_query($db,$sql); 
+                                        $rws=mysqli_num_rows($result);
                                         $data=mysqli_fetch_assoc($result);
-										
-										echo $data['active'];?></h2>
+                                        
+                                        echo $data['active'];?></h2>
                         <p class="m-b-0" style="color: #FF4962"># of active <br>agents currently</p>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-		
-		<div class="col-md-3" style="color: #22A0F2">
+        
+        <div class="col-md-3" style="color: #22A0F2">
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle"> 
@@ -99,17 +97,17 @@ else
                     </div>
                     <div class="media-body media-text-right">
                         <h2 style="color: #22A0F2"><?php $sql="SELECT COUNT(DISTINCT organization_name) as active FROM `users`";
-									$result=mysqli_query($db,$sql); 
+                                    $result=mysqli_query($db,$sql); 
                                         $rws=mysqli_num_rows($result);
                                         $data=mysqli_fetch_assoc($result);
-										
-										echo $data['active'];?></h2>
+                                        
+                                        echo $data['active'];?></h2>
                         <p class="m-b-0" style="color: #22A0F2"># of active <br>organizations</p>
                     </div>
                 </div>
             </div>
         </div>
-	</div>
+    </div>
 
 
 
@@ -123,11 +121,7 @@ else
                 <br><br>
               <div class="card-body text-center">
                 <h1 class="display-4" style="color: green">
-                    <?php $sql="select * from users_orders";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>
+                    <?php echo $totalResponses;?>
                 </h1>
                 <span style="color: green"># Total Surveys</span>
               </div>
@@ -136,11 +130,7 @@ else
                 <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5">
-                    <?php $sql="select * from request_by_partner where provice='Gauteng' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>
+                    <?php echo $totalGauteng;?>
                 </h1>
                 <span># in Gauteng</span>
               </div>
@@ -149,11 +139,7 @@ else
                 <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5">
-                    <?php $sql="select * from request_by_partner where provice='Free State' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>
+                    <?php echo $totalFreeState;?>
                 </h1>
                 <span># in Free State</span>
               </div>
@@ -162,11 +148,7 @@ else
                 <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5" > 
-                    <?php $sql="select * from request_by_partner where provice='North West' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>                    
+                    <?php echo $totalNorthWest;?>                   
                 </h1>
                 <span># in North West</span>
               </div>
@@ -184,11 +166,7 @@ else
             <br>
               <div class="card-body text-center">
                 <h1 class="display-5"> 
-                    <?php $sql=" select * from request_by_partner where provice='Mpumalanga' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>                     
+                    <?php echo $totalMpumalanga;?>                     
                 </h1>
                 <span># in Mpumalanga</span>
               </div>
@@ -197,11 +175,7 @@ else
             <br>               
               <div class="card-body text-center">
                 <h1 class="display-5"> 
-                    <?php $sql=" select * from request_by_partner where provice='Limpopo' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>                      
+                    <?php echo $totalLimpopo;?>                      
                 </h1>
                 <span># in Limpopo</span>
               </div>
@@ -210,11 +184,7 @@ else
             <br>
               <div class="card-body text-center">
                 <h1 class="display-5"> 
-                    <?php $sql=" select * from request_by_partner where provice='KwaZulu Natal' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>
+                    <?php echo $totalKZN;?>
                 </h1>
                 <span># in KwaZulu Natal</span>
               </div>
@@ -231,11 +201,7 @@ else
             <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5"> 
-                    <?php $sql=" select * from request_by_partner where provice='Northern Cape' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>
+                    <?php echo $totalNorthernCape;?>
                 </h1>
                 <span># in Northern Cape</span>
               </div>
@@ -244,11 +210,7 @@ else
             <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5"> 
-                    <?php $sql=" select * from request_by_partner where provice='Eastern Cape' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>                    
+                    <?php echo $totalEasternCape;?>                   
                 </h1>
                 <span># in Eastern Cape</span>
               </div>
@@ -257,11 +219,7 @@ else
             <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5"> 
-                    <?php $sql=" select * from request_by_partner where provice='Western Cape' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>                    
+                    <?php echo $totalWesternCape;?>                   
                 </h1>
                 <span># in Western Cape</span>
               </div>
@@ -270,11 +228,7 @@ else
             <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5" style="color: red"> 
-                    <?php $sql=" select * from request_by_partner where provice='Choose' ";
-                            $result=mysqli_query($db,$sql); 
-                            $rws=mysqli_num_rows($result);
-                                        
-                    echo $rws;?>                    
+                    <?php echo $totalUnlocated;?>                    
                 </h1>
                 <span style="color: red"># Unallocated</span>
               </div>
@@ -290,11 +244,11 @@ else
         <!-- End PAge Content -->
         </div>
     <!-- End Container fluid  -->  
-    </div>          		
+    </div>                  
 
 <?php
 }
 
 include_once 'footer.php';
 
-?>					
+?>                  

@@ -22,6 +22,9 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         !empty($_POST['nonconfirm_gender']) &&                        
         !empty($_POST['queer_gender']) &&
         !empty($_POST['other_gender']) &&
+        !empty($_POST['race']) &&
+        !empty($_POST['other_race']) &&
+        !empty($_POST['age']) &&        
         !empty($_POST['address']) &&
         !empty($_POST['List1']) &&    //Province
         !empty($_POST['List2']) &&    //District      
@@ -29,7 +32,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         !empty($_POST['alt_person']) &&
         !empty($_POST['alt_number']) &&
 
-        
+
         !empty($_POST['settlement']) &&
         !empty($_POST['people_in_house']) &&
         !empty($_POST['males_in_house']) &&
@@ -57,13 +60,23 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         !empty($_POST['employment_lost']) &&
         !empty($_POST['still_receiving_income']) &&
         !empty($_POST['social_grants']) &&
+        !empty($_POST['oldperson_grant']) &&        
+        !empty($_POST['disability_grant']) &&        
+        !empty($_POST['caredependancy_grant']) &&        
+        !empty($_POST['warveteran_grant']) &&        
+        !empty($_POST['childsupport_grant']) &&        
+        !empty($_POST['fosterchild_grant']) &&        
 
 
         !empty($_POST['any_kind_abuse']) &&
         !empty($_POST['lawEnforcementCond']) &&
+        !empty($_POST['lawEnforcementType']) &&
         !empty($_POST['communityMemberCond']) &&
+        !empty($_POST['communityMemberType']) &&
         !empty($_POST['healthCareCheck']) &&
-        !empty($_POST['domesticCond']) &&!
+        !empty($_POST['healthCareType']) &&
+        !empty($_POST['domesticCond']) &&
+        !empty($_POST['domesticType']) &&
 
 
         !empty($_POST['number_disabled']) &&
@@ -88,6 +101,8 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         !empty($_POST['soreThroatConditionCond']) &&
         !empty($_POST['diarrhoeaCondition']) && 
         !empty($_POST['tirednessCondition']) &&                 
+        !empty($_POST['shortBreathConditionCond']) &&                 
+        !empty($_POST['musclePainConditionCond']) &&                
         !empty($_POST['infoCovid']) &&
         !empty($_POST['whatsappp_subscribe']) && 
 
@@ -98,7 +113,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
     {
 
       //cheching username & email if already present
-      $message = "Something is wrong with the inputs. Please make sure  fields required not filled! ";
+      $message = "Something is wrong with the inputs. Please make sure all required fields are filled in correctly! ";
 
     }
   else
@@ -116,9 +131,9 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 
 //inserting values into 'request_by_partner' db
  $mql = "INSERT INTO request_by_partner
-  (firstname, lastname, sex, other_sex, phone, address, municipality, district, provice, alt_person, alt_number, identification, unique_code,  hetero_sex, homo_sex, bi_sex, other_sexuality, cis_gender, trans_gender, nonconfirm_gender, queer_gender, other_gender) 
+  (firstname, lastname, sex, other_sex, phone, address, municipality, district, provice, alt_person, alt_number, identification, unique_code,  hetero_sex, homo_sex, bi_sex, other_sexuality, cis_gender, trans_gender, nonconfirm_gender, queer_gender, other_gender, age, race, other_race) 
   VALUES
-  ('".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['sex']."','".$_POST['other_sex']."','".$_POST['phone']."','".$_POST['address']."','".$_POST['List3']."','".$_POST['List2']."','".$_POST['List1']."','".$_POST['alt_person']."','".$_POST['alt_number']."','".$_POST['identification']."','".$reference."', '".$_POST['hetero_sex']."', '".$_POST['homo_sex']."' ,'".$_POST['bi_sex']."','".$_POST['other_sexuality']."','".$_POST['cis_gender']."','".$_POST['trans_gender']."','".$_POST['nonconfirm_gender']."','".$_POST['queer_gender']."','".$_POST['other_gender']."' )";
+  ('".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['sex']."', '".$_POST['other_sex']."', '".$_POST['phone']."', '".$_POST['address']."', '".$_POST['List3']."', '".$_POST['List2']."', '".$_POST['List1']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', '".$_POST['identification']."', '".$reference."', '".$_POST['hetero_sex']."', '".$_POST['homo_sex']."', '".$_POST['bi_sex']."', '".$_POST['other_sexuality']."', '".$_POST['cis_gender']."', '".$_POST['trans_gender']."', '".$_POST['nonconfirm_gender']."', '".$_POST['queer_gender']."', '".$_POST['other_gender']."' , '".$_POST['age']."' , '".$_POST['race']."', '".$_POST['other_race']."' )";
 
 
 //inserting values into 'request_people' db
@@ -130,16 +145,16 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 
 //inserting values into 'request_employment_stats' db
  $mql_emp = "INSERT INTO request_employment_stats
- (unique_code, number_people_employed, employment_lost, still_receiving_income, social_grants) 
+ (unique_code, number_people_employed, employment_lost, still_receiving_income, social_grants, oldperson_grant, disability_grant, caredependancy_grant, warveteran_grant, childsupport_grant, fosterchild_grant) 
  VALUES
- ('".$reference."', '".$_POST['number_people_employed']."', '".$_POST['employment_lost']."', '".$_POST['still_receiving_income']."', '".$_POST['social_grants']."')";
+ ('".$reference."', '".$_POST['number_people_employed']."', '".$_POST['employment_lost']."', '".$_POST['still_receiving_income']."', '".$_POST['social_grants']."' , '".$_POST['oldperson_grant']."', '".$_POST['disability_grant']."', '".$_POST['caredependancy_grant']."', '".$_POST['warveteran_grant']."', '".$_POST['childsupport_grant']."', '".$_POST['fosterchild_grant']."')";
 
 
 //inserting values into 'request_violations' db
 $mql_viol = "INSERT INTO request_violations
-(unique_code, any_kind_abuse, lawEnforcementCond, communityMemberCond, healthCareCheck, domesticCond) 
+(unique_code, any_kind_abuse, lawEnforcementCond, lawEnforcementType, communityMemberCond, communityMemberType, healthCareCheck, healthCareType, domesticCond, domesticType) 
  VALUES
-('".$reference."', '".$_POST['any_kind_abuse']."', '".$_POST['lawEnforcementCond']."', '".$_POST['communityMemberCond']."', '".$_POST['healthCareCheck']."', '".$_POST['domesticCond']."')";
+('".$reference."', '".$_POST['any_kind_abuse']."', '".$_POST['lawEnforcementCond']."', '".$_POST['lawEnforcementType']."', '".$_POST['communityMemberCond']."' , '".$_POST['communityMemberType']."' , '".$_POST['healthCareCheck']."' , '".$_POST['healthCareType']."' , '".$_POST['domesticCond']."', '".$_POST['domesticType']."')";
 
 
 //inserting values into 'request_disability' db
@@ -151,15 +166,15 @@ $mql_disable = "INSERT INTO request_disability
 
 //inserting values into request_medication db
  $mql_med_01 = "INSERT INTO request_medication_01
- (unique_code, chronic_medication, patient1_fullnames, patient1_id, patient1_facility, patient2_fullnames, patient2_id, patient2_facility, no_pregnant_people) 
+ (unique_code, chronic_medication, patient1_fullnames, patient1_id, patient1_facility, patient2_fullnames, patient2_id, patient2_facility, patient3_fullnames, patient3_id, patient3_facility, no_pregnant_people) 
  VALUES
- ('".$reference."', '".$_POST['chronic_medication']."', '".$_POST['patient1_fullnames']."', '".$_POST['patient1_id']."', '".$_POST['patient1_facility']."', '".$_POST['patient2_fullnames']."', '".$_POST['patient2_id']."', '".$_POST['patient2_facility']."', '".$_POST['no_pregnant_people']."')";
+ ('".$reference."', '".$_POST['chronic_medication']."', '".$_POST['patient1_fullnames']."', '".$_POST['patient1_id']."', '".$_POST['patient1_facility']."', '".$_POST['patient2_fullnames']."', '".$_POST['patient2_id']."', '".$_POST['patient2_facility']."', '".$_POST['patient3_fullnames']."', '".$_POST['patient3_id']."', '".$_POST['patient3_facility']."', '".$_POST['no_pregnant_people']."')";
 
 
  $mql_med_02 = "INSERT INTO request_medication_02
- (unique_code, essential_services_worker, healthCareCondition, disasterCondition, retailCondition, emegencyCondition, transportCondition, otherCondition, highTempCond, dryCoughCond, soreThroatConditionCond, diarrhoeaCondition, tirednessCondition, infoCovid, whatsappp_subscribe) 
+ (unique_code, essential_services_worker, healthCareCondition, disasterCondition, retailCondition, emegencyCondition, transportCondition, otherCondition, highTempCond, dryCoughCond, soreThroatConditionCond, diarrhoeaCondition, tirednessCondition, shortBreathConditionCond, musclePainConditionCond, infoCovid, whatsappp_subscribe) 
  VALUES
- ('".$reference."', '".$_POST['essential_services_worker']."', '".$_POST['healthCareCondition']."' , '".$_POST['disasterCondition']."',  '".$_POST['retailCondition']."', '".$_POST['emegencyCondition']."', '".$_POST['transportCondition']."', '".$_POST['otherCondition']."', '".$_POST['highTempCond']."', '".$_POST['dryCoughCond']."' , '".$_POST['soreThroatConditionCond']."', '".$_POST['diarrhoeaCondition']."', '".$_POST['tirednessCondition']."', '".$_POST['infoCovid']."', '".$_POST['whatsappp_subscribe']."')";
+ ('".$reference."', '".$_POST['essential_services_worker']."', '".$_POST['healthCareCondition']."' , '".$_POST['disasterCondition']."',  '".$_POST['retailCondition']."', '".$_POST['emegencyCondition']."', '".$_POST['transportCondition']."', '".$_POST['otherCondition']."', '".$_POST['highTempCond']."', '".$_POST['dryCoughCond']."' , '".$_POST['soreThroatConditionCond']."', '".$_POST['diarrhoeaCondition']."', '".$_POST['tirednessCondition']."',  '".$_POST['shortBreathConditionCond']."', '".$_POST['musclePainConditionCond']."', '".$_POST['infoCovid']."', '".$_POST['whatsappp_subscribe']."')";
 
 
  $mql_chart = "INSERT INTO users_orders
@@ -176,7 +191,7 @@ $mql_disable = "INSERT INTO request_disability
   mysqli_query($db, $mql_med_02);
   mysqli_query($db, $mql_chart);
 
-    $success = "Form submitted successfully! <p>You will be redirected in <span id='counter'>5</span> second(s).</p>
+    $success = "Application submitted successfully! <p>You will be redirected in <span id='counter'>5</span> second(s).</p>
                             <script type='text/javascript'>
                             function countdown() {
                               var i = document.getElementById('counter');

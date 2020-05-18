@@ -26,7 +26,7 @@
             </div> 
 
             <div class="form-group col-sm-6">
-              <label for="exampleCelphone">Celphone number</label>
+              <label for="exampleCelphone">Cellphone number</label>
                 <input class="form-control" type="text" name="phone" id="example-tel-input-3" placeholder="Phone" required> 
                 <small id="emailHelp" class="form-text text-muted">You will be contacted using this celphone number. Must be unique!
                 </small> 
