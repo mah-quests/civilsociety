@@ -11,6 +11,9 @@
     <!-- Bootstrap tether Core JavaScript -->
     <script src="js/lib/bootstrap/js/popper.min.js"></script>
     <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/lib/adminlte.js"></script>
+    <script src="js/lib/demo.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="js/jquery.slimscroll.js"></script>
     <!--Menu sidebar -->

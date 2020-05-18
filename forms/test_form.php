@@ -155,7 +155,7 @@ navigator.appName == "Microsoft Internet Explorer"
 
 
             <div class="col-md-6">
-              <label for="phone">Celphone number</label>
+              <label for="phone">Cellphone number</label>
                 <input class="form-control" type="text" name="phone" id="phone" placeholder="Please enter your unique celphone number" value="<?php echo $edit ? $user_id['phone'] : '';?>" required> 
               </div>  
 

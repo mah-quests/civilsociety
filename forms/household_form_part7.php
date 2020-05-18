@@ -9,7 +9,7 @@
 
             <div class="col-md-12">
               <label for="comments"><br>Comments, Motivation & Observations</label>
-                <textarea class="form-control" id="comments"  name="comments" rows="5" value="<?php echo $edit ? $user_id['comments'] : ''; ?>"  placeholder="Please enter your comments about the site visit" required>
+                <textarea class="form-control" id="comments"  name="comments" rows="5" value="No comments made"  placeholder="Please enter your comments about the site visit" required>
                 </textarea>
             </div>
 

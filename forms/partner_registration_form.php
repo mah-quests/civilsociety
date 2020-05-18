@@ -57,9 +57,9 @@
 
 
             <div class="col-md-6">
-              <label for="phone">Celphone number</label>
+              <label for="phone">Cellphone number</label>
                 <input class="form-control" type="text" name="phone" id="phone" placeholder="Please enter your unique celphone number" value="<?php echo $edit ? $user_id['phone'] : '';?>" required> 
-              </div>  
+            </div>  
 
 
             <div class="col-md-6">
@@ -90,15 +90,15 @@
             <label for="municipality"><br>Location Selection<br></label>
             <div style="width:98%">
                   
-              <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])">
+              <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])" required>
                 <option selected>Select Province</option>
                   </select> &nbsp;
 
-              <select name='List2' id="List2" onchange="fillSelect(this.value,this.form['List3'])" class="DDlist">
+              <select name='List2' id="List2" onchange="fillSelect(this.value,this.form['List3'])" class="DDlist" required>
                 <option selected>Select District</option>
                   </select> &nbsp;
 
-              <select name='List3' id="List3" onchange="fillSelect(this.value,this.form['List4'])" class="DDlist">
+              <select name='List3' id="List3" onchange="fillSelect(this.value,this.form['List4'])" class="DDlist" required>
                 <option selected >Choose Manucipality</option>
                   </select> &nbsp;
               </div>

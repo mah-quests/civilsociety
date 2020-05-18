@@ -1,7 +1,6 @@
 <fieldset>
         <div class="row">
 
-
             <div class="col-md-12">
               <label for="organization_name">Organization Name</label>
                 <input class="form-control" type="text" name="organization_name" id="organization_name" placeholder="Please enter your organization name" value="<?php echo $user['organization_name']; ?>" required> 
@@ -27,7 +26,7 @@
 
 
             <div class="col-md-6">
-              <label for="phone">Celphone number</label>
+              <label for="phone">Cellphone number</label>
                 <input class="form-control" type="text" name="phone" id="phone" placeholder="Please enter your unique celphone number" value="<?php echo $user['phone']; ?>" required> 
             </div>  
 
@@ -63,34 +62,22 @@
             </div>
 
 
-            <div class="col-md-6">
-              <label for="municipality">Municipality</label>
-                <input class="form-control" type="text" name="municipality" id="municipality" placeholder="Please enter your local municipality" value="<?php echo $user['municipality']; ?>"  required> 
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="district">District</label>
-              <input class="form-control" type="text" name="district" id="district" placeholder="Please enter your local district" value="<?php echo $user['district']; ?>" required>
-            </div>
-
-
             <div class="col-md-12">
-              <label for="provice">Province</label>
-                <div style="width:98%">
-                <select name="provice" size="1" class="form-control unit" value="<?php echo  $user['provice'] ; ?>" value="<?php echo $edit ? $user['provice'] : ''; ?>" required>
-                        <option selected>Please Choose</option>
-                        <option>Gauteng</option>
-                        <option>Free State</option>     
-                        <option>North West</option>
-                        <option>Mpumalanga</option>
-                        <option>Limpopo</option>
-                        <option>KwaZulu Natal</option>
-                        <option>Northern Cape</option>
-                        <option>Eastern Cape</option>
-                        <option>Western Cape</option>
-                </select>
-                </div>
+            <label for="municipality"><br>Location Selection<br></label>
+            <div style="width:98%">
+                  
+              <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])">
+                <option selected>Select Province</option>
+                  </select> &nbsp;
+
+              <select name='List2' id="List2" onchange="fillSelect(this.value,this.form['List3'])" class="DDlist">
+                <option selected>Select District</option>
+                  </select> &nbsp;
+
+              <select name='List3' id="List3" onchange="fillSelect(this.value,this.form['List4'])" class="DDlist">
+                <option selected >Choose Manucipality</option>
+                  </select> &nbsp;
+              </div>
             </div>
 
 
@@ -103,7 +90,8 @@
           <div class="col-md-6">
             <label for="alt_number">Alternative Contact Number</label>
             <input type="text" class="form-control" id="alt_number" name="alt_number" placeholder="Please enter alternative contact number" value="<?php echo $user['alt_number'] ; ?>" required>
-          </div>    
+          </div>
+             
 
             <div class="form-group col-md-12" align="center">
               <h5><br></h5>
