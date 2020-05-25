@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Thusa Sechaba">
+    <meta name="author" content="Thusa Sechaba">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/login.png">
-    <title>Thusa Sechaba Administration</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/black-covid-logo.png">
+    <title>ThusaSechaba Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -32,6 +32,11 @@
       width: 100%;
       color: black;
       text-align: center ;
+    }
+
+    body, head, p, div{
+        font: normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 300;
     }
     </style> 
 
@@ -127,39 +132,49 @@
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">
                                 <li>
+                                    <a href="doShowLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li> 
+                                <li>
                                     <a href="showDashHouseholdStats.php">
                                     Household Stats Overview
                                     </a>
                                 </li>                                
                                 <li>
-                                    <a href="dashboard.php">
+                                    <a href="showDashAgents.php">
                                     Agents & Community<br> Representatives
                                     </a>
                                 </li>                            
                                 <li>
-                                    <a href="dashboard.php">
-                                    App Usage
+                                    <a href="#">
+                                    Advocacy
                                     </a>
                                 </li> 
                                 <li>
-                                    <a href="dashboard.php">
-                                    Support Requests
+                                    <a href="#">
+                                    Social mobilisation
                                     </a>
                                 </li>                                
                                 <li>
-                                    <a href="dashboard.php">
-                                        Incedent Management
+                                    <a href="#">
+                                        Communications & Public awareness
                                     </a>
                                 </li>                                
                                 <li>
-                                    <a href="dashboard.php">
-                                        Field-Agents Usage</a>
+                                    <a href="#">
+                                        Legal support and promotion of Human Rights</a>
                                 </li>                                
                                 <li>
-                                    <a href="dashboard.php">
-                                    Stock Management</a>
+                                    <a href="#">
+                                        Contact tracing & screening
+                                    </a>
                                 </li>
-                                
+                                <li>
+                                    <a href="showAllRequests.php">
+                                        All Requests
+                                    </a>
+                                </li>                                
                             </ul> 
                                                                                                               
                         </li>
@@ -167,8 +182,12 @@
                         <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">User Support</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="doShowAgents.php">All Users</a></li>
-                                <li><a href="add_users.php">Add Users</a></li>
-                                
+<!--                                
+                                <li>
+                                    <a href="add_users.php">
+                                        Add Users</a>
+                                </li>
+-->                                
                                
                             </ul>
                         </li>
@@ -192,7 +211,7 @@
 -->
                          <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Requests</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="all_orders.php">All Requests</a></li>
+                                <li><a href="showAllRequests.php">All Requests</a></li>
                                   
                             </ul>
                         </li>

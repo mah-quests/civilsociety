@@ -36,11 +36,7 @@ else
                     <div class="media-body media-text-right">
                         <a href="doShowAgents.php">
                         <h2 style="color: #27D094">
-                            <?php $sql="select * from users";
-                                    $result=mysqli_query($db,$sql); 
-                                        $rws=mysqli_num_rows($result);
-                                        
-                                    echo $rws;?>
+                            <?php echo $AllRegisteredAgents;?>
                         </h2>
                         <p class="m-b-0" style="color: #27D094"># of registered <br>agents
                         </p>
@@ -57,7 +53,7 @@ else
                         <span><i class="fa fa-comments-o f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="doShowRequests.php">
+                        <a href="showAllRequests.php">
                         <h2 style="color: #FF9149">
                             <?php echo $totalResponses;?>
                         </h2>
@@ -76,12 +72,9 @@ else
                     </div>
                     <div class="media-body media-text-right">
                         <a href="doShowActiveAgents.php">
-                        <h2 style="color: #FF4962"><?php $sql="SELECT COUNT(DISTINCT u_id) as active FROM users_orders";
-                                    $result=mysqli_query($db,$sql); 
-                                        $rws=mysqli_num_rows($result);
-                                        $data=mysqli_fetch_assoc($result);
-                                        
-                                        echo $data['active'];?></h2>
+                        <h2 style="color: #FF4962">
+                            <?php echo $AllActiveAgents;?>
+                        </h2>
                         <p class="m-b-0" style="color: #FF4962"># of active <br>agents currently</p>
                         </a>
                     </div>
@@ -96,12 +89,9 @@ else
                         <span><i class="fa fa-building-o f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2 style="color: #22A0F2"><?php $sql="SELECT COUNT(DISTINCT organization_name) as active FROM `users`";
-                                    $result=mysqli_query($db,$sql); 
-                                        $rws=mysqli_num_rows($result);
-                                        $data=mysqli_fetch_assoc($result);
-                                        
-                                        echo $data['active'];?></h2>
+                        <h2 style="color: #22A0F2">
+                            <?php echo $AllOrganizationsRegistered; ?>
+                        </h2>
                         <p class="m-b-0" style="color: #22A0F2"># of active <br>organizations</p>
                     </div>
                 </div>
@@ -228,7 +218,7 @@ else
             <br><br>
               <div class="card-body text-center">
                 <h1 class="display-5" style="color: red"> 
-                    <?php echo $totalUnlocated;?>                    
+                    <?php echo $totalNoProvince; ?>                    
                 </h1>
                 <span style="color: red"># Unallocated</span>
               </div>

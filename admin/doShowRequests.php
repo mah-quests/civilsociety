@@ -38,7 +38,7 @@ session_start();
                                     <th>Reference Code</th>
                                     <th>Full Names</th>
                                     <th>Delivery Address</th>
-                                    <th>Agent Ref</th>
+                                    <th>Agent Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -46,42 +46,40 @@ session_start();
                                            
 											
         <?php
-            $sql="SELECT * FROM users_orders order by date desc";
+            $sql="SELECT users_orders.*, users.*  FROM users_orders INNER JOIN users ON users.u_id=users_orders.u_id order by users_orders.o_id desc";
             $query=mysqli_query($db,$sql);
 
-                if(!mysqli_num_rows($query) > 0 )
-                {
+            if(!mysqli_num_rows($query) > 0 ) {
                     echo '<td colspan="7">
                             <center>
                                 No User-Data!
                             </center>
                         </td>';
-                }
-                else
-                {				
-                while($rows=mysqli_fetch_array($query))
-                {
+            } else {				
+            
+            while($rows=mysqli_fetch_array($query))
+            {
 
-        echo ' <tr>
-                    <td>'.$rows['date'].'</td>
-                    <td>'.$rows['province'].'</td>
-                    <td>'.$rows['municipality'].'</td>                    
-                    <td>'.$rows['unique_code'].'</td>
-                    <td>'.$rows['request_first_name'].' '.$rows['request_surname'].' </td>
-                    <td>'.$rows['delivery_address'].'</td>
-                    <td>'.$rows['u_id'].'</td>
-                    <td>
-                        <a href="delete_users.php?user_del='.$rows['u_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10">
-                            <i class="fa fa-trash-o" style="font-size:16px"></i>
-                        </a> 
-                        <a href="doUpdateRequest.php?user_upd='.$rows['u_id'].'" class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5">
-                            <i class="ti-settings"></i>
-                        </a>
-                    </td>                    
-                </tr>';
+    echo ' <tr>
+                <td>'.$rows['date'].'</td>
+                <td>'.$rows['province'].'</td>
+                <td>'.$rows['municipality'].'</td>                    
+                <td>'.$rows['unique_code'].'</td>
+                <td>'.$rows['request_first_name'].' '.$rows['request_surname'].' </td>
+                <td>'.$rows['delivery_address'].'</td>
+                <td>'.$rows['f_name'].' '.$rows['l_name'].'</td>
+                <td>
+                    <a href="delete_users.php?user_del='.$rows['u_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10">
+                        <i class="fa fa-trash-o" style="font-size:16px"></i>
+                    </a> 
+                    <a href="doUpdateRequest.php?user_upd='.$rows['u_id'].'" class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5">
+                        <i class="ti-settings"></i>
+                    </a>
+                </td>                    
+            </tr>';
 
-                }	
-                }
+            }	
+        }
 
             ?>
                                

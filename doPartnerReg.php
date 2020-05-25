@@ -51,7 +51,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
      {
       $message = 'ID Number already registered!';
      }
-  elseif(mysqli_num_rows($check_celphone) > 0) //check email
+  elseif(mysqli_num_rows($check_celphone) > 100) //check email
      {
       $message = 'Celphone Number already exists!';
      }
