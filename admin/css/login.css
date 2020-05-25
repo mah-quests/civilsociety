@@ -13,8 +13,8 @@
   text-align: center;
 }
 .form .thumbnail {
-  background: #EF3B3A;
-  width: 150px;
+  background: #FFFFFF;
+  width: 250px;
   height: 150px;
   margin: 0 auto 30px;
   padding: 50px 30px;
@@ -45,7 +45,7 @@
 .form input[type="submit"]
 {
 	outline: 0;
-  background: #EF3B3A;
+  background: #142053;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -124,7 +124,7 @@
 /* Demo Purposes */
 body {
   background: #ccc;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

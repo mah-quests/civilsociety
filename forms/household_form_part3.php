@@ -9,6 +9,28 @@
             document.getElementById("socialgrants-info").style.visibility = 'hidden';            
         }
     }
+
+    function showHideEmploymentTypeInfo(){
+        var noOption = document.getElementById("number_people_employed").value;
+        if( noOption > 0 ){
+            jQuery('#employmenttype-info').show();
+            document.getElementById("employmenttype-info").style.visibility = 'visible';
+        }else{
+            jQuery('#employmenttype-info').hide();
+            document.getElementById("employmenttype-info").style.visibility = 'hidden';            
+        }
+    }   
+
+    function showHideDebtRelief(){
+        var noOption = document.getElementById("debt_relief").value;
+        if( noOption == "Yes"){
+            jQuery('#debt-relief-info').show();
+            document.getElementById("debt-relief-info").style.visibility = 'visible';
+        }else{
+            jQuery('#debt-relief-info').hide();
+            document.getElementById("debt-relief-info").style.visibility = 'hidden';            
+        }
+    }     
 </script>
 
 
@@ -21,8 +43,83 @@
               <h5><br>Household Employment Status<br></h5>
             </div>
 
+            <div class="col-md-12">
+              <label for="number_people_employed">How many people are employed in the household? </label>
+                <div style="width:98%">
+                <select name="number_people_employed" size="1" id="number_people_employed" class="form-control unit" onchange="showHideEmploymentTypeInfo(this.value);" required>
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                </div>
+            </div>             
+</fieldset>
+
+<fieldset id="employmenttype-info" style="display:none">
+
+            <div class="col-md-12">
+              <label for="house-composition"><br>Number of people on different employment types<br></label>
+            </div>
+
+            <div class="col-md-6">
+              <label for="number_formal_employment">
+                <a data-toggle="tooltip" data-placement="top" title="A formally registered business">
+                  <span class="glyphicon glyphicon-info-sign"></span>
+                    Formal 
+                </a>
+              </label>
+                <div style="width:98%">
+                <select name="number_formal_employment" size="1" id="number_formal_employment" class="form-control unit" required>
+                    <option selected>0</option>
+                    <option>1</option>                            
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>                                  
+                    <option>7</option>
+                    <option>8</option> 
+                    <option>9</option>
+                    <option>10</option>  
+                </select>
+                </div>
+            </div> 
 
 
+            <div class="col-md-6">
+              <label for="number_informal_employment">
+                <a data-toggle="tooltip" data-placement="top" title="A non legally registered business">
+                  <span class="glyphicon glyphicon-info-sign"></span>
+                    Informal 
+                </a>
+              </label>
+                <div style="width:98%">
+                <select name="number_informal_employment" size="1" id="number_informal_employment" class="form-control unit" required>
+                    <option selected>0</option>
+                    <option>1</option>                            
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>                                  
+                    <option>7</option>
+                    <option>8</option> 
+                    <option>9</option>
+                    <option>10</option>  
+                </select>
+                </div>
+            </div>
+</fieldset>
+
+<fieldset>
             <div class="col-md-6">
               <label for="still_receiving_income">Number of people still receiving income during the covid pandemic and lockdown? </label>
                 <div style="width:98%">
@@ -60,29 +157,34 @@
                 </select>
                 </div>
             </div> 
+</fieldset>
+
+<fieldset>
+    
+    <div class="col-md-12">
+      <label for="debt_relief">
+        Is there anyone in the house who is receiving any form of debt relief?
+      </label>
+        <div style="width:98%">
+        <select name="debt_relief" size="1" id="debt_relief" class="form-control unit"  required onchange="showHideDebtRelief(this.value);">
+                <option selected value="No"></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+        </select>
+        </div>
+    </div>     
 
 
-            <div class="col-md-6">
-              <label for="number_people_employed">How many people are employed in the household? </label>
-                <div style="width:98%">
-                <select name="number_people_employed" size="1" id="number_people_employed" class="form-control unit" value="<?php echo $edit ? $user_id['number_people_employed'] : ''; ?>" required>
-                    <option selected>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                </select>
-                </div>
-            </div> 
+    <div class="col-md-12" id="debt-relief-info" style="display:none">
+      <label for="debt_relief_details"><br>Please specify:</label>
+        <textarea class="form-control" id="debt_relief_details"  name="debt_relief_details" rows="3" placeholder="Enter debt relief details" >
+        </textarea>
+    </div>     
+</fieldset>
 
-
-            <div class="col-md-6">
+<fieldset>
+    
+            <div class="col-md-12">
               <label for="social_grants">Number of people on social grant recepients in the household</label>
                 <div style="width:98%">
                 <select name="social_grants" size="1" id="social_grants" class="form-control unit"  onchange="showHideGrantInfo(this.value);"  required> 
@@ -99,10 +201,15 @@
                     <option>10</option>                     
                 </select>
                 </div>
-            </div>            
+            </div>      
 </fieldset>
 
 <fieldset id="socialgrants-info" style="display:none">
+
+            <div class="col-md-12">
+              <label for="house-composition"><br>Number of people on different grant<br></label>
+            </div>
+
             <div class="col-md-3">
               <label for="oldperson_grant">Old persons’ Grant</label>
                 <div style="width:98%">
@@ -185,7 +292,6 @@
                 </select>
                 </div>
             </div>  
-
 </fieldset>
 
 </div>

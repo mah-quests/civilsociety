@@ -1,5 +1,101 @@
-    <?php 
-// Populating 'Respondants Sex Distribution' part
+<?php 
+
+// Total number of agents registered on the app
+    $sql="select * from users ";
+        $result=mysqli_query($db,$sql); 
+        $AllRegisteredAgents=mysqli_num_rows($result);
+
+    $sql="select * from users where u_id IN (SELECT DISTINCT u_id FROM users_orders)";
+        $result=mysqli_query($db,$sql); 
+        $AllActiveAgents=mysqli_num_rows($result);
+ 
+
+    $sql="SELECT DISTINCT (organization_name) as active FROM `users`";
+        $result=mysqli_query($db,$sql); 
+        $AllOrganizationsRegistered=mysqli_num_rows($result);
+
+    $sql="select * from users where provice='Gauteng' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsGauteng=mysqli_num_rows($result);
+
+
+    $sql="select * from users where provice='Free State' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsFreeState=mysqli_num_rows($result);
+
+
+    $sql="select * from users where provice='North West' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsNorthWest=mysqli_num_rows($result);
+
+
+    $sql=" select * from users where provice='Mpumalanga' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsMpumalanga=mysqli_num_rows($result);
+
+
+    $sql=" select * from users where provice='KwaZulu Natal' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsKZN=mysqli_num_rows($result);
+          
+
+    $sql=" select * from users where provice='Limpopo' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsLimpopo=mysqli_num_rows($result);
+                                      
+
+    $sql=" select * from users where provice='Western Cape' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsWesternCape=mysqli_num_rows($result);
+
+
+    $sql=" select * from users where provice='Northern Cape' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsNorthernCape=mysqli_num_rows($result);
+                                                    
+
+    $sql=" select * from users where provice='Eastern Cape' ";
+        $result=mysqli_query($db,$sql); 
+        $totalAgentsEasternCape=mysqli_num_rows($result);
+                                                   
+
+    $sql=" select * from users where provice='Choose' ";
+        $result=mysqli_query($db,$sql); 
+        $totalUnlocated=mysqli_num_rows($result);                                                    
+
+// Number of partners in a group
+
+    $sql="select * from users where network='P'";
+        $result=mysqli_query($db,$sql); 
+        $totalCovid19Partners=mysqli_num_rows($result);
+
+    $sql="select * from users where network='C'";
+        $result=mysqli_query($db,$sql); 
+        $totalCommunity=mysqli_num_rows($result);
+
+    $sql="select * from users where network='N'";
+        $result=mysqli_query($db,$sql); 
+        $totalCivilSociety=mysqli_num_rows($result);
+
+
+    $sql="select * from users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network = 'P' ";
+        $result=mysqli_query($db,$sql); 
+        $totalActiveCovid19Partners=mysqli_num_rows($result);
+
+    $sql="select * from users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network = 'C' ";
+        $result=mysqli_query($db,$sql); 
+        $totalActiveCommunity=mysqli_num_rows($result);
+
+    $sql="select * from users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network = 'N' ";
+        $result=mysqli_query($db,$sql); 
+        $totalActiveCivilSociety=mysqli_num_rows($result);
+
+// Total number of surveys across the country
+
+    $sql="select * from request_by_partner";
+        $result=mysqli_query($db,$sql); 
+        $totalResponses=mysqli_num_rows($result);    
+
 
     $sql="select * from request_by_partner where provice='Gauteng' ";
         $result=mysqli_query($db,$sql); 
@@ -16,7 +112,7 @@
         $totalNorthWest=mysqli_num_rows($result);
 
 
-    $sql=" select * from request_by_partner where provice='Mpumalanga' ";
+    $sql=" select * from request_by_partner where provice='Mpumalanga' or provice='Mpumlanga' ";
         $result=mysqli_query($db,$sql); 
         $totalMpumalanga=mysqli_num_rows($result);
 
@@ -44,17 +140,154 @@
     $sql=" select * from request_by_partner where provice='Eastern Cape' ";
         $result=mysqli_query($db,$sql); 
         $totalEasternCape=mysqli_num_rows($result);
+
+
+    $sql=" select * from request_by_partner where provice='Choose' or provice='Select Province' or provice='' ";
+        $result=mysqli_query($db,$sql); 
+        $totalNoProvince=mysqli_num_rows($result);        
                                                     
-
-    $sql=" select * from request_by_partner where provice='Choose' ";
+// Stats on today  
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date)= CURDATE()";
         $result=mysqli_query($db,$sql); 
-        $totalUnlocated=mysqli_num_rows($result);
+        $totalTodayRequests=mysqli_num_rows($result);         
 
-
-    $sql="select * from request_by_partner";
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate() and network='P' ";
         $result=mysqli_query($db,$sql); 
-        $totalResponses=mysqli_num_rows($result);    
+        $totalTodayPartners=mysqli_num_rows($result); 
 
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate() and network='N' ";
+        $result=mysqli_query($db,$sql); 
+        $totalTodayCivilSociety=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate() and network='C' ";
+        $result=mysqli_query($db,$sql); 
+        $totalTodayComminity=mysqli_num_rows($result); 
+
+
+// Stats on yesterday  
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date)=curdate()-1";
+        $result=mysqli_query($db,$sql); 
+        $totalYesterdayRequests=mysqli_num_rows($result);         
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-1 and network='P' ";
+        $result=mysqli_query($db,$sql); 
+        $totalYesterdayPartners=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-1 and network='N' ";
+        $result=mysqli_query($db,$sql); 
+        $totalYesterdayCivilSociety=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-1 and network='C' ";
+        $result=mysqli_query($db,$sql); 
+        $totalYesterdayComminity=mysqli_num_rows($result); 
+
+
+// Stats on 2 days before  
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date)=curdate()-2";
+        $result=mysqli_query($db,$sql); 
+        $total2DaysRequests=mysqli_num_rows($result);         
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-2 and network='P' ";
+        $result=mysqli_query($db,$sql); 
+        $total2DaysPartners=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-2 and network='N' ";
+        $result=mysqli_query($db,$sql); 
+        $total2DaysCivilSociety=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-2 and network='C' ";
+        $result=mysqli_query($db,$sql); 
+        $total2DaysComminity=mysqli_num_rows($result); 
+
+
+// Stats on 3 days before 
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date)=curdate()-3";
+        $result=mysqli_query($db,$sql); 
+        $total3DaysRequests=mysqli_num_rows($result);         
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-3 and network='P' ";
+        $result=mysqli_query($db,$sql); 
+        $total3DaysPartners=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-3 and network='N' ";
+        $result=mysqli_query($db,$sql); 
+        $total3DaysCivilSociety=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-3 and network='C' ";
+        $result=mysqli_query($db,$sql); 
+        $total3DaysComminity=mysqli_num_rows($result); 
+
+// Stats on 4 days before
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date)=curdate()-4";
+        $result=mysqli_query($db,$sql); 
+        $total4DaysRequests=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-4 and network='P' ";
+        $result=mysqli_query($db,$sql); 
+        $total4DaysPartners=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-4 and network='N' ";
+        $result=mysqli_query($db,$sql); 
+        $total4DaysCivilSociety=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-4 and network='C' ";
+        $result=mysqli_query($db,$sql); 
+        $total4DaysComminity=mysqli_num_rows($result); 
+
+// Stats on 5 days before
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date)=curdate()-5";
+        $result=mysqli_query($db,$sql); 
+        $total5DaysRequests=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-5 and network='P' ";
+        $result=mysqli_query($db,$sql); 
+        $total5DaysPartners=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-5 and network='N' ";
+        $result=mysqli_query($db,$sql); 
+        $total5DaysCivilSociety=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-5 and network='C' ";
+        $result=mysqli_query($db,$sql); 
+        $total5DaysComminity=mysqli_num_rows($result); 
+
+// Stats on 6 days before
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date)=curdate()-6";
+        $result=mysqli_query($db,$sql); 
+        $total6DaysRequests=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-6 and network='P' ";
+        $result=mysqli_query($db,$sql); 
+        $total6DaysPartners=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-6 and network='N' ";
+        $result=mysqli_query($db,$sql); 
+        $total6DaysCivilSociety=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM `users` WHERE date(date)=curdate()-6 and network='C' ";
+        $result=mysqli_query($db,$sql); 
+        $total6DaysComminity=mysqli_num_rows($result);
+
+
+// Checking last week data
+    $sql="SELECT * FROM `request_by_partner` WHERE date(date) < curdate() and date(date) > curdate() - 7 ORDER BY `req_id` DESC ";
+        $result=mysqli_query($db,$sql); 
+        $totalLastWeekSurveys=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM `users` WHERE network='P' and date(date) < curdate() and date(date) > curdate() - 7 ";
+        $result=mysqli_query($db,$sql); 
+        $totalLastWeekCCCPartners=mysqli_num_rows($result); 
+
+
+
+    $sql="SELECT * FROM `users` WHERE network='N' and date(date) < curdate() and date(date) > curdate() - 7 ";
+        $result=mysqli_query($db,$sql); 
+        $totalLastWeekCivilSociety=mysqli_num_rows($result); 
+
+
+    $sql="SELECT * FROM `users` WHERE network='C' and date(date) < curdate() and date(date) > curdate() - 7 ";
+        $result=mysqli_query($db,$sql); 
+        $totalLastWeekCommunity=mysqli_num_rows($result); 
 
 // Checking number of female respondants 
     $sql=" SELECT * FROM `request_by_partner` WHERE sex='Female'";

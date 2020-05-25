@@ -95,12 +95,6 @@ label.control-label {
 }
 
 
-
-
-
-
-
-
 table { 
 	width: 650px; 
 	border-collapse: collapse; 
@@ -126,8 +120,6 @@ td, th {
 	font-size: 14px;
 	}
 
-
-
 	</style>
 </head>
 
@@ -136,12 +128,9 @@ td, th {
 <div style="margin-left:50px;">
  <form name="updateticket" id="updatecomplaint" method="post"> 
  
- 
- 
- 
 <table  border="0" cellspacing="0" cellpadding="0">
      <tr >
-      <td><b>form Number</b></td>
+      <td><b>Unique Form Number</b></td>
       <td><?php echo htmlentities($_GET['form_id']); ?></td>
     </tr>
 	<tr>

@@ -132,7 +132,7 @@ else
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7" style="color: red"> 
-                                <?php echo $totalUnlocated;?>
+                                <?php echo $totalNoProvince;?>
                             </h1>
                             <span style="color: red"># Unallocated</span>
                           </div>

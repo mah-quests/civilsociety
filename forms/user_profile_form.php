@@ -35,7 +35,7 @@
               <label for="sex">Sex</label>
                 <div style="width:98%">
                 <select name="sex" size="1" class="form-control unit" value="<?php echo $user['sex']; ?>" required>
-                        <option selected>Please Choose</option>
+                        <option selected value="">Please Choose</option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Other</option>
@@ -48,7 +48,7 @@
               <label for="nationality">Nationality</label>
                 <div style="width:98%">
                 <select name="nationality" size="1" class="form-control unit" value="<?php echo $edit ? $user['nationality'] : ''; ?>" required>
-                        <option selected>Please Choose</option>
+                        <option selected value="">Please Choose</option>
                         <option>South Africa</option>
                         <option>Other</option>
                 </select>
@@ -66,16 +66,16 @@
             <label for="municipality"><br>Location Selection<br></label>
             <div style="width:98%">
                   
-              <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])">
-                <option selected>Select Province</option>
+              <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])" required>
+                <option selected value="">Select Province</option>
                   </select> &nbsp;
 
-              <select name='List2' id="List2" onchange="fillSelect(this.value,this.form['List3'])" class="DDlist">
-                <option selected>Select District</option>
+              <select name='List2' id="List2" onchange="fillSelect(this.value,this.form['List3'])" class="DDlist" required>
+                <option selected value="">Select District</option>
                   </select> &nbsp;
 
-              <select name='List3' id="List3" onchange="fillSelect(this.value,this.form['List4'])" class="DDlist">
-                <option selected >Choose Manucipality</option>
+              <select name='List3' id="List3" onchange="fillSelect(this.value,this.form['List4'])" class="DDlist" required>
+                <option selected value="">Choose Manucipality</option>
                   </select> &nbsp;
               </div>
             </div>

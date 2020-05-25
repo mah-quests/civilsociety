@@ -1,5 +1,19 @@
-<fieldset>
-        <div class="row">
+<script type="text/javascript">
+    function showHideAgeInfo(){
+        var noAge0_2 = document.getElementById("age0_2").value;
+        var noAge13_18 = document.getElementById("age13_18").value;
+        if( noAge0_2 > 0 || noAge13_18 > 0){
+            jQuery('#schooldetails-info').show();
+            document.getElementById("schooldetails-info").style.visibility = 'visible';
+        }else{
+            jQuery('#schooldetails-info').hide();
+            document.getElementById("schooldetails-info").style.visibility = 'hidden';            
+        }
+    }
+</script>
+
+<div class="row">
+    <fieldset>
             <br>
 
             <div class="form-group col-md-12" align="center">
@@ -8,7 +22,7 @@
 
 
             <div class="col-md-6">
-              <label for="settlement">Type of Settlement</label>
+              <label for="settlement">Type of Settlement (*)</label>
                 <div style="width:98%">
                 <select name="settlement" size="1" id="settlement" class="form-control unit" required>
                     <option selected></option>
@@ -26,7 +40,7 @@
             </div> 
 
             <div class="col-md-6">
-              <label for="people_in_house">Number of people living in the house</label>
+              <label for="people_in_house">Number of people living in the house </label>
                 <div style="width:98%">
                 <select name="people_in_house" size="1" id="people_in_house" class="form-control unit" value="<?php echo $edit ? $user_id['people_in_house'] : ''; ?>" required>
                     <option selected>0</option>
@@ -266,7 +280,7 @@
             <div class="col-md-4">
               <label for="num_other_sexuality"># Other</label>
                 <div style="width:98%">
-                <select name="num_other_sexuality" size="1" id="num_other_sexuality" class="form-control unit" value="<?php echo $edit ? $user_id['num_other_sexuality'] : ''; ?>" required>
+                <select name="num_other_sexuality" size="1" id="num_other_sexuality" class="form-control unit" value="<?php echo $edit ? $user_id['num_other_sexuality'] : ''; ?>" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -300,7 +314,7 @@
                     </i>
               </label>
                 <div style="width:98%">
-                <select name="num_cis_gender" size="1" id="num_cis_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_cis_gender'] : ''; ?>" required>
+                <select name="num_cis_gender" size="1" id="num_cis_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_cis_gender'] : ''; ?>" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -325,7 +339,7 @@
             <div class="col-md-3">
               <label for="num_nonconfirm_gender"># Gender Nonconfirming/<br> Non-Binary</label>
                 <div style="width:98%">
-                <select name="num_nonconfirm_gender" size="1" id="num_nonconfirm_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_nonconfirm_gender'] : ''; ?>" required>
+                <select name="num_nonconfirm_gender" size="1" id="num_nonconfirm_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_nonconfirm_gender'] : ''; ?>" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -351,7 +365,7 @@
             <div class="col-md-2">
               <label for="num_trans_gender"><br># Transgender</label>
                 <div style="width:98%">
-                <select name="num_trans_gender" size="1" id="num_trans_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_trans_gender'] : ''; ?>" required>
+                <select name="num_trans_gender" size="1" id="num_trans_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_trans_gender'] : ''; ?>" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -376,7 +390,7 @@
             <div class="col-md-2">
               <label for="num_queer_gender"><br># Queer / Questioning</label>
                 <div style="width:98%">
-                <select name="num_queer_gender" size="1" id="num_queer_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_queer_gender'] : ''; ?>" required>
+                <select name="num_queer_gender" size="1" id="num_queer_gender" class="form-control unit" value="<?php echo $edit ? $user_id['num_queer_gender'] : ''; ?>" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -412,7 +426,7 @@
             <div class="col-md-2">
               <label for="age0_2">Ages between 0 and 13 years</label>
                 <div style="width:98%">
-                <select name="age0_2" size="1" id="age0_2" class="form-control unit" value="<?php echo $edit ? $user_id['age0_2'] : ''; ?>" required>
+                <select name="age0_2" size="1" id="age0_2" class="form-control unit" onchange="showHideAgeInfo(this.value);" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -437,7 +451,7 @@
             <div class="col-md-2">
               <label for="age13_18">Ages between 14 and 18 years</label>
                 <div style="width:98%">
-                <select name="age13_18" size="1" id="age13_18" class="form-control unit" value="<?php echo $edit ? $user_id['age13_18'] : ''; ?>" required>
+                <select name="age13_18" size="1" id="age13_18" class="form-control unit" onchange="showHideAgeInfo(this.value);" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -462,7 +476,7 @@
             <div class="col-md-2">
               <label for="age19_59">Ages between 19 and 35 years</label>
                 <div style="width:98%">
-                <select name="age19_59" size="1" id="age19_59" class="form-control unit" value="<?php echo $edit ? $user_id['age19_59'] : ''; ?>" required>
+                <select name="age19_59" size="1" id="age19_59" class="form-control unit" value="<?php echo $edit ? $user_id['age19_59'] : ''; ?>" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -487,7 +501,7 @@
             <div class="col-md-2">
               <label for="age36_59">Ages between 36 and 59 years</label>
                 <div style="width:98%">
-                <select name="age36_59" size="1" id="age36_59" class="form-control unit" value="<?php echo $edit ? $user_id['age36_59'] : ''; ?>" required>
+                <select name="age36_59" size="1" id="age36_59" class="form-control unit" value="<?php echo $edit ? $user_id['age36_59'] : ''; ?>" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -511,7 +525,7 @@
             <div class="col-md-4">
               <label for="age60plus"><br>Older than 60 years</label>
                 <div style="width:98%">
-                <select name="age60plus" size="1" id="age60plus" class="form-control unit" value="<?php echo $edit ? $user_id['age60plus'] : ''; ?>" required>
+                <select name="age60plus" size="1" id="age60plus" class="form-control unit" >
                     <option selected>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -531,6 +545,132 @@
                 </select>
                 </div>
             </div>
+    </fieldset>
                      
-    </div>
-</fieldset>
+<fieldset id="schooldetails-info" style="display:none">
+
+            <div class="col-md-12">
+              <label for="house-composition"><br>How many people in the household are studying: <br><br></label>
+            </div>
+
+            <div class="col-md-3">
+              <label for="pre_r"># Pre Grade-R</label>
+                <div style="width:98%">
+                <select name="pre_r" size="1" id="pre_r" class="form-control unit" >
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                </div>
+            </div> 
+
+            <div class="col-md-3">
+              <label for="grade_r"># Grade R</label>
+                <div style="width:98%">
+                <select name="grade_r" size="1" id="grade_r" class="form-control unit" >
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                </div>
+            </div> 
+
+
+            <div class="col-md-3">
+              <label for="grade1_7"># Grade 1 - 7</label>
+                <div style="width:98%">
+                <select name="grade1_7" size="1" id="grade1_7" class="form-control unit" >
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                </div>
+            </div> 
+
+
+            <div class="col-md-3">
+              <label for="grade8_9"># Grade 8 - 9</label>
+                <div style="width:98%">
+                <select name="grade8_9" size="1" id="grade8_9" class="form-control unit" >
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                </div>
+            </div> 
+
+
+            <div class="col-md-3">
+              <label for="grade10_12"># Grade 10 - 12</label>
+                <div style="width:98%">
+                <select name="grade10_12" size="1" id="grade10_12" class="form-control unit" >
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                </div>
+            </div> 
+
+
+            <div class="col-md-3">
+              <label for="tertiary"># Tertiary </label>
+                <div style="width:98%">
+                <select name="tertiary" size="1" id="tertiary" class="form-control unit" >
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                </div>
+            </div> 
+                                               
+
+    </fieldset>
+</div>

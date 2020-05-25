@@ -45,7 +45,7 @@ session_start();
                                            
 											
         <?php
-            $sql="select * from users where u_id IN (SELECT DISTINCT u_id FROM users_orders)";
+            $sql="select * from users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network='P' ";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )
@@ -64,7 +64,7 @@ session_start();
         echo ' <tr>
                 <td>'.$rows['date'].'</td>
                 <td>'.$rows['organization_name'].'</td>
-                <td>'.$rows['f_name'].' '.$rows['l_name'].'</td>
+                <td>'.$rows['f_name'].' '.$rows['l_name'].' </td>
                 <td>'.$rows['phone'].'</td>
                 <td>'.$rows['address'].'</td>
                 <td>'.$rows['municipality'].'</td>
