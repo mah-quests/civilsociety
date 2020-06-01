@@ -629,7 +629,7 @@
 <div class="row">
     <fieldset>
  
-            <div class="col-md-6">
+            <div class="col-md-12">
               <label for="whatsappp_subscribe"><br>Should we share Covid-19 related infomation to you on WhatsApp </label>
                 <div style="width:98%">
                 <select name="whatsappp_subscribe" size="1" id="whatsappp_subscribe" class="form-control unit" required>

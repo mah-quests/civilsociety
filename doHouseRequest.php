@@ -315,7 +315,7 @@ $mql_priority03 = "INSERT INTO request_priority_03
                             function countdown() {
                               var i = document.getElementById('counter');
                               if (parseInt(i.innerHTML)<=0) {
-                                location.href = 'login.php';
+                                location.href = 'viewYourRequests.php';
                               }
                               i.innerHTML = parseInt(i.innerHTML)-1;
                             }

@@ -96,7 +96,8 @@ include 'header_admin.php'
     ?>
                 <td> 
                     <center>
-                        <button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-circle-o"  aria-hidden="true" > Not Processed
+                        <button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-circle-o"  aria-hidden="true" > 
+                            Not Processed
                         </button>
                     </center>
                 </td>
@@ -122,7 +123,7 @@ include 'header_admin.php'
 		        <td>  
 		            <center>
 		                <button type="button" class="btn btn-success" >
-		                    <span  class="fa fa-circle" aria-hidden="true">Completed
+		                    <span  class="fa fa-circle" aria-hidden="true">   Completed
 		                </button>
 		            </center>
 		        </td> 
@@ -136,15 +137,38 @@ include 'header_admin.php'
                                                             
 		        <td>  
 		            <center>
-		                <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>cancelled
+		                <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i> Rejected
 		                </button> 
 		            </center>
 		        </td> 
+            </tr>
         <?php 
         } 
-    ?>  
-                                                                                                                                            
-		   			</tr>
+
+    $sql="SELECT remark.*, users_orders.* FROM remark INNER JOIN users_orders ON remark.frm_id=users_orders.o_id where o_id='".$_GET['user_upd']."' order by remark.remarkDate desc";
+    $query=mysqli_query($db,$sql);
+    $row=mysqli_fetch_array($query);
+
+?>
+
+            <tr>
+                <td><strong>M & E Remarks and Updates</strong></td>
+                <td><center><?php echo $row['remark']; ?></center></td>
+            </tr>
+
+            <tr>
+                <td><strong>Last Updated</strong></td>
+                <td><center><?php echo $row['remarkDate']; ?></center></td>
+            </tr>            
+
+<?php 
+
+
+    $sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where o_id='".$_GET['user_upd']."'";
+    $query=mysqli_query($db,$sql);
+    $rows=mysqli_fetch_array($query);
+
+?>
 
 				</tbody>
 			</table>
@@ -164,7 +188,7 @@ include 'header_admin.php'
                 </button>
             </a>
 
-            <a onclick="window.location.href = 'showAllRequests.php';">
+            <a onclick="window.location.href = 'showInProgressRequests.php';">
                 <button type="button" class="btn btn-secondary">
                     Back
                 </button>

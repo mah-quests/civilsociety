@@ -26,6 +26,7 @@ else
         <!-- Container fluid  -->
         <div class="container-fluid">
             <!-- Start Page Content -->
+
     <div class="row">
                    
         <div class="col-md-6" style="color: #FEAA00">
@@ -181,7 +182,16 @@ else
                 </h1>
                 <span># in Western Cape</span>
               </div>
-            </div>                                     
+            </div> 
+            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
+            <br><br>
+              <div class="card-body text-center">
+                <h1 class="display-5" style="color: red"> 
+                    <?php echo $totalUnlocated; ?>                    
+                </h1>
+                <span style="color: red"># Unallocated</span>
+              </div>
+            </div>                                                
           </div>
         </div>
       </div>
@@ -244,7 +254,32 @@ else
                             <?php echo $totalActiveCommunity; ?> /<?php echo $totalCommunity ?>
                         </h2>
                         <p class="m-b-0" style="color: #7B9B01">
-                            # of Community Members
+                            # of Community Users
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4" style="color: #A3F78D">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-folder-open-o f-s-40 color-green"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showCCCRequests.php">
+                        <h2 style="color: #A3F78D">
+                            <?php echo $totalCCCResponses ?> /
+                            <?php echo $totalResponses ?> 
+                            
+                        </h2>
+                        <p class="m-b-0" style="color: #A3F78D">
+                            # Requests by CCC <br> Agents
                         </p>
                         </a>
                     </div>
@@ -252,6 +287,47 @@ else
             </div>
         </div>
 
+        <div class="col-md-4" style="color: #AF0685">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-folder-o f-s-40"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showCivilSocietyRequests.php">
+                        <h2 style="color: #AF0685"> 
+                            <?php echo $totalCivilSocietyResponses ?> /
+                            <?php echo $totalResponses ?> 
+                        </h2>
+                        <p class="m-b-0" style="color: #AF0685">
+                            # Requests by Community <br>Constituency
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4" style="color: #FFDA01">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-hdd-o f-s-40"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showCommunityRequests.php">
+                        <h2 style="color: #FFDA01"> 
+                            <?php echo $totalCommunityResponses ?> /
+                            <?php echo $totalResponses ?> 
+                        </h2>
+                        <p class="m-b-0" style="color: #FFDA01">
+                            # Requests by Community <br>Users
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -261,24 +337,20 @@ else
                
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Civil Society Active Organizations</h4>
+                        <h4 class="card-title">Community Constituency Covid-19 Front Active Organizations</h4>
                             <div class="table-responsive m-t-40">
                                 <table id="myTable" class="table table-striped">
                                     <thead>
                                        <tr>
                                             <th>#</th>
                                             <th>Organization Name</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
+                                            <th>Number of Active</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                                                     
         <?php
-            $sql="select DISTINCT (organization_name) from users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network='P' ";
+            $sql="SELECT organization_name, COUNT(*) as number_of_agents FROM users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network='P' GROUP BY organization_name ";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )
@@ -288,23 +360,17 @@ else
                                 No User-Data!
                             </center>
                         </td>';
-                }
-                else
-                {               
-                while($rows=mysqli_fetch_array($query))
-                {
+                } else {               
+                    while($rows=mysqli_fetch_array($query)) {
+                        
 
-        echo ' <tr>
-                <td>'.$rows['date'].'</td>
-                <td>'.$rows['organization_name'].'</td>
-                <td>'.$rows[''].' '.$rows[''].' </td>
-                <td>'.$rows[''].'</td>
-                <td>'.$rows[''].'</td>
-                <td>'.$rows[''].'</td>
-                <td>'.$rows[''].'</td>
-                </tr>';
+                    echo ' <tr>
+                            <td>'.$rows['date'].'</td>
+                            <td>'.$rows['organization_name'].'</td>
+                            <td>'.$rows[''].' '.$rows['number_of_agents'].' </td>
+                            </tr>';
 
-                }   
+                    }   
                 }
 
             ?>
@@ -322,27 +388,23 @@ else
         <div class="row">
             <div class="col-12">
                 
-               
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Covid-19 Front Active Organizations</h4>
+                        <h4 class="card-title">Civil Society Active Organizations</h4>
                             <div class="table-responsive m-t-40">
                                 <table id="myTable" class="table table-striped">
                                     <thead>
                                        <tr>
                                             <th>#</th>
                                             <th>Organization Name</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
+                                            <th> </th>
+                                            <th>Number of Active</th>
+                                            </tr>
                                     </thead>
                                     <tbody>
                                                                     
         <?php
-            $sql="select DISTINCT (organization_name) from users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network='N' ";
+            $sql="SELECT organization_name, COUNT(*) as number_of_agents FROM users where u_id IN (SELECT DISTINCT u_id FROM users_orders) and network='N' GROUP BY organization_name ";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )
@@ -361,11 +423,8 @@ else
         echo ' <tr>
                 <td>'.$rows['date'].'</td>
                 <td>'.$rows['organization_name'].'</td>
-                <td>'.$rows[''].' '.$rows[''].' </td>
                 <td>'.$rows[''].'</td>
-                <td>'.$rows[''].'</td>
-                <td>'.$rows[''].'</td>
-                <td>'.$rows[''].'</td>
+                <td>'.$rows[''].' '.$rows['number_of_agents'].' </td>
                 </tr>';
 
                 }   
@@ -380,6 +439,88 @@ else
                         </div>
                     </div>
             </div>
+
+
+
+    <div class="row">
+        <div class="col-md-6" style="color: #D1AF94">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="printAllCCCAgents.php">
+                        <h2 style="color: #D1AF94">
+                            <?php echo $totalCovid19Partners;?>
+                        </h2>
+                        <p class="m-b-0" style="color: #D1AF94">Print All Registered COVID-19 Agents
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-6" style="color: #5587A2">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-podcast  f-s-40"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="printAllCivilSocietyAgents.php">
+                        <h2 style="color: #5587A2">
+                            <?php echo $totalCivilSociety ?>
+                        </h2>
+                        <p class="m-b-0" style="color: #5587A2">Print All Registered Civil Society Agents</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" style="color: #238AE6">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-file-text-o f-s-40 color-green"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="printAllActiveCCCOrgans.php">
+                        <h2 style="color: #238AE6">
+                        </h2>
+                        <p class="m-b-0" style="color: #238AE6">Print Covid-19 Front Organizations with Active Agents
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-6" style="color: #1E9F75">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-file-o f-s-40"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="printAllActiveCivilSocietyOrgans.php">
+                        <h2 style="color: #1E9F75">
+                        </h2>
+                        <p class="m-b-0" style="color: #1E9F75">Print Civil Society Organizations with Active Agents</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
         <!-- End PAge Content -->
         </div>

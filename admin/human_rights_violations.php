@@ -8,14 +8,18 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Violation Type', 
-          'Total Violation', 
-          'Law Enforcement', 
-          'Community Member', 
-          'Health Professionals', 
-          'GBV'],
+          'Household Experienced Violation', 
+          'Household Un-Specified Violations',
+          ' ',
+          'Law Enforcement Cases', 
+          'Community Member Cases', 
+          'Health Professionals Cases',
+          'Gender Based Violance Cases'],
 
           ['Violations types', 
-          <?php echo $totalViolations ?>, 
+          <?php echo $totalYesViolations ?>, 
+          <?php echo $totalUnspecifiedViolations ?>,
+          0,
           <?php echo $totalLawEnforcementViolations ?>, 
           <?php echo $totalCommunityViolations ?>, 
           <?php echo $totalHealthCareViolations ?>, 
@@ -36,6 +40,6 @@
     </script>
   </head>
   <body>
-    <div id="human_right_barchart" style="width: 1100px; height: 500px;"></div>
+    <div id="human_right_barchart" style="width: 1100px; height: 400px;"></div>
   </body>
 </html>

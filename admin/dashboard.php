@@ -25,6 +25,7 @@ else
         <!-- Container fluid  -->
         <div class="container-fluid">
             <!-- Start Page Content -->
+
     <div class="row">
                    
         <div class="col-md-3" style="color: #27D094">
@@ -229,6 +230,87 @@ else
     </div>
   </div>
 
+
+
+    <div class="row">
+                   
+        <div class="col-md-3" style="color: #27D094">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-circle-o f-s-40 color-green"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showUnProcessedRequests.php">
+                        <h2 style="color: #27D094">
+                            <?php echo $totalUnProcessed;?>
+                        </h2>
+                        <p class="m-b-0" style="color: #27D094"># of Unprocessed <br>Requests Made
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <div class="col-md-3" style="color: #FF9149">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-circle-o-notch fa-spin f-s-40" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showInProgressRequests.php">
+                        <h2 style="color: #FF9149">
+                            <?php echo $totalBeingProcessed;?>
+                        </h2>
+                        <p class="m-b-0" style="color: #FF9149"># of Requests <br> Being Processed 
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3" style="color: #22A0F2">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle"> 
+                        <span><i class="fa fa-circle f-s-40" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showCompletedRequests.php">
+                            <h2 style="color: #22A0F2">
+                                <?php echo $totalClosed; ?>
+                            </h2>
+                            <p class="m-b-0" style="color: #22A0F2"># of Requests <br> Processed & Closed
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="color: #FF4962">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-times f-s-40"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showRejectedRequests.php">
+                            <h2 style="color: #FF4962">
+                                <?php echo $totalRejected;?>
+                            </h2>
+                            <p class="m-b-0" style="color: #FF4962"># of Requests <br> Rejected
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
 
         <!-- End PAge Content -->

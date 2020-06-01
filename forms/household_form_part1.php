@@ -259,7 +259,7 @@ navigator.appName == "Microsoft Internet Explorer"
             <div class="col-md-12">
               <br>
               <label for="address">Home Address (*)</label>
-                <textarea class="form-control" id="address"  name="address" rows="3" value="<?php echo $edit ? $user_id['address'] : ''; ?>"  placeholder="Please enter your full home address" required>
+                <textarea class="form-control" id="address"  name="address" rows="3" placeholder="Please enter your full home address" required>
                 </textarea>
             </div>
 
