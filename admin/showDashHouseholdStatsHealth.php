@@ -8,12 +8,7 @@ include("../connection/dataCollection.php");
 
 error_reporting(0);
 session_start();
-if(empty($_SESSION["adm_id"]))
-{
-    header('location:login.php');
-}
-else
-{
+
 ?>
     <!-- Page wrapper  -->
     <div class="page-wrapper">
@@ -51,8 +46,6 @@ else
 
 
 <?php
-
-}
 
 include_once 'footer.php';
 

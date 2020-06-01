@@ -43,7 +43,7 @@ session_start();
                             <tbody>
                                            
 <?php
-    $sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id order by users_orders.date desc";
+    $sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
@@ -87,7 +87,7 @@ echo ' <tr>
             ?>
         <td> 
             <button type="button" class="btn btn-success" >
-                <span  class="fa fa-circle" aria-hidden="true">Delivered</button>
+                <span  class="fa fa-circle" aria-hidden="true"> Processed</button>
         </td> 
             <?php 
             } 
@@ -107,18 +107,13 @@ echo ' <tr>
         echo '<td>'.$rows['province'].'</td>';
 		?>
 			 <td>
-			 <a href="delete_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
+			 <a href="deleteRequestDetails.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
 		<?php
 		echo '<a href="showRequestDetails.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 			</td>
 			</tr>';
- 
-	
-	
-}	
-}
-
-
+        }	
+    }
 ?>
 
 

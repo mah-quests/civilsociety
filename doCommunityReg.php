@@ -8,7 +8,6 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
      if(empty($_POST['firstname']) ||  //fetching and find if its empty
    	    empty($_POST['username'])|| 
         empty($_POST['lastname'])|| 
-		    empty($_POST['email']) ||  
 		    empty($_POST['phone']) ||
 		    empty($_POST['password']) ||
         empty($_POST['List1']) ||         // Province
@@ -41,11 +40,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 		$message = "invalid phone number!";
 	}
 
-    elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
-    {
-       	$message = "Invalid email address please type a valid email!";
-    }
-	elseif(mysqli_num_rows($check_username) > 0)  //check username
+	elseif(mysqli_num_rows($check_username) > 100)  //check username
      {
     	$message = 'ID Number already registered!';
      }

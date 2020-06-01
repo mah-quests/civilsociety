@@ -60,7 +60,7 @@
 
             <div class="col-md-12">
               <label for="address">Home Address</label>
-                <textarea class="form-control" id="address"  name="address" rows="3"   required>
+                <textarea class="form-control" id="address"  name="address" rows="3" required>
                 </textarea>
             </div>
 

@@ -1,3 +1,9 @@
+<?php
+include("../connection/connect.php");
+error_reporting(0);
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,6 +70,7 @@
                         </span>
                     </a>
                 </div>
+
                 <!-- End Logo -->
                 <div class="navbar-collapse">
                     <!-- toggle and nav items -->
@@ -118,8 +125,13 @@
         <!-- Left Sidebar  -->
         <div class="left-sidebar">
             <!-- Sidebar scroll-->
+
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
+
+
+<!-- Users [admin, m-n-e, mabalane, nhlanhla] -->
+<?php if($_SESSION["adm_id"] == "6" || $_SESSION["adm_id"] == "11" || $_SESSION["adm_id"] == "10" || $_SESSION["adm_id"] == "9" ){ ?>
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider">
@@ -143,28 +155,23 @@
                                 </li>                                
                                 <li>
                                     <a href="showDashAgents.php">
-                                    Agents & Community<br> Representatives
+                                    Social mobilisation
                                     </a>
-                                </li>                            
+                                </li> 
+                                <li>
+                                    <a href="showDashHumanRights.php">
+                                        Human Rights</a>
+                                </li>               
                                 <li>
                                     <a href="#">
                                     Advocacy
                                     </a>
-                                </li> 
-                                <li>
-                                    <a href="#">
-                                    Social mobilisation
-                                    </a>
-                                </li>                                
+                                </li>                               
                                 <li>
                                     <a href="#">
                                         Communications & Public awareness
                                     </a>
-                                </li>                                
-                                <li>
-                                    <a href="#">
-                                        Legal support and promotion of Human Rights</a>
-                                </li>                                
+                                </li>                              
                                 <li>
                                     <a href="#">
                                         Contact tracing & screening
@@ -182,33 +189,8 @@
                         <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">User Support</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="doShowAgents.php">All Users</a></li>
-<!--                                
-                                <li>
-                                    <a href="add_users.php">
-                                        Add Users</a>
-                                </li>
--->                                
-                               
                             </ul>
                         </li>
-<!--
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Store</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="allrestraunt.php">All Stores</a></li>
-                                <li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restraunt.php">Add Restaurant</a></li>
-                                
-                            </ul>
-                        </li>
-                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="all_menu.php">All Menues</a></li>
-                                <li><a href="add_menu.php">Add Menu</a></li>
-                              
-                                
-                            </ul>
-                        </li>
--->
                          <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Requests</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="showAllRequests.php">All Requests</a></li>
@@ -218,6 +200,104 @@
                          
                     </ul>
                 </nav>
+<?php } ?>                
+<!-- Users [admin, m-n-e, mabalane, nhlanhla] -->
+
+<!-- Users [advocacy] -->
+<?php if($_SESSION["adm_id"] == "12"){ ?>
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider">
+                            <br><br><br><br>
+                        </li>
+                        <li class="nav-label">
+                            <br>
+                            <br>
+                        </li>
+                        <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
+                            <ul aria-expanded="false" class="collapse">                           
+                                <li>
+                                    <a href="doShowLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="showDashHouseholdStats.php">
+                                    Household Stats Overview
+                                    </a>
+                                </li>              
+                                <li>
+                                    <a href="#">
+                                    Advocacy
+                                    </a>
+                                </li>
+                            </ul> 
+                        </li>                         
+                    </ul>
+                </nav>
+<?php } ?>    
+<!-- Users [advocacy] -->
+
+<!-- Users [social-mobilization] -->
+<?php if($_SESSION["adm_id"] == "13"){ ?>
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider">
+                            <br><br><br><br>
+                        </li>
+                        <li class="nav-label">
+                            <br>
+                            <br>
+                        </li>
+                        <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="doShowLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li>                            
+                                <li>
+                                    <a href="showDashAgents.php">
+                                    Social mobilisation
+                                    </a>
+                                </li>
+                            </ul> 
+                        </li>                         
+                    </ul>
+                </nav>
+<?php } ?>   
+<!-- Users [social-mobilization] -->
+
+<!-- Users [human-rights] -->
+<?php if($_SESSION["adm_id"] == "14"){ ?>
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider">
+                            <br><br><br><br>
+                        </li>
+                        <li class="nav-label">
+                            <br>
+                            <br>
+                        </li>
+                        <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="doShowLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="showDashHumanRights.php">
+                                        Human Rights</a>
+                                </li>                           
+                            </ul>            
+                        </li>
+                    </ul>
+                </nav>
+<?php } ?>   
+<!-- Users [human-rights] -->
+
+
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->

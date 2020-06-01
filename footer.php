@@ -6,7 +6,7 @@
         <a href="https://twitter.com/CivilSociety_SA" target="_blank"><i class="fa fa-twitter"></i></a>
         <a href="https://www.youtube.com/channel/UCTtgR8BX1HZqoxNLqVQbC4Q" target="_blank"><i class="fa fa-youtube"></i></a>
             </span><br/>
-          Copyright &copy; <a href="http://communityconstituency.org.za/" target="_blank">Community Constituency COVID-19 Front</a>  | <a href="mailto:support@thusasechaba.org.za?subject=Asking for Supoort - thusasechaba!&body=Please describe the assistance you require from us here. !" target="_blank"> Click here for support </a></p>
+          Copyright &copy; <a href="http://communityconstituency.org.za/" target="_blank">Community Constituency COVID-19 Front</a>  | <a href="https://communityconstituency.org.za/support" target="_blank"> Click here for support </a></p>
         <p><img src="covid-partners.png" alt="partners"><br/>
       </p>
     </section>

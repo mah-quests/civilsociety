@@ -25,7 +25,7 @@
               <label for="settlement">Type of Settlement (*)</label>
                 <div style="width:98%">
                 <select name="settlement" size="1" id="settlement" class="form-control unit" required>
-                    <option selected></option>
+                    <option selected value=""></option>
                     <option>Informal Settlement</option>
                     <option>RDP</option>
                     <option>Rural (Village)</option>

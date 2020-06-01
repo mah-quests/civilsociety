@@ -3,22 +3,96 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
-if(strlen($_SESSION['user_id'])==0)
-  { 
-header('location:login.php');
-}
-else
-{
+
+
+  $usersOrders=mysqli_query($db,"select * FROM users_orders where o_id='".$_GET['form_id']."'");
+
+  while($ro=mysqli_fetch_array($usersOrders)) {
+
+  $unique_code = $ro['unique_code'];
+  $rowID=$ro['o_id'];
+  $link_to_url =" 
+
+
+  To view the requestion. Click here:
+  http://thusasechaba.org.za/admin/guestViewRequestDetails.php?user_upd=$rowID ";
+
+  }
+
   if(isset($_POST['update']))
   {
-$form_id=$_GET['form_id'];
-$unique_code=$_GET['unique_code'];
-$status=$_POST['status'];
-$remark=$_POST['remark'];
-$query=mysqli_query($db,"insert into remark(frm_id,status,remark) values('$form_id','$status','$remark')");
-$sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
+  
+  $form_id=$_GET['form_id'];
+  $status=$_POST['status'];
+  $remark=$_POST['remark'];
+  $heads=$_POST['heads'];
+  $advocacy=$_POST['advocacy'];
+  $mobilization=$_POST['mobilization'];
+  $humanright=$_POST['humanright'];
+  $media=$_POST['media'];
+  $administration=$_POST['administration'];
+  $database=$_POST['database'];
+  $screen=$_POST['screen'];
+  $mne=$_POST['mne'];
+  $it=$_POST['it'];
 
-echo "<script>alert('form details updated successfully');</script>";
+
+  $query=mysqli_query($db,"insert into remark(frm_id,status,remark)
+                   values
+                   ('$form_id','$status','$remark')");    
+
+  $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
+
+  $query=mysqli_query($db,"UPDATE REMARK 
+                    set 
+                    remark='$remark'
+                    where frm_id='$form_id' ");  
+
+//Send email notification
+
+
+  if ( $heads == "yes") {
+    include("./emails/heads_mail.php");
+  }
+
+  if ( $advocacy == "yes" ) {
+    include("./emails/advocacy_mail.php");
+  }
+
+  if ( $mobilization == "yes" ) {
+    include("./emails/mobilization_mail.php");
+  }        
+
+  if ( $humanright == "yes" ) {
+    include("./emails/humanright_mail.php");
+  }
+
+  if ( $media == "yes" ) {
+    include("./emails/media_mail.php");
+  }
+
+  if ( $it == "yes" ) {
+
+    include("./emails/it_mail.php");
+  }   
+
+  if ( $administration == "yes" ) {
+    include("./emails/administration_mail.php");
+  } 
+
+  if ( $database == "yes" ) {
+    include("./emails/database_mail.php");
+  }   
+
+  if ( $screen == "yes" ) {
+    include("./emails/screen_mail.php");
+  }  
+
+  if ( $mne == "yes" ) {
+    include("./emails/mne_mail.php");
+  }     
+
+  echo "<script>alert('Successfully updated request details');</script>";
 
   }
 
@@ -49,12 +123,7 @@ window.print();
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
-    <!--[if lt IE 9]>
-    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
 <style type="text/css" rel="stylesheet">
 
 
@@ -128,14 +197,27 @@ td, th {
 <div style="margin-left:50px;">
  <form name="updateticket" id="updatecomplaint" method="post"> 
  
+<?php 
+
+  $usersOrders=mysqli_query($db,"select * FROM users_orders where o_id='".$_GET['form_id']."'");
+
+  while($ro=mysqli_fetch_array($usersOrders)) {
+
+  $unique_code = $ro['unique_code'];
+
+}
+
+?>
+
+
 <table  border="0" cellspacing="0" cellpadding="0">
     <tr >
       <td><b>Unique Form Number</b></td>
       <td><?php echo htmlentities($_GET['form_id']); ?></td>
     </tr>
 	 <tr>
-      <td>&nbsp;</td>
-      <td >&nbsp;</td>
+      <td>Reference Number</td>
+      <td ><?php echo $unique_code; ?></td>
     </tr>
    
     <tr >
@@ -143,9 +225,9 @@ td, th {
       <td>
         <select name="status" required="required" >
           <option value="">Select Status</option>
-          <option value="in process">In Process</option>
+          <option value="in process">In Progress</option>
           <option value="closed">Closed</option>
-	         <option value="rejected">rejected</option>
+	         <option value="rejected">Rejected</option>
         </select>
       </td>
     </tr>
@@ -154,22 +236,39 @@ td, th {
       <td><b>Comments from M&E or Stream head</b></td>
       <td><textarea name="remark" cols="50" rows="10" required="required"></textarea></td>
     </tr>
-    
 
+    <tr >
+      <td><b>Email Notification</b></td>
+      <td>
+        <p>
 
-    <tr>
-      <td><b>Action</b></td>
+            <label><input type="checkbox" name="mobilization" value="yes" /> Social Mobilization</label>
+            <label><input type="checkbox" name="humanright" value="yes" /> Human Rights</label>
+            <label><input type="checkbox" name="it" value="yes" /> IT</label> <br>
+            <label><input type="checkbox" name="mne" value="yes" /> Monitoring and Evaluation</label>            
+            <label><input type="checkbox" name="media" value="yes" /> Media</label>
+            <label><input type="checkbox" name="advocacy" value="yes" /> Advocacy</label><br>           
+            <label><input type="checkbox" name="administration" value="yes" /> Administration</label>
+
+            <label><input type="checkbox" name="database" value="yes" /> Database</label>    
+            <label><input type="checkbox" name="screen" value="yes" /> Screen and Tracing</label> 
+                               
+        </p>
+      </td>
+    </tr>    
+
+    <tr align="center">
+      <td>
       <td><input type="submit" name="update"  class="btn btn-primary" value="Submit">
 	   
-      <input name="Submit2" type="submit"  class="btn btn-danger"  value="Close this window " onClick="return f2();" style="cursor: pointer;"  /></td>
+      <input name="Submit2" type="submit"  class="btn btn-danger"  value="Close" onClick="return f2();" style="cursor: pointer;"  />
+    </td>
     </tr>
-
-
 </table>
  </form>
+
+
 </div>
 
 </body>
 </html>
-
-     <?php } ?>

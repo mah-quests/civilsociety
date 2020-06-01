@@ -58,7 +58,7 @@
 
             <div class="col-md-12">
               <label for="address">Home Address</label>
-                <input class="form-control" type="text" name="address" id="address" rows="3" placeholder="Please enter your local address" value="<?php echo $user['address']; ?>"  required> 
+                <input class="form-control" type="text" name="address" id="address" rows="3" placeholder="Please enter your local address"  required> 
             </div>
 
 

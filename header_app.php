@@ -10,12 +10,18 @@ session_start();
 
 <head>
     <meta charset="utf-8">
+    <meta property="og:title" content="Thusa Sechaba Web Application" />
+    <meta property="og:url" content="https://www.thusasechaba.org.za/" />
+    <meta property="og:description" content="Thusa Sechaba Web Application">
+    <meta property="og:image" sizes="32x32" content="images/color-covid-logo.png">
+    <meta property="og:type" content="thusasechaba" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/color-covid-logo.png">    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/black-covid-logo.png">
+    <meta name="description" content="Thusa Sechaba, Thusa Sechaba Web App, ThusaSechaba, Thusa, Sechaba, COVID-19 Front, Civil Society, Civil, Society">
+    <meta name="author" content="Community Constituency Covid-19 Front">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/black-covid-logo.png" alt="Thusa Sechaba Logo">
     <title>Thusa Sechaba Web Application</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -170,7 +176,8 @@ categories["North West"] = ["Bojanala Platinum","Ngaka Modiri Molema","Dr Ruth S
   categories["Dr Ruth Segomotsi Mompati"] = ["Naledi","Mamusa","Greater Taung","Lekwa-Teemane","Kagisano-Molopo"];  
   categories["Dr Kenneth Kaunda"] = ["JB Marks","Matlosana","Maquassi Hills"];     
 
-categories["Free State"] = ["Fezile Dabi District","Lejweleputswa District","Thabo Mofutsanyana District","Xhariep District"];
+categories["Free State"] = ["Mangaung Metropolitan","Fezile Dabi District","Lejweleputswa District","Thabo Mofutsanyana District","Xhariep District"];
+  categories["Mangaung Metropolitan"] = ["Mangaung Metropolitan Municipality"]; 
   categories["Fezile Dabi District"] = ["Moqhaka","Ngwathe","Metsimaholo","Mafube"];         
   categories["Lejweleputswa District"] = ["Masilonyana","Tokologo","Tswelopele","Matjhabeng","Nala"];       
   categories["Thabo Mofutsanyana District"] = ["Setsoto","Dihlabeng","Nketoana","Maluti-a-Phofung","Phumelela","Mantsopa"];  
@@ -262,7 +269,7 @@ navigator.appName == "Microsoft Internet Explorer"
                     <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">&#9776;                      
                     </button>
                     <a class="navbar-brand" href="index.php"> 
-                        <img alt="LOGO" width="167" height="48" src="images/covid-logo.png" alt="COVID-19 Front Civil Society Response Team"> 
+                        <img alt="LOGO" width="167" height="48" src="images/covid-logo.png" alt="Thusa Sechaba"> 
                     </a>  
                             <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                                 <ul class="nav navbar-nav">
