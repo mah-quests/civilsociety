@@ -29,27 +29,27 @@ session_start();
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Reference Number</th>    
                                     <th>Date</th>
                                     <th>Full Names</th>
                                     <th>Phone Number</th>
-                                    <th>Alternative Number</th>
                                     <th>Province</th>  
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>#</th>
+                                    <th>Reference Number</th>    
                                     <th>Date</th>
                                     <th>Full Names</th>
                                     <th>Phone Number</th>
-                                    <th>Alternative Number</th>
-                                    <th>Province</th>
+                                    <th>Province</th>    
                                 </tr>
                             </tfoot>
                             <tbody>
         <?php
         $sql="select * from request_by_partner where unique_code in 
-                (SELECT unique_code FROM `request_violations` WHERE any_kind_abuse ='Yes' and date(date) = curdate()-1)
+                (SELECT unique_code FROM `request_violations` WHERE any_kind_abuse ='Yes' and date(date) = curdate() - interval 1 day)
             ";
         $query=mysqli_query($db,$sql);
         
@@ -67,10 +67,10 @@ $fetch=mysqli_fetch_array($newquery);
 
 
 echo '<tr><td>'.$fetch['u_id'].'</td>
+    <td>'.$rows['unique_code'].'</td>
     <td>'.$rows['date'].'</td>
     <td>'.$rows['firstname'].' '.$rows['lastname'].'</td>
     <td>'.$rows['phone'].'</td>
-    <td>'.$rows['alt_number'].'</td>
     <td>'.$rows['provice'].'</td>
     </tr>';
 

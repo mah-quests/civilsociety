@@ -53,8 +53,6 @@
             <div class="col-md-4">
                 <label for="level-three">
                 3rd Level Priority Needs  
-                    <i style="font-size: 12px">(Physical Survival)
-                    </i>
                 </label><br>
                     <input type="checkbox" name="employment" value="Yes">
                     <label for="employment"> Employment</label><br>
@@ -64,6 +62,8 @@
                     <label for="electricity"> Electricity</label><br>
                     <input type="checkbox" name="transport" value="Yes">
                     <label for="transport"> Transport</label><br> 
+                    <input type="checkbox" name="infomation" value="Yes">
+                    <label for="infomation"> Infomation</label><br>                     
             </div>
                        
 

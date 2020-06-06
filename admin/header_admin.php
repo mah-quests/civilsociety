@@ -163,18 +163,18 @@ session_start();
                                         Human Rights</a>
                                 </li>               
                                 <li>
-                                    <a href="#">
+                                    <a href="showDashAdvocacy.php">
                                     Advocacy
                                     </a>
                                 </li>                               
                                 <li>
-                                    <a href="#">
-                                        Communications & Public awareness
+                                    <a href="showDashCommunications.php">
+                                        Communications & <br>Public awareness
                                     </a>
                                 </li>                              
                                 <li>
                                     <a href="#">
-                                        Contact tracing & screening
+                                        Contact tracing & <br>Screening
                                     </a>
                                 </li>
                                 <li>

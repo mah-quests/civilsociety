@@ -47,7 +47,7 @@ include 'header_admin.php'
 
 <tbody>
 <?php
-	$sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where o_id='".$_GET['user_upd']."'";
+	$sql="SELECT * FROM  users_orders where o_id='".$_GET['user_upd']."'";
 	$query=mysqli_query($db,$sql);
 	$rows=mysqli_fetch_array($query);
 
@@ -56,14 +56,7 @@ include 'header_admin.php'
             <tr>
                 <td><strong>Reference Number</strong></td>
                 <td><center><?php echo $rows['unique_code']; ?></center></td>
-            </tr>             
-            <tr>
-                <td><strong>Agent Name & Surname</strong></td>
-                <td>
-                    <center>
-                        <?php echo $rows['f_name'].' '.$rows['l_name'].' - '. $rows['organization_name'] ?>
-                </center></td>
-            </tr>   
+            </tr>  
             <tr>
             <td><strong>Household Contact Person's Name & Surname</strong></td>
             <td><center><?php echo $rows['request_first_name'].' '.$rows['request_surname'] ?></center></td>
@@ -136,15 +129,36 @@ include 'header_admin.php'
                                                             
 		        <td>  
 		            <center>
-		                <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>cancelled
+		                <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i> Rejected
 		                </button> 
 		            </center>
 		        </td> 
+            </tr>                
         <?php 
         } 
+    $sql="SELECT remark.*, users_orders.* FROM remark INNER JOIN users_orders ON remark.frm_id=users_orders.o_id where o_id='".$_GET['user_upd']."' order by remark.remarkDate desc";
+    $query=mysqli_query($db,$sql);
+    $row=mysqli_fetch_array($query);        
     ?>  
-                                                                                                                                            
-		   			</tr>
+
+            <tr>
+                <td><strong>M & E Remarks and Updates</strong></td>
+                <td><center><?php echo $row['remark']; ?></center></td>
+            </tr>
+
+            <tr>
+                <td><strong>Last Updated</strong></td>
+                <td><center><?php echo $row['remarkDate']; ?></center></td>
+            </tr>            
+
+<?php 
+
+
+    $sql="SELECT * FROM  users_orders where o_id='".$_GET['user_upd']."'";
+    $query=mysqli_query($db,$sql);
+    $rows=mysqli_fetch_array($query);
+
+?>
 
 				</tbody>
 			</table>

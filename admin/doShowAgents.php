@@ -43,7 +43,7 @@ session_start();
                                            
 											
         <?php
-            $sql="SELECT * FROM users where network='P' or network='N' or network='C' ";
+            $sql="SELECT * FROM users";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )

@@ -111,37 +111,45 @@ else
                 Surveys across provinces:
                 <br><br>
               <div class="card-body text-center">
-                <h1 class="display-4" style="color: green">
-                    <?php echo $totalResponses;?>
-                </h1>
-                <span style="color: green"># Total Surveys</span>
+                <a href="showAllRequests.php">
+                    <h1 class="display-4" style="color: green">
+                        <?php echo $totalResponses;?>
+                    </h1>
+                    <span style="color: green"># Total Surveys</span>
+                </a>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                 <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5">
-                    <?php echo $totalGauteng;?>
-                </h1>
-                <span># in Gauteng</span>
+                <a href="showProvinceRequests.php?id=gauteng">
+                    <h1 class="display-5">
+                        <?php echo $totalGauteng;?>
+                    </h1>
+                    <span># in Gauteng</span>
+                </a>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                 <br><br>
               <div class="card-body text-center">
+                <a href="showProvinceRequests.php?id=freestate">
                 <h1 class="display-5">
                     <?php echo $totalFreeState;?>
                 </h1>
                 <span># in Free State</span>
+                </a>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
                 <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5" > 
-                    <?php echo $totalNorthWest;?>                   
-                </h1>
-                <span># in North West</span>
+                <a href="showProvinceRequests.php?id=northwest">
+                    <h1 class="display-5" > 
+                        <?php echo $totalNorthWest;?>                   
+                    </h1>
+                    <span># in North West</span>
+                </a>
               </div>
             </div>
 
@@ -156,28 +164,34 @@ else
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalMpumalanga;?>                     
-                </h1>
-                <span># in Mpumalanga</span>
+                <a href="showProvinceRequests.php?id=mpumalanga">
+                    <h1 class="display-5"> 
+                        <?php echo $totalMpumalanga;?>                     
+                    </h1>
+                    <span># in Mpumalanga</span>
+                </a>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br>               
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalLimpopo;?>                      
-                </h1>
-                <span># in Limpopo</span>
+                <a href="showProvinceRequests.php?id=limpopo">
+                    <h1 class="display-5"> 
+                        <?php echo $totalLimpopo;?>                      
+                    </h1>
+                    <span># in Limpopo</span>
+                </a>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalKZN;?>
-                </h1>
-                <span># in KwaZulu Natal</span>
+                <a href="showProvinceRequests.php?id=kzn">
+                    <h1 class="display-5"> 
+                        <?php echo $totalKZN;?>
+                    </h1>
+                    <span># in KwaZulu Natal</span>
+                </a>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
@@ -191,37 +205,45 @@ else
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalNorthernCape;?>
-                </h1>
-                <span># in Northern Cape</span>
+                <a href="showProvinceRequests.php?id=northerncape">
+                    <h1 class="display-5"> 
+                        <?php echo $totalNorthernCape;?>
+                    </h1>
+                    <span># in Northern Cape</span>
+                </a>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalEasternCape;?>                   
-                </h1>
-                <span># in Eastern Cape</span>
+                <a href="showProvinceRequests.php?id=easterncape">
+                    <h1 class="display-5"> 
+                        <?php echo $totalEasternCape;?>                   
+                    </h1>
+                    <span># in Eastern Cape</span>
+                </a>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalWesternCape;?>                   
-                </h1>
-                <span># in Western Cape</span>
+                <a href="showProvinceRequests.php?id=westerncape">
+                    <h1 class="display-5"> 
+                        <?php echo $totalWesternCape;?>                   
+                    </h1>
+                    <span># in Western Cape</span>
+                </a>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5" style="color: red"> 
-                    <?php echo $totalNoProvince; ?>                    
-                </h1>
-                <span style="color: red"># Unallocated</span>
+                <a href="showProvinceRequests.php?id=unallocated">
+                    <h1 class="display-5" style="color: red"> 
+                        <?php echo $totalNoProvince; ?>                    
+                    </h1>
+                    <span style="color: red"># Unallocated</span>
+                </a>
               </div>
             </div>                                    
           </div>

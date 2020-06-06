@@ -392,7 +392,7 @@ else
                     <div class="card-body">
                         <h4 class="card-title">Civil Society Active Organizations</h4>
                             <div class="table-responsive m-t-40">
-                                <table id="myTable" class="table table-striped">
+                                <table id="myTable2" class="table table-striped">
                                     <thead>
                                        <tr>
                                             <th>#</th>
