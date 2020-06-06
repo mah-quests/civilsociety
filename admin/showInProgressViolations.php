@@ -10,7 +10,7 @@ session_start();
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-secondary">List of all household requests being processed</h3> 
+                    <h3 class="text-secondary">List of all unprocessed violation requests</h3> 
                 </div>
                
             </div>
@@ -24,7 +24,7 @@ session_start();
                        
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">All Partner Requests</h4>
+                    <h4 class="card-title">All Unprocessed Violations</h4>
                  
                     <div class="table-responsive m-t-40">
                         <table id="myTable" class="table table-bordered table-striped">
@@ -43,11 +43,11 @@ session_start();
                             <tbody>
                                            
 <?php
-    $sql="SELECT users.*, users_orders.*, users_orders.municipality as delivery_municipality FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.status='in process' ";
+    $sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.status='in process' and users_orders.unique_code in (SELECT unique_code FROM request_violations where  any_kind_abuse='Yes' )";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
-        echo '<td colspan="8"><center>No Requests-Data!</center></td>';
+        echo '<td colspan="8"><center>No Violations Data!</center></td>';
     } else {				
     while($rows=mysqli_fetch_array($query))
     {
@@ -103,13 +103,13 @@ echo ' <tr>
             } 
             ?>
     	   <?php																									
-		echo '<td>'.$rows['delivery_municipality'].'</td>';
+		echo '<td>'.$rows['municipality'].'</td>';
         echo '<td>'.$rows['province'].'</td>';
 		?>
 			 <td>
 			 <a href="deleteRequestDetails.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
 		<?php
-		echo '<a href="showRequestDetails.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
+		echo '<a href="showViolationDetails.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 			</td>
 			</tr>';
         }	

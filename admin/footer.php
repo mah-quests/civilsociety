@@ -33,6 +33,8 @@
     <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <script src="js/lib/datatables/datatables-init.js"></script>
+    <script src="js/lib/datatables/datatables-init2.js"></script>
+    <script src="js/lib/datatables/datatables-init3.js"></script>
 
     </body>
 </html>

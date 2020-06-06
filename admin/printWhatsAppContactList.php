@@ -10,7 +10,7 @@ session_start();
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Print Violations Registered Last Week</h3> </div>
+                    <h3 class="text-primary">List of Contacts - Subscribe to WhatsApp</h3> </div>
                 
 </div>
 <!-- End Bread crumb -->
@@ -22,33 +22,32 @@ session_start();
 			
 			<div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Violations This Week</h4>
-					
+                    <h4 class="card-title">COVID-19 Related WhatsApp Contact List</h4>
                     <div class="table-responsive m-t-40">
                         <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
 								    <th>#</th>
-                                    <th>Reference Number</th>    
-                                    <th>Date</th>
-                                    <th>Full Names</th>
+                                    <th>Full Names</th>   
                                     <th>Phone Number</th>
+                                    <th>Alternate Number</th>
+                                    <th>Municipality</th>
                                     <th>Province</th>  
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-								    <th>#</th>
-                                    <th>Reference Number</th>    
-                                    <th>Date</th>
-                                    <th>Full Names</th>
+                                    <th>#</th>
+                                    <th>Full Names</th>   
                                     <th>Phone Number</th>
-                                    <th>Province</th>
+                                    <th>Alternate Number</th>
+                                    <th>Municipality</th>
+                                    <th>Province</th> 
                                 </tr>
                             </tfoot>
                             <tbody>
        	<?php
-		$sql="SELECT * FROM request_by_partner where unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
+		$sql="select * from request_by_partner where unique_code in (SELECT unique_code FROM request_medication_02 WHERE whatsappp_subscribe='Yes') ";
 		$query=mysqli_query($db,$sql);
 		
 			if(!mysqli_num_rows($query) > 0 )
@@ -65,10 +64,10 @@ $fetch=mysqli_fetch_array($newquery);
 
 
 echo '<tr><td>'.$fetch['u_id'].'</td>
-    <td>'.$rows['unique_code'].'</td>
-	<td>'.$rows['date'].'</td>
-	<td>'.$rows['firstname'].' '.$rows['lastname'].'</td>
-	<td>'.$rows['phone'].'</td>
+    <td>'.$rows['firstname'].' '.$rows['lastname'].'</td>
+    <td>'.$rows['phone'].'</td>
+	<td>'.$rows['alt_number'].'</td>
+	<td>'.$rows['municipality'].'</td>
     <td>'.$rows['provice'].'</td>
 	</tr>';
 

@@ -47,7 +47,7 @@ include 'header_admin.php'
 
 <tbody>
 <?php
-	$sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where o_id='".$_GET['user_upd']."'";
+	$sql="SELECT *  FROM users_orders where o_id='".$_GET['user_upd']."'";
 	$query=mysqli_query($db,$sql);
 	$rows=mysqli_fetch_array($query);
 
@@ -56,13 +56,6 @@ include 'header_admin.php'
             <tr>
                 <td><strong>Reference Number</strong></td>
                 <td><center><?php echo $rows['unique_code']; ?></center></td>
-            </tr>             
-            <tr>
-                <td><strong>Agent Name & Surname</strong></td>
-                <td>
-                    <center>
-                        <?php echo $rows['f_name'].' '.$rows['l_name'].' - '. $rows['organization_name'] ?>
-                </center></td>
             </tr>   
             <tr>
             <td><strong>Household Contact Person's Name & Surname</strong></td>
@@ -164,7 +157,7 @@ include 'header_admin.php'
 <?php 
 
 
-    $sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where o_id='".$_GET['user_upd']."'";
+    $sql="SELECT * FROM  users_orders where o_id='".$_GET['user_upd']."'";
     $query=mysqli_query($db,$sql);
     $rows=mysqli_fetch_array($query);
 

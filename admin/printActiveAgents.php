@@ -5,12 +5,11 @@ include("../connection/dataCollection.php");
 error_reporting(0);
 session_start();
 ?>
-
         <div class="page-wrapper">
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Print Violations Registered Last Week</h3> </div>
+                    <h3 class="text-primary">Print All Community Constituency Covid-19 Front Agents</h3> </div>
                 
 </div>
 <!-- End Bread crumb -->
@@ -22,38 +21,38 @@ session_start();
 			
 			<div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Violations This Week</h4>
+                    <h4 class="card-title">All Covid-19 Front Agents</h4>
 					
                     <div class="table-responsive m-t-40">
                         <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
 								    <th>#</th>
-                                    <th>Reference Number</th>    
-                                    <th>Date</th>
+                                    <th>ID Number</th>
                                     <th>Full Names</th>
-                                    <th>Phone Number</th>
-                                    <th>Province</th>  
+                                    <th>Phone</th>
+                                    <th>Province</th>
+                                    <th># Household Requests</th>  
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
 								    <th>#</th>
-                                    <th>Reference Number</th>    
-                                    <th>Date</th>
+                                    <th>ID Number</th>
                                     <th>Full Names</th>
-                                    <th>Phone Number</th>
+                                    <th>Phone</th>
                                     <th>Province</th>
+                                    <th># Household Requests</th>
                                 </tr>
                             </tfoot>
                             <tbody>
        	<?php
-		$sql="SELECT * FROM request_by_partner where unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
+		$sql="SELECT users.username, users.f_name, users.l_name, users.phone, users.provice, users.email,  COUNT(*) as number_of_household_requests FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id GROUP BY users_orders.u_id";
 		$query=mysqli_query($db,$sql);
 		
 			if(!mysqli_num_rows($query) > 0 )
 				{
-					echo '<td colspan="11"><center>No Violations Today!</center></td>';
+					echo '<td colspan="11"><center>No Dish-Data!</center></td>';
 				}
 			else
 				{				
@@ -65,11 +64,11 @@ $fetch=mysqli_fetch_array($newquery);
 
 
 echo '<tr><td>'.$fetch['u_id'].'</td>
-    <td>'.$rows['unique_code'].'</td>
-	<td>'.$rows['date'].'</td>
-	<td>'.$rows['firstname'].' '.$rows['lastname'].'</td>
+	<td>'.$rows['username'].'</td>
+	<td>'.$rows['f_name'].' '.$rows['l_name'].'</td>
 	<td>'.$rows['phone'].'</td>
-    <td>'.$rows['provice'].'</td>
+    <td>'.$rows['email'].'</td>
+    <td>'.$rows['number_of_household_requests'].'</td>
 	</tr>';
 
     }	

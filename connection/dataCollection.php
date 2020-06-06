@@ -125,7 +125,7 @@
 
 // Total number of surveys across the country
 
-    $sql="select * from request_by_partner";
+    $sql="select * from users_orders";
         $result=mysqli_query($db,$sql); 
         $totalResponses=mysqli_num_rows($result);    
 
@@ -142,52 +142,52 @@
         $result=mysqli_query($db,$sql); 
         $totalCommunityResponses=mysqli_num_rows($result);
 
-    $sql="select * from request_by_partner where provice='Gauteng' ";
+    $sql="select * from users_orders where province='Gauteng' ";
         $result=mysqli_query($db,$sql); 
         $totalGauteng=mysqli_num_rows($result);
 
 
-    $sql="select * from request_by_partner where provice='Free State' ";
+    $sql="select * from users_orders where province='Free State' ";
         $result=mysqli_query($db,$sql); 
         $totalFreeState=mysqli_num_rows($result);
 
 
-    $sql="select * from request_by_partner where provice='North West' ";
+    $sql="select * from users_orders where province='North West' ";
         $result=mysqli_query($db,$sql); 
         $totalNorthWest=mysqli_num_rows($result);
 
 
-    $sql=" select * from request_by_partner where provice='Mpumalanga' or provice='Mpumlanga' ";
+    $sql=" select * from users_orders where province='Mpumalanga' or province='Mpumlanga' ";
         $result=mysqli_query($db,$sql); 
         $totalMpumalanga=mysqli_num_rows($result);
 
 
-    $sql=" select * from request_by_partner where provice='KwaZulu Natal' ";
+    $sql=" select * from users_orders where province='KwaZulu Natal' ";
         $result=mysqli_query($db,$sql); 
         $totalKZN=mysqli_num_rows($result);
           
 
-    $sql=" select * from request_by_partner where provice='Limpopo' ";
+    $sql=" select * from users_orders where province='Limpopo' ";
         $result=mysqli_query($db,$sql); 
         $totalLimpopo=mysqli_num_rows($result);
                                       
 
-    $sql=" select * from request_by_partner where provice='Western Cape' ";
+    $sql=" select * from users_orders where province='Western Cape' ";
         $result=mysqli_query($db,$sql); 
         $totalWesternCape=mysqli_num_rows($result);
 
 
-    $sql=" select * from request_by_partner where provice='Northern Cape' ";
+    $sql=" select * from users_orders where province='Northern Cape' ";
         $result=mysqli_query($db,$sql); 
         $totalNorthernCape=mysqli_num_rows($result);
                                                     
 
-    $sql=" select * from request_by_partner where provice='Eastern Cape' ";
+    $sql=" select * from users_orders where province='Eastern Cape' ";
         $result=mysqli_query($db,$sql); 
         $totalEasternCape=mysqli_num_rows($result);
 
 
-    $sql=" select * from request_by_partner where provice='Choose' or provice='Select Province' or provice='' ";
+    $sql=" select * from users_orders where province='Choose' or province='Select Province' or province=' ' or province is NULL";
         $result=mysqli_query($db,$sql); 
         $totalNoProvince=mysqli_num_rows($result);        
 
@@ -387,7 +387,6 @@
         $totalLastWeekCCCPartners=mysqli_num_rows($result); 
 
 
-
     $sql="SELECT * FROM `users` WHERE network='N' and date(date) BETWEEN SUBDATE(CURDATE(), 7) AND CURDATE() ";
         $result=mysqli_query($db,$sql); 
         $totalLastWeekCivilSociety=mysqli_num_rows($result); 
@@ -396,6 +395,26 @@
     $sql="SELECT * FROM `users` WHERE network='C' and date(date) BETWEEN SUBDATE(CURDATE(), 7) AND CURDATE() ";
         $result=mysqli_query($db,$sql); 
         $totalLastWeekCommunity=mysqli_num_rows($result); 
+
+
+
+// Received, Processing, Rejected and Closed Violations
+    $sql="select * from users_orders where status is null and unique_code in (SELECT unique_code FROM request_violations where  any_kind_abuse='Yes' )";
+        $result=mysqli_query($db,$sql); 
+        $totalUnProcessedViolations=mysqli_num_rows($result);  
+
+    $sql="select * from users_orders where status='in process' and unique_code in (SELECT unique_code FROM request_violations where  any_kind_abuse='Yes')";
+        $result=mysqli_query($db,$sql); 
+        $totalViolationsBeingProcessed=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where status='closed' and unique_code in (SELECT unique_code FROM request_violations where  any_kind_abuse='Yes')";
+        $result=mysqli_query($db,$sql); 
+        $totalViolationsClosed=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where status='rejected' and unique_code in (SELECT unique_code FROM request_violations where  any_kind_abuse='Yes')";
+        $result=mysqli_query($db,$sql); 
+        $totalViolationsRejected=mysqli_num_rows($result);
+
 
 // Checking number of female respondants 
     $sql=" SELECT * FROM `request_by_partner` WHERE sex='Female'";
@@ -940,7 +959,7 @@
 
 
 // Total 'Yes' Violations
-    $sql="SELECT * FROM request_violations where any_kind_abuse = 'Yes' ";
+    $sql="SELECT * FROM users_orders where unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $totalYesViolations=mysqli_num_rows($result);
 
@@ -954,23 +973,23 @@
     $totalSpecifiedViolation = $totalYesViolations - $totalUnspecifiedViolations;
 
 // Violations by province
-    $sql="SELECT * from request_by_partner where provice='Gauteng' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='Gauteng' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $totalViolationsGauteng=mysqli_num_rows($result);    
 
-    $sql="SELECT * from request_by_partner where provice='Free State' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='Free State' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $totalViolationsFreeState=mysqli_num_rows($result);  
 
-    $sql="SELECT * from request_by_partner where provice='North West' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='North West' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $totalViolationsNorthWest=mysqli_num_rows($result);  
 
-    $sql="SELECT * from request_by_partner where provice='Mpumalanga' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='Mpumalanga' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $violationsMpumalanga=mysqli_num_rows($result);  
 
-    $sql="SELECT * from request_by_partner where provice='Mpumlanga' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='Mpumlanga' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $violationsMpumlanga=mysqli_num_rows($result); 
 
@@ -978,37 +997,42 @@
     $totalViolationsMpumalanga = $violationsMpumalanga + $violationsMpumlanga;
          
 
-    $sql="SELECT * from request_by_partner where provice='Limpopo' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
+    $sql="SELECT * from users_orders where province='Limpopo' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
         $result=mysqli_query($db,$sql); 
         $totalViolationsLimpopo=mysqli_num_rows($result);  
 
 
-    $sql="SELECT * from request_by_partner where provice='KwaZulu Natal' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
+    $sql="SELECT * from users_orders where province='KwaZulu Natal' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
         $result=mysqli_query($db,$sql); 
         $totalViolationsKwaZuluNatal=mysqli_num_rows($result);  
 
-    $sql="SELECT * from request_by_partner where provice='Northern Cape' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
+    $sql="SELECT * from users_orders where province='Northern Cape' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')";
         $result=mysqli_query($db,$sql); 
         $totalViolationsNorthernCape=mysqli_num_rows($result); 
 
-    $sql="SELECT * from request_by_partner where provice='Eastern Cape' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='Eastern Cape' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $totalViolationsEasternCape=mysqli_num_rows($result); 
 
-    $sql="SELECT * from request_by_partner where provice='Western Cape' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')  ";
+    $sql="SELECT * from users_orders where province='Western Cape' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes')  ";
         $result=mysqli_query($db,$sql); 
         $totalViolationsWesternCape=mysqli_num_rows($result); 
 
-    $sql="SELECT * from request_by_partner where provice='Select Province' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='Select Province' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
-        $NonSelectedViolation=mysqli_num_rows($result); 
+        $NonSelectedProvinceViolation=mysqli_num_rows($result); 
 
 
-    $sql="SELECT * from request_by_partner where provice=' ' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province='' and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $NoSelectedViolation=mysqli_num_rows($result); 
 
-    $totalNonSelectedViolation = $NoSelectedViolation + $NonSelectedViolation;
+
+    $sql="SELECT * from users_orders province is NULL and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $NullSelectedViolation=mysqli_num_rows($result); 
+
+    $totalNonSelectedViolation = $NonSelectedProvinceViolation + $NoSelectedViolation + $NullSelectedViolation;
 
 // Checking number of people with disabilities
     $sql="SELECT * FROM `request_disability` where number_disabled='Yes'";
@@ -1095,4 +1119,308 @@
         $result=mysqli_query($db,$sql); 
         $totalTransportWorkers=mysqli_num_rows($result);
 
-    ?>
+// Checking number of people looking for WhatsApp subscription
+    $sql="SELECT * FROM request_medication_02 where whatsappp_subscribe = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalWhatsAppSubscriptions=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM request_medication_02 where whatsappp_subscribe = 'No' or whatsappp_subscribe ='Choose...'";
+        $result=mysqli_query($db,$sql); 
+        $totalNotSubscibeWhatsApp=mysqli_num_rows($result);
+
+// Checking number of people with enough COVID-19 info
+    $sql="SELECT * FROM request_medication_02 where infoCovid = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalEnoughCOVIDInfo=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM request_medication_02 where infoCovid = 'No' or infoCovid ='Choose...'";
+        $result=mysqli_query($db,$sql); 
+        $totalNotEnoughCOVIDInfo=mysqli_num_rows($result);
+
+
+    $sql="SELECT * from users_orders where province='Gauteng' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoGauteng=mysqli_num_rows($result);  
+
+    $sql="SELECT * from users_orders where province='Free State' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoFreeState=mysqli_num_rows($result);  
+
+    $sql="SELECT * from users_orders where province='North West' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoNorthWest=mysqli_num_rows($result);  
+
+    $sql="SELECT * from users_orders where province='Mpumalanga' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $COVIDInfoMpumalanga=mysqli_num_rows($result);  
+
+    $sql="SELECT * from users_orders where province='Mpumlanga' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $COVIDInfoMpumlanga=mysqli_num_rows($result); 
+
+    $totalCOVIDInfoMpumalanga = $COVIDInfoMpumalanga + $COVIDInfoMpumlanga;
+
+    $sql="SELECT * from users_orders where province='Limpopo' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes')";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoLimpopo=mysqli_num_rows($result);  
+
+
+    $sql="SELECT * from users_orders where province='KwaZulu Natal' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes')";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoKwaZuluNatal=mysqli_num_rows($result);  
+
+    $sql="SELECT * from users_orders where province='Northern Cape' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes')";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoNorthernCape=mysqli_num_rows($result); 
+
+    $sql="SELECT * from users_orders where province='Eastern Cape' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoEasternCape=mysqli_num_rows($result); 
+
+    $sql="SELECT * from users_orders where province='Western Cape' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoWesternCape=mysqli_num_rows($result); 
+
+    $sql="SELECT * from users_orders where province='Select Province' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $NonSelectedProvinceCOVIDInfo=mysqli_num_rows($result); 
+
+
+    $sql="SELECT * from users_orders where province='' and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $NoSelectedCOVIDInfo=mysqli_num_rows($result); 
+
+
+    $sql="SELECT * from users_orders province is NULL and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+        $result=mysqli_query($db,$sql); 
+        $NullSelectedCOVIDInfo=mysqli_num_rows($result); 
+
+    $totalNonSelectedCOVIDInfo = $NonSelectedProvinceCOVIDInfo + $NoSelectedCOVIDInfo + $NullSelectedCOVIDInfo;
+
+
+// Checking Mediums Of Infomation Language Distribution
+    $sql="SELECT * FROM request_info_language where isindebele = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoIsindebele=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM request_info_language where sesotho_sa_leboa = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoSesothoSaLeboa=mysqli_num_rows($result);        
+
+    $sql="SELECT * FROM request_info_language where sesotho_sa_borwa = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoSesothoSaBorwa=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM request_info_language where siswati = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoSiswati=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM request_info_language where xitsonga = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoXitsonga=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM request_info_language where setswana = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoSetswana=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM request_info_language where tshivenda = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoTshivenda=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM request_info_language where isixhosa = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoIsiXhosa=mysqli_num_rows($result);        
+
+    $sql="SELECT * FROM request_info_language where isizulu = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoIsiZulu=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_info_language where afrikaans = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoAfrikaans=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_info_language where english = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDInfoEnglish=mysqli_num_rows($result);  
+
+
+// Checking Mediums Of Infomation Distribution
+    $sql="SELECT * FROM request_covid_media_info where email = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimEmail=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_covid_media_info where social_media = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimSocialMedia=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_covid_media_info where billboards = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimBillboards=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_covid_media_info where internet = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimInternet=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_covid_media_info where print_media = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimPrintMedia=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_covid_media_info where sms = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimSMS=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_covid_media_info where radio_tv = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimRadioTv=mysqli_num_rows($result);  
+
+    $sql="SELECT * FROM request_covid_media_info where municipality = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimMunicipality=mysqli_num_rows($result); 
+
+    $sql="SELECT * FROM request_covid_media_info where neighbourhood_committee = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimNeighbourhoodCommittee=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM request_covid_media_info where local_npo = 'Yes'";
+        $result=mysqli_query($db,$sql); 
+        $totalCOVIDMeduimLocalNPO=mysqli_num_rows($result);
+
+// Rules 
+// Food/Clothing/ Masks and Sanitazors
+
+// High Alert Rule 01: Number of people employed, number of people in the household         
+    $sql="select * from users_orders where unique_code in (select unique_code from request_people where people_in_house > 4 and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
+        $result=mysqli_query($db,$sql); 
+        $highAlertFoodRule01=mysqli_num_rows($result);
+
+// High Alert Rule 02: Number of people employed, number of people who are pregnant in the household         
+    $sql="select * from users_orders where unique_code in (select unique_code from request_medication_01 where no_pregnant_people > 0 and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
+        $result=mysqli_query($db,$sql); 
+        $highAlertFoodRule02=mysqli_num_rows($result);
+                                         
+// High Alert Rule 03: Number of people employed, and people living with disabilities         
+    $sql="select * from users_orders where unique_code in(select unique_code from request_disability where number_disabled = 'Yes' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
+        $result=mysqli_query($db,$sql); 
+        $highAlertFoodRule03=mysqli_num_rows($result);
+
+    $highAlertFoodRules = $highAlertFoodRule01 + $highAlertFoodRule02 + $highAlertFoodRule03;
+
+
+
+// Medium Alert Rule 01: Number of people employed, number of people in the household         
+    $sql="select * from users_orders where unique_code in (select unique_code from request_people where people_in_house > 8 and unique_code in (select unique_code from request_employment_stats where number_people_employed > 2 and number_people_employed < 4 ))";
+        $result=mysqli_query($db,$sql); 
+        $medAlertFoodRule01=mysqli_num_rows($result);
+
+// Medium Alert Rule 02: Number of people employed, number of people who are pregnant in the household         
+    $sql="select * from users_orders where unique_code in (select unique_code from request_medication_01 where no_pregnant_people > 1 and unique_code in (select unique_code from request_employment_stats where number_people_employed > 4 and number_people_employed < 5))";
+        $result=mysqli_query($db,$sql); 
+        $medAlertFoodRule02=mysqli_num_rows($result);
+                                         
+// Medium Alert Rule 03: Number of people employed, and people living with disabilities         
+    $sql="select * from users_orders where unique_code in(select unique_code from request_disability where number_disabled = 'Yes' and unique_code in (select unique_code from request_employment_stats where number_people_employed > 2 and number_people_employed < 4))";
+        $result=mysqli_query($db,$sql); 
+        $medAlertFoodRule03=mysqli_num_rows($result);
+
+    $medAlertFoodRules = $medAlertFoodRule01 + $medAlertFoodRule02 + $medAlertFoodRule03;
+
+
+
+// Low Alert Rule 01: Number of people employed, number of people in the household         
+    $sql="select * from users_orders where unique_code in (select unique_code from request_people where people_in_house > 10 and unique_code in (select unique_code from request_employment_stats where number_people_employed > 4 ))";
+        $result=mysqli_query($db,$sql); 
+        $lowAlertFoodRule01=mysqli_num_rows($result);
+
+// Medium Alert Rule 02: Number of people employed, number of people who are pregnant in the household         
+    $sql="select * from users_orders where unique_code in (select unique_code from request_medication_01 where no_pregnant_people > 2 and unique_code in (select unique_code from request_employment_stats where number_people_employed > 4))";
+        $result=mysqli_query($db,$sql); 
+        $lowAlertFoodRule02=mysqli_num_rows($result);
+                                         
+// Medium Alert Rule 03: Number of people employed, and people living with disabilities         
+    $sql="select * from users_orders where unique_code in(select unique_code from request_disability where number_disabled = 'Yes' and unique_code in (select unique_code from request_employment_stats where number_people_employed > 4))";
+        $result=mysqli_query($db,$sql); 
+        $lowAlertFoodRule03=mysqli_num_rows($result);
+
+    $lowAlertFoodRules = $lowAlertFoodRule01 + $lowAlertFoodRule02 + $lowAlertFoodRule03;
+
+
+
+
+// Food Province Rules 
+    $sql="select * from users_orders where province='Gauteng' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $gautengFoodRule01=mysqli_num_rows($result);    
+
+    $sql="select * from users_orders where province='Free State' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $freeStateCapeFoodRule01=mysqli_num_rows($result);   
+
+    $sql="select * from users_orders where province='North West' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $northWestFoodRule01=mysqli_num_rows($result);   
+
+    $sql="select * from users_orders where province='Mpumalanga' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $MplangaFoodRule01=mysqli_num_rows($result);         
+                        
+    $sql="select * from users_orders where province='Mpumalanga' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $MpumlangaFoodRule01=mysqli_num_rows($result);  
+
+    $MpumalangaFoodRule01 = $MplangaFoodRule01 + $MpumlangaFoodRule01;
+
+    $sql="select * from users_orders where province='Kwazulu Natal' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $kwazuluNatalFoodRule01=mysqli_num_rows($result);  
+
+    $sql="select * from users_orders where province='Limpopo' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $limpopoFoodRule01=mysqli_num_rows($result); 
+
+
+    $sql="select * from users_orders where province='Western Cape' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $westernCapeFoodRule01=mysqli_num_rows($result); 
+
+
+    $sql="select * from users_orders where province='Northern Cape' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $northernCapeFoodRule01=mysqli_num_rows($result); 
+
+    $sql="select * from users_orders where province='Eastern Cape' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $easternCapeFoodRule01=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where province='Select Province' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $selectProvinceFoodRule01=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where province='' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2)";
+        $result=mysqli_query($db,$sql); 
+        $emptyProvinceFoodRule01=mysqli_num_rows($result);
+
+
+    $noProvinceFoodRule01 =  $emptyProvinceFoodRule01 + $selectProvinceFoodRule01;
+
+    $sql="SELECT unique_code FROM request_medication_02 WHERE essential_services_worker='Yes' or healthCareCondition='Yes' or disasterCondition='Yes' or retailCondition='Yes' or emegencyCondition='Yes' or transportCondition='Yes' and (highTempCond='Yes' and dryCoughCond='Yes') or (shortBreathConditionCond='Yes')";
+        $result=mysqli_query($db,$sql); 
+        $hiAlertCOVIDSymptoms=mysqli_num_rows($result);
+
+    $sql="SELECT unique_code FROM request_medication_02 WHERE essential_services_worker='Yes' or healthCareCondition='Yes' or emegencyCondition='Yes' and (highTempCond='Yes' and dryCoughCond='Yes') or (shortBreathConditionCond='Yes')";
+        $result=mysqli_query($db,$sql); 
+        $hiAlertSymptomsAndFrontLine=mysqli_num_rows($result);
+
+
+    $sql="SELECT unique_code FROM request_medication_02 WHERE essential_services_worker='Yes' or healthCareCondition='Yes' or disasterCondition='Yes' or retailCondition='Yes' or emegencyCondition='Yes' or transportCondition='Yes' and highTempCond='Yes' and dryCoughCond='Yes'";
+        $result=mysqli_query($db,$sql); 
+        $hiAlertChronicMedication=mysqli_num_rows($result);
+
+    $hiAlertMedication = $hiAlertSymptomsAndFrontLine + $hiAlertChronicMedication;
+
+    $sql="SELECT unique_code FROM request_medication_02 WHERE essential_services_worker='Yes' or healthCareCondition='Yes' or disasterCondition='Yes' or retailCondition='Yes' or emegencyCondition='Yes' or transportCondition='Yes' and highTempCond='Yes' and dryCoughCond='Yes'";
+        $result=mysqli_query($db,$sql); 
+        $mediumAlertSymptomsAndFrontLine=mysqli_num_rows($result);
+
+
+
+?>

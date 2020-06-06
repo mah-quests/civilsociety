@@ -13,7 +13,7 @@
         ]);
 
         var options = {
-          title: 'Household Responded Positively to human rights violations: <?php echo $totalYesViolations ?> ',
+          title: 'Household Responded Yes To Human Rights Violations: <?php echo $totalYesViolations ?> ',
           pieHole: 0.4,
         };
 

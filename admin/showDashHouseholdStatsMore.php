@@ -124,7 +124,7 @@ else
                 <div class="col-md-12">
                   <div class="card">
                       <?php 
-                        include 'human_rights_violations.php';
+                        include 'human_rights_household_responses.php';
                       ?>
                   </div>
                 </div>

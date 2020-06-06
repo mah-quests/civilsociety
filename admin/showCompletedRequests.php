@@ -43,11 +43,11 @@ session_start();
                             <tbody>
                                            
 <?php
-    $sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.status='closed' ";
+    $sql="SELECT users.*, users_orders.*, users_orders.municipality as delivery_municipality FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.status='closed' ";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
-        echo '<td colspan="8"><center>No Orders-Data!</center></td>';
+        echo '<td colspan="8"><center>No Requests-Data!</center></td>';
     } else {				
     while($rows=mysqli_fetch_array($query))
     {

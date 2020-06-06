@@ -43,7 +43,7 @@ session_start();
                             <tbody>
                                            
 <?php
-    $sql="SELECT users.*, users_orders.*, users_orders.municipality as delivery_municipality  FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.unique_code in (SELECT * FROM `request_violations` where any_kind_abuse ='Yes' and  date(date)= CURDATE())";
+    $sql="SELECT users.*, users_orders.*, users_orders.municipality as delivery_municipality  FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.unique_code in (SELECT unique_code FROM `request_violations` where any_kind_abuse ='Yes' and  date(date)= CURDATE())";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
@@ -109,13 +109,11 @@ echo ' <tr>
 			 <td>
 			 <a href="delete_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
 		<?php
-		echo '<a href="showRequestDetails.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
+		echo '<a href="showViolationDetails.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 			</td>
 			</tr>';
- 
 	
-	
-}	
+    }	
 }
 
 
