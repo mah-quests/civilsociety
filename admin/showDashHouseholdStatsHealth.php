@@ -34,7 +34,7 @@ session_start();
                 </div>
 
 
-            <button type="button" onclick="window.location.href = 'showDashHouseholdStats.php';" class="btn btn-secondary btn-lg btn-block">
+            <button type="button" onclick="window.location.href = 'showDashRequestsOverview.php';" class="btn btn-secondary btn-lg btn-block">
                 Back
             </button>
 

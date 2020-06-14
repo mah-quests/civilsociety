@@ -10,7 +10,7 @@ session_start();
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-secondary">Community Constituency Front Agents Registered Today</h3> </div>
+                    <h3 class="text-secondary">Community Constituency Front Agents Worked Today</h3> </div>
                
             </div>
             <!-- End Bread crumb -->
@@ -23,27 +23,28 @@ session_start();
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">COVID-19 Front Registered Users</h4>
+                                <h4 class="card-title">COVID-19 Front Agents Active today</h4>
                              
                     <div class="table-responsive m-t-40">
                         <table id="myTable" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
+                                    <th>Registered Date</th>
                                     <th>Organization Name</th>
                                     <th>Full Names</th>
                                     <th>Phone</th>
-									<th>Address</th>
+                                    <th>Address</th>
                                     <th>Municipality</th>
                                     <th>Province</th>
-									<th>Action</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                            
-											
+                                            
         <?php
-            $sql="SELECT * FROM users where network='P' and date(date)=CURDATE()";
+            $sql="select * from users where network='P' and u_id in (SELECT distinct u_id FROM `users_orders` WHERE date(date)=CURDATE())
+                ";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )
@@ -55,7 +56,7 @@ session_start();
                         </td>';
                 }
                 else
-                {				
+                {               
                 while($rows=mysqli_fetch_array($query))
                 {
 
@@ -76,7 +77,7 @@ session_start();
                     </a>
                 </td></tr>';
 
-                }	
+                }   
                 }
 
             ?>
@@ -86,7 +87,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-						 </div>
+                         </div>
                       
                             </div>
                         </div>
@@ -95,10 +96,10 @@ session_start();
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
-			
+            
 
 <?php
 
 include_once 'footer.php';
 
-?>  			
+?>              

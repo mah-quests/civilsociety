@@ -19,7 +19,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         empty($_POST['nationality']) ||
         empty($_POST['cpassword']))
 		{
-      $message = "All fields required not filled!";
+      $failure_message = "All fields required not filled!";
 
 		}
 	else
@@ -29,27 +29,35 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 	$check_celphone = mysqli_query($db, "SELECT phone FROM users where phone = '".$_POST['phone']."' ");
 		
 	if($_POST['password'] != $_POST['cpassword']){  //matching passwords
-       	$message = "Password not match";
+       	$failure_message = "Password not match";
     }
 	elseif(strlen($_POST['password']) < 6)  //cal password length
 	{
-		$message = "Password Must be >=6";
+		$failure_message = "Password Must be >=6";
 	}
 	elseif(strlen($_POST['phone']) < 10)  //cal phone length
 	{
-		$message = "invalid phone number!";
+		$failure_message = "invalid phone number!";
 	}
 
 	elseif(mysqli_num_rows($check_username) > 100)  //check username
      {
-    	$message = 'ID Number already registered!';
+    	$failure_message = 'ID Number already registered!';
      }
 	elseif(mysqli_num_rows($check_celphone) > 100) //check email
      {
-    	$message = 'Celphone Number already exists!';
+    	$failure_message = 'Celphone Number already exists!';
      }
 	else{
-       
+
+
+  $agent_email=$_POST['email'];
+  $agent_name=$_POST['firstname'];
+
+    if ( true ) {
+      include("./agent_welcome_mail.php");
+    }
+
 	 //inserting values into db
 	  $mql = "INSERT INTO users
   (username, f_name, l_name, email, phone, password, address, district, municipality, provice, sex, alt_person, alt_number, network, organization_structure, organization_name, nationality) 
@@ -120,10 +128,9 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
                   <ul>
                      <li>
                       <a href="#" class="active">
-                        <span style="color:red;"><?php echo $message; ?></span>
-					              <span style="color:green;">
+					      <span style="color:green;">
                           <?php echo $success; ?>
-										    </span>
+						</span>
                       </a>
                     </li> 
                   </ul>

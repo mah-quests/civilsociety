@@ -10,7 +10,7 @@ session_start();
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-secondary">Community Members Worked Today</h3> </div>
+                    <h3 class="text-secondary">Civil Society Agents Worked Today</h3> </div>
                
             </div>
             <!-- End Bread crumb -->
@@ -23,7 +23,7 @@ session_start();
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Community Members Active Agents today</h4>
+                                <h4 class="card-title">Civil Society Active Agents today</h4>
                              
                     <div class="table-responsive m-t-40">
                         <table id="myTable" class="table table-striped">
@@ -43,7 +43,7 @@ session_start();
                                            
                                             
         <?php
-            $sql="select * from users where u_id in (SELECT distinct u_id FROM `users_orders` WHERE date(date)=CURDATE()) and network='C' ";
+            $sql="SELECT * from users WHERE u_id in (SELECT distinct u_id FROM `users_orders` WHERE date(date)=curdate() and status is NULL) and network='N'";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )

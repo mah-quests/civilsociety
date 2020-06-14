@@ -32,7 +32,7 @@ if(isset($_POST['submit']))   // if button is submit
   if(!empty($_POST["submit"]))   // if records were not empty
      {
     $loginquery ="SELECT * FROM users WHERE username='$username' && password='".md5($password)."'"; //selecting matching records
-    
+
     $result=mysqli_query($db, $loginquery); //executing
     $row=mysqli_fetch_array($result);
   
@@ -41,11 +41,11 @@ if(isset($_POST['submit']))   // if button is submit
         $_SESSION["user_id"] = $row['u_id']; // put user id into temp session
         $success = "Login Successful!";
         header("refresh:1;url=index.php"); // redirect to index.php page
-          } 
+        }
       else
       {
         $message = "Username and Password combination doesn't match!"; // throw error
-            }
+      }
    }
 
 }

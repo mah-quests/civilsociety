@@ -43,7 +43,7 @@ session_start();
                         <span><i class="fa fa-pencil-square-o f-s-40 color-green"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showTodayRequests.php">
+                        <a href="doShowTodayRequests.php">
                         <h2 style="color: #D9AA20">
                             <?php echo $totalTodayRequests;?>
                         </h2>
@@ -62,7 +62,7 @@ session_start();
                         <span><i class="fa fa-globe f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showTodayCCCAgentsRequests.php">
+                        <a href="doShowTodayCCCAgents.php">
                         <h2 style="color: #30B8E4">
                             <?php echo $totalTodayActivePartners;?>
                         </h2>
@@ -72,7 +72,7 @@ session_start();
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-3" style="color: #880120">
             <div class="card p-30">
                 <div class="media">
@@ -80,7 +80,7 @@ session_start();
                         <span><i class="fa fa-university f-s-40"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showTodayCSAgentsRequests.php">
+                        <a href="doShowTodayCSAgents.php">
                         <h2 style="color: #880120">
                             <?php echo $totalTodayActiveCivilSociety;?>
                         </h2>
@@ -90,15 +90,15 @@ session_start();
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-3" style="color: #4B5776">
             <div class="card p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle"> 
+                    <div class="media-left meida media-middle">
                         <span><i class="fa fa-hospital-o f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showTodayCommunityRequests.php">
+                        <a href="doShowTodayCommunityAgent.php">
                         <h2 style="color: #4B5776">
                             <?php echo $totalTodayActiveComminity; ?>
                         </h2>
@@ -117,7 +117,7 @@ session_start();
                         <span><i class="fa fa-line-chart f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showTodayCCCAgents.php">
+                        <a href="doShowTodayNewCCCAgents.php">
                         <h2 style="color: #6200EE">
                             <?php echo $totalTodayPartners;?>
                         </h2>
@@ -135,7 +135,7 @@ session_start();
                         <span><i class="fa fa-pie-chart f-s-40"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showTodayCivilSocietyAgents.php">
+                        <a href="doShowTodayNewCSAgents.php">
                         <h2 style="color: #FFDE05">
                             <?php echo $totalTodayCivilSociety;?>
                         </h2>
@@ -153,7 +153,7 @@ session_start();
                         <span><i class="fa fa-area-chart f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showTodayCommunityAgents.php">
+                        <a href="doShowTodayNewCommAgents.php">
                         <h2 style="color: #90A4AE">
                             <?php echo $totalTodayComminity; ?>
                         </h2>
@@ -165,7 +165,7 @@ session_start();
         </div>
 
 
-        <div class="col-md-6" style="color: #FF0000">
+        <div class="col-md-3" style="color: #FF0000">
             <div class="card p-30">
                 <div class="media">
                     <div class="media-left meida media-middle"> 
@@ -177,6 +177,60 @@ session_start();
                             <?php echo $totalTodayViolations; ?>
                         </h2>
                         <p class="m-b-0" style="color: #FF0000"># of New Violations Today</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="color: #FF0000">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-spoon f-s-40" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showHighAlertFoodHouseHoldsToday.php">
+                        <h2 style="color: #FF0000">
+                            <?php echo $highAlertFoodRulesToday; ?>
+                        </h2>
+                        <p class="m-b-0" style="color: #FF0000"># of Food Requests Today</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="color: #FF0000">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-medkit f-s-40" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showHighAlertMedicalAttentionToday.php">
+                        <h2 style="color: #FF0000">
+                            <?php echo $hiAlertMedicationToday; ?>
+                        </h2>
+                        <p class="m-b-0" style="color: #FF0000"># of Medical Attention Today</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="color: #FF0000">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-wheelchair f-s-40" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="#">
+                        <h2 style="color: #FF0000">
+                            <?php echo $totalPeopleWithDisabilitiesToday; ?>
+                        </h2>
+                        <p class="m-b-0" style="color: #FF0000"># of People With Disabilities Today</p>
                         </a>
                     </div>
                 </div>

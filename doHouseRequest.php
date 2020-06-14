@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 include("connection/connect.php");
+include("connection/dataCollection.php");
 error_reporting(0);
 session_start();
 
@@ -206,6 +207,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
   
   $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   $reference = substr(str_shuffle($permitted_chars), 0, 8);
+  $ip_address = $_SERVER['REMOTE_ADDR'];
 
 //inserting values into 'request_by_partner' db
  $mql = "INSERT INTO request_by_partner
@@ -290,10 +292,10 @@ $mql_priority03 = "INSERT INTO request_priority_03
 ('".$reference."', '".$_POST['employment']."', '".$_POST['education']."', '".$_POST['electricity']."', '".$_POST['transport']."')";
 
 
- $mql_chart = "INSERT INTO users_orders
- (unique_code, u_id, request_first_name, request_surname, delivery_address, municipality, comments, province) 
- VALUES
- ('".$reference."', '".$_SESSION["user_id"]."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['address']."', '".$_POST['List3']."', '".$_POST['comments']."', '".$_POST['List1']."')";
+  $mql_chart = "INSERT INTO users_orders
+  (unique_code, u_id, request_first_name, request_surname, delivery_address, municipality, comments, province, ip_address)
+  VALUES
+  ('".$reference."', '".$_SESSION["user_id"]."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['address']."', '".$_POST['List3']."', '".$_POST['comments']."', '".$_POST['List1']."', '".$ip_address."')";
 
 
   mysqli_query($db, $mql);
@@ -309,6 +311,23 @@ $mql_priority03 = "INSERT INTO request_priority_03
   mysqli_query($db, $mql_priority02);
   mysqli_query($db, $mql_priority03);  
   mysqli_query($db, $mql_chart);
+
+
+  $household_contact = $_POST['firstname'];
+  $household_address = $_POST['address'];
+  $household_phone = $_POST['phone'];
+  $unique_code = $reference;
+
+  $agentDetails=mysqli_query($db,"SELECT * FROM users where u_id='".$_SESSION["user_id"]."'");
+
+  while($row=mysqli_fetch_array($agentDetails)) {
+
+  $agent_name = $row['f_name'];
+  $agent_email = $row['email'];
+
+  include_once("./successful_household_confirmation.php");
+
+  }
 
     $success = "Application submitted successfully! <p>You will be redirected in <span id='counter'>5</span> second(s).</p>
                             <script type='text/javascript'>
@@ -371,7 +390,6 @@ $mql_priority03 = "INSERT INTO request_priority_03
                   <ul>
                      <li>
                       <a href="#" class="active">
-                        <span style="color:red;"><?php echo $message; ?></span>
                         <span style="color:green;">
                           <?php echo $success; ?>
                         </span>

@@ -131,7 +131,7 @@ session_start();
 
 
 <!-- Users [admin, m-n-e, mabalane, nhlanhla] -->
-<?php if($_SESSION["adm_id"] == "6" || $_SESSION["adm_id"] == "11" || $_SESSION["adm_id"] == "10" || $_SESSION["adm_id"] == "9" ){ ?>
+<?php if($_SESSION["adm_id"] == "6" || $_SESSION["adm_id"] == "11" || $_SESSION["adm_id"] == "10" || $_SESSION["adm_id"] == "9" || $_SESSION["adm_id"] == "15" || $_SESSION["adm_id"] == "16" || $_SESSION["adm_id"] == "17" ){ ?>
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider">
@@ -144,12 +144,12 @@ session_start();
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="doShowLiveStats.php">
+                                    <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
                                 </li> 
                                 <li>
-                                    <a href="showDashHouseholdStats.php">
+                                    <a href="showDashRequestsOverview.php">
                                     Household Stats Overview
                                     </a>
                                 </li>                                
@@ -157,7 +157,11 @@ session_start();
                                     <a href="showDashAgents.php">
                                     Social mobilisation
                                     </a>
-                                </li> 
+                                </li>
+                                <li>
+                                    <a href="showDashCallCenter.php">
+                                        Call Center Agents</a>
+                                </li>
                                 <li>
                                     <a href="showDashHumanRights.php">
                                         Human Rights</a>
@@ -178,7 +182,7 @@ session_start();
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="showAllRequests.php">
+                                    <a href="doShowAllRequests.php">
                                         All Requests
                                     </a>
                                 </li>                                
@@ -193,7 +197,7 @@ session_start();
                         </li>
                          <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Requests</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="showAllRequests.php">All Requests</a></li>
+                                <li><a href="doShowAllRequests.php">All Requests</a></li>
                                   
                             </ul>
                         </li>
@@ -217,12 +221,12 @@ session_start();
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">                           
                                 <li>
-                                    <a href="doShowLiveStats.php">
+                                    <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
                                 </li> 
                                 <li>
-                                    <a href="showDashHouseholdStats.php">
+                                    <a href="showDashRequestsOverview.php">
                                     Household Stats Overview
                                     </a>
                                 </li>              
@@ -252,7 +256,7 @@ session_start();
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="doShowLiveStats.php">
+                                    <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
                                 </li>                            
@@ -279,10 +283,10 @@ session_start();
                             <br>
                             <br>
                         </li>
-                        <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
+                        <li> <a class="has-arrow  " href="dashbo    ard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="doShowLiveStats.php">
+                                    <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
                                 </li> 

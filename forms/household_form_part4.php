@@ -69,7 +69,7 @@
             <div class="col-md-12">
               <label for="any_kind_abuse">Has you or anyone in the household experienced any kind of abuse, assult or harrasment during the lockdown? </label>
                 <div style="width:98%">
-                <select name="any_kind_abuse" size="1" id="any_kind_abuse" class="form-control unit" value="<?php echo $edit ? $user_id['any_kind_abuse'] : ''; ?>" required onchange="showHideViolationInfo(this.value);">
+                <select name="any_kind_abuse" size="1" id="any_kind_abuse" class="form-control unit" value="<?php echo $edit ? $user_id['any_kind_abuse'] : ''; ?>"  required onchange="showHideViolationInfo(this.value);">
                     <option></option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option> 

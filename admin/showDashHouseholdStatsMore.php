@@ -130,11 +130,11 @@ else
                 </div>
 
 
-            <button type="button" onclick="window.location.href = 'showDashHouseholdStatsHealth.php';" class="btn btn-primary btn-lg btn-block">
+            <button type="button" onclick="window.location.href = 'showDashRequestsOverviewHealth.php';" class="btn btn-primary btn-lg btn-block">
                 Health Summary
             </button>
 
-            <button type="button" onclick="window.location.href = 'showDashHouseholdStats.php';" class="btn btn-secondary btn-lg btn-block">
+            <button type="button" onclick="window.location.href = 'showDashRequestsOverview.php';" class="btn btn-secondary btn-lg btn-block">
                 Back
             </button>
 

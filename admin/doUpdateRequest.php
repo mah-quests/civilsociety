@@ -19,6 +19,15 @@ session_start();
 
   }
 
+  $adminUsers=mysqli_query($db,"SELECT * FROM admin where adm_id='".$_SESSION["adm_id"]."'");
+
+  while($row=mysqli_fetch_array($adminUsers)) {
+
+  $adm_id = $row['adm_id'];
+  $username = $row['username'];
+
+  }
+
   if(isset($_POST['update']))
   {
   
@@ -32,6 +41,7 @@ session_start();
   $media=$_POST['media'];
   $administration=$_POST['administration'];
   $database=$_POST['database'];
+  $comms=$_POST['comms'];
   $screen=$_POST['screen'];
   $mne=$_POST['mne'];
   $it=$_POST['it'];
@@ -83,6 +93,10 @@ session_start();
   if ( $database == "yes" ) {
     include("./emails/database_mail.php");
   }   
+
+  if ( $comms == "yes" ) {
+    include("./emails/comms_mail.php");
+  }
 
   if ( $screen == "yes" ) {
     include("./emails/screen_mail.php");
@@ -249,8 +263,8 @@ td, th {
             <label><input type="checkbox" name="media" value="yes" /> Media</label>
             <label><input type="checkbox" name="advocacy" value="yes" /> Advocacy</label><br>           
             <label><input type="checkbox" name="administration" value="yes" /> Administration</label>
-
-            <label><input type="checkbox" name="database" value="yes" /> Database</label>    
+            <label><input type="checkbox" name="database" value="yes" /> Database</label>
+            <label><input type="checkbox" name="comms" value="yes" /> Comms Team</label>
             <label><input type="checkbox" name="screen" value="yes" /> Screen and Tracing</label> 
                                
         </p>

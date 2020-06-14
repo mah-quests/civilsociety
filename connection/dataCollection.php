@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Total number of agents registered on the app
     $sql="select * from users ";
@@ -67,7 +67,7 @@
         $totalAgentsEasternCape=mysqli_num_rows($result);
                                                    
 
-    $sql=" select * from users where provice='Please Choose' or provice='Select Province' or provice='Choose' ";
+    $sql=" select * from users where provice in ('Choose', 'Select Province', ' ') ";
         $result=mysqli_query($db,$sql); 
         $totalUnlocated=mysqli_num_rows($result);                                                    
 
@@ -85,7 +85,7 @@
         $result=mysqli_query($db,$sql); 
         $totalCivilSociety=mysqli_num_rows($result);
 
-    $sql="select * from users where network='Select...' or network='Choose' ";
+    $sql="select * from users where network in ('Select...','Choose') ";
         $result=mysqli_query($db,$sql); 
         $totalNonSelected=mysqli_num_rows($result);        
 
@@ -106,9 +106,15 @@
 
 
 // Received, Processing, Rejected and Closed
-    $sql="select * from users_orders where status is null or status=''";
+    $sql="select * from users_orders where status is null ";
         $result=mysqli_query($db,$sql); 
-        $totalUnProcessed=mysqli_num_rows($result);  
+        $totalNullProcessed=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where status = ' ' ";
+        $result=mysqli_query($db,$sql);
+        $totalSpaceProcessed=mysqli_num_rows($result);
+
+    $totalUnProcessed =  $totalNullProcessed +  $totalSpaceProcessed;
 
     $sql="select * from users_orders where status='in process'";
         $result=mysqli_query($db,$sql); 
@@ -157,7 +163,7 @@
         $totalNorthWest=mysqli_num_rows($result);
 
 
-    $sql=" select * from users_orders where province='Mpumalanga' or province='Mpumlanga' ";
+    $sql=" select * from users_orders where province in ('Mpumalanga','Mpumlanga') ";
         $result=mysqli_query($db,$sql); 
         $totalMpumalanga=mysqli_num_rows($result);
 
@@ -187,7 +193,7 @@
         $totalEasternCape=mysqli_num_rows($result);
 
 
-    $sql=" select * from users_orders where province='Choose' or province='Select Province' or province=' ' or province is NULL";
+    $sql=" select * from users_orders where province in ('Choose', 'Select Province', ' ') ";
         $result=mysqli_query($db,$sql); 
         $totalNoProvince=mysqli_num_rows($result);        
 
@@ -1028,11 +1034,16 @@
         $NoSelectedViolation=mysqli_num_rows($result); 
 
 
-    $sql="SELECT * from users_orders province is NULL and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
+    $sql="SELECT * from users_orders where province is NULL and unique_code in (SELECT unique_code FROM request_violations where any_kind_abuse = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $NullSelectedViolation=mysqli_num_rows($result); 
 
     $totalNonSelectedViolation = $NonSelectedProvinceViolation + $NoSelectedViolation + $NullSelectedViolation;
+
+// Checking number of people with disabilities today
+    $sql="SELECT * FROM `request_disability` where date(date)= CURDATE() and number_disabled='Yes'";
+        $result=mysqli_query($db,$sql);
+        $totalPeopleWithDisabilitiesToday=mysqli_num_rows($result);
 
 // Checking number of people with disabilities
     $sql="SELECT * FROM `request_disability` where number_disabled='Yes'";
@@ -1124,7 +1135,7 @@
         $result=mysqli_query($db,$sql); 
         $totalWhatsAppSubscriptions=mysqli_num_rows($result);
 
-    $sql="SELECT * FROM request_medication_02 where whatsappp_subscribe = 'No' or whatsappp_subscribe ='Choose...'";
+    $sql="SELECT * FROM request_medication_02 where whatsappp_subscribe in ('No', 'Choose...') ";
         $result=mysqli_query($db,$sql); 
         $totalNotSubscibeWhatsApp=mysqli_num_rows($result);
 
@@ -1133,7 +1144,7 @@
         $result=mysqli_query($db,$sql); 
         $totalEnoughCOVIDInfo=mysqli_num_rows($result);
 
-    $sql="SELECT * FROM request_medication_02 where infoCovid = 'No' or infoCovid ='Choose...'";
+    $sql="SELECT * FROM request_medication_02 where infoCovid in ('No','Choose...') ";
         $result=mysqli_query($db,$sql); 
         $totalNotEnoughCOVIDInfo=mysqli_num_rows($result);
 
@@ -1191,7 +1202,7 @@
         $NoSelectedCOVIDInfo=mysqli_num_rows($result); 
 
 
-    $sql="SELECT * from users_orders province is NULL and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
+    $sql="SELECT * from users_orders where province is NULL and unique_code in (SELECT unique_code FROM request_medication_02 where infoCovid = 'Yes') ";
         $result=mysqli_query($db,$sql); 
         $NullSelectedCOVIDInfo=mysqli_num_rows($result); 
 
@@ -1306,6 +1317,25 @@
     $highAlertFoodRules = $highAlertFoodRule01 + $highAlertFoodRule02 + $highAlertFoodRule03;
 
 
+// High Alert Rule 01: Number of people employed, number of people in the household today
+    $sql="select * from users_orders where date(date)= CURDATE() and unique_code in (select unique_code from request_people where people_in_house > 4 and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
+        $result=mysqli_query($db,$sql);
+        $highAlertFoodRule01Today=mysqli_num_rows($result);
+
+// High Alert Rule 02: Number of people employed, number of people who are pregnant in the household
+    $sql="select * from users_orders where date(date)= CURDATE() and unique_code in (select unique_code from request_medication_01 where no_pregnant_people > 0 and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
+        $result=mysqli_query($db,$sql);
+        $highAlertFoodRule02Today=mysqli_num_rows($result);
+
+// High Alert Rule 03: Number of people employed, and people living with disabilities
+    $sql="select * from users_orders where date(date)= CURDATE() and unique_code in(select unique_code from request_disability where number_disabled = 'Yes' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
+        $result=mysqli_query($db,$sql);
+        $highAlertFoodRule03Today=mysqli_num_rows($result);
+
+    $highAlertFoodRulesToday = $highAlertFoodRule01Today + $highAlertFoodRule02Today + $highAlertFoodRule03Today;
+
+
+
 
 // Medium Alert Rule 01: Number of people employed, number of people in the household         
     $sql="select * from users_orders where unique_code in (select unique_code from request_people where people_in_house > 8 and unique_code in (select unique_code from request_employment_stats where number_people_employed > 2 and number_people_employed < 4 ))";
@@ -1406,12 +1436,12 @@
         $result=mysqli_query($db,$sql); 
         $hiAlertCOVIDSymptoms=mysqli_num_rows($result);
 
-    $sql="SELECT unique_code FROM request_medication_02 WHERE essential_services_worker='Yes' or healthCareCondition='Yes' or emegencyCondition='Yes' and (highTempCond='Yes' and dryCoughCond='Yes') or (shortBreathConditionCond='Yes')";
+    $sql="SELECT unique_code FROM request_medication_02 WHERE (essential_services_worker='Yes' or healthCareCondition='Yes' or emegencyCondition='Yes' and (highTempCond='Yes' and dryCoughCond='Yes') or (shortBreathConditionCond='Yes'))";
         $result=mysqli_query($db,$sql); 
         $hiAlertSymptomsAndFrontLine=mysqli_num_rows($result);
 
 
-    $sql="SELECT unique_code FROM request_medication_02 WHERE essential_services_worker='Yes' or healthCareCondition='Yes' or disasterCondition='Yes' or retailCondition='Yes' or emegencyCondition='Yes' or transportCondition='Yes' and highTempCond='Yes' and dryCoughCond='Yes'";
+    $sql="SELECT unique_code FROM request_medication_02 WHERE ((essential_services_worker='Yes' or healthCareCondition='Yes' or disasterCondition='Yes' or retailCondition='Yes' or emegencyCondition='Yes' or transportCondition='Yes') and highTempCond='Yes' and dryCoughCond='Yes')";
         $result=mysqli_query($db,$sql); 
         $hiAlertChronicMedication=mysqli_num_rows($result);
 
@@ -1422,5 +1452,145 @@
         $mediumAlertSymptomsAndFrontLine=mysqli_num_rows($result);
 
 
+// High Medical Attention Alert today
+    $sql="SELECT unique_code FROM request_medication_02 WHERE date(date)= CURDATE() and (essential_services_worker='Yes' or healthCareCondition='Yes' or emegencyCondition='Yes' and (highTempCond='Yes' and dryCoughCond='Yes') or (shortBreathConditionCond='Yes'))";
+        $result=mysqli_query($db,$sql);
+        $hiAlertSymptomsAndFrontLineToday=mysqli_num_rows($result);
+
+
+    $sql="SELECT unique_code FROM request_medication_02 WHERE date(date)= CURDATE() and ((essential_services_worker='Yes' or healthCareCondition='Yes' or disasterCondition='Yes' or retailCondition='Yes' or emegencyCondition='Yes' or transportCondition='Yes') and highTempCond='Yes' and dryCoughCond='Yes')";
+        $result=mysqli_query($db,$sql);
+        $hiAlertChronicMedicationToday=mysqli_num_rows($result);
+
+    $hiAlertMedicationToday = $hiAlertChronicMedicationToday + $hiAlertSymptomsAndFrontLineToday;
+
+
+// Checking the cases that are in progress
+    $sql="select * from users_orders where province='Gauteng' and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalGautengProgress=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where province='Free State' and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalFreeStateProgress=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where province='North West'  and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalNorthWestProgress=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province in ('Mpumalanga','Mpumlanga') and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalMpumalangaProgress=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='KwaZulu Natal'  and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalKZNCProgress=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Limpopo'  and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalLimpopoProgress=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Western Cape'  and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalWesternCapeProgress=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Northern Cape'  and status = 'in process' ";
+        $result=mysqli_query($db,$sql);
+        $totalNorthernCapeProgress=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Eastern Cape'  and status = 'in process'  ";
+        $result=mysqli_query($db,$sql);
+        $totalEasternCapeProgress=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province in ('Choose', 'Select Province', ' ')  and status = 'in process'  ";
+        $result=mysqli_query($db,$sql);
+        $totalNoProvincePrg=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province is null  and status = 'in process'  ";
+        $result=mysqli_query($db,$sql);
+        $totalNullProvinceProgress=mysqli_num_rows($result);
+
+    $totalNoProvinceProgress = $totalNoProvincePrg + $totalNullProvinceProgress;
+
+
+
+// Checking the resolved, rejected and closed cases
+    $sql="select * from users_orders where province='Gauteng' and status in ('rejected', 'closed')";
+        $result=mysqli_query($db,$sql);
+        $totalGautengRejCls=mysqli_num_rows($result);
+
+
+    $sql="select * from users_orders where province='Free State' and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalFreeStateRejCls=mysqli_num_rows($result);
+
+    $sql="select * from users_orders where province='North West'  and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalNorthWestRejCls=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Mpumalanga' and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalMPRejCls=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Mpumlanga' and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalMpumlangaRejCls=mysqli_num_rows($result);
+
+        $totalMpumalangaRejCls = $totalMPRejCls + $totalMpumlangaRejCls;
+
+    $sql=" select * from users_orders where province='KwaZulu Natal'  and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalKZNCRejCls=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Limpopo'  and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalLimpopoRejCls=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Western Cape'  and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalWesternCapeRejCls=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Northern Cape'  and status in ('rejected', 'closed') ";
+        $result=mysqli_query($db,$sql);
+        $totalNorthernCapeRejCls=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province='Eastern Cape'  and status in ('rejected', 'closed')  ";
+        $result=mysqli_query($db,$sql);
+        $totalEasternCapeRejCls=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province in ('Choose', 'Select Province', ' ')  and status='rejected' ";
+        $result=mysqli_query($db,$sql);
+        $totalNoProvinceRejected=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province in ('Choose', 'Select Province', ' ')  and status='closed' ";
+        $result=mysqli_query($db,$sql);
+        $totalNoProvinceClosed=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province is null  and status='closed' ";
+        $result=mysqli_query($db,$sql);
+        $totalNullProvinceClosed=mysqli_num_rows($result);
+
+    $sql=" select * from users_orders where province is null  and status='rejected' ";
+        $result=mysqli_query($db,$sql);
+        $totalNullProvinceRejected=mysqli_num_rows($result);
+
+    $totalNoProvinceRejCls = $totalNoProvinceRejected + $totalNoProvinceClosed + $totalNullProvinceClosed + $totalNullProvinceRejected;
+
+//Un-Processed requests and the reports to follow up
+    $sql="SELECT * FROM users_orders WHERE date(date) BETWEEN SUBDATE(CURDATE(), 7) AND SUBDATE(CURDATE(), 3) and status is null";
+        $result=mysqli_query($db,$sql);
+        $totalThreeDaysToWeek=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM users_orders WHERE date(date) BETWEEN SUBDATE(CURDATE(), 14) AND SUBDATE(CURDATE(), 8) and status is null";
+        $result=mysqli_query($db,$sql);
+        $totalOneWeekToThree=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM users_orders WHERE date(date) BETWEEN SUBDATE(CURDATE(), 28) AND SUBDATE(CURDATE(), 15) and status is null";
+        $result=mysqli_query($db,$sql);
+        $totalThirdWeekToMonth=mysqli_num_rows($result);
+
+    $sql="SELECT * FROM users_orders WHERE date(date) < SUBDATE(CURDATE(), 29) and status is null";
+        $result=mysqli_query($db,$sql);
+        $totalAfterMonth=mysqli_num_rows($result);
 
 ?>

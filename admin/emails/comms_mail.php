@@ -4,13 +4,13 @@
 	error_reporting ( E_ALL );
 
 	$from = "notification@thusasechaba.org.za";
-	$to = "project@communityconstituency.org.za, development@ac2.org.za, projects@ac2.org.za";
+	$to = "nelisa.ngqulana@gmail.com";
 
 	$subject = "Notification from thusasechaba. Reference Number: ".$unique_code;
 	$message = $username. " initiated a request for your attention. \r\n  \r\n";
 	$message .=$remark;
 	$message .=$link_to_url;
-	$headers = "From: " . $from; 
+	$headers = "From: " . $from;
 
 	mail ($to, $subject, $message, $headers);
 
