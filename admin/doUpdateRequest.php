@@ -33,7 +33,11 @@ session_start();
   
   $form_id=$_GET['form_id'];
   $status=$_POST['status'];
-  $remark=$_POST['remark'];
+  $remark=$username.' initiated a request for your attention.';
+  $remark.=
+'
+
+'.$_POST['remark'];
   $heads=$_POST['heads'];
   $advocacy=$_POST['advocacy'];
   $mobilization=$_POST['mobilization'];
@@ -53,13 +57,7 @@ session_start();
 
   $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
 
-  $query=mysqli_query($db,"UPDATE REMARK 
-                    set 
-                    remark='$remark'
-                    where frm_id='$form_id' ");  
-
 //Send email notification
-
 
   if ( $heads == "yes") {
     include("./emails/heads_mail.php");
@@ -82,7 +80,6 @@ session_start();
   }
 
   if ( $it == "yes" ) {
-
     include("./emails/it_mail.php");
   }   
 

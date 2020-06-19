@@ -15,7 +15,7 @@
 
             <div class="col-md-12">
               <label for="network">Network</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="network" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['network'] : ''; ?>" required>
                         <option selected value=""></option>
                         <option>Registered Non Profit Organization</option>
@@ -49,7 +49,7 @@
 
             <div class="col-md-6">
               <label for="sex">Sex</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="sex" size="1" class="form-control unit" required>
                         <option selected value=""></option>
                         <option>Male</option>
@@ -63,8 +63,8 @@
 
             <div class="col-md-6">
               <label for="phone">Cellphone number</label>
-                <input class="form-control" type="text" name="phone" id="example-text-input" placeholder="Please enter your unique celphone number" required> 
-              </div>  
+                <input class="form-control" type="text" name="phone" id="example-text-input" placeholder="Please enter your unique celphone number" required>
+              </div>
 
 
             <div class="col-md-6">
@@ -75,7 +75,7 @@
 
             <div class="col-md-6">
               <label for="nationality">Nationality</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="nationality" size="1" class="form-control unit" required> 
                         <option selected value=""></option>
                         <option>South Africa</option>
@@ -94,7 +94,7 @@
 
             <div class="col-md-12">
             <label for="municipality"><br>Location Selection<br></label>
-            <div style="width:98%">
+            <div style="width:100%">
                   
               <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])" required>
                 <option selected value="">Select Province</option>

@@ -145,7 +145,7 @@ include 'header_admin.php'
 ?>
 
             <tr>
-                <td><strong>M & E Remarks and Updates</strong></td>
+                <td><strong>Streamhead Remarks and Updates</strong></td>
                 <td><center><?php echo $row['remark']; ?></center></td>
             </tr>
 

@@ -107,6 +107,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         !empty($_POST['healthCareType']) &&
         !empty($_POST['domesticCond']) &&
         !empty($_POST['domesticType']) &&
+        !empty($_POST['violation_details']) &&
 
 
         !empty($_POST['number_disabled']) &&
@@ -232,9 +233,9 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 
 //inserting values into 'request_violations' db
 $mql_viol = "INSERT INTO request_violations
-(unique_code, any_kind_abuse, lawEnforcementCond, lawEnforcementType, communityMemberCond, communityMemberType, healthCareCheck, healthCareType, domesticCond, domesticType) 
+(unique_code, any_kind_abuse, lawEnforcementCond, lawEnforcementType, communityMemberCond, communityMemberType, healthCareCheck, healthCareType, domesticCond, domesticType, violation_details)
  VALUES
-('".$reference."', '".$_POST['any_kind_abuse']."', '".$_POST['lawEnforcementCond']."', '".$_POST['lawEnforcementType']."', '".$_POST['communityMemberCond']."' , '".$_POST['communityMemberType']."' , '".$_POST['healthCareCheck']."' , '".$_POST['healthCareType']."' , '".$_POST['domesticCond']."', '".$_POST['domesticType']."')";
+('".$reference."', '".$_POST['any_kind_abuse']."', '".$_POST['lawEnforcementCond']."', '".$_POST['lawEnforcementType']."', '".$_POST['communityMemberCond']."' , '".$_POST['communityMemberType']."' , '".$_POST['healthCareCheck']."' , '".$_POST['healthCareType']."' , '".$_POST['domesticCond']."', '".$_POST['domesticType']."', '".$_POST['violation_details']."')";
 
 
 //inserting values into 'request_disability' db
@@ -317,6 +318,9 @@ $mql_priority03 = "INSERT INTO request_priority_03
   $household_address = $_POST['address'];
   $household_phone = $_POST['phone'];
   $unique_code = $reference;
+  $household_municipality = $_POST['List3'];
+  $household_district = $_POST['List2'];
+  $household_province = $_POST['List1'];
 
   $agentDetails=mysqli_query($db,"SELECT * FROM users where u_id='".$_SESSION["user_id"]."'");
 
@@ -327,6 +331,10 @@ $mql_priority03 = "INSERT INTO request_priority_03
 
   include_once("./successful_household_confirmation.php");
 
+  }
+
+  if ($_POST['any_kind_abuse'] == "Yes"){
+  include_once("./violation_at_household.php");
   }
 
     $success = "Application submitted successfully! <p>You will be redirected in <span id='counter'>5</span> second(s).</p>

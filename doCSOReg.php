@@ -68,7 +68,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 
    //inserting values into db
   $mql = "INSERT INTO users
-  (username, f_name, l_name, email, phone, password, address, district, municipality, provice, sex, alt_person, alt_number, network, organization_structure, organization_name, nationality) 
+  (username, f_name, l_name, email, phone, password, address, district, municipality, provice, sex, alt_person, alt_number, network, organization_structure, organization_name, nationality)
   VALUES
   ('".$_POST['username']."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['email']."', '".$_POST['phone']."', '".md5($_POST['password'])."', '".$_POST['address']."' ,'".$_POST['List2']."', '".$_POST['List3']."' ,'".$_POST['List1']."', '".$_POST['sex']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', 'N', '".$_POST['organization_structure']."', '".$_POST['organization_name']."', '".$_POST['nationality']."')";
 

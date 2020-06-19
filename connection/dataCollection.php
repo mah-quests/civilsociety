@@ -195,10 +195,13 @@
 
     $sql=" select * from users_orders where province in ('Choose', 'Select Province', ' ') ";
         $result=mysqli_query($db,$sql); 
-        $totalNoProvince=mysqli_num_rows($result);        
+        $totalNonProvince=mysqli_num_rows($result);
 
+    $sql=" select * from users_orders where province is null ";
+        $result=mysqli_query($db,$sql);
+        $totalNullProvince=mysqli_num_rows($result);
 
-                                                    
+    $totalNoProvince = $totalNonProvince + $totalNullProvince;
                                                     
 // Stats on today  
     $sql="SELECT * FROM `request_by_partner` WHERE date(date)= CURDATE()";
@@ -217,15 +220,15 @@
         $result=mysqli_query($db,$sql); 
         $totalTodayComminity=mysqli_num_rows($result); 
 
-    $sql="SELECT distinct u_id from users WHERE u_id in (SELECT u_id FROM `users_orders` WHERE date(date)=curdate()  and status is NULL) and network='P' ";
+    $sql="SELECT * from users WHERE network='P' and u_id in (SELECT distinct u_id FROM `users_orders` WHERE date(date)=curdate() and status is NULL)";
         $result=mysqli_query($db,$sql); 
         $totalTodayActivePartners=mysqli_num_rows($result); 
 
-    $sql="SELECT distinct u_id from users WHERE u_id in (SELECT u_id FROM `users_orders` WHERE date(date)=curdate() and status is NULL) and network='N' ";
+    $sql="SELECT * from users WHERE network='N' and u_id in (SELECT distinct u_id FROM `users_orders` WHERE date(date)=curdate() and status is NULL)  ";
         $result=mysqli_query($db,$sql); 
         $totalTodayActiveCivilSociety=mysqli_num_rows($result); 
 
-    $sql="SELECT distinct u_id from users WHERE u_id in (SELECT u_id FROM `users_orders` WHERE date(date)=curdate() and status is NULL) and network='C' ";
+    $sql="SELECT * from users WHERE  network='C' and u_id in (SELECT distinct u_id FROM `users_orders` WHERE date(date)=curdate() and status is NULL) ";
         $result=mysqli_query($db,$sql); 
         $totalTodayActiveComminity=mysqli_num_rows($result); 
 
@@ -1328,7 +1331,7 @@
         $highAlertFoodRule02Today=mysqli_num_rows($result);
 
 // High Alert Rule 03: Number of people employed, and people living with disabilities
-    $sql="select * from users_orders where date(date)= CURDATE() and unique_code in(select unique_code from request_disability where number_disabled = 'Yes' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
+    $sql="select * from users_orders where date(date)= CURDATE() and unique_code in (select unique_code from request_disability where number_disabled = 'Yes' and unique_code in (select unique_code from request_employment_stats where number_people_employed<2))";
         $result=mysqli_query($db,$sql);
         $highAlertFoodRule03Today=mysqli_num_rows($result);
 

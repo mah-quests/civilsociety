@@ -1,5 +1,5 @@
 $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#myTable9').DataTable();
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 "columnDefs": [{
@@ -37,7 +37,7 @@ $(document).ready(function() {
             });
         });
     });
-    $('#example23').DataTable({
+    $('#example9').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'

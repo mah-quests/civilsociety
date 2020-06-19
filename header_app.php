@@ -149,19 +149,18 @@ categories["Western Cape"] = ["Cape Winelands District Municipality","Central Ka
   categories["Garden Route District Municipality"] = ["Kannaland","Hessequa","Mossel Bay","George","Oudtshoorn","Bitou","Knysna"];
   categories["Overberg District Municipality"] = ["Theewaterskloof","Overstrand Cape","Agulhas","Swellendam"];
   categories["West Coast District Municipality"] = ["Matzikama","Cederberg","Bergrivier","Saldanha Bay","Swartland"];
-  categories["City of Cape Town Metropolitan"] = ["City of Cape Town"]; 
-    
+  categories["City of Cape Town Metropolitan"] = ["City of Cape Town"];
 
-categories["Eastern Cape"] = ["Alfred Nzo District Municipality","Amathole District Municipality","Chris Hani District Municipality","Joe Gqabi District Municipality","OR Tambo District Municipality","Sarah Baartman District Municipality", "Buffalo City Metropolitan"];      // Level 2
+categories["Eastern Cape"] = ["Alfred Nzo District Municipality","Amathole District Municipality","Chris Hani District Municipality","Joe Gqabi District Municipality","OR Tambo District Municipality","Sarah Baartman District Municipality", "Nelson Mandela Bay Metropolitan", "Buffalo City Metropolitan"];      // Level 2
   categories["Alfred Nzo District Municipality"] = ["Matatiele","Mbizana","Ntabankulu","Umzimvubu"];  // Level 3 only
   categories["Amathole District Municipality"] = ["Mnquma","Mbhashe","Amahlathi","Ngqushwa","Great Kei","Raymond Mhlaba"];                    // Level 3 only
   categories["Chris Hani District Municipality"] = ["Intsika Yethu","Enoch Mgijima","Engcobo","Emalahleni","Inxuba Yethemba","Sakhisizwe"];
   categories["Joe Gqabi District Municipality"] = ["Elundini","Senqu","Walter Sisulu"];  // Level 3 only
   categories["OR Tambo District Municipality"] = ["King Sabata Dalindyebo Local Municipality","Nyandeni","Ngquza Hill","Mhlontlo","Port St Johns"];                    // Level 3 only
   categories["Sarah Baartman District Municipality"] = ["Blue Crane Route","Dr Beyers Naudé","Kou-Kamma","Kouga","Makana","Ndlambe","Sunday's River Valley"];
-  categories["Buffalo City Metropolitan"] = ["Buffalo City"];  
+  categories["Buffalo City Metropolitan"] = ["Buffalo City"];
+  categories["Nelson Mandela Bay Metropolitan"] = ["Nelson Mandela Bay Municipality"];
 
-  
 categories["Northern Cape"] = ["Frances Baard District Municipality","John Taolo Gaetsewe District Municipality","Namakwa District Municipality","Pixley ka Seme District Municipality","ZF Mgcawu District Municipality"];
   categories["Frances Baard District Municipality"] = ["Sol Plaatje","Dikgatlong","Magareng","Phokwane"];     
   categories["John Taolo Gaetsewe District Municipality"] = ["Joe Morolong","Ga-Segonyana","Gamagara"];   
@@ -169,7 +168,6 @@ categories["Northern Cape"] = ["Frances Baard District Municipality","John Taolo
   categories["Pixley ka Seme District Municipality"] = ["Ubuntu","Umsobomvu","Emthanjeni","Kareeberg","Renosterberg","Thembelihle","Siyathemba","Siyancuma"];
   categories["ZF Mgcawu District Municipality"] = ["Dawid Kruiper","Kai ǃGarib","ǃKheis","Tsantsabane","Kgatelopele"];   
 
-    
 categories["North West"] = ["Bojanala Platinum","Ngaka Modiri Molema","Dr Ruth Segomotsi Mompati","Dr Kenneth Kaunda"];
   categories["Bojanala Platinum"] = ["Moretele","Madibeng","Rustenburg","Kgetlengrivier","Moses Kotane"];         
   categories["Ngaka Modiri Molema"] = ["Ratlou","Tswaing","Mahikeng","Ditsobotla","Ramotshere"];       

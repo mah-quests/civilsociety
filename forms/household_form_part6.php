@@ -56,7 +56,7 @@
 
             <div class="col-md-12">
               <label for="chronic_medication">Number of people on chronic medication in the household </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="chronic_medication" size="1" id="chronic_medication" class="form-control unit" value="<?php echo $edit ? $user_id['chronic_medication'] : ''; ?>" required onchange="showHideChronicInfo(this.value);" required>
                         <option selected>0</option>
                         <option>1</option>
@@ -135,7 +135,7 @@
 
             <div class="col-md-12">
               <label for="traditional_healers"><br>Do you have access to traditional healers for medication purposes? </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="traditional_healers" size="1" id="traditional_healers" class="form-control unit" required>
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -146,7 +146,7 @@
 
             <div class="col-md-12">
               <label for="essential_services_worker"><br>Is there anyone at your house working as COVID-19 Frontline Worker for essential service?  </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="essential_services_worker" size="1" id="essential_services_worker" class="form-control unit" required onchange="showHideFrontWorkerInfo(this.value);">
                     <option selected></option>
                     <option value="No">No</option>
@@ -163,7 +163,7 @@
 
             <div class="col-md-2">
               <label for="healthCareCondition"><br>Health care </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="healthCareCondition" size="1" id="healthCareCondition" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>No</option>
@@ -175,7 +175,7 @@
 
             <div class="col-md-2">
               <label for="disasterCondition"><br>Disaster Management </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="disasterCondition" size="1" id="disasterCondition" class="form-control unit">
                     <option selected value="No"></option>
                     <option>No</option>
@@ -187,7 +187,7 @@
 
             <div class="col-md-2">
               <label for="retailCondition"><br>Retail </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="retailCondition" size="1" id="retailCondition" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>No</option>
@@ -199,7 +199,7 @@
 
             <div class="col-md-3">
               <label for="emegencyCondition"><br>Emegency Respondants </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="emegencyCondition" size="1" id="emegencyCondition" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>No</option>
@@ -211,7 +211,7 @@
 
             <div class="col-md-3">
               <label for="transportCondition"><br>Transport Services </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="transportCondition" size="1" id="transportCondition" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>No</option>
@@ -225,7 +225,7 @@
 <div class="row">
     <div class="col-md-12">
       <label for="no_pregnant_people"><br>Number of pregnant people in the house</label>
-        <div style="width:98%">
+        <div style="width:100%">
         <select name="no_pregnant_people" size="1" id="no_pregnant_people" class="form-control unit" required>
             <option selected>0</option>
             <option>1</option>
@@ -245,7 +245,7 @@
 
     <div class="col-md-12">
       <label for="symptoms_composition"><br>Have you or anyone in the house exhibited COVID-19 related symptoms? </label>
-        <div style="width:98%">
+        <div style="width:100%">
         <select name="symptoms_composition" size="1" id="symptoms_composition" class="form-control unit" onchange="showHideSymptomsInfo(this.value);">
             <option selected value="No"></option>
             <option>No</option>
@@ -260,7 +260,7 @@
     <fieldset  id="covid-symptoms-info" style="display:none">
         <div class="col-md-3">
           <label for="dryCoughCond">Dry Cough </label>
-            <div style="width:98%">
+            <div style="width:100%">
             <select name="dryCoughCond" size="1" id="dryCoughCond" class="form-control unit">
                 <option selected value="No"></option>
                 <option>Yes</option>
@@ -272,7 +272,7 @@
 
         <div class="col-md-3">
           <label for="soreThroatConditionCond">Sore Throat </label>
-            <div style="width:98%">
+            <div style="width:100%">
             <select name="soreThroatConditionCond" size="1" id="soreThroatConditionCond" class="form-control unit">
                 <option selected value="No"></option>
                 <option>Yes</option>
@@ -284,7 +284,7 @@
 
         <div class="col-md-3">
           <label for="shortBreathConditionCond">Shortness of breath </label>
-            <div style="width:98%">
+            <div style="width:100%">
             <select name="shortBreathConditionCond" size="1" id="shortBreathConditionCond" class="form-control unit" >
                 <option selected value="No"></option>
                 <option>Yes</option>
@@ -296,7 +296,7 @@
 
         <div class="col-md-3">
           <label for="musclePainConditionCond">Muscle Pain </label>
-            <div style="width:98%">
+            <div style="width:100%">
             <select name="musclePainConditionCond" size="1" id="musclePainConditionCond" class="form-control unit">
                 <option selected value="No"></option>
                 <option>Yes</option>
@@ -308,7 +308,7 @@
 
         <div class="col-md-3">
           <label for="tirednessCondition">Tiredness </label>
-            <div style="width:98%">
+            <div style="width:100%">
             <select name="tirednessCondition" size="1" id="tirednessCondition" class="form-control unit">
                 <option selected value="No"></option>
                 <option>Yes</option>
@@ -320,7 +320,7 @@
 
         <div class="col-md-3">
           <label for="highTempCond">High Temperature </label>
-            <div style="width:98%">
+            <div style="width:100%">
             <select name="highTempCond" size="1" id="highTempCond" class="form-control unit" >
                 <option selected value="No"></option>
                 <option>Yes</option>
@@ -332,7 +332,7 @@
 
         <div class="col-md-3">
           <label for="diarrhoeaCondition">Diarrhoea </label>
-            <div style="width:98%">
+            <div style="width:100%">
             <select name="diarrhoeaCondition" size="1" id="diarrhoeaCondition" class="form-control unit">
                 <option selected value="No"></option>
                 <option>Yes</option>
@@ -347,7 +347,7 @@
     <fieldset>
             <div class="col-md-12">
               <label for="infoCovid"><br>Do you have enough infomation about Covid-19 </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="infoCovid" size="1" id="infoCovid" class="form-control unit" onchange="showHideMeduimOfInfo(this.value);" required>
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -369,7 +369,7 @@
 
             <div class="col-md-3">
               <label for="email">E-mail </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="email" size="1" id="email" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -381,7 +381,7 @@
 
             <div class="col-md-3">
               <label for="social_media">Social Media </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="social_media" size="1" id="social_media" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -393,7 +393,7 @@
 
             <div class="col-md-3">
               <label for="billboards">Billboards</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="billboards" size="1" id="billboards" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -405,7 +405,7 @@
 
             <div class="col-md-3">
               <label for="internet">Internet Search </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="internet" size="1" id="internet" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -417,7 +417,7 @@
 
             <div class="col-md-3">
               <label for="print_media">Printed Media</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="print_media" size="1" id="print_media" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -429,7 +429,7 @@
 
             <div class="col-md-3">
               <label for="sms">SMS </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="sms" size="1" id="sms" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -441,7 +441,7 @@
 
             <div class="col-md-3">
               <label for="radio_tv">Radio and TV </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="radio_tv" size="1" id="radio_tv" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -453,7 +453,7 @@
 
             <div class="col-md-3">
               <label for="municipality">Municipalities </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="municipality" size="1" id="municipality" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -465,7 +465,7 @@
 
             <div class="col-md-3">
               <label for="neighbourhood_committee">Neighbourhood Committee </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="neighbourhood_committee" size="1" id="neighbourhood_committee" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -477,7 +477,7 @@
 
             <div class="col-md-3">
               <label for="local_npo">Local NPOs </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="local_npo" size="1" id="local_npo" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -494,7 +494,7 @@
 
             <div class="col-md-3">
               <label for="isindebele">IsiNdebele </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="isindebele" size="1" id="isindebele" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -506,7 +506,7 @@
 
             <div class="col-md-3">
               <label for="sesotho_sa_leboa">Sesotho sa Leboa </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="sesotho_sa_leboa" size="1" id="sesotho_sa_leboa" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -518,7 +518,7 @@
 
             <div class="col-md-3">
               <label for="sesotho_sa_borwa">Sesotho sa Borwa</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="sesotho_sa_borwa" size="1" id="sesotho_sa_borwa" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -530,7 +530,7 @@
 
             <div class="col-md-3">
               <label for="siswati">SiSwati</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="siswati" size="1" id="siswati" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -542,7 +542,7 @@
 
             <div class="col-md-3">
               <label for="xitsonga">Xitsonga</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="xitsonga" size="1" id="xitsonga" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -554,7 +554,7 @@
 
             <div class="col-md-3">
               <label for="setswana">Setswana </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="setswana" size="1" id="setswana" class="form-control unit" >
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -566,7 +566,7 @@
 
             <div class="col-md-3">
               <label for="tshivenda">Tshivenḓa </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="tshivenda" size="1" id="tshivenda" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -578,7 +578,7 @@
 
             <div class="col-md-3">
               <label for="isixhosa">IsiXhosa </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="isixhosa" size="1" id="isixhosa" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -590,7 +590,7 @@
 
             <div class="col-md-3">
               <label for="isizulu">IsiZulu</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="isizulu" size="1" id="isizulu" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -602,7 +602,7 @@
 
             <div class="col-md-3">
               <label for="afrikaans">Afrikaans </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="afrikaans" size="1" id="afrikaans" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -614,7 +614,7 @@
 
             <div class="col-md-3">
               <label for="english">English </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="english" size="1" id="english" class="form-control unit">
                     <option selected value="No"></option>
                     <option>Yes</option>
@@ -631,7 +631,7 @@
  
             <div class="col-md-12">
               <label for="whatsappp_subscribe"><br>Should we share Covid-19 related infomation to you on WhatsApp </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="whatsappp_subscribe" size="1" id="whatsappp_subscribe" class="form-control unit" required>
                     <option selected value="No"></option>
                     <option>Yes</option>

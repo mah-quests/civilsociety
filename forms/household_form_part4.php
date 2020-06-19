@@ -21,39 +21,6 @@
         }
     }
 
-    function showHideCommunityMemberInfo(){
-        var noOption = document.getElementById("communityMemberCond").value;
-        if( noOption == "Yes"){
-            jQuery('#community-member-info').show();
-            document.getElementById("community-member-info").style.visibility = 'visible';
-        }else{
-            jQuery('#community-member-info').hide();
-            document.getElementById("community-member-info").style.visibility = 'hidden';            
-        }
-    }    
-
-    function showHideHealthProfessionalInfo(){
-        var noOption = document.getElementById("healthCareCheck").value;
-        if( noOption == "Yes"){
-            jQuery('#health-care-info').show();
-            document.getElementById("health-care-info").style.visibility = 'visible';
-        }else{
-            jQuery('#health-care-info').hide();
-            document.getElementById("health-care-info").style.visibility = 'hidden';            
-        }
-    }    
-
-    function showHideGBVInfo(){
-        var noOption = document.getElementById("domesticCond").value;
-        if( noOption == "Yes"){
-            jQuery('#gbv-info').show();
-            document.getElementById("gbv-info").style.visibility = 'visible';
-        }else{
-            jQuery('#gbv-info').hide();
-            document.getElementById("gbv-info").style.visibility = 'hidden';            
-        }
-    }   
-
 
 </script>
 
@@ -68,7 +35,7 @@
 
             <div class="col-md-12">
               <label for="any_kind_abuse">Has you or anyone in the household experienced any kind of abuse, assult or harrasment during the lockdown? </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="any_kind_abuse" size="1" id="any_kind_abuse" class="form-control unit" value="<?php echo $edit ? $user_id['any_kind_abuse'] : ''; ?>"  required onchange="showHideViolationInfo(this.value);">
                     <option></option>
                     <option value="Yes">Yes</option>
@@ -82,7 +49,7 @@
 
             <div class="col-md-3">
               <label for="lawEnforcementCond">Law Enforcement </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="lawEnforcementCond" size="1" id="lawEnforcementCond" class="form-control unit" onchange="showHideLawEnforcementInfo(this.value);">
                     <option selected value="No"></option> 
                     <option>Yes</option> 
@@ -94,7 +61,7 @@
 
             <div class="col-md-3">
               <label for="communityMemberCond">Community Member </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="communityMemberCond" size="1" id="communityMemberCond" class="form-control unit" onchange="showHideCommunityMemberInfo(this.value);" >
                     <option selected value="No"></option> 
                     <option>Yes</option>                      
@@ -105,7 +72,7 @@
 
             <div class="col-md-3">
               <label for="healthCareCheck">Health Professional  </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="healthCareCheck" size="1" id="healthCareCheck" class="form-control unit" onchange="showHideHealthProfessionalInfo(this.value);">
                     <option selected value="No"></option> 
                     <option>Yes</option>  
@@ -117,7 +84,7 @@
             
             <div class="col-md-3">
               <label for="domesticCond">GBV  </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="domesticCond" size="1" id="domesticCond" class="form-control unit" onchange="showHideGBVInfo(this.value);">
                     <option selected value="No"></option> 
                     <option>Yes</option>  
@@ -127,9 +94,9 @@
             </div>             
 
 
-            <div class="col-md-3" id="law-enforcement-info" style="display:hidden">
+            <div class="col-md-3">
               <label for="lawEnforcementType">Law Enforcement Violation</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="lawEnforcementType" size="1" id="lawEnforcementType" class="form-control unit" >
                     <option selected value="None"></option> 
                     <option>Unlawful detention</option>
@@ -140,9 +107,9 @@
             </div> 
 
 
-            <div class="col-md-3" id="community-member-info" style="display:hidden">
+            <div class="col-md-3">
               <label for="communityMemberType">Community Member Violation</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="communityMemberType" size="1" id="communityMemberType" class="form-control unit">
                 <option selected value="None"></option> 
                 <option>Discrimination</option>
@@ -153,9 +120,9 @@
             </div>
    
 
-            <div class="col-md-3" id="health-care-info" style="display:hidden">
+            <div class="col-md-3">
               <label for="healthCareType">Health Professional Violation</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="healthCareType" size="1" id="healthCareType" class="form-control unit" >
                     <option selected value="None"></option> 
                     <option>Discrimination</option>
@@ -166,9 +133,9 @@
                 </div>
             </div>    
             
-            <div class="col-md-3" id="gbv-info" style="display:hidden">
+            <div class="col-md-3">
               <label for="domesticType">GBV Violation</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="domesticType" size="1" id="domesticType" class="form-control unit" >
                     <option selected value="None"></option> 
                     <option>Assault</option>
@@ -177,5 +144,12 @@
                 </select>
                 </div>
             </div>
+
+            <div class="col-md-12">
+              <label for="violation_details"><br>Please specify:</label>
+                <textarea class="form-control" id="violation_details"  name="violation_details" rows="3" placeholder="Enter violation details" >
+                </textarea>
+            </div>
+
 </fieldset>
 </div>

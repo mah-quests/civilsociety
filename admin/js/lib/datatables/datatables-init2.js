@@ -37,7 +37,7 @@ $(document).ready(function() {
             });
         });
     });
-    $('#example23').DataTable({
+    $('#example2').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'

@@ -2,7 +2,7 @@
         <div class="row">
             <div class="col-md-12">
               <label for="organization_structure">Partner Network</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="organization_structure" size="1" class="form-control unit" required> 
                         <option selected value=""></option>
                         <option>DPSA</option>
@@ -46,7 +46,7 @@
 
             <div class="col-md-6">
               <label for="sex">Sex</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="sex" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['sex'] : ''; ?>" required>
                         <option selected value=""></option>
                         <option>Male</option>
@@ -72,7 +72,7 @@
 
             <div class="col-md-6">
               <label for="nationality">Nationality</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="nationality" size="1" class="form-control unit"  required>
                         <option selected value=""></option>
                         <option>South Africa</option>
@@ -91,7 +91,7 @@
 
             <div class="col-md-12">
             <label for="municipality"><br>Location Selection<br></label>
-            <div style="width:98%">
+            <div style="width:100%">
                   
               <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])" required>
                 <option selected value="">Select Province</option>
