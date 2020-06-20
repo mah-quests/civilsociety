@@ -21,8 +21,8 @@ session_start();
 
          <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Agents in Eastern Cape</h4>
-                <h6 class="card-subtitle"> Buffalo City Metro, Nelson Mandela Bay, O.R. Tambo District, Chris Hani District.</h6>
+                <h4 class="card-title">Agents in  KwaZulu Natal</h4>
+                <h6 class="card-subtitle"> Ilembe and eThekwini.</h6>
 
                 <div class="table-responsive m-t-40">
                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">

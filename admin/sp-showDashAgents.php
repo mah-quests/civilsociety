@@ -136,6 +136,201 @@ else
     </div>
   </div>
 
+  <div class="row" style="color: #22A0F2">
+    <div class="col-12" >
+      <div class="card bg-gradient-x-info">
+        <div class="card-content">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                Agents In Eastern Cape:
+                <br><br>
+              <div class="card-body text-center" style="color: #22A0F2">
+                <a href="sp-printGautengAgents.php">
+                    <h1 class="display-4" style="color: #22A0F2">
+                        <?php echo $totalSPAgentsEasternCape;?>
+                    </h1>
+                </a>
+                <span style="color: #22A0F2"># Total Agents In Eastern Cape</span>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3" >
+                <br>
+              <div class="card-body text-center">
+                <a href="sp-printBuffaloCityAgents.php">
+                    <h1 class="display-5" style="color: #22A0F2">
+                        <?php echo $totalBuffaloCityEasternCape;?>
+                    </h1>
+                    <span style="color: #22A0F2"># in Buffalo City Metro</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                <br>
+              <div class="card-body text-center" style="color: #22A0F2">
+                <a href="sp-printMandelaBayAgents.php">
+                    <h1 class="display-5" style="color: #22A0F2">
+                        <?php echo $totalMandelaBayEasternCape;?>
+                    </h1>
+                    <span style="color: #22A0F2"># in Nelson Mandela Bay</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
+                <br>
+              <div class="card-body text-center" style="color: #22A0F2">
+                <a href="sp-printORTamboAgents.php">
+                    <h1 class="display-5" style="color: #22A0F2">
+                        <?php echo $totalORTamboEasternCape;?>
+                    </h1>
+                    <span style="color: #22A0F2"># in O.R. Tambo District</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
+                <br>
+              <div class="card-body text-center" style="color: #22A0F2">
+                <a href="sp-printChrisHaniAgents.php">
+                    <h1 class="display-5" style="color: #22A0F2">
+                        <?php echo $totalChrisHaniEasternCape;?>
+                    </h1>
+                    <span style="color: #22A0F2"># in Chris Hani District</span>
+                </a>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="color: orange">
+    <div class="col-12" >
+      <div class="card bg-gradient-x-info">
+        <div class="card-content">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                Agents In Gauteng:
+                <br><br>
+              <div class="card-body text-center" style="color: orange">
+                <a href="sp-printGautengAgents.php">
+                    <h1 class="display-4" style="color: orange">
+                        <?php echo $totalSPAgentsGauteng;?>
+                    </h1>
+                </a>
+                <span style="color: orange"># Total Agents In Gauteng</span>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3" >
+                <br>
+              <div class="card-body text-center">
+                <a href="sp-printSowetoAgents.php">
+                    <h1 class="display-5" style="color: orange">
+                        <?php echo $totalSowetoAgents;?>
+                    </h1>
+                    <span style="color: orange"># in Soweto</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                <br>
+              <div class="card-body text-center" style="color: orange">
+                <a href="sp-printRooderpoortAgents.php">
+                    <h1 class="display-5" style="color: orange">
+                        <?php echo $totalRoodepoortAgents;?>
+                    </h1>
+                    <span style="color: orange"># in Rooderpoort</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
+                <br>
+              <div class="card-body text-center" style="color: orange">
+                <a href="sp-printJoburgAgents.php">
+                    <h1 class="display-5" style="color: orange">
+                        <?php echo $totalJoburgGauteng;?>
+                    </h1>
+                    <span style="color: orange"># in Joburg inner City</span>
+                </a>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" style="color: #132053">
+    <div class="col-12" >
+      <div class="card bg-gradient-x-info">
+        <div class="card-content">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                Agents In KwaZulu Natal:
+                <br><br>
+              <div class="card-body text-center" style="color: #132053">
+                <a href="sp-printGautengAgents.php">
+                    <h1 class="display-4" style="color: #132053">
+                        <?php echo $totalSPAgentsKZN;?>
+                    </h1>
+                </a>
+                <span style="color: #132053"># Total Agents In KwaZulu Natal</span>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3" >
+                <br>
+              <div class="card-body text-center">
+                <a href="sp-printiLembeAgents.php">
+                    <h1 class="display-5" style="color: #132053">
+                        <?php echo $totalIlembeKZN;?>
+                    </h1>
+                    <span style="color: #132053"># in Ilembe</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                <br>
+              <div class="card-body text-center" style="color: #132053">
+                <a href="sp-printeThekwiniAgents.php">
+                    <h1 class="display-5" style="color: #132053">
+                        <?php echo $totalEthekwiniKZN;?>
+                    </h1>
+                    <span style="color: #132053"># in eThekwini</span>
+                </a>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" style="color: red">
+    <div class="col-12" >
+      <div class="card bg-gradient-x-info">
+        <div class="card-content">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                Agents In Western Cape:
+                <br><br>
+              <div class="card-body text-center" style="color: red">
+                <a href="sp-printWesternCapeAgents.php">
+                    <h1 class="display-4" style="color: red">
+                        <?php echo $totalCapeTownWesternCape;?>
+                    </h1>
+                </a>
+                <span style="color: red"># Total Agents In Western Cape</span>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3" >
+                <br>
+              <div class="card-body text-center">
+                <a href="sp-printWesternCapeAgents.php">
+                    <h1 class="display-5" style="color: red">
+                        <?php echo $totalCapeTownWesternCape;?>
+                    </h1>
+                    <span style="color: red"># in Cape Town City</span>
+                </a>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
         <!-- End PAge Content -->
         </div>
