@@ -18,7 +18,11 @@ if(isset($_POST['update']))   // if button is submit
             address = '".$_POST['address']."', 
             municipality = '".$_POST['List3']."',
             district = '".$_POST['List2']."', 
-            provice = '".$_POST['List1']."', 
+            provice = '".$_POST['List1']."',
+            gender='$_POST[gender]',
+            race='$_POST[race]',
+            age='$_POST[age]',
+            ward='$_POST[ward]',
             alt_person = '".$_POST['alt_person']."', 
             alt_number = '".$_POST['alt_number']."'
                                            
@@ -214,6 +218,12 @@ echo '<div class="tab-content">
           </div>
 
           <div class="col-md-6">
+            <label for="organization_structure">Organization / Network Type
+            </label>
+              <input type="text" name="network_type" value="'.$user['network_type'].'" class="form-control" readonly>
+          </div>
+
+          <div class="col-md-6">
             <label for="organization_structure">Organization Registered Number / Covid-19 Front Partner Name
             </label>
               <input type="text" name="organization_structure" value="'.$user['organization_structure'].'" class="form-control" readonly>
@@ -238,9 +248,27 @@ echo '<div class="tab-content">
           </div>
 
           <div class="col-md-6">
+              <label for="age">Age
+              </label>
+                <input type="text" name="age" value="'.$user['age'].'" class="form-control" readonly>
+          </div>
+
+          <div class="col-md-6">
+              <label for="race">Race
+              </label>
+                <input type="text" name="race" value="'.$user['race'].'" class="form-control" readonly>
+          </div>
+
+          <div class="col-md-6">
               <label for="sex">Sex
               </label>
                 <input type="text" name="sex" value="'.$user['sex'].'" class="form-control" readonly>
+          </div>
+
+          <div class="col-md-6">
+              <label for="gender">Gender
+              </label>
+                <input type="text" name="gender" value="'.$user['gender'].'" class="form-control" readonly>
           </div>
 
           <div class="col-md-6">
@@ -260,6 +288,12 @@ echo '<div class="tab-content">
               </label>
                 <input type="textarea" name="address" rows="5" value="'.$user['address'].'" class="form-control" readonly>
           </div>                              
+
+          <div class="col-md-6">
+              <label for="nationality">Address Ward
+              </label>
+                <input type="text" name="ward" value="'.$user['ward'].'" class="form-control" readonly>
+          </div>
 
           <div class="col-md-6">
               <label for="nationality">Nationality

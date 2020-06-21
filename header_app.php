@@ -325,7 +325,7 @@ navigator.appName == "Microsoft Internet Explorer"
 							{
                             echo '<li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                            Community Resources
+                                            Community <br>Resources
                                         </a>
                                         <div class="dropdown-menu">
                                             <a href="doCommunityReg.php" class="dropdown-item">

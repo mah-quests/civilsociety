@@ -65,7 +65,12 @@ if(isset($_POST['submit'] ))
             address='$_POST[address]', 
             municipality='$_POST[municipality]', 
             district='$_POST[district]', 
-            provice='$_POST[provice]', 
+            provice='$_POST[provice]',
+            gender='$_POST[gender]',
+            race='$_POST[race]',
+            age='$_POST[age]',
+            ward='$_POST[ward]',
+            network_type='$_POST[network_type]',
             alt_person='$_POST[alt_person]', 
             alt_number='$_POST[alt_number]',             
             password='$_POST[password]'
@@ -106,8 +111,7 @@ include 'header_admin.php';
                   
 	<?php  
 		echo $error;
-		echo $success; 
-		echo var_dump($_POST);
+		echo $success;
 											
 	?>
 									
@@ -140,6 +144,12 @@ include 'header_admin.php';
                             Organization Name
                         </label>
                         <input type="text" name="organization_name" class="form-control form-control-danger"  value="<?php  echo $newrow['organization_name'];  ?>" placeholder="Please enter your organization name">
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Organization Network </label>
+                        <input type="text" name="network_type" class="form-control form-control-danger"  value="<?php  echo $newrow['network_type'];  ?>" placeholder="Please enter network type">
                         </div>
                 </div>
                 <!--/span-->
@@ -182,6 +192,40 @@ include 'header_admin.php';
             <div class="row p-t-20">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label class="control-label"> Age</label>
+                        <input type="text" name="age" class="form-control" placeholder="Please enter age"  value="<?php  echo $newrow['age']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Organization Type </label>
+                        <input type="text" name="network_type" class="form-control form-control-danger"  value="<?php  echo $newrow['network_type'];  ?>" placeholder="Please enter organization type">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Gender</label>
+                        <input type="text" name="gender" class="form-control" placeholder="Please enter the Gender"  value="<?php  echo $newrow['gender']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Race</label>
+                        <input type="text" name="race" class="form-control form-control-danger"  value="<?php  echo $newrow['race'];  ?>" placeholder="Please enter race">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label class="control-label">Cellphone number</label>
                         <input type="text" name="phone" class="form-control" placeholder="Please enter the Cellphone number"  value="<?php  echo $newrow['phone']; ?>">
                        </div>
@@ -210,6 +254,12 @@ include 'header_admin.php';
                             <textarea class="form-control" rows=3 >
                                 <?php echo $newrow['address']; ?>
                             </textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Home Address Ward</label>
+                        <input type="text" name="ward" class="form-control form-control-danger"   value="<?php  echo $newrow['ward'];  ?>" placeholder="Address ward">
                     </div>
                 </div>
                 <!--/span-->
@@ -244,7 +294,7 @@ include 'header_admin.php';
                     <div class="form-group has-danger">
                         <label class="control-label">Network Type (C/ N/ P)</label>
                         <input type="text" name="network" class="form-control form-control-danger"  value="<?php  echo $newrow['network'];  ?>" placeholder="Please enter a valid Network Type">
-                        </div>
+                    </div>
                 </div>
                 <!--/span-->
             </div>                
@@ -274,6 +324,7 @@ include 'header_admin.php';
                     </div>
                 </div>
             </div>
+
                 <!--/span-->
                 
           

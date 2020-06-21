@@ -6,18 +6,23 @@ include("connection/connect.php"); // connection
 if(isset($_POST['submit'] )) //if submit btn is pressed
 {
      if(empty($_POST['firstname']) ||  //fetching and find if its empty
-        empty($_POST['username'])|| 
-        empty($_POST['lastname'])|| 
-        empty($_POST['email']) ||  
-        empty($_POST['phone'])|| 
-        empty($_POST['password'])||
-        empty($_POST['List1']) ||       // Province
-        empty($_POST['List2']) ||       // District
-        empty($_POST['List3']) ||       // Municipality
+        empty($_POST['username']) ||
+        empty($_POST['lastname']) ||
+        empty($_POST['email']) ||
+        empty($_POST['phone']) ||
+        empty($_POST['password']) ||
+        empty($_POST['List1']) ||     // Province
+        empty($_POST['List2']) ||     // District
+        empty($_POST['List3']) ||     // Municipality
         empty($_POST['sex']) ||
+        empty($_POST['gender']) ||
+        empty($_POST['age']) ||
+        empty($_POST['race']) ||
+        empty($_POST['ward']) ||
         empty($_POST['alt_person']) ||
         empty($_POST['alt_number']) ||
         empty($_POST['nationality']) ||
+        empty($_POST['network_type']) ||
         empty($_POST['organization_name']) ||
         empty($_POST['organization_structure']) ||
         empty($_POST['cpassword'])
@@ -68,9 +73,13 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 
    //inserting values into db
   $mql = "INSERT INTO users
-  (username, f_name, l_name, email, phone, password, address, district, municipality, provice, sex, alt_person, alt_number, network, organization_structure, organization_name, nationality)
+  (username, f_name, l_name, email, phone, age, password, address, ward, district, municipality, provice, sex, race, gender, alt_person,
+  alt_number, network, organization_structure, organization_name, network_type, nationality)
   VALUES
-  ('".$_POST['username']."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['email']."', '".$_POST['phone']."', '".md5($_POST['password'])."', '".$_POST['address']."' ,'".$_POST['List2']."', '".$_POST['List3']."' ,'".$_POST['List1']."', '".$_POST['sex']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', 'N', '".$_POST['organization_structure']."', '".$_POST['organization_name']."', '".$_POST['nationality']."')";
+  ('".$_POST['username']."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['email']."', '".$_POST['phone']."', '".$_POST['age']."',
+  '".md5($_POST['password'])."', '".$_POST['address']."' ,'".$_POST['ward']."' , '".$_POST['List2']."', '".$_POST['List3']."' ,'".$_POST['List1']."', '".$_POST['sex']."',
+  '".$_POST['race']."', '".$_POST['gender']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', 'N', '".$_POST['organization_structure']."',
+  '".$_POST['organization_name']."', '".$_POST['network_type']."', '".$_POST['nationality']."')";
 
   mysqli_query($db, $mql);
 
