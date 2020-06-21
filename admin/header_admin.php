@@ -227,7 +227,7 @@ session_start();
                                 <li><a href="#">Advocacy</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Communications & <br>Public Awareness</a></li>
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Contact tracing & <br> Screening</a></li>
@@ -291,7 +291,7 @@ session_start();
                                 <li><a href="#">Advocacy</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Communications & <br>Public Awareness</a></li>
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Contact tracing & <br> Screening</a></li>
@@ -350,7 +350,7 @@ session_start();
                                 <li><a href="#">Advocacy</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Communications & <br>Public Awareness</a></li>
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Contact tracing & <br> Screening</a></li>
@@ -408,7 +408,7 @@ session_start();
                                 <li><a href="#">Advocacy</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Communications & <br>Public Awareness</a></li>
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Contact tracing & <br> Screening</a></li>
