@@ -7,8 +7,7 @@
 	$to = "josopu@communityconstituency.org.za, jmbodibe@gmail.com";
 
 	$subject = "Notification from thusasechaba. Reference Number: ".$unique_code;
-	$message = $username. " stream head initiated a request for your attention. \r\n  \r\n";
-	$message .=$remark;
+	$message =$remark;
 	$message .=$link_to_url;
 	$headers = "From: " . $from; 
 
