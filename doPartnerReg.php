@@ -10,6 +10,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         empty($_POST['lastname']) ||
         empty($_POST['email']) ||
         empty($_POST['phone']) ||
+        empty($_POST['address']) ||
         empty($_POST['password']) ||
         empty($_POST['List1']) ||     // Province        
         empty($_POST['List2']) ||     // District
@@ -139,13 +140,16 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         <h3 align="center">Covid-19 Front Member Registration</h3>
          <div class="container">
             <ul>
-               <li>
-                <a href="#" class="active">
-                  <span style="color:green;">
-                    <?php echo $success; ?>
-                  </span>
-                </a>
-              </li> 
+                 <li>
+                  <a href="#" class="active">
+                    <span style="color:red;">
+                        <?php echo $message; ?>
+                    </span>
+                    <span style="color:green;">
+                        <?php echo $success; ?>
+                    </span>
+                  </a>
+                </li>
             </ul>
          </div>
       </div>

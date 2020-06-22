@@ -251,9 +251,7 @@ include 'header_admin.php';
                 <div class="col-md-6">
                     <div class="form-group has-danger">
                         <label class="control-label">Home Address</label><br>
-                            <textarea class="form-control" rows=3 >
-                                <?php echo $newrow['address']; ?>
-                            </textarea>
+                           <input style="height:80px" type="text" name="address" class="form-control" placeholder="Please enter the Adress"  value="<?php  echo $newrow['address']; ?>">
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -10,6 +10,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         empty($_POST['lastname']) ||
         empty($_POST['email']) ||
         empty($_POST['phone']) ||
+        empty($_POST['address']) ||
         empty($_POST['password']) ||
         empty($_POST['List1']) ||     // Province
         empty($_POST['List2']) ||     // District
@@ -77,9 +78,10 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
   alt_number, network, organization_structure, organization_name, network_type, nationality)
   VALUES
   ('".$_POST['username']."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['email']."', '".$_POST['phone']."', '".$_POST['age']."',
-  '".md5($_POST['password'])."', '".$_POST['address']."' ,'".$_POST['ward']."' , '".$_POST['List2']."', '".$_POST['List3']."' ,'".$_POST['List1']."', '".$_POST['sex']."',
-  '".$_POST['race']."', '".$_POST['gender']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', 'N', '".$_POST['organization_structure']."',
-  '".$_POST['organization_name']."', '".$_POST['network_type']."', '".$_POST['nationality']."')";
+  '".md5($_POST['password'])."', '".$_POST['address']."' ,'".$_POST['ward']."' , '".$_POST['List2']."', '".$_POST['List3']."' ,'".$_POST['List1']."',
+  '".$_POST['sex']."', '".$_POST['race']."', '".$_POST['gender']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', 'P',
+  '".$_POST['organization_structure']."',  '".$_POST['organization_name']."', '".$_POST['network_type']."' ,'".$_POST['nationality']."')";
+
 
   mysqli_query($db, $mql);
 
@@ -144,9 +146,12 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
                   <ul>
                      <li>
                       <a href="#" class="active">
-                        <span style="color:green;">
-                          <?php echo $success; ?>
+                        <span style="color:red;">
+                            <?php echo $message; ?>
                         </span>
+					    <span style="color:green;">
+                            <?php echo $success; ?>
+						</span>
                       </a>
                     </li> 
                   </ul>

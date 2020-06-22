@@ -184,7 +184,8 @@ categories["Free State"] = ["Mangaung Metropolitan","Fezile Dabi District","Lejw
 categories["Kwazulu Natal"] = ["Amajuba District Municipality","Harry Gwala District Municipality","iLembe District Municipality","King Cetshwayo District Municipality ","Ugu District Municipality","uMgungundlovu District Municipality","uMkhanyakude District Municipality","uMzinyathi District Municipality","uThukela District Municipality","Zululand District Municipality","eThekwini Metropolitan"];
   categories["Amajuba District Municipality"] = ["Dannhauser","eMadlangeni","Newcastle"];           
   categories["Harry Gwala District Municipality"] = ["Dr Nkosazana Dlamini-Zuma","Greater Kokstad","Ubuhlebezwe","Umzimkhulu"];     
-  categories["iLembe District Municipality"] = ["KwaDukuza","Mandeni","Maphumulo","Ndwedwe"];           
+  categories["iLembe District Municipality"] = ["KwaDukuza","Mandeni","Maphumulo","Ndwedwe"];
+  categories["King Cetshwayo District Municipality"] = ["City of uMhlathuze","Mthonjaneni","Nkandla","uMfolozi","uMlalazi"];
   categories["Ugu District Municipality"] = ["Ray Nkonyeni","uMdoni","uMuziwabantu","Umzumbe","Vulamehlo"];           
   categories["uMgungundlovu District Municipality"] = ["Impendle","Mkhambathini","Mpofana","Msunduzi","Richmond","uMngeni","uMshwathi"];        
   categories["uMkhanyakude District Municipality"] = ["Big Five Hlabisa","Jozini","Mtubatuba","uMhlabuyalingana"];    
@@ -317,7 +318,7 @@ navigator.appName == "Microsoft Internet Explorer"
                                         </a> 
                                     </li>
                                     <li class="nav-item">
-                                        <a href="doCommunityReg.php" class="nav-link active"> Community Member Registration
+                                        <a href="doCommunityReg.php" class="nav-link active"> Community Member <br>Registration
                                         </a> 
                                     </li>';
 							}
