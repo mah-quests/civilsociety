@@ -142,6 +142,11 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
             <ul>
                  <li>
                   <a href="#" class="active">
+                      <?php  if(!empty($message)){ ?>
+                        <span style="color:red;">
+                            <?php echo $message; ?>
+                        <?php  } ?>
+                        </span>
                     <span style="color:green;">
                         <?php echo $success; ?>
                     </span>
