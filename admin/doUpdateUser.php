@@ -251,13 +251,13 @@ include 'header_admin.php';
                 <div class="col-md-6">
                     <div class="form-group has-danger">
                         <label class="control-label">Home Address</label><br>
-                           <input style="height:80px" type="text" name="address" class="form-control" placeholder="Please enter the Adress"  value="<?php  echo $newrow['address']; ?>">
+                           <input type="text" name="address" class="form-control" placeholder="Please enter the Adress"  value="<?php  echo $newrow['address']; ?>">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Home Address Ward</label>
-                        <input type="text" name="ward" class="form-control form-control-danger"   value="<?php  echo $newrow['ward'];  ?>" placeholder="Address ward">
+                            <input type="text" name="ward" class="form-control"  value="<?php  echo $newrow['ward'];  ?>" placeholder="Address ward">
                     </div>
                 </div>
                 <!--/span-->
