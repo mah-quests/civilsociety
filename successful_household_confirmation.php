@@ -7,8 +7,8 @@
 	$to = $agent_email;
 
 	$subject = "Household Request Completed. Reference Number: ".$unique_code;
-	$message="Dear ".$agent_name;
-	$message .="
+	$email_message="Dear ".$agent_name;
+	$email_message .="
 
 Congradulations, you have successfully completed a household request.
 
@@ -39,7 +39,7 @@ support@thusasechaba.org.za
 ";
 	$headers = "From: " . $from;
 
-	mail ($to, $subject, $message, $headers);
+	mail ($to, $subject, $email_message, $headers);
 
 
 ?>

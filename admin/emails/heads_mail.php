@@ -7,11 +7,11 @@
 	$to = "mabalane@showmeyournumber.org.za, nhlanhla@communityconstituency.org.za";
 
 	$subject = "Notification from thusasechaba. Reference Number: ".$unique_code;
-	$message =$remark;
-	$message .=$link_to_url;
+	$email_message =$remark;
+	$email_message .=$link_to_url;
 	$headers = "From: " . $from; 
 
-	mail ($to, $subject, $message, $headers);
+	mail ($to, $subject, $email_message, $headers);
 
 	echo "The email message was successfully sent.";
 

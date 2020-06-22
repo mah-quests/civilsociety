@@ -7,8 +7,8 @@
 	$to = $agent_email;
 
 	$subject = "Welcome to Thusa Sechaba Web Application";
-	$message="Dear ".$agent_name;
-	$message .="
+	$email_message="Dear ".$agent_name;
+	$email_message .="
 
 Thank you for registering as a Thusa Sechaba Agent.
 
@@ -29,7 +29,7 @@ support@thusasechaba.org.za
 ";
 	$headers = "From: " . $from;
 
-	mail ($to, $subject, $message, $headers);
+	mail ($to, $subject, $email_message, $headers);
 
 
 ?>
