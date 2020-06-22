@@ -398,9 +398,9 @@ $mql_priority03 = "INSERT INTO request_priority_03
                   <ul>
                      <li>
                       <a href="#" class="active">
-                        <span style="color:green;">
-                          <?php echo $success; ?>
-                        </span>
+					    <span style="color:green;">
+                            <?php echo $success; ?>
+						</span>
                       </a>
                     </li> 
                   </ul>

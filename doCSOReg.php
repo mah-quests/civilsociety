@@ -29,7 +29,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         empty($_POST['cpassword'])
       )
     {
-      $failure_message = "All fields required not filled!";
+      $message = "All fields required not filled!";
 
     }
   else
@@ -39,28 +39,28 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
   $check_celphone = mysqli_query($db, "SELECT phone FROM users where phone = '".$_POST['phone']."' ");
     
   if($_POST['password'] != $_POST['cpassword']){  //matching passwords
-        $failure_message = "Password not match";
+        $message = "Password not match";
     }
   elseif(strlen($_POST['password']) < 6)  //cal password length
   {
-    $failure_message = "Password Must be >=6";
+        $message = "Password Must be >=6";
   }
   elseif(strlen($_POST['phone']) < 10)  //cal phone length
   {
-    $failure_message = "invalid phone number!";
+        $message = "invalid phone number!";
   }
 
     elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
     {
-        $failure_message = "Invalid email address please type a valid email!";
+        $message = "Invalid email address please type a valid email!";
     }
   elseif(mysqli_num_rows($check_username) > 0)  //check username
      {
-      $failure_message = 'ID Number already registered!';
+        $message = 'ID Number already registered!';
      }
   elseif(mysqli_num_rows($check_celphone) > 100) //check email
      {
-      $failure_message = 'Celphone Number already exists!';
+        $message = 'Celphone Number already exists!';
      }
   else{
 
@@ -146,9 +146,6 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
                   <ul>
                      <li>
                       <a href="#" class="active">
-                        <span style="color:red;">
-                            <?php echo $failure_message; ?>
-                        </span>
 					    <span style="color:green;">
                             <?php echo $success; ?>
 						</span>

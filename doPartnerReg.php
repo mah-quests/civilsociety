@@ -28,7 +28,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
         empty($_POST['cpassword'])
       )
     {
-      $message = "Please make sure all fields required have been properly completed!";
+    $message = "Please make sure all fields required have been properly completed!";
 
     }
   else
@@ -142,9 +142,6 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
             <ul>
                  <li>
                   <a href="#" class="active">
-                    <span style="color:red;">
-                        <?php echo $message; ?>
-                    </span>
                     <span style="color:green;">
                         <?php echo $success; ?>
                     </span>
