@@ -90,7 +90,7 @@ session_start();
 
 
 
-    $sql="SELECT users.*, users_orders.*, users_orders.municipality as delivery_municipality FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.province = '$province' or users_orders.province in ('$province', '$province2', '$province3' ) ";
+    $sql="SELECT * from users_orders where province in ('$province', '$province2', '$province3' ) ";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
@@ -150,7 +150,7 @@ echo ' <tr>
             } 
             ?>
     	   <?php																									
-		echo '<td>'.$rows['delivery_municipality'].'</td>';
+		echo '<td>'.$rows['municipality'].'</td>';
         echo '<td>'.$rows['province'].'</td>';
 		?>
 			 <td>

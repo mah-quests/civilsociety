@@ -43,7 +43,7 @@ session_start();
                             <tbody>
                                            
 <?php
-    $sql="SELECT users.*, users_orders.*, users_orders.municipality as delivery_municipality  FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where users_orders.unique_code in (SELECT unique_code FROM `request_by_partner` WHERE date(date) < curdate() and date(date) > curdate() - 7)";
+    $sql="SELECT *  FROM  users_orders where unique_code in (SELECT unique_code FROM `request_by_partner` WHERE date(date) BETWEEN SUBDATE(CURDATE(), 7) AND CURDATE())";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
@@ -57,7 +57,7 @@ session_start();
 echo ' <tr>
            <td>'.$rows['date'].'</td>
            <td>'.$rows['unique_code'].'</td>
-			<td>'.$rows['address'].'</td>';
+			<td>'.$rows['delivery_address'].'</td>';
 			?>
 			<?php 
                 $status=$rows['status'];
@@ -103,8 +103,8 @@ echo ' <tr>
             } 
             ?>
     	   <?php																									
-		echo '<td>'.$rows['delivery_municipality'].'</td>';
-        echo '<td>'.$rows['provice'].'</td>';
+		echo '<td>'.$rows['municipality'].'</td>';
+        echo '<td>'.$rows['province'].'</td>';
 		?>
 			 <td>
 			 <a href="delete_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 

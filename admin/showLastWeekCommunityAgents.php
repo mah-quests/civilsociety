@@ -43,7 +43,7 @@ session_start();
                                            
 											
         <?php
-            $sql="SELECT * FROM users where date(date) < curdate() and date(date) > curdate() - 7 and network='C' ";
+            $sql="SELECT * FROM `users` WHERE network='C' and date(date) BETWEEN SUBDATE(CURDATE(), 7) AND CURDATE()  ";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )

@@ -79,36 +79,44 @@ else
                 Agents Across Provinces:
                 <br><br>
               <div class="card-body text-center">
-                <h1 class="display-4" style="color: green">
-                    <?php echo $AllRegisteredAgents;?>
-                </h1>
+                <a href="doShowAgents.php">
+                    <h1 class="display-4" style="color: green">
+                        <?php echo $AllRegisteredAgents;?>
+                    </h1>
+                </a>
                 <span style="color: green"># Total Agents Registered</span>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                 <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5">
-                    <?php echo $totalAgentsGauteng;?>
-                </h1>
+                <a href="showAgentPerProvince.php?id=gauteng">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsGauteng;?>
+                    </h1>
+                </a>
                 <span># in Gauteng</span>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                 <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5">
-                    <?php echo $totalAgentsFreeState;?>
-                </h1>
+                <a href="showAgentPerProvince.php?id=freestate">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsFreeState;?>
+                    </h1>
+                </a>
                 <span># in Free State</span>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
                 <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5" > 
-                    <?php echo $totalAgentsNorthWest;?>                   
-                </h1>
+                <a href="showAgentPerProvince.php?id=northwest">
+                    <h1 class="display-5" >
+                        <?php echo $totalAgentsNorthWest;?>
+                    </h1>
+                </a>
                 <span># in North West</span>
               </div>
             </div>
@@ -124,27 +132,33 @@ else
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalAgentsMpumalanga;?>                     
-                </h1>
+                <a href="showAgentPerProvince.php?id=mpumalanga">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsMpumalanga;?>
+                    </h1>
+                </a>
                 <span># in Mpumalanga</span>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br>               
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalAgentsLimpopo;?>                      
-                </h1>
+                <a href="showAgentPerProvince.php?id=limpopo">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsLimpopo;?>
+                    </h1>
+                </a>
                 <span># in Limpopo</span>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalAgentsKZN;?>
-                </h1>
+                <a href="showAgentPerProvince.php?id=kzn">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsKZN;?>
+                    </h1>
+                </a>
                 <span># in KwaZulu Natal</span>
               </div>
             </div>  
@@ -159,36 +173,44 @@ else
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalAgentsNorthernCape;?>
-                </h1>
+                <a href="showAgentPerProvince.php?id=northerncape">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsNorthernCape;?>
+                    </h1>
+                </a>
                 <span># in Northern Cape</span>
               </div>
             </div>  
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalAgentsEasternCape;?>                   
-                </h1>
+                <a href="showAgentPerProvince.php?id=easterncape">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsEasternCape;?>
+                    </h1>
+                </a>
                 <span># in Eastern Cape</span>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5"> 
-                    <?php echo $totalAgentsWesternCape;?>                   
-                </h1>
+                <a href="showAgentPerProvince.php?id=westerncape">
+                    <h1 class="display-5">
+                        <?php echo $totalAgentsWesternCape;?>
+                    </h1>
+                </a>
                 <span># in Western Cape</span>
               </div>
             </div> 
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
             <br><br>
               <div class="card-body text-center">
-                <h1 class="display-5" style="color: red"> 
-                    <?php echo $totalUnlocated; ?>                    
-                </h1>
+                <a href="showAgentPerProvince.php?id=unallocated">
+                    <h1 class="display-5" style="color: red">
+                        <?php echo $totalUnlocated; ?>
+                    </h1>
+                </a>
                 <span style="color: red"># Unallocated</span>
               </div>
             </div>                                                

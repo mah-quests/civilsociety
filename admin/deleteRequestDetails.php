@@ -21,6 +21,6 @@ $unique_code=mysqli_query($db,"select unique_code FROM users_orders where o_id =
 	mysqli_query($db,"DELETE FROM request_covid_media_info WHERE unique_code = '$unique_code' ");	
 	mysqli_query($db,"DELETE FROM request_by_partner WHERE unique_code = '$unique_code' ");
 			
-header("location:showAllRequests.php");  
+header("location:doShowAllRequests.php");  
 
 ?>

@@ -19,12 +19,25 @@ session_start();
 
   }
 
+  $adminUsers=mysqli_query($db,"SELECT * FROM admin where adm_id='".$_SESSION["adm_id"]."'");
+
+  while($row=mysqli_fetch_array($adminUsers)) {
+
+  $adm_id = $row['adm_id'];
+  $username = $row['username'];
+
+  }
+
   if(isset($_POST['update']))
   {
   
   $form_id=$_GET['form_id'];
   $status=$_POST['status'];
-  $remark=$_POST['remark'];
+  $remark=$username.' initiated a request for your attention.';
+  $remark.=
+'
+
+'.$_POST['remark'];
   $heads=$_POST['heads'];
   $advocacy=$_POST['advocacy'];
   $mobilization=$_POST['mobilization'];
@@ -32,6 +45,7 @@ session_start();
   $media=$_POST['media'];
   $administration=$_POST['administration'];
   $database=$_POST['database'];
+  $comms=$_POST['comms'];
   $screen=$_POST['screen'];
   $mne=$_POST['mne'];
   $it=$_POST['it'];
@@ -43,13 +57,7 @@ session_start();
 
   $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
 
-  $query=mysqli_query($db,"UPDATE REMARK 
-                    set 
-                    remark='$remark'
-                    where frm_id='$form_id' ");  
-
 //Send email notification
-
 
   if ( $heads == "yes") {
     include("./emails/heads_mail.php");
@@ -72,7 +80,6 @@ session_start();
   }
 
   if ( $it == "yes" ) {
-
     include("./emails/it_mail.php");
   }   
 
@@ -83,6 +90,10 @@ session_start();
   if ( $database == "yes" ) {
     include("./emails/database_mail.php");
   }   
+
+  if ( $comms == "yes" ) {
+    include("./emails/comms_mail.php");
+  }
 
   if ( $screen == "yes" ) {
     include("./emails/screen_mail.php");
@@ -249,8 +260,8 @@ td, th {
             <label><input type="checkbox" name="media" value="yes" /> Media</label>
             <label><input type="checkbox" name="advocacy" value="yes" /> Advocacy</label><br>           
             <label><input type="checkbox" name="administration" value="yes" /> Administration</label>
-
-            <label><input type="checkbox" name="database" value="yes" /> Database</label>    
+            <label><input type="checkbox" name="database" value="yes" /> Database</label>
+            <label><input type="checkbox" name="comms" value="yes" /> Comms Team</label>
             <label><input type="checkbox" name="screen" value="yes" /> Screen and Tracing</label> 
                                
         </p>

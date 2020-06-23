@@ -54,7 +54,7 @@ else
                         <span><i class="fa fa-comments-o f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showAllRequests.php">
+                        <a href="doShowAllRequests.php">
                         <h2 style="color: #FF9149">
                             <?php echo $totalResponses;?>
                         </h2>
@@ -111,7 +111,7 @@ else
                 Surveys across provinces:
                 <br><br>
               <div class="card-body text-center">
-                <a href="showAllRequests.php">
+                <a href="doShowAllRequests.php">
                     <h1 class="display-4" style="color: green">
                         <?php echo $totalResponses;?>
                     </h1>

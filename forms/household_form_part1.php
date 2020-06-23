@@ -163,7 +163,7 @@ navigator.appName == "Microsoft Internet Explorer"
 
             <div class="col-md-3">
               <label for="race">Race (*)</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="race" size="1" id="race" class="form-control unit" required onchange="showHideOtherRaceInfo(this.value);">
                         <option selected value=""></option>
                         <option>African (Black)</option>
@@ -187,7 +187,7 @@ navigator.appName == "Microsoft Internet Explorer"
               <label for="religion">
                 Religion
               </label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="religion" size="1" id="religion" class="form-control unit">
                         <option selected value=""></option>
                         <option>Christian</option>
@@ -239,7 +239,7 @@ navigator.appName == "Microsoft Internet Explorer"
                 <br>
               </a>
               </label>
-            <div style="width:98%">
+            <div style="width:100%">
                   
                 <select  size="1" name='DropDown1' id="DropDown1" onchange="fillSelectSexGender(this.value,this.form['DropDown2'])" required>
                 <option selected value="">Select Your Sex Composition</option>
@@ -271,7 +271,7 @@ navigator.appName == "Microsoft Internet Explorer"
 
             <div class="col-md-12">
             <label for="municipality"><br>Location Selection (*)<br></label>
-            <div style="width:98%">
+            <div style="width:100%">
                   
               <select  size="1" name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])" required>
                 <option selected value="">Select Province</option>

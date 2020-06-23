@@ -20,6 +20,28 @@
 
 
             <div class="col-md-6">
+              <label for="race">Race</label>
+                <div style="width:100%">
+                <select name="race" size="1" class="form-control unit" value="<?php echo $user['race']; ?>" required>
+                        <option selected value=""></option>
+                        <option>African (Black)</option>
+                        <option>Asian</option>
+                        <option>Coloured</option>
+                        <option>Indian</option>
+                        <option>White</option>
+                        <option>Other</option>
+                </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+              <label for="age">Age</label>
+                <input class="form-control" type="text" name="age" id="age" placeholder="Please enter your age" value="<?php echo $user['age']; ?>" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+            </div>
+
+
+            <div class="col-md-6">
               <label for="email">Email address</label>
                 <input type="email" class="form-control" name="email" id="email" placeholder="Please enter valid email" value="<?php echo $user['email']; ?>" required> 
             </div>
@@ -33,20 +55,34 @@
 
             <div class="col-md-6">
               <label for="sex">Sex</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="sex" size="1" class="form-control unit" value="<?php echo $user['sex']; ?>" required>
                         <option selected value="">Please Choose</option>
                         <option>Male</option>
                         <option>Female</option>
+                        <option>Intersex</option>
                         <option>Other</option>
                 </select>
                 </div>
             </div>
 
+            <div class="col-md-6">
+              <label for="gender">Gender</label>
+                <div style="width:100%">
+                <select name="gender" size="1" class="form-control unit" value="<?php echo $user['gender']; ?>" required>
+                        <option selected value="">Please Choose</option>
+                        <option value="Cisgender">Cisgender (Straight)</option>
+                        <option>Gender Nonconforming/ Non Binary</option>
+                        <option>Transgender</option>
+                        <option>Queer/ Questioning</option>
+                        <option>Other</option>
+                </select>
+                </div>
+            </div>
 
             <div class="col-md-6">
               <label for="nationality">Nationality</label>
-                <div style="width:98%">
+                <div style="width:100%">
                 <select name="nationality" size="1" class="form-control unit" value="<?php echo $edit ? $user['nationality'] : ''; ?>" required>
                         <option selected value="">Please Choose</option>
                         <option>South Africa</option>
@@ -58,13 +94,17 @@
 
             <div class="col-md-12">
               <label for="address">Home Address</label>
-                <input class="form-control" type="text" name="address" id="address" rows="3" placeholder="Please enter your local address"  required> 
+                <input class="form-control" type="text" name="address" id="address" rows="3" value="<?php echo $edit ? $user['address'] : ''; ?>" placeholder="Please enter your local address"  required>
             </div>
 
+            <div class="col-md-6">
+              <label for="ward">Ward</label>
+                <input class="form-control" type="text" name="ward" id="ward" placeholder="Please enter your ward" value="<?php echo $user['ward']; ?>" >
+            </div>
 
             <div class="col-md-12">
             <label for="municipality"><br>Location Selection<br></label>
-            <div style="width:98%">
+            <div style="width:100%">
                   
               <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])" required>
                 <option selected value="">Select Province</option>

@@ -14,7 +14,6 @@ session_start();
                         Active Agents
                     </h3> 
                 </div>
-               
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->

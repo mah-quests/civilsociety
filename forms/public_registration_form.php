@@ -1,29 +1,52 @@
 <fieldset>
         <div class="row">
 
-
             <div class="col-md-6">
               <label for="firstname">First Names</label>
-                <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Please enter your first names"  required> 
+                <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Please enter your first names" required>
             </div>
-
 
             <div class="col-md-6">
               <label for="lastname">Surname</label>
-                <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Please enter your surname"  required> 
+                <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Please enter your surname" required>
             </div>
-
 
             <div class="col-md-12">
               <label for="username">Identification Number</label>
-                <input class="form-control" type="text" name="username" id="username" placeholder="Please enter your unique identification number"  required> 
-              </div>   
+                <input class="form-control" type="text" name="username" id="username" placeholder="Please enter your unique identification number" required>
+              </div>
+
+
+            <div class="col-md-6">
+              <label for="age">Age (*)</label>
+                <input class="form-control" type="text" name="age" id="age" required oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+              </div>
+
+            <div class="col-md-6">
+              <label for="phone">Cellphone number</label>
+                <input class="form-control" type="text" name="phone" id="phone" placeholder="Please enter your unique celphone number" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="race">Race</label>
+                <div style="width:100%">
+                <select name="race" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['race'] : ''; ?>" required>
+                        <option selected value=""></option>
+                        <option>African (Black)</option>
+                        <option>Asian</option>
+                        <option>Coloured</option>
+                        <option>Indian</option>
+                        <option>White</option>
+                        <option>Other</option>
+                </select>
+                </div>
+            </div>
 
 
             <div class="col-md-6">
               <label for="sex">Sex</label>
-                <div style="width:98%">
-                <select name="sex" size="1" class="form-control unit" required>
+                <div style="width:100%">
+                <select name="sex" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['sex'] : ''; ?>" required>
                         <option selected value=""></option>
                         <option>Male</option>
                         <option>Female</option>
@@ -33,23 +56,31 @@
                 </div>
             </div>
 
-
             <div class="col-md-6">
-              <label for="phone">Cellphone number</label>
-                <input class="form-control" type="text" name="phone" id="phone" placeholder="Please enter your unique celphone number"  required> 
-              </div>  
+              <label for="gender">Gender</label>
+                <div style="width:100%">
+                <select name="gender" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['gender'] : ''; ?>" required>
+                        <option selected value=""></option>
+                        <option value="Cisgender">Cisgender (Straight)</option>
+                        <option>Gender Nonconforming/ Non Binary</option>
+                        <option>Transgender</option>
+                        <option>Queer/ Questioning</option>
+                        <option>Other</option>
+                </select>
+                </div>
+            </div>
 
 
             <div class="col-md-6">
               <label for="email">Email address</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Please enter valid email"  > 
+                <input type="email" class="form-control" name="email" id="email" placeholder="Please enter valid email"  required>
             </div>
 
 
             <div class="col-md-6">
               <label for="nationality">Nationality</label>
-                <div style="width:98%">
-                <select name="nationality" size="1" class="form-control unit" value="<?php echo $edit ? $user_id['nationality'] : ''; ?>" required>
+                <div style="width:100%">
+                <select name="nationality" size="1" class="form-control unit"  required>
                         <option selected value=""></option>
                         <option>South Africa</option>
                         <option>Other</option>
@@ -57,17 +88,22 @@
                 </div>
             </div>
 
+
             <div class="col-md-12">
               <label for="address">Home Address</label>
-                <textarea class="form-control" id="address"  name="address" rows="3" required>
+                <textarea class="form-control" id="address"  name="address" rows="3"  required>
                 </textarea>
             </div>
 
+            <div class="col-md-12">
+              <label for="ward">Ward </label>
+                <input class="form-control" type="text" name="ward" id="ward"  oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+              </div>
 
             <div class="col-md-12">
             <label for="municipality"><br>Location Selection<br></label>
-            <div style="width:98%">
-                  
+            <div style="width:100%">
+
               <select name='List1' id="List1" onchange="fillSelect(this.value,this.form['List2'])" required>
                 <option selected value="">Select Province</option>
                   </select> &nbsp;
@@ -81,6 +117,7 @@
                   </select> &nbsp;
               </div>
             </div>
+
 
             <div class="col-md-12">
               <br><br>
@@ -96,17 +133,19 @@
             <div class="col-md-6">
               <label for="alt_number">Alternative Contact Number</label>
               <input type="text" class="form-control" id="alt_number" name="alt_number" placeholder="Please enter alternative contact number"  required>
-            </div>                                                                          
+            </div>
+
             <div class="col-md-6">
               <label for="password">Password</label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Please enter your password"  required> 
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Please enter your password" required>
                   <small id="password" class="form-text text-muted">Your password has to be 8 characters and more.
-            </small> 
-            </div>            
+            </small>
+            </div>
+
 
             <div class="col-md-6">
               <label for="cpassword">Repeat password</label>
-                <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Please enter your password again"  required> 
+                <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Please enter your password again" required>
             </div>
           </div>
 
