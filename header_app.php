@@ -208,7 +208,7 @@ categories["Limpopo"] = ["Capricorn District Municipality","Mopani District Muni
   categories["Vhembe District Municipality"] = ["Collins Chabane","Makhado","Musina","Thulamela"];   
   categories["Waterberg District Municipality"] = ["Bela-Bela","Lephalale","Mogalakwena","Mookgophong/Modimolle","Thabazimbi"];  
 
-categories["Mpumlanga"] = ["Gert Sibande","Nkangala","Ehlanzeni"];
+categories["Mpumalanga"] = ["Gert Sibande","Nkangala","Ehlanzeni"];
   categories["Gert Sibande"] = ["Albert Luthuli","Msukaligwa","Mkhondo","Pixley ka Seme","Lekwa","Dipaleseng","Govan Mbeki"];         
   categories["Nkangala"] = ["Victor Khanye","Emalahleni","Steve Tshwete","Emakhazeni","Thembisile Hani","Dr JS Moroka"];        
   categories["Ehlanzeni"] = ["Thaba Chweu","Mbombela","Umjindi","Nkomazi","Bushbuckridge"]; 
