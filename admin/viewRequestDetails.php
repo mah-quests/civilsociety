@@ -184,6 +184,11 @@ td, th {
   </tr>
 
   <tr>
+      <td><b>Ward</b></td>
+      <td><?php echo htmlentities($ro['ward']); ?></td>
+  </tr>
+
+  <tr>
       <td><b>Province, District & Municipality </b></td>
       <td><?php echo htmlentities(
               $ro['provice'].', '
