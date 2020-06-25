@@ -168,6 +168,13 @@ include 'header_admin.php'
 			</div>
 
         <div align="center">
+<?php if($_SESSION["adm_id"] == "6"){ ?>
+            <a href="javascript:void(0);" onClick="popUpWindow('updateRequestDetails.php?newform_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update Request Details">
+                <button type="button" class="btn btn-danger">
+                    Update Request Details
+                </button>
+            </a>
+<?php } ?>
 
             <a href="javascript:void(0);" onClick="popUpWindow('viewRequestDetails.php?newform_id=<?php echo htmlentities($rows['o_id']);?>');" title="View Full Request Details">
                 <button type="button" class="btn btn-primary">
