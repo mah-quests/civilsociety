@@ -235,9 +235,74 @@ else
                 </div>
             </div>
         </div>
-
     </div>
 
+
+  <div class="row" >
+    <div class="col-12" >
+      <div class="card bg-gradient-x-info">
+        <div class="card-content">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                People with Chronic Illnesses:
+                <br><br>
+              <div class="card-body text-center">
+
+                    <h1 class="display-5" style="color: green">
+                        <i><?php echo $spTotalChronicMedication;?></i> / <?php echo $totalChronicPatients;?>
+                    </h1>
+
+                <span style="color: green"># Total On Chronic Medication</span>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                <br>
+              <div class="card-body text-center">
+
+                    <h1 class="display-5">
+                        <i><?php echo $totalSPChronicMedicationGauteng;?></i> / <?php echo $totalChronicGauteng;?>
+                    </h1>
+                    <span># in Gauteng</span>
+
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+                <br>
+              <div class="card-body text-center">
+
+                    <h1 class="display-5">
+                        <i><?php echo $totalSPChronicMedicationKZN;?></i> / <?php echo $totalChronicKwaZuluNatal;?>
+                    </h1>
+                    <span># in KwaZulu Natal</span>
+
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
+                <br>
+              <div class="card-body text-center">
+
+                    <h1 class="display-5" >
+                        <i><?php echo $totalSPChronicMedicationEC;?></i> / <?php echo $totalChronicEasternCape;?>
+                    </h1>
+                    <span># in Eastern Cape</span>
+
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
+            <br>
+              <div class="card-body text-center">
+
+                    <h1 class="display-5">
+                        <i><?php echo $totalSPChronicMedicationWC;?></i> / <?php echo $totalChronicWesternCape;?>
+                    </h1>
+                    <span># in Western Cape</span>
+
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
         <!-- End PAge Content -->
         </div>

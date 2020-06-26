@@ -286,16 +286,10 @@ td, th {
   </tr>
 
   <tr>
-      <td><b>Race</b></td>
-      <?php if($ro['race'] != ""){ ?>
-                  <td>
-                      <input type="text" class="form-control"  name="race" value="<?php  echo $ro['race']; ?>"  >
-                  </td>
-                <?php } else { ?>
-                  <td>
-                      <input type="text" class="form-control"  name="other_race" value="<?php  echo $ro['other_race']; ?>"  >
-                  </td>
-                <?php  } ?>
+      <td><b>Race </b></td>
+      <td>
+          <input type="text" class="form-control"  name="race" value="<?php  echo $ro['race']; ?>"  >
+      </td>
   </tr>
 
   <tr>

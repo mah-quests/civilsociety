@@ -529,7 +529,7 @@ else
                             Processed or Rejected:
                           <div class="card-body text-center">
                             <h1 class="display-7" >
-                                <?php echo $totalClosed + $totalRejected;?>
+                                <?php echo $totalRejCls;?>
                             </h1>
                             <span># Total Households</span>
                           </div>

@@ -44,56 +44,43 @@ session_start();
 
     $input = $_GET['id'];
 
-        if ($input == "gauteng"){
-            $province = "Gauteng";
-            $province2 = "Gauteng";
-            $province3 = "Gauteng";
-        }elseif ($input == "freestate"){
-            $province = "Free State";
-            $province2 = "Free State";
-            $province3 = "Free State";
-        }elseif ($input == "northwest"){
-            $province = "North West";
-            $province2 = "North West";
-            $province3 = "North West";
-        }elseif ($input == "mpumalanga"){
-            $province = "Mpumalanga";
-            $province2 = "Mpumlanga";
-            $province3 = "Mpumlanga";
-        }elseif ($input == "limpopo"){
-            $province = "Limpopo";
-            $province2 = "Limpopo";
-            $province3 = "Limpopo";
-        } elseif ($input == "kzn"){
-            $province = "Kwazulu Natal";
-            $province2 = "Kwazulu Natal";
-            $province3 = "Kwazulu Natal";
-        } elseif ($input == "easterncape"){
-            $province = "Eastern Cape";
-            $province2 = "Eastern Cape";
-            $province3 = "Eastern Cape";
-        } elseif ($input == "westerncape"){
-            $province = "Western Cape";
-            $province2 = "Western Cape";
-            $province3 = "Western Cape";
-        } elseif ($input == "northerncape"){
-            $province = "Northern Cape";
-            $province2 = "Northern Cape";
-            $province3 = "Northern Cape";
-        } elseif ($input == "unallocated"){
-            $province = "Select Province";
-            $province2 = " ";
-            $province3 = NULL;
-        }
+    if ($input == "gauteng"){
+        $province = "Gauteng";
+    }elseif ($input == "freestate"){
+        $province = "Free State";
+    }elseif ($input == "northwest"){
+        $province = "North West";
+    }elseif ($input == "mpumalanga"){
+        $province = "%Mpum%langa";
+    }elseif ($input == "limpopo"){
+        $province = "Limpopo";
+    } elseif ($input == "kzn"){
+        $province = "Kwazulu Natal";
+    } elseif ($input == "easterncape"){
+        $province = "Eastern Cape";
+    } elseif ($input == "westerncape"){
+        $province = "Western Cape";
+    } elseif ($input == "northerncape"){
+        $province = "Northern Cape";
+    } elseif ($input == "unallocated"){
+        $province = "Please Choose";
+        $province2 = "Choose";
+        $province3 = "Select Province";
+    }
 
-            $sql="SELECT * FROM users where provice in ('$province', '$province2', '$province3' )";
-            $query=mysqli_query($db,$sql);
+    if ($input == "unallocated"){
+        $sql="SELECT * FROM users where provice in ('$province', '$province2', '$province3') or provice is null ";
+        $query=mysqli_query($db,$sql);
+    } else {
+        $sql="SELECT * FROM users  where provice like '$province' ";
+        $query=mysqli_query($db,$sql);
+    }
 
                 if(!mysqli_num_rows($query) > 0 )
                 {
                     echo '<td colspan="7">
                             <center>
-                                No User-Data!
+                                No Agents-Data!
                             </center>
                         </td>';
                 }
