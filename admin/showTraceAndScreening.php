@@ -17,7 +17,7 @@ if (empty($_SESSION["adm_id"])) {
     <!-- Bread crumb -->
     <div class="row page-titles">
       <div class="col-md-5 align-self-center">
-        <h3 class="text-secondary">Communication & Public Awareness Dashboard</h3>
+        <h3 class="text-secondary">Contact Tracing & Screening</h3>
       </div>
     </div>
 

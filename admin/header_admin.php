@@ -235,7 +235,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 
@@ -304,7 +304,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 
@@ -368,7 +368,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 
@@ -431,7 +431,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 
