@@ -16,7 +16,7 @@ if (empty($_SESSION["adm_id"])) {
   <div class="page-wrapper">
     <!-- Bread crumb -->
     <div class="row page-titles">
-      <div class="col-md-5 align-self-center">
+      <div class="col-md-12 align-self-center">
         <h3 class="text-secondary">Communication & Public Awareness Dashboard</h3>
       </div>
     </div>
@@ -26,10 +26,91 @@ if (empty($_SESSION["adm_id"])) {
     <div class="container-fluid">
       <!-- Start Page Content -->
 
+<div class="row">
+
+        <div class="col-md-3" style="color: red">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-calendar-times-o f-s-60 color-red"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showUnProcessedRequests.php">
+                        <h2 style="color: red">
+                            <?php echo $totalAfterMonth;?>
+                        </h2>
+                        <p class="m-b-0" style="color: red"># Unprocessed Requests <b><br>Up To More<br> Than A Month </b>
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="col-md-3" style="color: orange">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-calendar-plus-o f-s-60" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showInProgressRequests.php">
+                        <h2 style="color: orange">
+                            <?php echo $totalThirdWeekToMonth;?>
+                        </h2>
+                        <p class="m-b-0" style="color: orange"># Unprocessed Requests <br><b>Up To Three Weeks Ago </b>
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="color: #F0C300">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-calendar-minus-o f-s-60" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showCompletedRequests.php">
+                            <h2 style="color: #F0C300">
+                                <?php echo $totalOneWeekToThree; ?>
+                            </h2>
+                            <p class="m-b-0" style="color: #F0C300"># Unprocessed Requests<br><b> Made Up To<br> Last Weeks </b>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" style="color: #514C00">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-calendar f-s-60"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <a href="showRejectedRequests.php">
+                            <h2 style="color: #514C00">
+                                <?php echo $totalThreeDaysToWeek;?>
+                            </h2>
+                            <p class="m-b-0" style="color: #514C00"># Unprocessed Requests <br><b>Made Up To <br>3 days ago </b>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     </div>
+
+
       <div class="row">
 
 
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div class="card">
             <?php
             include 'household_whatsapp_comms.php';
@@ -38,7 +119,8 @@ if (empty($_SESSION["adm_id"])) {
         </div>
 
 
-        <div class="col-md-6">
+
+        <div class="col-md-5">
           <div class="card" style="width: 500px; height: 540px;">
             <div class="table-responsive m-t-40">
               <table id="myTable" class="table table-striped">

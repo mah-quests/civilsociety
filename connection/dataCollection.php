@@ -196,7 +196,7 @@ $totalNullProvince = mysqli_num_rows($result);
 $totalNoProvince = $totalNonProvince + $totalNullProvince;
 
 // Stats on today  
-$sql = "SELECT * FROM `request_by_partner` WHERE date(date)= CURDATE()";
+$sql = "SELECT * FROM `users_orders` WHERE date(date)= CURDATE() and status is null";
 $result = mysqli_query($db, $sql);
 $totalTodayRequests = mysqli_num_rows($result);
 
@@ -1647,3 +1647,40 @@ $totalThirdWeekToMonth = mysqli_num_rows($result);
 $sql = "SELECT * FROM users_orders WHERE date(date) < SUBDATE(CURDATE(), 29) and status is null";
 $result = mysqli_query($db, $sql);
 $totalAfterMonth = mysqli_num_rows($result);
+
+$sql = "SELECT * FROM users_orders WHERE date(date) < SUBDATE(CURDATE(), 29) and status is null";
+$result = mysqli_query($db, $sql);
+$totalAfterMonth = mysqli_num_rows($result);
+
+$sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where access_to_food='yes')";
+$result = mysqli_query($db, $sql);
+$totalAccessToFoodRequest = mysqli_num_rows($result);
+
+$sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where job='yes')";
+$result = mysqli_query($db, $sql);
+$totalAccessJob = mysqli_num_rows($result);
+
+
+$sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where electricity='yes')";
+$result = mysqli_query($db, $sql);
+$totalAccessToElectricity = mysqli_num_rows($result);
+
+
+$sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where medication='yes')";
+$result = mysqli_query($db, $sql);
+$totalAccessToMedication = mysqli_num_rows($result);
+
+
+$sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where identity_documents='yes')";
+$result = mysqli_query($db, $sql);
+$totalAccessIDDocuments = mysqli_num_rows($result);
+
+
+$sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where clothes_blankes='yes')";
+$result = mysqli_query($db, $sql);
+$totalAccessClothingBlankets = mysqli_num_rows($result);
+
+
+$sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where data_internet='yes')";
+$result = mysqli_query($db, $sql);
+$totalAccessDataInternet = mysqli_num_rows($result);

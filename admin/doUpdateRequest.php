@@ -25,6 +25,7 @@ session_start();
 
   $adm_id = $row['adm_id'];
   $username = $row['username'];
+  $assigned_stream=$_POST['assigned_stream'];
 
   }
 
@@ -33,7 +34,7 @@ session_start();
   
   $form_id=$_GET['form_id'];
   $status=$_POST['status'];
-  $remark=$username.' initiated a request for your attention.';
+  $remark=$username.' initiated a request for '.$assigned_stream.' stream attention.';
   $remark.=
 '
 
@@ -49,13 +50,31 @@ session_start();
   $screen=$_POST['screen'];
   $mne=$_POST['mne'];
   $it=$_POST['it'];
+  $access_to_food=$_POST['access_to_food'];
+  $job=$_POST['job'];
+  $electricity=$_POST['electricity'];
+  $medication=$_POST['medication'];
+  $identity_documents=$_POST['identity_documents'];
+  $clothes_blankes=$_POST['clothes_blankes'];
+  $data_internet=$_POST['data_internet'];
 
 
-  $query=mysqli_query($db,"insert into remark(frm_id,status,remark)
-                   values
-                   ('$form_id','$status','$remark')");    
+  $query=mysqli_query($db,"insert into remark
+                    (frm_id,status,remark)
+                    values
+                    ('$form_id','$status','$remark')"
+                    );
 
   $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
+
+
+  $query=mysqli_query($db,"insert into assigned_tasks
+                    (assigned_stream, assigned_by, assigned_by_id, unique_code, notes_made, access_to_food,
+                    job, electricity, medication, identity_documents, clothes_blankes, data_internet)
+                    values
+                    ('$assigned_stream','$username','$adm_id','$unique_code','$remark', '$access_to_food','$job',
+                    '$electricity','$medication','$identity_documents','$clothes_blankes','$data_internet')"
+                    );
 
 //Send email notification
 
@@ -246,6 +265,21 @@ td, th {
       <tr >
       <td><b>Comments from M&E or Stream head</b></td>
       <td><textarea name="remark" cols="50" rows="10" required="required"></textarea></td>
+    </tr>
+
+    <tr >
+      <td><b>Summary of Need</b></td>
+      <td>
+        <p>
+            <label><input type="checkbox" name="access_to_food" value="yes" /> Access to food</label>
+            <label><input type="checkbox" name="job" value="yes" /> Job Opportunities</label>
+            <label><input type="checkbox" name="electricity" value="yes" /> Electricity Connection</label> <br>
+            <label><input type="checkbox" name="medication" value="yes" /> Medical Attention</label>
+            <label><input type="checkbox" name="identity_documents" value="yes" /> Identity Documents</label>
+            <label><input type="checkbox" name="clothes_blankes" value="yes" /> Access to Clothing and Blankets</label><br>
+            <label><input type="checkbox" name="data_internet" value="yes" /> Access to Internet</label>
+        </p>
+      </td>
     </tr>
 
     <tr >

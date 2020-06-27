@@ -144,10 +144,15 @@ session_start();
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">
                                 <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li> 
+                                <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
-                                </li> 
+                                </li>
                                 <li>
                                     <a href="showDashRequestsOverview.php">
                                     Household Stats Overview
@@ -253,6 +258,11 @@ session_start();
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">                           
                                 <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
@@ -317,6 +327,11 @@ session_start();
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
@@ -375,6 +390,11 @@ session_start();
                         </li>
                         <li> <a class="has-arrow" href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
