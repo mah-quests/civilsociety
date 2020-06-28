@@ -82,23 +82,23 @@ session_start();
     include("./emails/heads_mail.php");
   }
 
-  if ( $advocacy == "yes" ) {
+  if ( $advocacy == "yes" || $assigned_stream == "advocacy" ) {
     include("./emails/advocacy_mail.php");
   }
 
-  if ( $mobilization == "yes" ) {
+  if ( $mobilization == "yes" || $assigned_stream == "mobilization" ) {
     include("./emails/mobilization_mail.php");
   }        
 
-  if ( $humanright == "yes" ) {
+  if ( $humanright == "yes" || $assigned_stream == "humanright" ) {
     include("./emails/humanright_mail.php");
   }
 
-  if ( $media == "yes" ) {
+  if ( $media == "yes" || $assigned_stream == "comms" ) {
     include("./emails/media_mail.php");
   }
 
-  if ( $it == "yes" ) {
+  if ( $it == "yes" || $assigned_stream == "it" ) {
     include("./emails/it_mail.php");
   }   
 
@@ -110,7 +110,7 @@ session_start();
     include("./emails/database_mail.php");
   }   
 
-  if ( $comms == "yes" ) {
+  if ( $comms == "yes" || $assigned_stream == "comms" ) {
     include("./emails/comms_mail.php");
   }
 

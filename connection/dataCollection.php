@@ -1648,6 +1648,8 @@ $sql = "SELECT * FROM users_orders WHERE date(date) < SUBDATE(CURDATE(), 29) and
 $result = mysqli_query($db, $sql);
 $totalAfterMonth = mysqli_num_rows($result);
 
+
+// Specific Requests Breakdown
 $sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where access_to_food='yes')";
 $result = mysqli_query($db, $sql);
 $totalAccessToFoodRequest = mysqli_num_rows($result);
@@ -1681,7 +1683,7 @@ $sql = "select * from users_orders where unique_code in (select unique_code from
 $result = mysqli_query($db, $sql);
 $totalAccessDataInternet = mysqli_num_rows($result);
 
-
+// Requests assigned to various Streamhead
 $sql = "select * from users_orders where unique_code in (select unique_code from assigned_tasks where assigned_stream='mobilization')";
 $result = mysqli_query($db, $sql);
 $totalAssignedSocialMobalization = mysqli_num_rows($result);
