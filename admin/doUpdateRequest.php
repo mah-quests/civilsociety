@@ -25,6 +25,7 @@ session_start();
 
   $adm_id = $row['adm_id'];
   $username = $row['username'];
+  $assigned_stream=$_POST['assigned_stream'];
 
   }
 
@@ -33,7 +34,7 @@ session_start();
   
   $form_id=$_GET['form_id'];
   $status=$_POST['status'];
-  $remark=$username.' initiated a request for your attention.';
+  $remark=$username.' initiated a request for '.$assigned_stream.' stream attention.';
   $remark.=
 '
 
@@ -49,13 +50,31 @@ session_start();
   $screen=$_POST['screen'];
   $mne=$_POST['mne'];
   $it=$_POST['it'];
+  $access_to_food=$_POST['access_to_food'];
+  $job=$_POST['job'];
+  $electricity=$_POST['electricity'];
+  $medication=$_POST['medication'];
+  $identity_documents=$_POST['identity_documents'];
+  $clothes_blankes=$_POST['clothes_blankes'];
+  $data_internet=$_POST['data_internet'];
 
 
-  $query=mysqli_query($db,"insert into remark(frm_id,status,remark)
-                   values
-                   ('$form_id','$status','$remark')");    
+  $query=mysqli_query($db,"insert into remark
+                    (frm_id,status,remark)
+                    values
+                    ('$form_id','$status','$remark')"
+                    );
 
   $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
+
+
+  $query=mysqli_query($db,"insert into assigned_tasks
+                    (assigned_stream, assigned_by, assigned_by_id, unique_code, notes_made, access_to_food,
+                    job, electricity, medication, identity_documents, clothes_blankes, data_internet)
+                    values
+                    ('$assigned_stream','$username','$adm_id','$unique_code','$remark', '$access_to_food','$job',
+                    '$electricity','$medication','$identity_documents','$clothes_blankes','$data_internet')"
+                    );
 
 //Send email notification
 
@@ -63,23 +82,23 @@ session_start();
     include("./emails/heads_mail.php");
   }
 
-  if ( $advocacy == "yes" ) {
+  if ( $advocacy == "yes" || $assigned_stream == "advocacy" ) {
     include("./emails/advocacy_mail.php");
   }
 
-  if ( $mobilization == "yes" ) {
+  if ( $mobilization == "yes" || $assigned_stream == "mobilization" ) {
     include("./emails/mobilization_mail.php");
   }        
 
-  if ( $humanright == "yes" ) {
+  if ( $humanright == "yes" || $assigned_stream == "humanright" ) {
     include("./emails/humanright_mail.php");
   }
 
-  if ( $media == "yes" ) {
+  if ( $media == "yes" || $assigned_stream == "comms" ) {
     include("./emails/media_mail.php");
   }
 
-  if ( $it == "yes" ) {
+  if ( $it == "yes" || $assigned_stream == "it" ) {
     include("./emails/it_mail.php");
   }   
 
@@ -91,7 +110,7 @@ session_start();
     include("./emails/database_mail.php");
   }   
 
-  if ( $comms == "yes" ) {
+  if ( $comms == "yes" || $assigned_stream == "comms" ) {
     include("./emails/comms_mail.php");
   }
 
@@ -246,6 +265,34 @@ td, th {
       <tr >
       <td><b>Comments from M&E or Stream head</b></td>
       <td><textarea name="remark" cols="50" rows="10" required="required"></textarea></td>
+    </tr>
+
+    <tr >
+      <td><b>Summary of Need</b></td>
+      <td>
+        <p>
+            <label><input type="checkbox" name="access_to_food" value="yes" /> Access to food</label>
+            <label><input type="checkbox" name="job" value="yes" /> Job Opportunities</label>
+            <label><input type="checkbox" name="electricity" value="yes" /> Electricity Connection</label> <br>
+            <label><input type="checkbox" name="medication" value="yes" /> Medical Attention</label>
+            <label><input type="checkbox" name="identity_documents" value="yes" /> Identity Documents</label>
+            <label><input type="checkbox" name="clothes_blankes" value="yes" /> Access to Clothing and Blankets</label><br>
+            <label><input type="checkbox" name="data_internet" value="yes" /> Access to Internet</label>
+        </p>
+      </td>
+    </tr>
+
+    <tr >
+      <td><b>Assign Request to a Stream</b></td>
+      <td>
+        <select name="assigned_stream" required="required" >
+          <option value="">Select Stream</option>
+          <option value="mobilization">Social Mobilization</option>
+          <option value="humanright">Human Rights</option>
+	      <option value="advocacy">Advocacy</option>
+	      <option value="comms">Communications</option>
+        </select>
+      </td>
     </tr>
 
     <tr >

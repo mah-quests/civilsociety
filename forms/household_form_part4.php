@@ -32,20 +32,28 @@
               <h5><br>Human rights & violations</h5>
             </div>
 
-
             <div class="col-md-12">
-              <label for="any_kind_abuse">Has you or anyone in the household experienced any kind of abuse, assault or harrasment during the lockdown? </label>
+              <label for="any_kind_abuse">Are you aware of human rights and which ones are you aware of </label>
                 <div style="width:100%">
                 <select name="any_kind_abuse" size="1" id="any_kind_abuse" class="form-control unit" value="<?php echo $edit ? $user_id['any_kind_abuse'] : ''; ?>"  required onchange="showHideViolationInfo(this.value);">
                     <option></option>
                     <option value="Yes">Yes</option>
-                    <option value="No">No</option> 
+                    <option value="No">No</option>
                 </select>
                 </div>
-            </div> 
+            </div>
+
 
 </fieldset>
 <fieldset id="violations-info" style="display:none">
+
+            <br>
+            <div class="col-md-12">
+              <label for="which_one">Which right has been specifically been violated:</label>
+                <div style="width:100%">
+                </div>
+            </div>
+            <br><br><br>
 
             <div class="col-md-3">
               <label for="lawEnforcementCond">Law Enforcement </label>

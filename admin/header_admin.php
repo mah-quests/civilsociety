@@ -144,10 +144,15 @@ session_start();
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">
                                 <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li> 
+                                <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
                                     </a>
-                                </li> 
+                                </li>
                                 <li>
                                     <a href="showDashRequestsOverview.php">
                                     Household Stats Overview
@@ -177,7 +182,7 @@ session_start();
                                     </a>
                                 </li>                              
                                 <li>
-                                    <a href="#">
+                                    <a href="showTraceAndScreening.php      ">
                                         Contact tracing & <br>Screening
                                     </a>
                                 </li>
@@ -218,7 +223,7 @@ session_start();
                                 <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Call Center Agents</a></li>
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Human Rights</a></li>
@@ -230,7 +235,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 
@@ -252,6 +257,11 @@ session_start();
                         </li>
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">                           
+                                <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
@@ -282,7 +292,7 @@ session_start();
                                 <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Call Center Agents</a></li>
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Human Rights</a></li>
@@ -294,7 +304,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 
@@ -316,6 +326,11 @@ session_start();
                         </li>
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
@@ -341,7 +356,7 @@ session_start();
                                 <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Call Center Agents</a></li>
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Human Rights</a></li>
@@ -353,7 +368,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 
@@ -375,6 +390,11 @@ session_start();
                         </li>
                         <li> <a class="has-arrow" href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="showDashLiveStats.php">
                                     Live & Recent Stats
@@ -399,7 +419,7 @@ session_start();
                                 <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Call Center Agents</a></li>
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Human Rights</a></li>
@@ -411,7 +431,7 @@ session_start();
                                 <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
                             </ul>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Contact tracing & <br> Screening</a></li>
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
 

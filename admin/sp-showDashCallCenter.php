@@ -5,6 +5,7 @@ include_once 'header_admin.php';
 <?php
 include("../connection/connect.php");
 include("../connection/dataCollection.php");
+include("../connection/sp-dataCollection.php");
 error_reporting(0);
 session_start();
 if(empty($_SESSION["adm_id"]))
@@ -19,7 +20,7 @@ else
         <!-- Bread crumb -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h3 class="text-secondary">Call Center Agents</h3> </div>
+                <h3 class="text-secondary">Call Center Agents Dashboard</h3> </div>
         </div>
         <!-- End Bread crumb -->
         <!-- Container fluid  -->
@@ -35,9 +36,9 @@ else
                         <span><i class="fa fa-address-card-o f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="doShowAllRequests.php">
+                        <a href="#">
                         <h2 style="color: #717077">
-                            <?php echo $totalResponses;?>
+                            <?php echo $spTotalResponses;?>
                         </h2>
                         <p class="m-b-0" style="color: #717077"># of requests <br>made</p>
                         </a>
@@ -53,9 +54,9 @@ else
                         <span><i class="fa fa-list-ul f-s-40"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showUnProcessedRequests.php">
+                        <a href="#">
                         <h2 style="color: green">
-                            <?php echo $totalUnProcessed;?>
+                            <?php echo $totalSPUnProcessed;?>
                         </h2>
                         <p class="m-b-0" style="color: green"># of of Unprocessed <br> Requests</p>
                         </a>
@@ -73,7 +74,7 @@ else
                     <div class="media-body media-text-right">
                         <a href="#work-breakdown">
                         <h2 style="color: #BF8F00">
-                            <?php echo $totalResponses - $totalUnProcessed;?>
+                            <?php echo $spTotalResponses - $totalSPUnProcessed;?>
                         </h2>
                         <p class="m-b-0" style="color: #BF8F00"># of of In-Progress, <br> Resolved or Rejected </p>
                         </a>
@@ -92,144 +93,63 @@ else
         <div class="card-content">
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
-                Surveys across provinces:
+                Surveys across hotspot provinces:
                 <br><br>
               <div class="card-body text-center">
-                <a href="doShowAllRequests.php">
+                <a href="#">
                     <h1 class="display-4" style="color: green">
-                        <?php echo $totalResponses;?>
+                        <?php echo $spTotalResponses;?>
                     </h1>
                     <span style="color: green"># Total Surveys</span>
                 </a>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                 <br><br>
               <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=gauteng">
+                <a href="#">
                     <h1 class="display-5">
-                        <?php echo $totalGauteng;?>
+                        <?php echo $totalSPHouseholdsGauteng;?>
                     </h1>
                     <span># in Gauteng</span>
                 </a>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                 <br><br>
               <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=freestate">
+                <a href="#">
                 <h1 class="display-5">
-                    <?php echo $totalFreeState;?>
+                    <?php echo $totalSPHouseholdsKZN;?>
                 </h1>
-                <span># in Free State</span>
+                <span># in KwaZulu Natal</span>
                 </a>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                 <br><br>
               <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=northwest">
+                <a href="#">
                     <h1 class="display-5" >
-                        <?php echo $totalNorthWest;?>
-                    </h1>
-                    <span># in North West</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br>
-              <div class="card-body text-center">
-                <h1 class="display-5">
-                </h1>
-                <span></span>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br>
-              <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=mpumalanga">
-                    <h1 class="display-5">
-                        <?php echo $totalMpumalanga;?>
-                    </h1>
-                    <span># in Mpumalanga</span>
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br>
-              <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=limpopo">
-                    <h1 class="display-5">
-                        <?php echo $totalLimpopo;?>
-                    </h1>
-                    <span># in Limpopo</span>
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br>
-              <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=kzn">
-                    <h1 class="display-5">
-                        <?php echo $totalKZN;?>
-                    </h1>
-                    <span># in KwaZulu Natal</span>
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br><br>
-              <div class="card-body text-center">
-                <h1 class="display-5" style="color: red">
-                </h1>
-                <span style="color: red"></span>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br><br>
-              <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=northerncape">
-                    <h1 class="display-5">
-                        <?php echo $totalNorthernCape;?>
-                    </h1>
-                    <span># in Northern Cape</span>
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br><br>
-              <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=easterncape">
-                    <h1 class="display-5">
-                        <?php echo $totalEasternCape;?>
+                        <?php echo $totalSPHouseholdsEC;?>
                     </h1>
                     <span># in Eastern Cape</span>
                 </a>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br><br>
+
+            <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
+                <br><br>
               <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=westerncape">
-                    <h1 class="display-5">
-                        <?php echo $totalWesternCape;?>
+                <a href="#">
+                    <h1 class="display-" >
+                        <?php echo $totalSPHouseholdsWC;?>
                     </h1>
                     <span># in Western Cape</span>
                 </a>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 card-gradient-md-border">
-            <br><br>
-              <div class="card-body text-center">
-                <a href="showProvinceRequests.php?id=unallocated">
-                    <h1 class="display-5" style="color: red">
-                        <?php echo $totalNoProvince; ?>
-                    </h1>
-                    <span style="color: red"># Unallocated</span>
-                </a>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -245,7 +165,7 @@ else
                         <span><i class="fa fa-calendar-times-o f-s-60 color-red"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showUnProcessedMonthRequests.php">
+                        <a href="showUnProcessedRequests.php">
                         <h2 style="color: red">
                             <?php echo $totalAfterMonth;?>
                         </h2>
@@ -264,7 +184,7 @@ else
                         <span><i class="fa fa-calendar-plus-o f-s-60" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showUnProcessedThreeWeeksRequests.php">
+                        <a href="showInProgressRequests.php">
                         <h2 style="color: orange">
                             <?php echo $totalThirdWeekToMonth;?>
                         </h2>
@@ -283,7 +203,7 @@ else
                         <span><i class="fa fa-calendar-minus-o f-s-60" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showUnProcessedLastWeeksRequests.php">
+                        <a href="showCompletedRequests.php">
                             <h2 style="color: #F0C300">
                                 <?php echo $totalOneWeekToThree; ?>
                             </h2>
@@ -302,7 +222,7 @@ else
                         <span><i class="fa fa-calendar f-s-60"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showUnProcessedThreeDaysRequests.php">
+                        <a href="showRejectedRequests.php">
                             <h2 style="color: #514C00">
                                 <?php echo $totalThreeDaysToWeek;?>
                             </h2>
@@ -317,16 +237,7 @@ else
      </div>
 
 
-    <div class="col-md-12">
-      <div class="card">
-          <?php
-            include 'household_progress_chart.php';
-          ?>
-      </div>
-    </div>
-
-
-  <div class="row" id="work-breakdown">
+<div class="row">
 
         <div class="col-md-3" style="color: #27D094">
             <div class="card p-30">
@@ -335,9 +246,9 @@ else
                         <span><i class="fa fa-circle-o f-s-40 color-green"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showUnProcessedRequests.php">
+                        <a href="#">
                         <h2 style="color: #27D094">
-                            <?php echo $totalUnProcessed;?>
+                            <?php echo $totalSPUnProcessed;?>
                         </h2>
                         <p class="m-b-0" style="color: #27D094"># of Unprocessed <br>Requests Made
                         </p>
@@ -354,9 +265,9 @@ else
                         <span><i class="fa fa-circle-o-notch fa-spin f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showInProgressRequests.php">
+                        <a href="#">
                         <h2 style="color: #FF9149">
-                            <?php echo $totalBeingProcessed;?>
+                            <?php echo $totalSPBeingProcessed;?>
                         </h2>
                         <p class="m-b-0" style="color: #FF9149"># of Requests <br> Being Processed
                         </p>
@@ -373,9 +284,9 @@ else
                         <span><i class="fa fa-circle f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showCompletedRequests.php">
+                        <a href="#">
                             <h2 style="color: #22A0F2">
-                                <?php echo $totalClosed; ?>
+                                <?php echo $totalSPClosed; ?>
                             </h2>
                             <p class="m-b-0" style="color: #22A0F2"># of Requests <br> Processed & Closed
                             </p>
@@ -392,9 +303,9 @@ else
                         <span><i class="fa fa-times f-s-40"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showRejectedRequests.php">
+                        <a href="#">
                             <h2 style="color: #FF4962">
-                                <?php echo $totalRejected;?>
+                                <?php echo $totalSPRejected;?>
                             </h2>
                             <p class="m-b-0" style="color: #FF4962"># of Requests <br> Rejected
                             </p>
@@ -404,7 +315,12 @@ else
             </div>
         </div>
 
-     </div>
+    </div>
+
+
+
+
+
 
               <div class="row" style="color: #FF9149">
                 <div class="col-12" >
@@ -415,7 +331,7 @@ else
                             In Progress:
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalBeingProcessed;?>
+                                <?php echo $totalGautengProgress + $totalKZNCProgress + $totalWesternCapeProgress +$totalEasternCapeProgress;?>
                             </h1>
                             <span># Total Households</span>
                           </div>
@@ -428,55 +344,12 @@ else
                             <span># in Gauteng</span>
                           </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalFreeStateProgress;?>
-                            </h1>
-                            <span># in Free State</span>
-                          </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7" >
-                                <?php echo $totalNorthWestProgress;?>
-                            </h1>
-                            <span># in North West</span>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalMpumalangaProgress;?>
-                            </h1>
-                            <span># in Mpumalanga</span>
-                          </div>
-                        </div>
-
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
                                 <?php echo $totalKZNCProgress;?>
                             </h1>
                             <span># in KwaZulu Natal</span>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                            </h1>
-                            <span></span>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalLimpopoProgress;?>
-                            </h1>
-                            <span># in Limpopo</span>
                           </div>
                         </div>
 
@@ -489,29 +362,12 @@ else
                           </div>
                         </div>
 
-
-                        <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalNorthernCapeProgress;?>
-                            </h1>
-                            <span># in Northern Cape</span>
-                          </div>
-                        </div>
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
                                 <?php echo $totalEasternCapeProgress;?>
                             </h1>
                             <span># in Eastern Cape</span>
-                          </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7" >
-                                <?php echo $totalNoProvinceProgress;?>
-                            </h1>
-                            <span># No Selected Province</span>
                           </div>
                         </div>
                       </div>
@@ -529,7 +385,7 @@ else
                             Processed or Rejected:
                           <div class="card-body text-center">
                             <h1 class="display-7" >
-                                <?php echo $totalRejCls;?>
+                                <?php echo $totalGautengRejCls + $totalKZNCRejCls + $totalWesternCapeRejCls + $totalEasternCapeRejCls;?>
                             </h1>
                             <span># Total Households</span>
                           </div>
@@ -542,32 +398,6 @@ else
                             <span># in Gauteng</span>
                           </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalFreeStateRejCls;?>
-                            </h1>
-                            <span># in Free State</span>
-                          </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7" >
-                                <?php echo $totalNorthWestRejCls;?>
-                            </h1>
-                            <span># in North West</span>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalMpumalangaRejCls;?>
-                            </h1>
-                            <span># in Mpumalanga</span>
-                          </div>
-                        </div>
-
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
@@ -576,40 +406,12 @@ else
                             <span># in KwaZulu Natal</span>
                           </div>
                         </div>
-
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                            </h1>
-                            <span></span>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalLimpopoRejCls;?>
-                            </h1>
-                            <span># in Limpopo</span>
-                          </div>
-                        </div>
-
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
                                 <?php echo $totalWesternCapeRejCls;?>
                             </h1>
                             <span># in Western Cape</span>
-                          </div>
-                        </div>
-
-
-                        <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7">
-                                <?php echo $totalNorthernCapeRejCls;?>
-                            </h1>
-                            <span># in Northern Cape</span>
                           </div>
                         </div>
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
@@ -620,14 +422,7 @@ else
                             <span># in Eastern Cape</span>
                           </div>
                         </div>
-                        <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
-                          <div class="card-body text-center">
-                            <h1 class="display-7" >
-                                <?php echo $totalNoProvinceRejCls;?>
-                            </h1>
-                            <span># No Selected Province</span>
-                          </div>
-                        </div>
+
                       </div>
                     </div>
                   </div>

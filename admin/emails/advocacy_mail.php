@@ -3,7 +3,7 @@
 	ini_set('display_errirs', 1 );
 	error_reporting ( E_ALL );
 
-	$from = "notification@thusasechaba.org.za";
+	$from = "thusasechabaapp@gmail.com";
 	$to = "advocacy@communityconstituency.org.za";
 
 	$subject = "Notification from thusasechaba. Reference Number: ".$unique_code;
