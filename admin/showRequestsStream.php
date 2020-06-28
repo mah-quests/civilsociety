@@ -10,9 +10,9 @@ session_start();
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-secondary">List of all unprocessed household requests</h3> 
+                    <h3 class="text-secondary">List of all household surveys by Stream </h3>
                 </div>
-               
+
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
@@ -20,38 +20,43 @@ session_start();
                 <!-- Start Page Content -->
                 <div class="row">
                     <div class="col-12">
-                        
-                       
+
+
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">All Partner Requests</h4>
-                 
+                    <h4 class="card-title">Stream Focused Requests</h4>
+
                     <div class="table-responsive m-t-40">
                         <table id="myTable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Date</th>       
-                                    <th>Reference Number</th>		
+                                    <th>Date</th>
+                                    <th>Reference Number</th>
 									<th>Address</th>
-									<th>status</th>				 
+									<th>status</th>
                                     <th>Municipality</th>
                                     <th>Province</th>
 									<th>Action</th>
-									 
+
                                 </tr>
                             </thead>
                             <tbody>
-                                           
+
+
+
 <?php
-    $sql="SELECT * FROM users_orders where status is null";
+
+    $input = $_GET['id'];
+
+    $sql="select * from users_orders where unique_code in (select unique_code from assigned_tasks where assigned_stream='$input')";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
-        echo '<td colspan="8"><center>No Orders-Data!</center></td>';
-    } else {				
+        echo '<td colspan="8"><center>No Requests!</center></td>';
+    } else {
     while($rows=mysqli_fetch_array($query))
     {
-																		
+
 ?>
 <?php
 echo ' <tr>
@@ -59,65 +64,65 @@ echo ' <tr>
            <td>'.$rows['unique_code'].'</td>
 			<td>'.$rows['delivery_address'].'</td>';
 			?>
-			<?php 
+			<?php
                 $status=$rows['status'];
                 if($status=="" or $status=="NULL")
             {
             ?>
-        <td> 
+        <td>
             <button type="button" class="btn btn-info" style="font-weight:bold;">
                 <span class="fa fa fa-circle-o"  aria-hidden="true" >
                    Received
                 </button>
         </td>
-            <?php 
+            <?php
             }
             if($status=="in process")
             { ?>
-        <td> 
+        <td>
             <button type="button" class="btn btn-warning">
                 <span class="fa fa-circle-o-notch fa-spin"  aria-hidden="true" ></span>
                     Processing
             </button>
-        </td> 
+        </td>
             <?php
             }
             if($status=="closed")
             {
             ?>
-        <td> 
+        <td>
             <button type="button" class="btn btn-success" >
-                <span  class="fa fa-circle" aria-hidden="true">Delivered</button>
-        </td> 
-            <?php 
-            } 
+                <span  class="fa fa-circle" aria-hidden="true"> Processed</button>
+        </td>
+            <?php
+            }
             ?>
             <?php
             if($status=="rejected")
             {
             ?>
-        <td> 
+        <td>
             <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>Rejected</button>
-        </td> 
-            <?php 
-            } 
+        </td>
+            <?php
+            }
             ?>
-    	   <?php																									
+    	   <?php
 		echo '<td>'.$rows['municipality'].'</td>';
         echo '<td>'.$rows['province'].'</td>';
 		?>
 			 <td>
-			 <a href="deleteRequestDetails.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
+			 <a href="deleteRequestDetails.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a>
 		<?php
 		echo '<a href="showRequestDetails.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 			</td>
 			</tr>';
-        }	
+        }
     }
 ?>
 
 
-                           
+
                                 </tbody>
                             </table>
                         </div>
@@ -129,10 +134,10 @@ echo ' <tr>
                 </div>
             </div>
         </div>
-			
-			
+
+
 <?php
 
 include_once 'footer.php';
 
-?>  
+?>

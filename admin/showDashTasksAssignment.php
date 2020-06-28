@@ -117,7 +117,7 @@ else
                     <div class="card p-30">
                         <div class="media">
                             <div class="media-left meida media-middle">
-                                <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                                <span><i class="fa fa-cutlery f-s-40 color-green"></i></span>
                             </div>
                             <div class="media-body media-text-right">
                                 <a href="showRequestsInProgress.php?id=food">
@@ -136,7 +136,7 @@ else
                     <div class="card p-30">
                         <div class="media">
                             <div class="media-left meida media-middle">
-                                <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                                <span><i class="fa fa-wrench f-s-40 color-green"></i></span>
                             </div>
                             <div class="media-body media-text-right">
                                 <a href="showRequestsInProgress.php?id=jobs">
@@ -155,7 +155,7 @@ else
                     <div class="card p-30">
                         <div class="media">
                             <div class="media-left meida media-middle">
-                                <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                                <span><i class="fa fa-lightbulb-o f-s-40 color-green"></i></span>
                             </div>
                             <div class="media-body media-text-right">
                                 <a href="showRequestsInProgress.php?id=electricity">
@@ -174,7 +174,7 @@ else
                     <div class="card p-30">
                         <div class="media">
                             <div class="media-left meida media-middle">
-                                <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                                <span><i class="fa fa-medkit f-s-40 color-green"></i></span>
                             </div>
                             <div class="media-body media-text-right">
                                 <a href="showRequestsInProgress.php?id=medic">
@@ -193,7 +193,7 @@ else
                     <div class="card p-30">
                         <div class="media">
                             <div class="media-left meida media-middle">
-                                <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                                <span><i class="fa fa-id-badge f-s-40 color-green"></i></span>
                             </div>
                             <div class="media-body media-text-right">
                                 <a href="showRequestsInProgress.php?id=identitydoc">
@@ -212,7 +212,7 @@ else
                     <div class="card p-30">
                         <div class="media">
                             <div class="media-left meida media-middle">
-                                <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                                <span><i class="fa fa-bed f-s-40 color-green"></i></span>
                             </div>
                             <div class="media-body media-text-right">
                                 <a href="showRequestsInProgress.php?id=blankets">
@@ -231,10 +231,10 @@ else
                     <div class="card p-30">
                         <div class="media">
                             <div class="media-left meida media-middle">
-                                <span><i class="fa fa-user-o f-s-40 color-green"></i></span>
+                                <span><i class="fa fa-internet-explorer f-s-40 color-green"></i></span>
                             </div>
                             <div class="media-body media-text-right">
-                                <a href="doShowAgents.php">
+                                <a href="showRequestsInProgress.php?id=internet">
                                 <h2 style="color: #FEAA00">
                                     <?php echo $totalAccessDataInternet;?>
                                 </h2>
@@ -269,6 +269,87 @@ else
             </div>
         </div>
     </div>
+
+
+<div class="row">
+
+                <div class="col-md-6" style="color: #27D094">
+                    <div class="card p-30">
+                        <div class="media">
+                            <div class="media-left meida media-middle">
+                                <span><i class="fa fa-share-square-o f-s-40 color-green"></i></span>
+                            </div>
+                            <div class="media-body media-text-right">
+                                <a href="showRequestsStream.php?id=mobilization">
+                                <h2 style="color: #27D094">
+                                    <?php echo $totalAssignedSocialMobalization;?>
+                                </h2>
+                                <p class="m-b-0" style="color: #27D094"># of Requests Assigned <br>To Social Mobalization
+                                </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-6" style="color: #FF9149">
+                    <div class="card p-30">
+                        <div class="media">
+                            <div class="media-left meida media-middle">
+                                <span><i class="fa fa-users f-s-40" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="media-body media-text-right">
+                                <a href="showRequestsStream.php?id=humanright">
+                                <h2 style="color: #FF9149">
+                                    <?php echo $totalAssignedHumanRights;?>
+                                </h2>
+                                <p class="m-b-0" style="color: #FF9149"># of Requests Assigned <br>To Human Rights
+                                </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="color: #22A0F2">
+                    <div class="card p-30">
+                        <div class="media">
+                            <div class="media-left meida media-middle">
+                                <span><i class="fa fa-gavel f-s-40" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="media-body media-text-right">
+                                <a href="showRequestsStream.php?id=advocacy">
+                                    <h2 style="color: #22A0F2">
+                                        <?php echo $totalAssignedAdvocacy; ?>
+                                    </h2>
+                                    <p class="m-b-0" style="color: #22A0F2"># of Requests Assigned <br>To Advocacy
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="color: #FF4962">
+                    <div class="card p-30">
+                        <div class="media">
+                            <div class="media-left meida media-middle">
+                                <span><i class="fa fa-headphones f-s-40"></i></span>
+                            </div>
+                            <div class="media-body media-text-right">
+                                <a href="showRequestsStream.php?id=comms">
+                                    <h2 style="color: #FF4962">
+                                        <?php echo $totalAssignedComms;?>
+                                    </h2>
+                                    <p class="m-b-0" style="color: #FF4962"># of Requests Assigned <br>To Communications & Media
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
 
         <!-- End PAge Content -->

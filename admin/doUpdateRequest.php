@@ -289,12 +289,7 @@ td, th {
           <option value="">Select Stream</option>
           <option value="mobilization">Social Mobilization</option>
           <option value="humanright">Human Rights</option>
-	      <option value="it">IT</option>
-          <option value="mne">M&E</option>
-          <option value="media">Media</option>
 	      <option value="advocacy">Advocacy</option>
-          <option value="administration">Administrator</option>
-          <option value="database">Database</option>
 	      <option value="comms">Communications</option>
         </select>
       </td>

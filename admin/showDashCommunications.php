@@ -35,7 +35,7 @@ if (empty($_SESSION["adm_id"])) {
                         <span><i class="fa fa-calendar-times-o f-s-60 color-red"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showUnProcessedRequests.php">
+                        <a href="showUnProcessedMonthRequests.php">
                         <h2 style="color: red">
                             <?php echo $totalAfterMonth;?>
                         </h2>
@@ -54,7 +54,7 @@ if (empty($_SESSION["adm_id"])) {
                         <span><i class="fa fa-calendar-plus-o f-s-60" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showInProgressRequests.php">
+                        <a href="showUnProcessedThreeWeeksRequests.php">
                         <h2 style="color: orange">
                             <?php echo $totalThirdWeekToMonth;?>
                         </h2>
@@ -73,7 +73,7 @@ if (empty($_SESSION["adm_id"])) {
                         <span><i class="fa fa-calendar-minus-o f-s-60" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showCompletedRequests.php">
+                        <a href="showUnProcessedLastWeeksRequests.php">
                             <h2 style="color: #F0C300">
                                 <?php echo $totalOneWeekToThree; ?>
                             </h2>
@@ -92,7 +92,7 @@ if (empty($_SESSION["adm_id"])) {
                         <span><i class="fa fa-calendar f-s-60"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="showRejectedRequests.php">
+                        <a href="showUnProcessedThreeDaysRequests.php">
                             <h2 style="color: #514C00">
                                 <?php echo $totalThreeDaysToWeek;?>
                             </h2>
