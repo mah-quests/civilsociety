@@ -45,7 +45,7 @@ session_start();
       background-size: cover;
 
       /* Here's the same styles we applied to our content-div earlier */
-      color: white;
+      color: black;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -135,12 +135,9 @@ session_start();
 </style>
 
 <script type="text/javascript">
-// From: http://www.codingforums.com/showthread.php?t=202456
-// and: http://www.codingforums.com/showthread.php?t=169465
-// Modified for 1 to 4 (+) level drop down selections
 
 var categories = [];
-  categories["startList"] = ["Western Cape","Eastern Cape",'Northern Cape','North West','Free State','Kwazulu Natal','Gauteng','Limpopo','Mpumlanga'];        // Level 1  (True|False is 1 level only)
+  categories["startList"] = ["Western Cape","Eastern Cape",'Northern Cape','North West','Free State','Kwazulu Natal','Gauteng','Limpopo','Mpumalanga'];        // Level 1  (True|False is 1 level only)
 
 categories["Western Cape"] = ["Cape Winelands District Municipality","Central Karoo District Municipality","Garden Route District Municipality","Overberg District Municipality","West Coast District Municipality","City of Cape Town Metropolitan"];                         
 // Level 2
@@ -255,30 +252,31 @@ navigator.appName == "Microsoft Internet Explorer"
 
 </script>
 
-  
+
 </head>
 
 <body>
+
     <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
         <!--header starts-->
         <header id="header" class="header-scroll top-header headrom">
             <!-- .navbar -->
             <nav class="navbar navbar-dark">
                 <div class="container">                    
-                    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">&#9776;                      
+                    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">&#9776;
                     </button>
-                    <a class="navbar-brand" href="index.php"> 
-                        <img alt="LOGO" width="167" height="48" src="images/covid-logo.png" alt="Thusa Sechaba"> 
+                    <a class="navbar-brand" href="index.php">
+                        <img alt="LOGO" width="450" height="110" src="images/covid-logo.png" alt="Thusa Sechaba">
                     </a>  
                             <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                                 <ul class="nav navbar-nav">
                                     <li class="nav-item"> 
-                                        <a class="nav-link active" href="index.php">Home 
+                                        <a class="nav-link active" href="index.php"><b>Home</b>
                                             <span class="sr-only">(current)</span>
                                         </a> 
                                     </li> 
                                     <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Covid-19 Front<br> Partners</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><b>Covid-19 Front<br> Partners</b></a>
                                         <div class="dropdown-menu">
                                             <a href="doPartnerReg.php" class="dropdown-item">
                                                 Register Covid-19 Front User
@@ -294,7 +292,7 @@ navigator.appName == "Microsoft Internet Explorer"
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Civil Society <br>Organisation</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><b>Civil Society <br>Organisation</b></a>
                                         <div class="dropdown-menu"> 
                                             <a href="doCSOReg.php" class="dropdown-item">
                                                 Register Civil Society User
@@ -314,12 +312,12 @@ navigator.appName == "Microsoft Internet Explorer"
 						if(empty($_SESSION["user_id"]))
 							{
 							echo '  <li class="nav-item">
-                                        <a href="login.php" class="nav-link active"> Login
+                                        <a href="login.php" class="nav-link active"><b> Login </b>
                                         </a> 
                                     </li>
                                     <li class="nav-item">
-                                        <a href="doCommunityReg.php" class="nav-link active"> Community Member <br>Registration
-                                        </a> 
+                                        <a href="doCommunityReg.php" class="nav-link active">Community Member <br>Registration
+                                        </a>
                                     </li>';
 							}
 						else
@@ -357,8 +355,21 @@ navigator.appName == "Microsoft Internet Explorer"
 							 
                         </ul>
                     </div>
+
                 </div>
+    <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div>
             </nav>
+</div>
+
+
             <!-- /.navbar -->
         </header>
         

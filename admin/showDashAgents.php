@@ -464,6 +464,67 @@ else
 
 
 
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Active Community Members</h4>
+                            <div class="table-responsive m-t-40">
+                                <table id="myTable3" class="table table-striped">
+                                    <thead>
+                                       <tr>
+                                            <th>#</th>
+                                            <th>Full Names</th>
+                                            <th>Cellphone</th>
+                                            <th> </th>
+                                            <th>Number of Active</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+
+        <?php
+            $sql="SELECT f_name, l_name, users.phone, count(users_orders.u_id) as no_of_surveys FROM users_orders
+                    INNER JOIN users ON users_orders.u_id=users.u_id where users.network='C' group by users_orders.u_id
+                    order by no_of_surveys desc";
+            $query=mysqli_query($db,$sql);
+
+                if(!mysqli_num_rows($query) > 0 )
+                {
+                    echo '<td colspan="7">
+                            <center>
+                                No User-Data!
+                            </center>
+                        </td>';
+                }
+                else
+                {
+                while($rows=mysqli_fetch_array($query))
+                {
+
+        echo ' <tr>
+                <td>'.$rows['date'].'</td>
+                <td>'.$rows['f_name'].' '.$rows['l_name'].'</td>
+                <td>'.$rows['phone'].' </td>
+                <td>'.$rows[''].'</td>
+                <td>'.$rows[''].' '.$rows['no_of_surveys'].' </td>
+                </tr>';
+
+                }
+                }
+
+            ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+
+
     <div class="row">
         <div class="col-md-6" style="color: #D1AF94">
             <div class="card p-30">

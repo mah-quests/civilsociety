@@ -18,46 +18,291 @@ $sql = "select * from users where provice='Gauteng' ";
 $result = mysqli_query($db, $sql);
 $totalAgentsGauteng = mysqli_num_rows($result);
 
+$sql = "select * from users where district='City of Johannesburg Metropolitan Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsCityOfJoburg = mysqli_num_rows($result);
+
+$sql = "select * from users where district='City of Tshwane Metropolitan Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsCityOfTshwane = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Ekurhuleni Metropolitan Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsEkurhuleni = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Sedibeng District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsSedibeng = mysqli_num_rows($result);
+
+$sql = "select * from users where district='West Rand District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsWestRand = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='Gauteng' and district not in ('City of Johannesburg Metropolitan Municipality', 'City of Tshwane Metropolitan Municipality',
+'Ekurhuleni Metropolitan Municipality' , 'Sedibeng District Municipality' ,'West Rand District Municipality' ) ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidGautengDistrict = mysqli_num_rows($result);
 
 $sql = "select * from users where provice='Free State' ";
 $result = mysqli_query($db, $sql);
 $totalAgentsFreeState = mysqli_num_rows($result);
 
+$sql = "select * from users where district='Mangaung Metropolitan' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsMangaung = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Fezile Dabi District' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsFezileDabi = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Lejweleputswa District' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsLejweleputswa = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Thabo Mofutsanyana District' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsMofutsanyana = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Xhariep District' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsXhariep = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='Free State' and district not in ('Mangaung Metropolitan', 'Fezile Dabi District', 'Lejweleputswa District' ,
+'Thabo Mofutsanyana District' ,'Xhariep District' ) ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidFreeStateDistrict = mysqli_num_rows($result);
 
 $sql = "select * from users where provice='North West' ";
 $result = mysqli_query($db, $sql);
 $totalAgentsNorthWest = mysqli_num_rows($result);
 
+$sql = "select * from users where district='Bojanala Platinum' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsBojanala = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Ngaka Modiri Molema' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsMolema = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Dr Ruth Segomotsi Mompati' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsMompati = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Dr Kenneth Kaunda' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsKaunda = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='North West' and district not in ('Bojanala Platinum', 'Ngaka Modiri Molema', 'Dr Ruth Segomotsi Mompati' , 'Dr Kenneth Kaunda' ) ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidNorthWestDistrict = mysqli_num_rows($result);
 
 $sql = " select * from users where provice  like '%Mpum%langa' ";
 $result = mysqli_query($db, $sql);
 $totalAgentsMpumalanga = mysqli_num_rows($result);
 
-
-$sql = " select * from users where provice='KwaZulu Natal' ";
+$sql = "select * from users where district='Gert Sibande' ";
 $result = mysqli_query($db, $sql);
-$totalAgentsKZN = mysqli_num_rows($result);
+$totalAgentsSibande = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Nkangala' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNkangala = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Ehlanzeni' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsEhlanzeni = mysqli_num_rows($result);
+
+$sql = "select * from users where provice like '%Mpum%langa' and district not in ('Gert Sibande', 'Nkangala', 'Ehlanzeni' ) ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidMpumalangaDistrict = mysqli_num_rows($result);
 
 
 $sql = " select * from users where provice='Limpopo' ";
 $result = mysqli_query($db, $sql);
 $totalAgentsLimpopo = mysqli_num_rows($result);
 
-
-$sql = " select * from users where provice='Western Cape' ";
+$sql = "select * from users where district='Capricorn District Municipality' ";
 $result = mysqli_query($db, $sql);
-$totalAgentsWesternCape = mysqli_num_rows($result);
+$totalAgentsCapricorn = mysqli_num_rows($result);
 
+$sql = "select * from users where district='Mopani District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsMopani = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Sekhukhune District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsSekhukhune = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Vhembe District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsVhembe = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Waterberg District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsWaterberg = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='Limpopo' and district not in ('Capricorn District Municipality', 'Mopani District Municipality',
+'Sekhukhune District Municipality' , 'Vhembe District Municipality', 'Waterberg District Municipality' ) ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidLimpopoDistrict = mysqli_num_rows($result);
+
+$sql = " select * from users where provice='KwaZulu Natal' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsKZN = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Amajuba District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsAmajuba = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Harry Gwala District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsHarryGwala = mysqli_num_rows($result);
+
+$sql = "select * from users where district='iLembe District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsiLembe = mysqli_num_rows($result);
+
+$sql = "select * from users where district='King Cetshwayo District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsKingCetshwayo = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Ugu District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsUgu = mysqli_num_rows($result);
+
+$sql = "select * from users where district='uMgungundlovu District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsuMgungundlovu = mysqli_num_rows($result);
+
+$sql = "select * from users where district='uMkhanyakude District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsuMkhanyakude = mysqli_num_rows($result);
+
+$sql = "select * from users where district='uMzinyathi District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsuMzinyathi = mysqli_num_rows($result);
+
+$sql = "select * from users where district='uThukela District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsuThukela = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Zululand District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsZululand = mysqli_num_rows($result);
+
+$sql = "select * from users where district='eThekwini Metropolitan' ";
+$result = mysqli_query($db, $sql);
+$totalAgentseThekwini = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='KwaZulu Natal' and district not in ('Amajuba District Municipality', 'Harry Gwala District Municipality', 'iLembe District Municipality',
+'King Cetshwayo District Municipality' , 'Ugu District Municipality', 'uMgungundlovu District Municipality', 'uMkhanyakude District Municipality', 'uMzinyathi District Municipality',
+ 'uThukela District Municipality', 'Zululand District Municipality', 'eThekwini Metropolitan') ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidKZNDistrict = mysqli_num_rows($result);
 
 $sql = " select * from users where provice='Northern Cape'  ";
 $result = mysqli_query($db, $sql);
 $totalAgentsNorthernCape = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Frances Baard District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsFrancesBaard = mysqli_num_rows($result);
+
+$sql = "select * from users where district='John Taolo Gaetsewe District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsGaetsewe = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Namakwa District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNamakwa = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Pixley ka Seme District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsPixley = mysqli_num_rows($result);
+
+$sql = "select * from users where district='ZF Mgcawu District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsMgcawu = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='Northern Cape' and district not in ('Frances Baard District Municipality', 'John Taolo Gaetsewe District Municipality', 'Namakwa District Municipality',
+'Pixley ka Seme District Municipality' , 'ZF Mgcawu District Municipality') ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidNorthernCapeDistrict = mysqli_num_rows($result);
 
 
 $sql = " select * from users where provice='Eastern Cape' ";
 $result = mysqli_query($db, $sql);
 $totalAgentsEasternCape = mysqli_num_rows($result);
 
+$sql = "select * from users where district='Alfred Nzo District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsAlfredNzo = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Amathole District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsAmathole = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Chris Hani District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsChrisHani = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Joe Gqabi District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsJoeGqabi = mysqli_num_rows($result);
+
+$sql = "select * from users where district='OR Tambo District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsORTambo = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Sarah Baartman District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsSarahBaartman = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Nelson Mandela Bay Metropolitan' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNelsonMandela = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Buffalo City Metropolitan' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsBuffaloCity = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='Eastern Cape' and district not in ('Alfred Nzo District Municipality', 'Amathole District Municipality', 'Chris Hani District Municipality',
+'Joe Gqabi District Municipality' , 'OR Tambo District Municipality', 'Sarah Baartman District Municipality', 'Nelson Mandela Bay Metropolitan', 'Buffalo City Metropolitan') ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidEasternCapeDistrict = mysqli_num_rows($result);
+
+$sql = " select * from users where provice='Western Cape' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsWesternCape = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Cape Winelands District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsCapeWinelands = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Central Karoo District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsKaroo = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Garden Route District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsGardenRoute = mysqli_num_rows($result);
+
+$sql = "select * from users where district='Overberg District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsOverberg = mysqli_num_rows($result);
+
+$sql = "select * from users where district='West Coast District Municipality' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsWestCoast = mysqli_num_rows($result);
+
+$sql = "select * from users where district='City of Cape Town Metropolitan' ";
+$result = mysqli_query($db, $sql);
+$totalAgentsCapeTown = mysqli_num_rows($result);
+
+$sql = "select * from users where provice='Western Cape' and district not in ('Cape Winelands District Municipality', 'Central Karoo District Municipality', 'Garden Route District Municipality',
+'Overberg District Municipality' , 'West Coast District Municipality', 'City of Cape Town Metropolitan' ) ";
+$result = mysqli_query($db, $sql);
+$totalAgentsNoValidWesternCapeDistrict = mysqli_num_rows($result);
 
 $sql = "SELECT * FROM users where provice in ('Please Choose', 'Choose', 'Select Province') or provice is null ";
 $result = mysqli_query($db, $sql);

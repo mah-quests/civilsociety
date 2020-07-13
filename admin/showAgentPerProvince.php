@@ -5,43 +5,7 @@ error_reporting(0);
 session_start();
 ?>
 
-        <!-- Page wrapper  -->
-        <div class="page-wrapper">
-            <!-- Bread crumb -->
-            <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-secondary">All Registered Agents</h3> </div>
-
-            </div>
-            <!-- End Bread crumb -->
-            <!-- Container fluid  -->
-            <div class="container-fluid">
-                <!-- Start Page Content -->
-                <div class="row">
-                    <div class="col-12">
-
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">All Registered users</h4>
-
-                    <div class="table-responsive m-t-40">
-                        <table id="myTable" class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Organization Name</th>
-                                    <th>Full Names</th>
-                                    <th>Phone</th>
-									<th>Address</th>
-                                    <th>Municipality</th>
-                                    <th>Province</th>
-									<th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-        <?php
-
+<?php
     $input = $_GET['id'];
 
     if ($input == "gauteng"){
@@ -67,6 +31,67 @@ session_start();
         $province2 = "Choose";
         $province3 = "Select Province";
     }
+?>
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-secondary">All Registered Agents in <?php echo $province ?> </h3> </div>
+
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-12">
+
+    <div class="col-md-12">
+          <?php if ($province == "Gauteng") {
+              include 'districtsGauteng.php';
+          } else if ($province == "Free State") {
+              include 'districtsFreeState.php';
+          } else if ($province == "North West") {
+              include 'districtsNorthWest.php';
+          } else if ($province == "%Mpum%langa") {
+              include 'districtsMpumalanga.php';
+          } else if ($province == "Limpopo") {
+              include 'districtsLimpopo.php';
+          } else if ($province == "Kwazulu Natal") {
+              include 'districtsKwaZuluNatal.php';
+          } else if ($province == "Northern Cape") {
+              include 'districtsNorthernCape.php';
+          } else if ($province == "Eastern Cape") {
+              include 'districtsEasternCape.php';
+          } else if ($province == "Western Cape") {
+              include 'districtsWesternCape.php';
+          }
+
+          ?>
+    </div>
+
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">All Registered Agents in <?php echo $province ?></h4>
+
+                    <div class="table-responsive m-t-40">
+                        <table id="myTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Organization Name</th>
+                                    <th>Full Names</th>
+                                    <th>Phone</th>
+									<th>Address</th>
+                                    <th>Municipality</th>
+                                    <th>Province</th>
+									<th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+        <?php
 
     if ($input == "unallocated"){
         $sql="SELECT * FROM users where provice in ('$province', '$province2', '$province3') or provice is null ";

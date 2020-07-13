@@ -43,7 +43,7 @@ session_start();
                             <tbody>
                                            
 <?php
-    $sql="SELECT users.*, users_orders.*, users_orders.municipality as delivery_municipality FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id";
+    $sql="SELECT * from users_orders ";
     $query=mysqli_query($db,$sql);
 
     if(!mysqli_num_rows($query) > 0 ){
@@ -103,7 +103,7 @@ echo ' <tr>
             } 
             ?>
     	   <?php																									
-		echo '<td>'.$rows['delivery_municipality'].'</td>';
+		echo '<td>'.$rows['municipality'].'</td>';
         echo '<td>'.$rows['province'].'</td>';
 		?>
 			 <td>

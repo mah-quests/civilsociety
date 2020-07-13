@@ -183,8 +183,7 @@ include_once 'header_app.php';
 
 <?php  
 
-  $query_res= mysqli_query($db,"select * from users where 
-    u_id='".$_SESSION['user_id']."'");
+  $query_res= mysqli_query($db,"select * from users where  u_id='".$_SESSION['user_id']."'");
 
   $result=mysqli_query($db, $query_res); 
 

@@ -94,12 +94,12 @@
 
             <div class="col-md-12">
               <label for="address">Home Address</label>
-                <input class="form-control" type="text" name="address" id="address" rows="3" value="<?php echo $edit ? $user['address'] : ''; ?>" placeholder="Please enter your local address"  required>
+                <input class="form-control" type="text" name="address" id="address" value="<?php echo $user['address']; ?>"  required>
             </div>
 
             <div class="col-md-6">
               <label for="ward">Ward</label>
-                <input class="form-control" type="text" name="ward" id="ward" placeholder="Please enter your ward" value="<?php echo $user['ward']; ?>" >
+                <input class="form-control" type="text" name="ward" id="ward" value="<?php echo $user['ward'] ; ?>"  >
             </div>
 
             <div class="col-md-12">

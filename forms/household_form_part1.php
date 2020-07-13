@@ -61,6 +61,16 @@
 </script>
 
 <script type="text/javascript">
+
+function nospaces(t){
+    if(t.value.match(/\s/g)){
+    alert('Sorry, you are not allowed to enter any spaces');
+    t.value=t.value.replace(/\s/g,'');
+    }
+}
+</script>
+
+<script type="text/javascript">
 // From: http://www.codingforums.com/showthread.php?t=202456
 // and: http://www.codingforums.com/showthread.php?t=169465
 // Modified for 1 to 4 (+) level drop down selections
@@ -128,14 +138,13 @@ navigator.appName == "Microsoft Internet Explorer"
               <h5>Contact Person Details</h5>
             </div>
 
-
             <div class="col-md-6">
               <label for="firstname">First Names (*)</label>
                 <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Please enter your first names" value="<?php echo $edit ? $user_id['firstname'] : '';?>" required> 
             </div>
 
 
-        <div class="col-md-6">            
+            <div class="col-md-6">
               <label for="lastname">Surname (*)</label>
                 <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Please enter your surname" value="<?php echo $edit ? $user_id['lastname'] : '';?>" required> 
             </div>
@@ -255,19 +264,21 @@ navigator.appName == "Microsoft Internet Explorer"
               </div>
             </div>
 
-
-            <div class="col-md-12">
-              <br>
+            <div class="col-md-12"><br>
               <label for="address">Home Address (*)</label>
-                <textarea class="form-control" id="address"  name="address" rows="3" placeholder="Please enter your full home address" required>
-                </textarea>
+                <input class="form-control" type="text" name="address" id="address" placeholder="Please enter your full home address" style="height:120px; width:1100px;" required>
             </div>
 
             <div class="col-md-3">
               <label for="ward">Ward Number</label>
-                <input class="form-control" type="ward" name="ward" id="age" required oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"> 
-              </div>  
+                <input class="form-control" type="input" name="ward" id="ward" required oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+              </div>
 
+            <div class="col-md-9">
+                <br><br>
+                <div id="result" value="">
+                </div>
+            </div>
 
             <div class="col-md-12">
             <label for="municipality"><br>Location Selection (*)<br></label>

@@ -167,7 +167,7 @@ else
                     <div class="media-body media-text-right">
                         <a href="showUnProcessedRequests.php">
                         <h2 style="color: red">
-                            <?php echo $totalAfterMonth;?>
+                            <?php echo $totalSPAfterMonth;?>
                         </h2>
                         <p class="m-b-0" style="color: red"># Unprocessed Requests <b><br>Up To More<br> Than A Month </b>
                         </p>
@@ -186,7 +186,7 @@ else
                     <div class="media-body media-text-right">
                         <a href="showInProgressRequests.php">
                         <h2 style="color: orange">
-                            <?php echo $totalThirdWeekToMonth;?>
+                            <?php echo $totalSPThirdWeekToMonth;?>
                         </h2>
                         <p class="m-b-0" style="color: orange"># Unprocessed Requests <br><b>Up To Three Weeks Ago </b>
                         </p>
@@ -205,7 +205,7 @@ else
                     <div class="media-body media-text-right">
                         <a href="showCompletedRequests.php">
                             <h2 style="color: #F0C300">
-                                <?php echo $totalOneWeekToThree; ?>
+                                <?php echo $totalSPOneWeekToThree; ?>
                             </h2>
                             <p class="m-b-0" style="color: #F0C300"># Unprocessed Requests<br><b> Made Up To<br> Last Weeks </b>
                             </p>
@@ -224,7 +224,7 @@ else
                     <div class="media-body media-text-right">
                         <a href="showRejectedRequests.php">
                             <h2 style="color: #514C00">
-                                <?php echo $totalThreeDaysToWeek;?>
+                                <?php echo $totalSPThreeDaysToWeek;?>
                             </h2>
                             <p class="m-b-0" style="color: #514C00"># Unprocessed Requests <br><b>Made Up To <br>3 days ago </b>
                             </p>
@@ -331,7 +331,7 @@ else
                             In Progress:
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalGautengProgress + $totalKZNCProgress + $totalWesternCapeProgress +$totalEasternCapeProgress;?>
+                                <?php echo $totalSPGautengProgress + $totalSPKZNCProgress + $totalSPWesternCapeProgress +$totalSPEasternCapeProgress;?>
                             </h1>
                             <span># Total Households</span>
                           </div>
@@ -339,7 +339,7 @@ else
                         <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalGautengProgress;?>
+                                <?php echo $totalSPGautengProgress;?>
                             </h1>
                             <span># in Gauteng</span>
                           </div>
@@ -347,7 +347,7 @@ else
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalKZNCProgress;?>
+                                <?php echo $totalSPKZNCProgress;?>
                             </h1>
                             <span># in KwaZulu Natal</span>
                           </div>
@@ -356,7 +356,7 @@ else
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalWesternCapeProgress;?>
+                                <?php echo $totalSPWesternCapeProgress;?>
                             </h1>
                             <span># in Western Cape</span>
                           </div>
@@ -365,7 +365,7 @@ else
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalEasternCapeProgress;?>
+                                <?php echo $totalSPEasternCapeProgress;?>
                             </h1>
                             <span># in Eastern Cape</span>
                           </div>
@@ -385,7 +385,7 @@ else
                             Processed or Rejected:
                           <div class="card-body text-center">
                             <h1 class="display-7" >
-                                <?php echo $totalGautengRejCls + $totalKZNCRejCls + $totalWesternCapeRejCls + $totalEasternCapeRejCls;?>
+                                <?php echo $totalSPGautengRejCls + $totalSPKZNCRejCls + $totalSPWesternCapeRejCls + $totalSPEasternCapeRejCls;?>
                             </h1>
                             <span># Total Households</span>
                           </div>
@@ -393,7 +393,7 @@ else
                         <div class="col-lg-2 col-md-4 col-sm-12 card-gradient-md-border border-right-info border-right-lighten-3">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalGautengRejCls;?>
+                                <?php echo $totalSPGautengRejCls;?>
                             </h1>
                             <span># in Gauteng</span>
                           </div>
@@ -401,7 +401,7 @@ else
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalKZNCRejCls;?>
+                                <?php echo $totalSPKZNCRejCls;?>
                             </h1>
                             <span># in KwaZulu Natal</span>
                           </div>
@@ -409,7 +409,7 @@ else
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalWesternCapeRejCls;?>
+                                <?php echo $totalSPWesternCapeRejCls;?>
                             </h1>
                             <span># in Western Cape</span>
                           </div>
@@ -417,7 +417,7 @@ else
                         <div class="col-lg-2 col-md-6 col-sm-12 card-gradient-md-border">
                           <div class="card-body text-center">
                             <h1 class="display-7">
-                                <?php echo $totalEasternCapeRejCls;?>
+                                <?php echo $totalSPEasternCapeRejCls;?>
                             </h1>
                             <span># in Eastern Cape</span>
                           </div>
