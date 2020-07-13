@@ -187,7 +187,7 @@ if(isset($_POST['submit']))   // if button is submit
             <input type="checkbox">Remember Me
           </div>
           <div class="form-group">
-            <input align="center" type="submit" id="buttn" name="submit" value="Login" class="btn float-right login_btn">
+            <input align="center" type="submit" id="buttn" name="submit" value="Reset" class="btn float-right login_btn">
           </div>
         </form>
       </div>

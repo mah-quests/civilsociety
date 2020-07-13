@@ -6,30 +6,32 @@ include("../connection/connect.php");
 
 if(isset($_POST['submit'] ))
 {
-    if(empty($_POST['uname']) ||
-   	    empty($_POST['fname'])|| 
-		empty($_POST['lname']) ||  
-		empty($_POST['email'])||
-		empty($_POST['password'])||
-		empty($_POST['phone']))
-		{
-			$error = '<div class="alert alert-danger alert-dismissible fade show">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<strong>All fields Required!</strong>
-						</div>';
-		}
-	else
+    if(
+        empty($_POST['f_name']) ||  //fetching and find if its empty
+        empty($_POST['l_name']) ||
+        empty($_POST['username']) ||
+        empty($_POST['email']) ||
+        empty($_POST['phone']) ||
+        empty($_POST['provice']) ||            
+        empty($_POST['district']) ||     
+        empty($_POST['municipality']) ||     
+        empty($_POST['sex']) ||
+        empty($_POST['alt_person']) ||
+        empty($_POST['alt_number']) ||
+        empty($_POST['nationality']) ||
+        empty($_POST['organization_name']) ||
+        empty($_POST['organization_structure']) ||
+        empty($_POST['network']) ||
+        empty($_POST['password'])
+        )
 	{
-		
-
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
-    {
-       	$error = '<div class="alert alert-danger alert-dismissible fade show">
+		$error = '<div class="alert alert-danger alert-dismissible fade show">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<strong>invalid email!</strong>
-				</div>';
-    }
-	elseif(strlen($_POST['password']) < 6)
+							<strong>All fields Required!</strong>
+					</div>';
+	} else {
+		
+    if(strlen($_POST['password']) < 6)
 	{
 		$error = '<div class="alert alert-danger alert-dismissible fade show">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -48,9 +50,37 @@ if(isset($_POST['submit'] ))
 	else{
        
 	
-	$mql = "update users set username='$_POST[uname]', f_name='$_POST[fname]', l_name='$_POST[lname]',email='$_POST[email]',phone='$_POST[phone]',password='".md5($_POST[password])."' where u_id='$_GET[user_upd]' ";
+  $mql = "UPDATE  users
+        SET 
+            organization_structure='$_POST[organization_structure]', 
+            organization_name='$_POST[organization_name]', 
+            f_name ='$_POST[f_name]', 
+            l_name ='$_POST[l_name]', 
+            username='$_POST[username]', 
+            sex='$_POST[sex]', 
+            phone='$_POST[phone]', 
+            email='$_POST[email]', 
+            network='$_POST[network]', 
+            nationality='$_POST[nationality]', 
+            address='$_POST[address]', 
+            municipality='$_POST[municipality]', 
+            district='$_POST[district]', 
+            provice='$_POST[provice]',
+            gender='$_POST[gender]',
+            race='$_POST[race]',
+            age='$_POST[age]',
+            ward='$_POST[ward]',
+            network_type='$_POST[network_type]',
+            alt_person='$_POST[alt_person]', 
+            alt_number='$_POST[alt_number]',
+            project='$_POST[project]',
+            password=md5('$_POST[password]')
+        
+        where u_id='$_GET[user_upd]' ";
+
 	mysqli_query($db, $mql);
-			$success = 	'<div class="alert alert-success alert-dismissible fade show">
+
+	$success = 	'<div class="alert alert-success alert-dismissible fade show">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								<strong>User Updated!</strong>
                     </div>';
@@ -82,8 +112,7 @@ include 'header_admin.php';
                   
 	<?php  
 		echo $error;
-		echo $success; 
-		echo var_dump($_POST);
+		echo $success;
 											
 	?>
 									
@@ -103,15 +132,25 @@ include 'header_admin.php';
             <div class="row p-t-20">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="control-label">Username</label>
-                        <input type="text" name="uname" class="form-control" value="<?php  echo $newrow['username']; ?>" placeholder="username">
+                        <label class="control-label">
+                            Partner Network/ NPO Reg Number
+                        </label>
+                        <input type="text" name="organization_structure" class="form-control" value="<?php  echo $newrow['organization_structure']; ?>" placeholder="organization_structure">
                        </div>
                 </div>
                 <!--/span-->
                 <div class="col-md-6">
                     <div class="form-group has-danger">
-                        <label class="control-label">First-Name</label>
-                        <input type="text" name="fname" class="form-control form-control-danger"  value="<?php  echo $newrow['f_name'];  ?>" placeholder="jon">
+                        <label class="control-label">
+                            Organization Name
+                        </label>
+                        <input type="text" name="organization_name" class="form-control form-control-danger"  value="<?php  echo $newrow['organization_name'];  ?>" placeholder="Please enter your organization name">
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Organization Network </label>
+                        <input type="text" name="network_type" class="form-control form-control-danger"  value="<?php  echo $newrow['network_type'];  ?>" placeholder="Please enter network type">
                         </div>
                 </div>
                 <!--/span-->
@@ -120,35 +159,183 @@ include 'header_admin.php';
             <div class="row p-t-20">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="control-label">Last-Name </label>
-                        <input type="text" name="lname" class="form-control" placeholder="doe"  value="<?php  echo $newrow['l_name']; ?>">
+                        <label class="control-label">First Names </label>
+                        <input type="text" name="f_name" class="form-control" placeholder="Please enter the first name"  value="<?php  echo $newrow['f_name']; ?>">
                        </div>
                 </div>
                 <!--/span-->
                 <div class="col-md-6">
                     <div class="form-group has-danger">
-                        <label class="control-label">Email</label>
-                        <input type="text" name="email" class="form-control form-control-danger"  value="<?php  echo $newrow['email'];  ?>" placeholder="example@gmail.com">
+                        <label class="control-label">Surname</label>
+                        <input type="text" name="l_name" class="form-control form-control-danger"  value="<?php  echo $newrow['l_name'];  ?>" placeholder="Please enter the Surname">
                         </div>
                 </div>
                 <!--/span-->
             </div>
             <!--/row-->
-			 <div class="row">
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"> Identification Number</label>
+                        <input type="text" name="username" class="form-control" placeholder="Please enter your Identification Number"  value="<?php  echo $newrow['username']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Sex</label>
+                        <input type="text" name="sex" class="form-control form-control-danger"  value="<?php  echo $newrow['sex'];  ?>" placeholder="Please enter your sex">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"> Age</label>
+                        <input type="text" name="age" class="form-control" placeholder="Please enter age"  value="<?php  echo $newrow['age']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Organization Type </label>
+                        <input type="text" name="network_type" class="form-control form-control-danger"  value="<?php  echo $newrow['network_type'];  ?>" placeholder="Please enter organization type">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Gender</label>
+                        <input type="text" name="gender" class="form-control" placeholder="Please enter the Gender"  value="<?php  echo $newrow['gender']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Race</label>
+                        <input type="text" name="race" class="form-control form-control-danger"  value="<?php  echo $newrow['race'];  ?>" placeholder="Please enter race">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Cellphone number</label>
+                        <input type="text" name="phone" class="form-control" placeholder="Please enter the Cellphone number"  value="<?php  echo $newrow['phone']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Email address</label>
+                        <input type="email" name="email" class="form-control form-control-danger"  value="<?php  echo $newrow['email'];  ?>" placeholder="Please enter a valid email">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Nationality</label>
+                        <input type="text" name="nationality" class="form-control" placeholder="Please enter the nationality"  value="<?php  echo $newrow['nationality']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Home Address</label><br>
+                           <input style="height:80px" type="text" name="address" class="form-control" placeholder="Please enter the Adress"  value="<?php  echo $newrow['address']; ?>">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Home Address Ward</label>
+                        <input type="text" name="ward" class="form-control form-control-danger"   value="<?php  echo $newrow['ward'];  ?>" placeholder="Address ward">
+                    </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Municipality </label>
+                        <input type="text" name="municipality" class="form-control" placeholder="Please enter a valid municipality"  value="<?php  echo $newrow['municipality']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">District</label>
+                        <input type="text" name="district" class="form-control form-control-danger"  value="<?php  echo $newrow['district'];  ?>" placeholder="Please enter valid district">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+                <!--/span-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Province </label>
+                        <input type="text" name="provice" class="form-control" placeholder="Please enter a valid province"  value="<?php  echo $newrow['provice']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Network Type (C/ N/ P)</label>
+                        <input type="text" name="network" class="form-control form-control-danger"  value="<?php  echo $newrow['network'];  ?>" placeholder="Please enter a valid Network Type">
+                    </div>
+                </div>
+                <!--/span-->
+            </div>                
+            <!--/row-->
+            <div class="row p-t-20">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Alternative Contact Person </label>
+                        <input type="text" name="alt_person" class="form-control" placeholder="Please enter an Alternative Contact Person"  value="<?php  echo $newrow['alt_person']; ?>">
+                       </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <label class="control-label">Alternative Contact Number</label>
+                        <input type="text" name="alt_number" class="form-control form-control-danger"  value="<?php  echo $newrow['alt_number'];  ?>" placeholder="Please enter an Alternative Contact Person number">
+                        </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+			 <div class="row p-t-20">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Password</label>
-                        <input type="text" name="password" class="form-control form-control-danger"   value="<?php  echo $newrow['password'];  ?>" placeholder="password">
-                        </div>
-                    </div>
-            
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">Phone</label>
-                        <input type="text" name="phone" class="form-control form-control-danger"   value="<?php  echo $newrow['phone'];  ?>" placeholder="phone">
-                        </div>
+                        <input type="password" name="password" class="form-control form-control-danger"   value="<?php  echo $newrow['password'];  ?>" placeholder="password">
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                       <label class="control-label">Project Allocation </label>
+                       <div class="form-group">
+                            <select name="project" size="3" id="project" class="form-control unit"  value="<?php  echo $newrow['project']; ?>">
+                                    <option selected value=""></option>
+                                    <option>Solidarity Fund</option>
+                                    <option>Gauteng Health</option>
+                            </select>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
                 <!--/span-->
                 
           

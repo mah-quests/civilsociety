@@ -6,19 +6,25 @@ include("connection/connect.php"); // connection
 if(isset($_POST['submit'] )) //if submit btn is pressed
 {
      if(empty($_POST['firstname']) ||  //fetching and find if its empty
-   	    empty($_POST['username'])|| 
-        empty($_POST['lastname'])|| 
-		    empty($_POST['email']) ||  
-		    empty($_POST['phone']) ||
-		    empty($_POST['password']) ||
-        empty($_POST['List1']) ||         // Province
-        empty($_POST['List2']) ||         // District
-        empty($_POST['List3']) ||         // Municipality
+        empty($_POST['username']) ||
+        empty($_POST['lastname']) ||
+        empty($_POST['email']) ||
+        empty($_POST['phone']) ||
+        empty($_POST['address']) ||
+        empty($_POST['password']) ||
+        empty($_POST['List1']) ||     // Province
+        empty($_POST['List2']) ||     // District
+        empty($_POST['List3']) ||     // Municipality
         empty($_POST['sex']) ||
+        empty($_POST['gender']) ||
+        empty($_POST['age']) ||
+        empty($_POST['race']) ||
+        empty($_POST['ward']) ||
         empty($_POST['alt_person']) ||
         empty($_POST['alt_number']) ||
         empty($_POST['nationality']) ||
-        empty($_POST['cpassword']))
+        empty($_POST['cpassword'])
+      )
 		{
       $message = "All fields required not filled!";
 
@@ -41,25 +47,32 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 		$message = "invalid phone number!";
 	}
 
-    elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
-    {
-       	$message = "Invalid email address please type a valid email!";
-    }
-	elseif(mysqli_num_rows($check_username) > 0)  //check username
+	elseif(mysqli_num_rows($check_username) > 100)  //check username
      {
     	$message = 'ID Number already registered!';
      }
-	elseif(mysqli_num_rows($check_celphone) > 0) //check email
+	elseif(mysqli_num_rows($check_celphone) > 100) //check email
      {
     	$message = 'Celphone Number already exists!';
      }
 	else{
-       
-	 //inserting values into db
-	  $mql = "INSERT INTO users
-  (username, f_name, l_name, email, phone, password, address, district, municipality, provice, sex, alt_person, alt_number, network, organization_structure, organization_name, nationality) 
+
+
+  $agent_email=$_POST['email'];
+  $agent_name=$_POST['firstname'];
+
+    if ( true ) {
+      include("./agent_welcome_mail.php");
+    }
+
+  $mql = "INSERT INTO users
+  (username, f_name, l_name, email, phone, age, password, address, ward, district, municipality, provice, sex, race, gender, alt_person,
+  alt_number, network, organization_structure, organization_name, network_type, nationality)
   VALUES
-  ('".$_POST['username']."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['email']."', '".$_POST['phone']."', '".md5($_POST['password'])."', '".$_POST['address']."' ,'".$_POST['List2']."', '".$_POST['List3']."' ,'".$_POST['List1']."', '".$_POST['sex']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', 'C', 'Community Member', 'Community Member', '".$_POST['nationality']."')";
+  ('".$_POST['username']."', '".$_POST['firstname']."', '".$_POST['lastname']."', '".$_POST['email']."', '".$_POST['phone']."', '".$_POST['age']."',
+  '".md5($_POST['password'])."', '".$_POST['address']."' ,'".$_POST['ward']."' , '".$_POST['List2']."', '".$_POST['List3']."' ,'".$_POST['List1']."', '".$_POST['sex']."',
+  '".$_POST['race']."', '".$_POST['gender']."', '".$_POST['alt_person']."', '".$_POST['alt_number']."', 'C', 'Community Member', 'Community Member', 'Community Member',
+  '".$_POST['nationality']."')";
   
   mysqli_query($db, $mql);
 
@@ -125,10 +138,14 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
                   <ul>
                      <li>
                       <a href="#" class="active">
-                        <span style="color:red;"><?php echo $message; ?></span>
-					              <span style="color:green;">
-                          <?php echo $success; ?>
-										    </span>
+                      <?php  if(!empty($message)){ ?>
+                        <span style="color:red;">
+                            <?php echo $message; ?>
+                        <?php  } ?>
+                        </span>
+					    <span style="color:green;">
+                            <?php echo $success; ?>
+						</span>
                       </a>
                     </li> 
                   </ul>

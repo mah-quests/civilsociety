@@ -1,3 +1,9 @@
+<?php
+include("../connection/connect.php");
+error_reporting(0);
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Thusa Sechaba">
+    <meta name="author" content="Thusa Sechaba">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/login.png">
-    <title>Thusa Sechaba Administration</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/black-covid-logo.png">
+    <title>ThusaSechaba Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -32,6 +38,11 @@
       width: 100%;
       color: black;
       text-align: center ;
+    }
+
+    body, head, p, div{
+        font: normal 16px "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 300;
     }
     </style> 
 
@@ -59,6 +70,7 @@
                         </span>
                     </a>
                 </div>
+
                 <!-- End Logo -->
                 <div class="navbar-collapse">
                     <!-- toggle and nav items -->
@@ -113,8 +125,13 @@
         <!-- Left Sidebar  -->
         <div class="left-sidebar">
             <!-- Sidebar scroll-->
+
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
+
+
+<!-- Users [admin, m-n-e, mabalane, nhlanhla] -->
+<?php if($_SESSION["adm_id"] == "6" || $_SESSION["adm_id"] == "11" || $_SESSION["adm_id"] == "10" || $_SESSION["adm_id"] == "9" || $_SESSION["adm_id"] == "15" || $_SESSION["adm_id"] == "16" || $_SESSION["adm_id"] == "17" ){ ?>
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider">
@@ -127,39 +144,58 @@
                         <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="showDashHouseholdStats.php">
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="showDashLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="showDashRequestsOverview.php">
                                     Household Stats Overview
                                     </a>
                                 </li>                                
                                 <li>
-                                    <a href="dashboard.php">
-                                    Agents & Community<br> Representatives
+                                    <a href="showDashAgents.php">
+                                    Social mobilisation
                                     </a>
-                                </li>                            
-                                <li>
-                                    <a href="dashboard.php">
-                                    App Usage
-                                    </a>
-                                </li> 
-                                <li>
-                                    <a href="dashboard.php">
-                                    Support Requests
-                                    </a>
-                                </li>                                
-                                <li>
-                                    <a href="dashboard.php">
-                                        Incedent Management
-                                    </a>
-                                </li>                                
-                                <li>
-                                    <a href="dashboard.php">
-                                        Field-Agents Usage</a>
-                                </li>                                
-                                <li>
-                                    <a href="dashboard.php">
-                                    Stock Management</a>
                                 </li>
-                                
+                                <li>
+                                    <a href="showDashCallCenter.php">
+                                        Call Center Agents</a>
+                                </li>
+                                <li>
+                                    <a href="showDashHumanRights.php">
+                                        Human Rights</a>
+                                </li>               
+                                <li>
+                                    <a href="showDashAdvocacy.php">
+                                    Advocacy
+                                    </a>
+                                </li>                               
+                                <li>
+                                    <a href="showDashCommunications.php">
+                                        Communications & <br>Public awareness
+                                    </a>
+                                </li>                              
+                                <li>
+                                    <a href="showTraceAndScreening.php      ">
+                                        Contact tracing & <br>Screening
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="doShowAllRequests.php">
+                                        All Requests
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="doShowAllAdminLogins.php">
+                                        Admin Logins
+                                    </a>
+                                </li>
                             </ul> 
                                                                                                               
                         </li>
@@ -167,38 +203,243 @@
                         <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">User Support</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="doShowAgents.php">All Users</a></li>
-                                <li><a href="add_users.php">Add Users</a></li>
-                                
-                               
                             </ul>
                         </li>
-<!--
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Store</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Requests</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="allrestraunt.php">All Stores</a></li>
-                                <li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restraunt.php">Add Restaurant</a></li>
-                                
+                                <li><a href="doShowAllRequests.php">All Requests</a></li>
                             </ul>
                         </li>
-                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
+
+                        <li class="nav-label">Special Projects</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Solidarity Fund</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="all_menu.php">All Menues</a></li>
-                                <li><a href="add_menu.php">Add Menu</a></li>
-                              
-                                
+                                <li><a href="sp-dashboard.php">Overall Dashboard</a></li>
                             </ul>
-                        </li>
--->
-                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Requests</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="all_orders.php">All Requests</a></li>
-                                  
+                                <li><a href="#">Live Dash</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Human Rights</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Advocacy</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
                             </ul>
                         </li>
-                         
+
                     </ul>
                 </nav>
+<?php } ?>                
+<!-- Users [admin, m-n-e, mabalane, nhlanhla] -->
+
+<!-- Users [advocacy] -->
+<?php if($_SESSION["adm_id"] == "12"){ ?>
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider">
+                            <br><br><br><br>
+                        </li>
+                        <li class="nav-label">
+                            <br>
+                            <br>
+                        </li>
+                        <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>                             
+                            <ul aria-expanded="false" class="collapse">                           
+                                <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="showDashLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="showDashRequestsOverview.php">
+                                    Household Stats Overview
+                                    </a>
+                                </li>              
+                                <li>
+                                    <a href="#">
+                                    Advocacy
+                                    </a>
+                                </li>
+                            </ul> 
+                        </li>
+
+                        <li class="nav-label">Special Projects</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Solidarity Fund</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-dashboard.php">Overall Dashboard</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Live Dash</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Human Rights</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Advocacy</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+<?php } ?>    
+<!-- Users [advocacy] -->
+
+<!-- Users [social-mobilization] -->
+<?php if($_SESSION["adm_id"] == "13"){ ?>
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider">
+                            <br><br><br><br>
+                        </li>
+                        <li class="nav-label">
+                            <br>
+                            <br>
+                        </li>
+                        <li> <a class="has-arrow  " href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="showDashLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li>                            
+                                <li>
+                                    <a href="showDashAgents.php">
+                                    Social mobilisation
+                                    </a>
+                                </li>
+                            </ul> 
+                        </li>
+
+                        <li class="nav-label">Special Projects</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Solidarity Fund</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-dashboard.php">Overall Dashboard</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Live Dash</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Human Rights</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Advocacy</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+<?php } ?>   
+<!-- Users [social-mobilization] -->
+
+<!-- Users [human-rights] -->
+<?php if($_SESSION["adm_id"] == "14"){ ?>
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider">
+                            <br><br><br><br>
+                        </li>
+                        <li class="nav-label">
+                            <br>
+                            <br>
+                        </li>
+                        <li> <a class="has-arrow" href="dashboard.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="showDashTasksAssignment.php">
+                                    Progress Reporting
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="showDashLiveStats.php">
+                                    Live & Recent Stats
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="showDashHumanRights.php">
+                                        Human Rights</a>
+                                </li>                           
+                            </ul>            
+                        </li>
+
+                        <li class="nav-label">Special Projects</li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Solidarity Fund</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-dashboard.php">Overall Dashboard</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Live Dash</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashAgents.php">Social Mobalisation</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashCallCenter.php">Call Center Agents</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Human Rights</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Advocacy</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showDashComms.php">Communications & <br>Public Awareness</a></li>
+                            </ul>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="sp-showTraceAndScreening.php">Contact tracing & <br> Screening</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+<?php } ?>   
+<!-- Users [human-rights] -->
+
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->

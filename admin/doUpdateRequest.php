@@ -1,184 +1,332 @@
 <?php
 
-session_start();
-error_reporting(0);
 include("../connection/connect.php");
+error_reporting(0);
+session_start();
 
-if(isset($_POST['submit'] ))
+
+  $usersOrders=mysqli_query($db,"select * FROM users_orders where o_id='".$_GET['form_id']."'");
+
+  while($ro=mysqli_fetch_array($usersOrders)) {
+
+  $unique_code = $ro['unique_code'];
+  $rowID=$ro['o_id'];
+  $link_to_url =" 
+
+
+  To view the requestion. Click here:
+  http://thusasechaba.org.za/admin/guestViewRequestDetails.php?user_upd=$rowID ";
+
+  }
+
+  $adminUsers=mysqli_query($db,"SELECT * FROM admin where adm_id='".$_SESSION["adm_id"]."'");
+
+  while($row=mysqli_fetch_array($adminUsers)) {
+
+  $adm_id = $row['adm_id'];
+  $username = $row['username'];
+  $assigned_stream=$_POST['assigned_stream'];
+
+  }
+
+  if(isset($_POST['update']))
+  {
+  
+  $form_id=$_GET['form_id'];
+  $status=$_POST['status'];
+  $remark=$username.' initiated a request for '.$assigned_stream.' stream attention.';
+  $remark.=
+'
+
+'.$_POST['remark'];
+  $heads=$_POST['heads'];
+  $advocacy=$_POST['advocacy'];
+  $mobilization=$_POST['mobilization'];
+  $humanright=$_POST['humanright'];
+  $media=$_POST['media'];
+  $administration=$_POST['administration'];
+  $database=$_POST['database'];
+  $comms=$_POST['comms'];
+  $screen=$_POST['screen'];
+  $mne=$_POST['mne'];
+  $it=$_POST['it'];
+  $access_to_food=$_POST['access_to_food'];
+  $job=$_POST['job'];
+  $electricity=$_POST['electricity'];
+  $medication=$_POST['medication'];
+  $identity_documents=$_POST['identity_documents'];
+  $clothes_blankes=$_POST['clothes_blankes'];
+  $data_internet=$_POST['data_internet'];
+
+
+  $query=mysqli_query($db,"insert into remark
+                    (frm_id,status,remark)
+                    values
+                    ('$form_id','$status','$remark')"
+                    );
+
+  $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
+
+
+  $query=mysqli_query($db,"insert into assigned_tasks
+                    (assigned_stream, assigned_by, assigned_by_id, unique_code, notes_made, access_to_food,
+                    job, electricity, medication, identity_documents, clothes_blankes, data_internet)
+                    values
+                    ('$assigned_stream','$username','$adm_id','$unique_code','$remark', '$access_to_food','$job',
+                    '$electricity','$medication','$identity_documents','$clothes_blankes','$data_internet')"
+                    );
+
+//Send email notification
+
+  if ( $heads == "yes") {
+    include("./emails/heads_mail.php");
+  }
+
+  if ( $advocacy == "yes" || $assigned_stream == "advocacy" ) {
+    include("./emails/advocacy_mail.php");
+  }
+
+  if ( $mobilization == "yes" || $assigned_stream == "mobilization" ) {
+    include("./emails/mobilization_mail.php");
+  }        
+
+  if ( $humanright == "yes" || $assigned_stream == "humanright" ) {
+    include("./emails/humanright_mail.php");
+  }
+
+  if ( $media == "yes" || $assigned_stream == "comms" ) {
+    include("./emails/media_mail.php");
+  }
+
+  if ( $it == "yes" || $assigned_stream == "it" ) {
+    include("./emails/it_mail.php");
+  }   
+
+  if ( $administration == "yes" ) {
+    include("./emails/administration_mail.php");
+  } 
+
+  if ( $database == "yes" ) {
+    include("./emails/database_mail.php");
+  }   
+
+  if ( $comms == "yes" || $assigned_stream == "comms" ) {
+    include("./emails/comms_mail.php");
+  }
+
+  if ( $screen == "yes" ) {
+    include("./emails/screen_mail.php");
+  }  
+
+  if ( $mne == "yes" ) {
+    include("./emails/mne_mail.php");
+  }     
+
+  echo "<script>alert('Successfully updated request details');</script>";
+
+  }
+
+ ?>
+<script language="javascript" type="text/javascript">
+function f2()
 {
-    if(empty($_POST['uname']) ||
-   	    empty($_POST['fname'])|| 
-		empty($_POST['lname']) ||  
-		empty($_POST['email'])||
-		empty($_POST['password'])||
-		empty($_POST['phone']))
-		{
-			$error = '<div class="alert alert-danger alert-dismissible fade show">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<strong>All fields Required!</strong>
-						</div>';
-		}
-	else
-	{
-		
+window.close();
+}ser
+function f3()
+{
+window.print(); 
+}
+</script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Thusa Sechaba">
+    <meta name="author" content="Thusa Sechaba">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/black-covid-logo.png">
+    <title>View Request Details</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/helper.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
-    {
-       	$error = '<div class="alert alert-danger alert-dismissible fade show">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<strong>invalid email!</strong>
-				</div>';
-    }
-	elseif(strlen($_POST['password']) < 6)
-	{
-		$error = '<div class="alert alert-danger alert-dismissible fade show">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<strong>Password must be >=6!</strong>
-				</div>';
-	}
-	
-	elseif(strlen($_POST['phone']) < 10)
-	{
-		$error = '<div class="alert alert-danger alert-dismissible fade show">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<strong>invalid phone!</strong>
-				</div>';
-	}
-	
-	else{
-       
-	
-	$mql = "update 
-            users set 
-                username='$_POST[uname]', 
-                f_name='$_POST[fname]', 
-                l_name='$_POST[lname]',
-                email='$_POST[email]',
-                phone='$_POST[phone]',
-                password='".md5($_POST[password])."' 
+<style type="text/css" rel="stylesheet">
 
-            where u_id='$_GET[user_upd]' ";
-            
-	mysqli_query($db, $mql);
-			$success = 	'<div class="alert alert-success alert-dismissible fade show">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<strong>User Updated!</strong>
-                    </div>';
-	
-        }
+
+.indent-small {
+  margin-left: 5px;
+}
+.form-group.internal {
+  margin-bottom: 0;
+}
+.dialog-panel {
+  margin: 10px;
+}
+.datepicker-dropdown {
+  z-index: 200 !important;
+}
+.panel-body {
+  background: #e5e5e5;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #e5e5e5 0%, #ffffff 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  font: 600 15px "Open Sans", Arial, sans-serif;
+}
+label.control-label {
+  font-weight: 600;
+  color: #777;
+}
+
+
+table { 
+	width: 650px; 
+	border-collapse: collapse; 
+	margin: auto;
+	margin-top:50px;
 	}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+	}
+
+th { 
+	background: #004684; 
+	color: white; 
+	font-weight: bold; 
+	}
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 14px;
+	}
+
+	</style>
+</head>
+
+<body>
+
+<div style="margin-left:50px;">
+ <form name="updateticket" id="updatecomplaint" method="post"> 
+ 
+<?php 
+
+  $usersOrders=mysqli_query($db,"select * FROM users_orders where o_id='".$_GET['form_id']."'");
+
+  while($ro=mysqli_fetch_array($usersOrders)) {
+
+  $unique_code = $ro['unique_code'];
 
 }
 
-include 'header_admin.php';
 ?>
 
-        <!-- Page wrapper  -->
-        <div class="page-wrapper">
-            <!-- Bread crumb -->
-            <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">User Menu</h3> </div>
-               
-            </div>
-            <!-- End Bread crumb -->
-            <!-- Container fluid  -->
-            <div class="container-fluid">
-                <!-- Start Page Content -->
-                 <div class="row">
-				
-				 <div class="container-fluid">
-                <!-- Start Page Content -->
-                  
-	<?php  
-		echo $error;
-		echo $success; 
-		echo var_dump($_POST);
-											
-	?>
-									
-								
-    <div class="col-lg-12">
-    <div class="card card-outline-primary">
-        <div class="card-header">
-            <h4 class="m-b-0 text-white">Update Request Details</h4>
-        </div>
-        <div class="card-body">
-			<?php $ssql ="select * from request_by_partner where unique_code='$_GET[user_upd]'";
-			$res=mysqli_query($db, $ssql); 
-			$newrow=mysqli_fetch_array($res);?>
-            <form action='' method='post'  >
-                <div class="form-body">
-            <hr>
-            <div class="row p-t-20">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">Username</label>
-                        <input type="text" name="uname" class="form-control" value="<?php  echo $newrow['username']; ?>" placeholder="username">
-                       </div>
-                </div>
-                <!--/span-->
-                <div class="col-md-6">
-                    <div class="form-group has-danger">
-                        <label class="control-label">First-Name</label>
-                        <input type="text" name="fname" class="form-control form-control-danger"  value="<?php  echo $newrow['f_name'];  ?>" placeholder="jon">
-                        </div>
-                </div>
-                <!--/span-->
-            </div>
-            <!--/row-->
-            <div class="row p-t-20">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">Last-Name </label>
-                        <input type="text" name="lname" class="form-control" placeholder="doe"  value="<?php  echo $newrow['l_name']; ?>">
-                       </div>
-                </div>
-                <!--/span-->
-                <div class="col-md-6">
-                    <div class="form-group has-danger">
-                        <label class="control-label">Email</label>
-                        <input type="text" name="email" class="form-control form-control-danger"  value="<?php  echo $newrow['email'];  ?>" placeholder="example@gmail.com">
-                        </div>
-                </div>
-                <!--/span-->
-            </div>
-            <!--/row-->
-			 <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">Password</label>
-                        <input type="text" name="password" class="form-control form-control-danger"   value="<?php  echo $newrow['password'];  ?>" placeholder="password">
-                        </div>
-                    </div>
-            
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">Phone</label>
-                        <input type="text" name="phone" class="form-control form-control-danger"   value="<?php  echo $newrow['phone'];  ?>" placeholder="phone">
-                        </div>
-                    </div>
-                </div>
-                <!--/span-->
-                
-          
-                <!--/span-->
-            </div>
-        </div>
-                    <div class="form-actions">
-                        <input type="submit" name="submit" class="btn btn-success" value="save"> 
-                        <a href="dashboard.php" class="btn btn-inverse">Cancel</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-				
-                </div>
-                <!-- End PAge Content -->
-            </div>
-            <!-- End Container fluid  -->
 
-<?php
-include 'footer.php';
-?>
+<table  border="0" cellspacing="0" cellpadding="0">
+    <tr >
+      <td><b>Unique Form Number</b></td>
+      <td><?php echo htmlentities($_GET['form_id']); ?></td>
+    </tr>
+	 <tr>
+      <td>Reference Number</td>
+      <td ><?php echo $unique_code; ?></td>
+    </tr>
+   
+    <tr >
+      <td><b>Status</b></td>
+      <td>
+        <select name="status" required="required" >
+          <option value="">Select Status</option>
+          <option value="in process">In Progress</option>
+          <option value="closed">Closed</option>
+	         <option value="rejected">Rejected</option>
+        </select>
+      </td>
+    </tr>
+
+      <tr >
+      <td><b>Comments from M&E or Stream head</b></td>
+      <td><textarea name="remark" cols="50" rows="10" required="required"></textarea></td>
+    </tr>
+
+    <tr >
+      <td><b>Summary of Need</b></td>
+      <td>
+        <p>
+            <label><input type="checkbox" name="access_to_food" value="yes" /> Access to food</label>
+            <label><input type="checkbox" name="job" value="yes" /> Job Opportunities</label>
+            <label><input type="checkbox" name="electricity" value="yes" /> Electricity Connection</label> <br>
+            <label><input type="checkbox" name="medication" value="yes" /> Medical Attention</label>
+            <label><input type="checkbox" name="identity_documents" value="yes" /> Identity Documents</label>
+            <label><input type="checkbox" name="clothes_blankes" value="yes" /> Access to Clothing and Blankets</label><br>
+            <label><input type="checkbox" name="data_internet" value="yes" /> Access to Internet</label>
+        </p>
+      </td>
+    </tr>
+
+    <tr >
+      <td><b>Assign Request to a Stream</b></td>
+      <td>
+        <select name="assigned_stream" required="required" >
+          <option value="">Select Stream</option>
+          <option value="mobilization">Social Mobilization</option>
+          <option value="humanright">Human Rights</option>
+	      <option value="advocacy">Advocacy</option>
+	      <option value="comms">Communications</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr >
+      <td><b>Email Notification</b></td>
+      <td>
+        <p>
+
+            <label><input type="checkbox" name="mobilization" value="yes" /> Social Mobilization</label>
+            <label><input type="checkbox" name="humanright" value="yes" /> Human Rights</label>
+            <label><input type="checkbox" name="it" value="yes" /> IT</label> <br>
+            <label><input type="checkbox" name="mne" value="yes" /> Monitoring and Evaluation</label>            
+            <label><input type="checkbox" name="media" value="yes" /> Media</label>
+            <label><input type="checkbox" name="advocacy" value="yes" /> Advocacy</label><br>           
+            <label><input type="checkbox" name="administration" value="yes" /> Administration</label>
+            <label><input type="checkbox" name="database" value="yes" /> Database</label>
+            <label><input type="checkbox" name="comms" value="yes" /> Comms Team</label>
+            <label><input type="checkbox" name="screen" value="yes" /> Screen and Tracing</label> 
+                               
+        </p>
+      </td>
+    </tr>    
+
+    <tr align="center">
+      <td>
+      <td><input type="submit" name="update"  class="btn btn-primary" value="Submit">
+	   
+      <input name="Submit2" type="submit"  class="btn btn-danger"  value="Close" onClick="return f2();" style="cursor: pointer;"  />
+    </td>
+    </tr>
+</table>
+ </form>
+
+
+</div>
+
+</body>
+</html>

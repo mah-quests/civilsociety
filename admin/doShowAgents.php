@@ -43,7 +43,7 @@ session_start();
                                            
 											
         <?php
-            $sql="SELECT * FROM users order by date desc";
+            $sql="SELECT * FROM users";
             $query=mysqli_query($db,$sql);
 
                 if(!mysqli_num_rows($query) > 0 )

@@ -32,7 +32,7 @@ session_start();
         ]);
 
         // Set options for Sarah's pie chart.
-        var options = {title:'Total Number of household people: <?php echo $actualDisabilities ?>',
+        var options = {title:'Total number of people with disabilities: <?php echo $actualDisabilities ?>',
                        width:600,
                        height:600};
 

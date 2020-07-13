@@ -10,12 +10,18 @@ session_start();
 
 <head>
     <meta charset="utf-8">
+    <meta property="og:title" content="Thusa Sechaba Web Application" />
+    <meta property="og:url" content="https://www.thusasechaba.org.za/" />
+    <meta property="og:description" content="Thusa Sechaba Web Application">
+    <meta property="og:image" sizes="32x32" content="images/color-covid-logo.png">
+    <meta property="og:type" content="thusasechaba" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/color-covid-logo.png">    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/login.png">
+    <meta name="description" content="Thusa Sechaba, Thusa Sechaba Web App, ThusaSechaba, Thusa, Sechaba, COVID-19 Front, Civil Society, Civil, Society">
+    <meta name="author" content="Community Constituency Covid-19 Front">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/black-covid-logo.png" alt="Thusa Sechaba Logo">
     <title>Thusa Sechaba Web Application</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +45,7 @@ session_start();
       background-size: cover;
 
       /* Here's the same styles we applied to our content-div earlier */
-      color: white;
+      color: black;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -129,12 +135,9 @@ session_start();
 </style>
 
 <script type="text/javascript">
-// From: http://www.codingforums.com/showthread.php?t=202456
-// and: http://www.codingforums.com/showthread.php?t=169465
-// Modified for 1 to 4 (+) level drop down selections
 
 var categories = [];
-  categories["startList"] = ["Western Cape","Eastern Cape",'Northern Cape','North West','Free State','Kwazulu Natal','Gauteng','Limpopo','Mpumlanga'];        // Level 1  (True|False is 1 level only)
+  categories["startList"] = ["Western Cape","Eastern Cape",'Northern Cape','North West','Free State','Kwazulu Natal','Gauteng','Limpopo','Mpumalanga'];        // Level 1  (True|False is 1 level only)
 
 categories["Western Cape"] = ["Cape Winelands District Municipality","Central Karoo District Municipality","Garden Route District Municipality","Overberg District Municipality","West Coast District Municipality","City of Cape Town Metropolitan"];                         
 // Level 2
@@ -143,19 +146,18 @@ categories["Western Cape"] = ["Cape Winelands District Municipality","Central Ka
   categories["Garden Route District Municipality"] = ["Kannaland","Hessequa","Mossel Bay","George","Oudtshoorn","Bitou","Knysna"];
   categories["Overberg District Municipality"] = ["Theewaterskloof","Overstrand Cape","Agulhas","Swellendam"];
   categories["West Coast District Municipality"] = ["Matzikama","Cederberg","Bergrivier","Saldanha Bay","Swartland"];
-  categories["City of Cape Town Metropolitan"] = ["City of Cape Town"]; 
-    
+  categories["City of Cape Town Metropolitan"] = ["City of Cape Town"];
 
-categories["Eastern Cape"] = ["Alfred Nzo District Municipality","Amathole District Municipality","Chris Hani District Municipality","Joe Gqabi District Municipality","OR Tambo District Municipality","Sarah Baartman District Municipality", "Buffalo City Metropolitan"];      // Level 2
+categories["Eastern Cape"] = ["Alfred Nzo District Municipality","Amathole District Municipality","Chris Hani District Municipality","Joe Gqabi District Municipality","OR Tambo District Municipality","Sarah Baartman District Municipality", "Nelson Mandela Bay Metropolitan", "Buffalo City Metropolitan"];      // Level 2
   categories["Alfred Nzo District Municipality"] = ["Matatiele","Mbizana","Ntabankulu","Umzimvubu"];  // Level 3 only
   categories["Amathole District Municipality"] = ["Mnquma","Mbhashe","Amahlathi","Ngqushwa","Great Kei","Raymond Mhlaba"];                    // Level 3 only
   categories["Chris Hani District Municipality"] = ["Intsika Yethu","Enoch Mgijima","Engcobo","Emalahleni","Inxuba Yethemba","Sakhisizwe"];
   categories["Joe Gqabi District Municipality"] = ["Elundini","Senqu","Walter Sisulu"];  // Level 3 only
   categories["OR Tambo District Municipality"] = ["King Sabata Dalindyebo Local Municipality","Nyandeni","Ngquza Hill","Mhlontlo","Port St Johns"];                    // Level 3 only
   categories["Sarah Baartman District Municipality"] = ["Blue Crane Route","Dr Beyers Naudé","Kou-Kamma","Kouga","Makana","Ndlambe","Sunday's River Valley"];
-  categories["Buffalo City Metropolitan"] = ["Buffalo City"];  
+  categories["Buffalo City Metropolitan"] = ["Buffalo City"];
+  categories["Nelson Mandela Bay Metropolitan"] = ["Nelson Mandela Bay Municipality"];
 
-  
 categories["Northern Cape"] = ["Frances Baard District Municipality","John Taolo Gaetsewe District Municipality","Namakwa District Municipality","Pixley ka Seme District Municipality","ZF Mgcawu District Municipality"];
   categories["Frances Baard District Municipality"] = ["Sol Plaatje","Dikgatlong","Magareng","Phokwane"];     
   categories["John Taolo Gaetsewe District Municipality"] = ["Joe Morolong","Ga-Segonyana","Gamagara"];   
@@ -163,23 +165,24 @@ categories["Northern Cape"] = ["Frances Baard District Municipality","John Taolo
   categories["Pixley ka Seme District Municipality"] = ["Ubuntu","Umsobomvu","Emthanjeni","Kareeberg","Renosterberg","Thembelihle","Siyathemba","Siyancuma"];
   categories["ZF Mgcawu District Municipality"] = ["Dawid Kruiper","Kai ǃGarib","ǃKheis","Tsantsabane","Kgatelopele"];   
 
-    
 categories["North West"] = ["Bojanala Platinum","Ngaka Modiri Molema","Dr Ruth Segomotsi Mompati","Dr Kenneth Kaunda"];
   categories["Bojanala Platinum"] = ["Moretele","Madibeng","Rustenburg","Kgetlengrivier","Moses Kotane"];         
   categories["Ngaka Modiri Molema"] = ["Ratlou","Tswaing","Mahikeng","Ditsobotla","Ramotshere"];       
   categories["Dr Ruth Segomotsi Mompati"] = ["Naledi","Mamusa","Greater Taung","Lekwa-Teemane","Kagisano-Molopo"];  
   categories["Dr Kenneth Kaunda"] = ["JB Marks","Matlosana","Maquassi Hills"];     
 
-categories["Free State"] = ["Fezile Dabi District","Lejweleputswa District","Thabo Mofutsanyana District","Xhariep District"];
+categories["Free State"] = ["Mangaung Metropolitan","Fezile Dabi District","Lejweleputswa District","Thabo Mofutsanyana District","Xhariep District"];
+  categories["Mangaung Metropolitan"] = ["Mangaung Metropolitan Municipality"]; 
   categories["Fezile Dabi District"] = ["Moqhaka","Ngwathe","Metsimaholo","Mafube"];         
   categories["Lejweleputswa District"] = ["Masilonyana","Tokologo","Tswelopele","Matjhabeng","Nala"];       
   categories["Thabo Mofutsanyana District"] = ["Setsoto","Dihlabeng","Nketoana","Maluti-a-Phofung","Phumelela","Mantsopa"];  
   categories["Xhariep District"] = ["Letsemeng","Kopanong","Mohokare","Naledi"];  
 
-categories["Kwazulu Natal"] = ["Amajuba District Municipality","Harry Gwala District Municipality","iLembe District Municipality","King Cetshwayo District Municipality ","Ugu District Municipality","uMgungundlovu District Municipality","uMkhanyakude District Municipality","uMzinyathi District Municipality","uThukela District Municipality","Zululand District Municipality","eThekwini Metropolitan"];
+categories["Kwazulu Natal"] = ["Amajuba District Municipality","Harry Gwala District Municipality","iLembe District Municipality","King Cetshwayo District Municipality","Ugu District Municipality","uMgungundlovu District Municipality","uMkhanyakude District Municipality","uMzinyathi District Municipality","uThukela District Municipality","Zululand District Municipality","eThekwini Metropolitan"];
   categories["Amajuba District Municipality"] = ["Dannhauser","eMadlangeni","Newcastle"];           
   categories["Harry Gwala District Municipality"] = ["Dr Nkosazana Dlamini-Zuma","Greater Kokstad","Ubuhlebezwe","Umzimkhulu"];     
-  categories["iLembe District Municipality"] = ["KwaDukuza","Mandeni","Maphumulo","Ndwedwe"];           
+  categories["iLembe District Municipality"] = ["KwaDukuza","Mandeni","Maphumulo","Ndwedwe"];
+  categories["King Cetshwayo District Municipality"] = ["City of uMhlathuze","Mthonjaneni","Nkandla","uMfolozi","uMlalazi"];
   categories["Ugu District Municipality"] = ["Ray Nkonyeni","uMdoni","uMuziwabantu","Umzumbe","Vulamehlo"];           
   categories["uMgungundlovu District Municipality"] = ["Impendle","Mkhambathini","Mpofana","Msunduzi","Richmond","uMngeni","uMshwathi"];        
   categories["uMkhanyakude District Municipality"] = ["Big Five Hlabisa","Jozini","Mtubatuba","uMhlabuyalingana"];    
@@ -202,7 +205,7 @@ categories["Limpopo"] = ["Capricorn District Municipality","Mopani District Muni
   categories["Vhembe District Municipality"] = ["Collins Chabane","Makhado","Musina","Thulamela"];   
   categories["Waterberg District Municipality"] = ["Bela-Bela","Lephalale","Mogalakwena","Mookgophong/Modimolle","Thabazimbi"];  
 
-categories["Mpumlanga"] = ["Gert Sibande","Nkangala","Ehlanzeni"];
+categories["Mpumalanga"] = ["Gert Sibande","Nkangala","Ehlanzeni"];
   categories["Gert Sibande"] = ["Albert Luthuli","Msukaligwa","Mkhondo","Pixley ka Seme","Lekwa","Dipaleseng","Govan Mbeki"];         
   categories["Nkangala"] = ["Victor Khanye","Emalahleni","Steve Tshwete","Emakhazeni","Thembisile Hani","Dr JS Moroka"];        
   categories["Ehlanzeni"] = ["Thaba Chweu","Mbombela","Umjindi","Nkomazi","Bushbuckridge"]; 
@@ -249,30 +252,31 @@ navigator.appName == "Microsoft Internet Explorer"
 
 </script>
 
-  
+
 </head>
 
 <body>
+
     <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
         <!--header starts-->
         <header id="header" class="header-scroll top-header headrom">
             <!-- .navbar -->
             <nav class="navbar navbar-dark">
                 <div class="container">                    
-                    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">&#9776;                      
+                    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">&#9776;
                     </button>
-                    <a class="navbar-brand" href="index.php"> 
-                        <img alt="LOGO" width="167" height="48" src="images/covid-logo.png" alt="COVID-19 Front Civil Society Response Team"> 
+                    <a class="navbar-brand" href="index.php">
+                        <img alt="LOGO" width="450" height="110" src="images/covid-logo.png" alt="Thusa Sechaba">
                     </a>  
                             <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                                 <ul class="nav navbar-nav">
                                     <li class="nav-item"> 
-                                        <a class="nav-link active" href="index.php">Home 
+                                        <a class="nav-link active" href="index.php"><b>Home</b>
                                             <span class="sr-only">(current)</span>
                                         </a> 
                                     </li> 
                                     <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Covid-19 Front<br> Partners</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><b>Covid-19 Front<br> Partners</b></a>
                                         <div class="dropdown-menu">
                                             <a href="doPartnerReg.php" class="dropdown-item">
                                                 Register Covid-19 Front User
@@ -288,7 +292,7 @@ navigator.appName == "Microsoft Internet Explorer"
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Civil Society <br>Organisation</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><b>Civil Society <br>Organisation</b></a>
                                         <div class="dropdown-menu"> 
                                             <a href="doCSOReg.php" class="dropdown-item">
                                                 Register Civil Society User
@@ -308,19 +312,19 @@ navigator.appName == "Microsoft Internet Explorer"
 						if(empty($_SESSION["user_id"]))
 							{
 							echo '  <li class="nav-item">
-                                        <a href="login.php" class="nav-link active"> Login
+                                        <a href="login.php" class="nav-link active"><b> Login </b>
                                         </a> 
                                     </li>
                                     <li class="nav-item">
-                                        <a href="doCommunityReg.php" class="nav-link active"> Community Member Registration
-                                        </a> 
+                                        <a href="doCommunityReg.php" class="nav-link active">Community Member <br>Registration
+                                        </a>
                                     </li>';
 							}
 						else
 							{
                             echo '<li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                            Community Resources
+                                            Community <br>Resources
                                         </a>
                                         <div class="dropdown-menu">
                                             <a href="doCommunityReg.php" class="dropdown-item">
@@ -351,8 +355,21 @@ navigator.appName == "Microsoft Internet Explorer"
 							 
                         </ul>
                     </div>
+
                 </div>
+    <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div>
             </nav>
+</div>
+
+
             <!-- /.navbar -->
         </header>
         

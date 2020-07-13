@@ -6,7 +6,7 @@
    
   <!--Bootsrap 4 CDN-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+    <link rel="icon" type="image/png" sizes="32x32" href="images/black-covid-logo.png">    
     <!--Fontawesome CDN-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
@@ -32,20 +32,21 @@ if(isset($_POST['submit']))   // if button is submit
   if(!empty($_POST["submit"]))   // if records were not empty
      {
     $loginquery ="SELECT * FROM users WHERE username='$username' && password='".md5($password)."'"; //selecting matching records
-    
+
     $result=mysqli_query($db, $loginquery); //executing
     $row=mysqli_fetch_array($result);
   
     if(is_array($row))  // if matching records in the array & if everything is right
       {
         $_SESSION["user_id"] = $row['u_id']; // put user id into temp session
+        $_SESSION["project"] = $row['project']; // put assigned project into temp project variable
         $success = "Login Successful!";
         header("refresh:1;url=index.php"); // redirect to index.php page
-          } 
+        }
       else
       {
         $message = "Username and Password combination doesn't match!"; // throw error
-            }
+      }
    }
 
 }
@@ -149,9 +150,8 @@ if(isset($_POST['submit']))   // if button is submit
   <div class="d-flex justify-content-center h-100">
     <div class="card">
       <div class="card-header" align="center">
-        <h3 align="center">User Log In</h3>
           <a class="navbar-brand" href="index.php"> 
-              <img align="center" width="200" height="52" src="images/img/logo-login-page.png" alt="COVID-19 Front"> 
+              <img align="center" width="400" height="90" src="images/img/logo-login-page.png" alt="COVID-19 Front">
           </a>         
         <div >
         </div>
@@ -186,7 +186,7 @@ if(isset($_POST['submit']))   // if button is submit
       </div>
       <div class="card-footer">
         <div class="d-flex justify-content-center links">
-          Don't have an account?<a href="doCommunityReg.php"> Sign Up </a><br>
+          Don't have an account?<a href="doPartnerReg.php"> Sign Up </a><br>
         </div>
         <div class="d-flex justify-content-center">
           <a href="doResetPassword.php">Forgot your password?</a>
