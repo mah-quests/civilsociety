@@ -39,6 +39,7 @@ if(isset($_POST['submit']))   // if button is submit
     if(is_array($row))  // if matching records in the array & if everything is right
       {
         $_SESSION["user_id"] = $row['u_id']; // put user id into temp session
+        $_SESSION["project"] = $row['project']; // put assigned project into temp project variable
         $success = "Login Successful!";
         header("refresh:1;url=index.php"); // redirect to index.php page
         }
@@ -149,9 +150,8 @@ if(isset($_POST['submit']))   // if button is submit
   <div class="d-flex justify-content-center h-100">
     <div class="card">
       <div class="card-header" align="center">
-        <h3 align="center">User Log In</h3>
           <a class="navbar-brand" href="index.php"> 
-              <img align="center" width="200" height="52" src="images/img/logo-login-page.png" alt="COVID-19 Front"> 
+              <img align="center" width="400" height="90" src="images/img/logo-login-page.png" alt="COVID-19 Front">
           </a>         
         <div >
         </div>
@@ -186,7 +186,7 @@ if(isset($_POST['submit']))   // if button is submit
       </div>
       <div class="card-footer">
         <div class="d-flex justify-content-center links">
-          Don't have an account?<a href="doCommunityReg.php"> Sign Up </a><br>
+          Don't have an account?<a href="doPartnerReg.php"> Sign Up </a><br>
         </div>
         <div class="d-flex justify-content-center">
           <a href="doResetPassword.php">Forgot your password?</a>

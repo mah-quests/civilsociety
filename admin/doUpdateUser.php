@@ -72,8 +72,9 @@ if(isset($_POST['submit'] ))
             ward='$_POST[ward]',
             network_type='$_POST[network_type]',
             alt_person='$_POST[alt_person]', 
-            alt_number='$_POST[alt_number]',             
-            password='$_POST[password]'
+            alt_number='$_POST[alt_number]',
+            project='$_POST[project]',
+            password=md5('$_POST[password]')
         
         where u_id='$_GET[user_upd]' ";
 
@@ -313,12 +314,24 @@ include 'header_admin.php';
                 </div>
                 <!--/span-->
             </div>
-            <!--/row-->                                                            
-			 <div class="row">
-                <div class="col-md-12">
+            <!--/row-->
+			 <div class="row p-t-20">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Password</label>
                         <input type="password" name="password" class="form-control form-control-danger"   value="<?php  echo $newrow['password'];  ?>" placeholder="password">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                       <label class="control-label">Project Allocation </label>
+                       <div class="form-group">
+                            <select name="project" size="3" id="project" class="form-control unit"  value="<?php  echo $newrow['project']; ?>">
+                                    <option selected value=""></option>
+                                    <option>Solidarity Fund</option>
+                                    <option>Gauteng Health</option>
+                            </select>
+                       </div>
                     </div>
                 </div>
             </div>

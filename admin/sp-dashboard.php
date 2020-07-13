@@ -53,7 +53,7 @@ else
                         <span><i class="fa fa-street-view f-s-40 color-green"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="doShowAgents.php">
+                        <a href="sp-doShowAgents.php">
                         <h2 style="color: #27D094">
                             <?php echo $AllSPRegisteredAgents;?>
                         </h2>
@@ -72,7 +72,7 @@ else
                         <span><i class="fa fa-comments-o f-s-40" aria-hidden="true"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <a href="doShowAllRequests.php">
+                        <a href="sp-doShowAllRequests.php">
                         <h2 style="color: #FF9149">
                             <?php echo $spTotalResponses;?>
                         </h2>

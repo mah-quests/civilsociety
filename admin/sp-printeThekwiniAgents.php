@@ -66,7 +66,7 @@ session_start();
 
                                 <?php
                                 $sql="SELECT * FROM `users` WHERE provice='KwaZulu Natal' and district in
-                                          ('Ethekwini metro', 'Thekwini', 'DURBAN', 'Ethekwini', 'eThekwini District')";
+                                          ('Ethekwini metro', 'Thekwini', 'DURBAN', 'Ethekwini', 'eThekwini District','eThekwini Metropolitan')";
                                 $query=mysqli_query($db,$sql);
 
 
